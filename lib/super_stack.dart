@@ -18,16 +18,19 @@ class SuperStack extends StatelessWidget {
   /// argument.
   final Decoration decoration;
 
-  final Key childKey;
+  /// Key of the Stack.
+  final Key key;
   final List<Widget> children;
 
   /// Align the [children] of within the Stack.
-  final AlignmentGeometry childAlignment;
+  final AlignmentGeometry innerAlignment;
 
   /// The constraints passed into the [Stack] from its parent are either
   /// loosened ([StackFit.loose]) or tightened to their biggest size
   /// ([StackFit.expand]).
-  final StackFit childFit;
+  ///
+  /// Default is [StackFit.loose]
+  final StackFit fit;
 
   SuperStack({
     Color color,
@@ -36,11 +39,10 @@ class SuperStack extends StatelessWidget {
     this.padding,
     this.margin,
     this.children,
-    this.childKey,
-    this.childAlignment,
-    this.childFit,
-  }) : decoration =
-            decoration ?? (color != null ? BoxDecoration(color: color) : null);
+    this.key,
+    this.innerAlignment,
+    this.fit,
+  }) : decoration = decoration ?? (color != null ? BoxDecoration(color: color) : null);
 
   @override
   Widget build(BuildContext context) {
@@ -50,10 +52,10 @@ class SuperStack extends StatelessWidget {
       decoration: decoration,
       padding: padding,
       child: Stack(
-        key: childKey,
+        key: key,
         children: children,
-        alignment: childAlignment,
-        fit: childFit,
+        alignment: innerAlignment,
+        fit: fit,
       ),
     );
   }
