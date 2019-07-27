@@ -58,4 +58,4 @@ SuperStack(
 
 ## Example
 
-A sample app can be found in the [`example/`](https://github.com/anticafe/super_widgets/tree/master/example) folder.
+A sample app can be found in the [`example/`](https://github.com/anticafe/super_widgets/tree/master/super_widgets/example) folder.
