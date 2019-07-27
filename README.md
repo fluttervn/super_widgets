@@ -1,3 +1,4 @@
+![Pub](https://img.shields.io/pub/v/super_widgets) [![GitHub license](https://img.shields.io/github/license/anticafe/super_widgets)](https://github.com/anticafe/super_widgets/blob/master/LICENSE)
 # super_widgets
 
 Make Flutter widgets&#x27; code becomes shorter and richer.
