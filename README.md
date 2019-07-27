@@ -1,14 +1,61 @@
 # super_widgets
 
-Make Flutter widgets&#x27; code becomes shorter and richer
+Make Flutter widgets&#x27; code becomes shorter and richer.
 
-## Getting Started
+This project is an attempt to combine multiple Flutter widgets to make code shorter. For example, instead of creating a `Stack` with `padding` and `color` by having `Container` > `Stack`, we can use `SuperStack`.
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+## Installation
+In your `pubspec.yaml` file within your Flutter Project:
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+```yaml
+dependencies:
+  super_widgets: ^0.0.1
+```
+See more about how to install in [pubspec.dev](https://pub.dev/packages/super_widgets#-installing-tab-): 
+
+## Widgets
+
+List of SuperWidgets is:
+- [SuperStack](https://github.com/aqwert/flutter_platform_widgets/blob/master/README.md#superstack)
+
+### SuperStack
+Is the combination of `Container` > `Stack`
+
+Before:
+```dart
+Container(
+  color: Colors.blueAccent,
+  margin: EdgeInsets.all(10),
+  padding: EdgeInsets.all(20),
+  alignment: Alignment.bottomCenter,
+  child: Stack(
+    fit: StackFit.loose,
+    alignment: Alignment.centerRight,
+    children: <Widget>[
+      Container(color: Colors.red, width: 200, height: 200),
+      Container(color: Colors.green, width: 100, height: 100),
+      Text('SuperStack demo'),
+    ],
+  ),
+)
+```
+After
+```dart
+SuperStack(
+  color: Colors.blueAccent,
+  margin: EdgeInsets.all(10),
+  padding: EdgeInsets.all(20),
+  innerAlignment: Alignment.bottomCenter,
+  alignment: Alignment.centerRight,
+  fit: StackFit.loose,
+  children: <Widget>[
+    Container(color: Colors.red, width: 200, height: 200),
+    Container(color: Colors.green, width: 100, height: 100),
+    Text('SuperStack demo'),
+  ],
+)
+```
+
+## Example
+
+A sample app can be found in the [`example/`](https://github.com/anticafe/super_widgets/tree/master/example) folder.
