@@ -41,8 +41,9 @@ class SuperStack extends StatelessWidget {
     this.children,
     this.key,
     this.innerAlignment,
-    this.fit,
-  }) : decoration = decoration ?? (color != null ? BoxDecoration(color: color) : null);
+    this.fit = StackFit.loose,
+  }) : decoration =
+            decoration ?? (color != null ? BoxDecoration(color: color) : null);
 
   @override
   Widget build(BuildContext context) {

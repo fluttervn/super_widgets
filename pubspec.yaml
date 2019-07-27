@@ -1,8 +1,8 @@
 name: super_widgets
 description: Make Flutter widgets&#x27; code becomes shorter and richer
 version: 0.0.1
-author:
-homepage:
+author: Bui Minh Triet (x3cafe@gmail.com)
+homepage: https://github.com/anticafe/super_widgets
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

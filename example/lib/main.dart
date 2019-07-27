@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'super_stack_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -21,6 +23,8 @@ class MyHomePage extends StatelessWidget {
 
   final String title;
 
+  final Map<String, Widget> mapScreens = {"SuperStack": SuperStackPage()};
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,26 +32,32 @@ class MyHomePage extends StatelessWidget {
         title: Text(title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$title',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
+        child: ListView.builder(
+          itemCount: mapScreens.length,
+          itemBuilder: (BuildContext context, int index) {
+            final title = mapScreens.keys.elementAt(index);
+            return ListTile(
+              title: new Text(title, style: TextStyle(fontSize: 16)),
+              onTap: () {
+                print('MyHomePage: click on: $index: $title');
+                gotoScreen(context, mapScreens[title]);
+              },
+            );
+          },
+          padding: EdgeInsets.all(10),
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           print('Touch on FAB');
         },
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+        tooltip: 'Info',
+        child: Icon(Icons.info),
       ),
     );
+  }
+
+  void gotoScreen(BuildContext context, Widget screen) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => screen));
   }
 }
