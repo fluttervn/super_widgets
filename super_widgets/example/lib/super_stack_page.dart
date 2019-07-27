@@ -21,6 +21,7 @@ class SuperStackPage extends StatelessWidget {
         padding: EdgeInsets.all(20),
         innerAlignment: Alignment.bottomCenter,
         alignment: Alignment.centerRight,
+        fit: StackFit.loose,
         children: <Widget>[
           Container(color: Colors.red, width: 200, height: 200),
           Container(color: Colors.green, width: 100, height: 100),
