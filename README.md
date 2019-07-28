@@ -3,7 +3,7 @@
 
 Make Flutter widgets&#x27; code becomes shorter and richer.
 
-This project is an attempt to combine multiple Flutter widgets to make code shorter. For example, instead of creating a `Stack` with `padding` and `color` by having `Container` > `Stack`, we can use `SuperStack`.
+This project is an attempt to combine multiple Flutter widgets into single widget - the single one will inherit almost all properties of the original widgets. For example, instead of creating a `Stack` with `padding` and `color` by having `Container` > `Stack`, we can use `SuperStack`.
 
 ## Installation
 In your `pubspec.yaml` file within your Flutter Project:
