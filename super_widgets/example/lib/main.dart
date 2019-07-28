@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'super_indexed_stack_page.dart';
 import 'super_stack_page.dart';
 
 void main() => runApp(MyApp());
@@ -13,7 +14,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter SuperWidgets Demo'),
+      home: MyHomePage(
+        title: 'Flutter SuperWidgets Demo',
+      ),
     );
   }
 }
@@ -23,7 +26,10 @@ class MyHomePage extends StatelessWidget {
 
   final String title;
 
-  final Map<String, Widget> mapScreens = {"SuperStack": SuperStackPage()};
+  final Map<String, Widget> mapScreens = {
+    "SuperStack": SuperStackPage(),
+    "SuperIndexedStack": SuperIndexedStackPage(),
+  };
 
   @override
   Widget build(BuildContext context) {

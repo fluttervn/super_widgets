@@ -33,11 +33,11 @@ abstract class SuperBaseContainer extends StatelessWidget {
   SuperBaseContainer({
     Color color,
     Decoration decoration,
-    this.alignment,
+    this.alignment = AlignmentDirectional.topStart,
     this.padding,
     this.margin,
     this.key,
-    this.innerAlignment,
+    this.innerAlignment = AlignmentDirectional.topStart,
     this.width = double.infinity,
     this.height = double.infinity,
   }) : decoration =
@@ -67,8 +67,8 @@ abstract class SuperSingleChildContainer extends SuperBaseContainer {
           decoration: decoration,
           width: width,
           height: height,
-          alignment: alignment,
-          innerAlignment: innerAlignment,
+          alignment: alignment ?? AlignmentDirectional.topStart,
+          innerAlignment: innerAlignment ?? AlignmentDirectional.topStart,
         );
 }
 
@@ -95,7 +95,7 @@ abstract class SuperMultipleChildContainer extends SuperBaseContainer {
           decoration: decoration,
           width: width,
           height: height,
-          alignment: alignment,
-          innerAlignment: innerAlignment,
+          alignment: alignment ?? AlignmentDirectional.topStart,
+          innerAlignment: innerAlignment ?? AlignmentDirectional.topStart,
         );
 }
