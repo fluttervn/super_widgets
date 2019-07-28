@@ -1,7 +1,7 @@
 name: super_widgets
-description: Make Flutter widgets&#x27; code becomes shorter and richer
+description: Make Flutter widgets' code shorter and richer by combining multiple widgets into a single widget but the single one will inherit almost properties of all original widgets.
 version: 0.0.1
-author: Bui Minh Triet (x3cafe@gmail.com)
+author: Bui Minh Triet <x3cafe@gmail.com>
 homepage: https://github.com/anticafe/super_widgets
 
 environment:
