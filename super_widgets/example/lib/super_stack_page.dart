@@ -18,7 +18,7 @@ class SuperStackPage extends StatelessWidget {
       child: SuperStack(
         color: Colors.blueAccent,
         margin: EdgeInsets.all(10),
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.only(right: 20),
         innerAlignment: Alignment.bottomCenter,
         alignment: Alignment.centerRight,
         fit: StackFit.loose,

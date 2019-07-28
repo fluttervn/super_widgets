@@ -1,30 +1,8 @@
 import 'package:flutter/widgets.dart';
 
-class SuperStack extends StatelessWidget {
-  /// Align the [Stack] within the container.
-  final AlignmentGeometry alignment;
+import 'super_container.dart';
 
-  /// Empty space to surround the [decoration] and [Stack].
-  final EdgeInsetsGeometry margin;
-
-  /// Empty space to inscribe inside the [decoration]. The [Stack], if any, is
-  /// placed inside this padding.
-  final EdgeInsetsGeometry padding;
-
-  /// The decoration to paint behind the [Stack].
-  ///
-  /// A shorthand for specifying just a solid color is available in the
-  /// constructor: set the `color` argument instead of the `decoration`
-  /// argument.
-  final Decoration decoration;
-
-  /// Key of the Stack.
-  final Key key;
-  final List<Widget> children;
-
-  /// Align the [children] of within the Stack.
-  final AlignmentGeometry innerAlignment;
-
+class SuperStack extends SuperMultipleChildContainer {
   /// The constraints passed into the [Stack] from its parent are either
   /// loosened ([StackFit.loose]) or tightened to their biggest size
   /// ([StackFit.expand]).
@@ -35,15 +13,27 @@ class SuperStack extends StatelessWidget {
   SuperStack({
     Color color,
     Decoration decoration,
-    this.alignment,
-    this.padding,
-    this.margin,
-    this.children,
-    this.key,
-    this.innerAlignment,
+    Alignment alignment,
+    EdgeInsetsGeometry padding,
+    EdgeInsetsGeometry margin,
+    @required List<Widget> children,
+    Key key,
+    Alignment innerAlignment,
+    double width,
+    double height,
     this.fit = StackFit.loose,
-  }) : decoration =
-            decoration ?? (color != null ? BoxDecoration(color: color) : null);
+  }) : super(
+          key: key,
+          margin: margin,
+          padding: padding,
+          alignment: alignment,
+          innerAlignment: innerAlignment,
+          color: color,
+          decoration: decoration,
+          width: width,
+          height: height,
+          children: children,
+        );
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +42,8 @@ class SuperStack extends StatelessWidget {
       margin: margin,
       decoration: decoration,
       padding: padding,
+      width: width,
+      height: height,
       child: Stack(
         key: key,
         children: children,
