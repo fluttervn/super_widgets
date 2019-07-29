@@ -4,10 +4,10 @@ abstract class SuperBaseContainer extends StatelessWidget {
   /// Key of the inner widget inside Container.
   final Key key;
 
-  /// Align the [Stack] within the container.
+  /// Align the this widget within the container.
   final AlignmentGeometry alignment;
 
-  /// Empty space to surround the [decoration] and [Stack].
+  /// Empty space to surround the [decoration] and this widget.
   final EdgeInsetsGeometry margin;
 
   /// Empty space to inscribe inside the [decoration]. The inner widget is
@@ -33,15 +33,14 @@ abstract class SuperBaseContainer extends StatelessWidget {
   SuperBaseContainer({
     Color color,
     Decoration decoration,
-    this.alignment = AlignmentDirectional.topStart,
+    this.alignment = Alignment.topLeft,
     this.padding,
     this.margin,
     this.key,
-    this.innerAlignment = AlignmentDirectional.topStart,
+    this.innerAlignment = Alignment.topLeft,
     this.width = double.infinity,
     this.height = double.infinity,
-  }) : decoration =
-            decoration ?? (color != null ? BoxDecoration(color: color) : null);
+  }) : decoration = decoration ?? (color != null ? BoxDecoration(color: color) : null);
 }
 
 abstract class SuperSingleChildContainer extends SuperBaseContainer {
@@ -65,10 +64,10 @@ abstract class SuperSingleChildContainer extends SuperBaseContainer {
           padding: padding,
           color: color,
           decoration: decoration,
-          width: width,
-          height: height,
-          alignment: alignment ?? AlignmentDirectional.topStart,
-          innerAlignment: innerAlignment ?? AlignmentDirectional.topStart,
+          width: width ?? double.infinity,
+          height: height ?? double.infinity,
+          alignment: alignment ?? Alignment.topLeft,
+          innerAlignment: innerAlignment ?? Alignment.topLeft,
         );
 }
 
@@ -93,9 +92,9 @@ abstract class SuperMultipleChildContainer extends SuperBaseContainer {
           padding: padding,
           color: color,
           decoration: decoration,
-          width: width,
-          height: height,
-          alignment: alignment ?? AlignmentDirectional.topStart,
-          innerAlignment: innerAlignment ?? AlignmentDirectional.topStart,
+          width: width ?? double.infinity,
+          height: height ?? double.infinity,
+          alignment: alignment ?? Alignment.topLeft,
+          innerAlignment: innerAlignment ?? Alignment.topLeft,
         );
 }
