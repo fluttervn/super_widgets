@@ -5,9 +5,15 @@ import 'package:super_widgets/super_stack.dart';
 
 void main() {
   testWidgets('SuperStack structure', (WidgetTester tester) async {
-    final List<Widget> children = [];
+    final List<Widget> children = [
+      Text('Text 1'),
+      Text('Text 2'),
+    ];
     final superStack = SuperStack(children: children);
-    await tester.pumpWidget(Container(child: superStack));
+    await tester.pumpWidget(Directionality(
+      child: superStack,
+      textDirection: TextDirection.ltr,
+    ));
 
     final superStackFinder = find.byWidget(superStack);
     expect(superStackFinder, findsOneWidget);
@@ -27,11 +33,11 @@ void main() {
     expect(stackFinder, findsOneWidget);
 
     // children should be in Stack
-    /*final childrenFinder = find.descendant(
+    final childrenFinder = find.descendant(
       of: stackFinder,
-      matching: find.byType(children.runtimeType),
+      matching: find.byType(Text),
     );
-    expect(childrenFinder, findsWidgets);*/
+    expect(childrenFinder.evaluate().length, 2);
   });
 
   testWidgets('SuperStack default value', (WidgetTester tester) async {
