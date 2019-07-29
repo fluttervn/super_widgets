@@ -4,6 +4,36 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:super_widgets/super_stack.dart';
 
 void main() {
+  testWidgets('SuperStack structure', (WidgetTester tester) async {
+    final List<Widget> children = [];
+    final superStack = SuperStack(children: children);
+    await tester.pumpWidget(Container(child: superStack));
+
+    final superStackFinder = find.byWidget(superStack);
+    expect(superStackFinder, findsOneWidget);
+
+    // Container should be child of SuperStack
+    final containerFinder = find.descendant(
+      of: superStackFinder,
+      matching: find.byType(Container),
+    );
+    expect(containerFinder, findsOneWidget);
+
+    // Stack should be child of Container
+    final stackFinder = find.descendant(
+      of: containerFinder,
+      matching: find.byType(Stack),
+    );
+    expect(stackFinder, findsOneWidget);
+
+    // children should be in Stack
+    /*final childrenFinder = find.descendant(
+      of: stackFinder,
+      matching: find.byType(children.runtimeType),
+    );
+    expect(childrenFinder, findsWidgets);*/
+  });
+
   testWidgets('SuperStack default value', (WidgetTester tester) async {
     final List<Widget> children = [];
     final superStack = SuperStack(children: children);
