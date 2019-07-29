@@ -18,7 +18,7 @@ abstract class SuperBaseContainer extends StatelessWidget {
   ///
   /// A shorthand for specifying just a solid color is available in the
   /// constructor: set the `color` argument instead of the `decoration`
-  /// argument.
+  /// argument: BoxDecoration(color: color)
   final Decoration decoration;
 
   /// Align the [children] of within the Stack.

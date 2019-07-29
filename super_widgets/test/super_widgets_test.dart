@@ -31,7 +31,7 @@ void main() {
     expect(_superStack.children, equals(children));
   });
 
-  /*testWidgets('SuperStack full value', (WidgetTester tester) async {
+  testWidgets('SuperStack full value', (WidgetTester tester) async {
     final List<Widget> children = [
       Text('Text 1'),
       Text('Text 2'),
@@ -48,33 +48,27 @@ void main() {
       fit: StackFit.expand,
       innerAlignment: Alignment.center,
     );
-    await tester.pumpWidget(Container(child: superStack));
+    // Since we don't choose MaterialApp as root, we must wrap child in a Directionality instead
+    // https://stackoverflow.com/a/49689947/190309
+    await tester.pumpWidget(Directionality(
+      child: superStack,
+      textDirection: TextDirection.ltr,
+    ));
 
     final superStackFinder = find.byWidget(superStack);
     expect(superStackFinder, findsOneWidget);
 
-    final containerFinder = find.descendant(of: superStackFinder, matching: find.byType(Container));
-    expect(containerFinder, findsOneWidget);
-
-    final stackFinder = find.descendant(of: containerFinder, matching: find.byType(Stack));
-    expect(stackFinder, findsOneWidget);
-
     final SuperStack _superStack = tester.widget(superStackFinder);
-    // Default value is null: margin, padding, key, decoration
     expect(_superStack.margin, EdgeInsets.all(5));
     expect(_superStack.padding, EdgeInsets.all(10));
-    expect(_superStack.key, null);
-    expect(_superStack.decoration, null);
+    expect(_superStack.key, Key('SuperStack'));
+    expect(_superStack.decoration, BoxDecoration(color: Colors.pink));
     // Default alignment & innerAlignment is Alignment.
-    expect(_superStack.alignment, equals(Alignment.topLeft));
-    expect(_superStack.innerAlignment, equals(Alignment.topLeft));
-    // Default fit & StackFit.loose.
-    expect(_superStack.fit, equals(StackFit.loose));
-    // Default width, height is double.infinity.
-    expect(_superStack.width, equals(double.infinity));
-    expect(_superStack.height, equals(double.infinity));
-    // Children must be not null
-    expect(_superStack.children, isNotNull);
+    expect(_superStack.alignment, equals(Alignment.bottomLeft));
+    expect(_superStack.innerAlignment, equals(Alignment.center));
+    expect(_superStack.fit, equals(StackFit.expand));
+    expect(_superStack.width, equals(300));
+    expect(_superStack.height, equals(250));
     expect(_superStack.children, equals(children));
-  });*/
+  });
 }
