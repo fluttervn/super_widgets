@@ -16,6 +16,7 @@ class SuperStack extends SuperMultipleChildContainer {
   SuperStack({
     Color color,
     Decoration decoration,
+    BoxConstraints constraints,
     Alignment alignment,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
@@ -32,6 +33,7 @@ class SuperStack extends SuperMultipleChildContainer {
           alignment: alignment,
           color: color,
           decoration: decoration,
+          constraints: constraints,
           width: width,
           height: height,
           children: children,
@@ -43,6 +45,7 @@ class SuperStack extends SuperMultipleChildContainer {
       alignment: alignment,
       margin: margin,
       decoration: decoration,
+      constraints: constraints,
       padding: padding,
       width: width,
       height: height,

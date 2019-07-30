@@ -27,16 +27,29 @@ abstract class SuperBaseContainer extends StatelessWidget {
   /// Height of container, by default is double.infinity
   final double height;
 
+  /// Additional constraints to apply to the child.
+  ///
+  /// The constructor `width` and `height` arguments are combined with the
+  /// `constraints` argument to set this property.
+  ///
+  /// The [padding] goes inside the constraints.
+  final BoxConstraints constraints;
+
   SuperBaseContainer({
     Color color,
     Decoration decoration,
+    BoxConstraints constraints,
     this.alignment = Alignment.topLeft,
     this.padding,
     this.margin,
     this.key,
     this.width = double.infinity,
     this.height = double.infinity,
-  }) : decoration = decoration ?? (color != null ? BoxDecoration(color: color) : null);
+  })  : decoration = decoration ?? (color != null ? BoxDecoration(color: color) : null),
+        constraints = (width != null || height != null)
+            ? constraints?.tighten(width: width, height: height) ??
+                BoxConstraints.tightFor(width: width, height: height)
+            : constraints;
 }
 
 abstract class SuperSingleChildContainer extends SuperBaseContainer {
@@ -46,6 +59,7 @@ abstract class SuperSingleChildContainer extends SuperBaseContainer {
   SuperSingleChildContainer({
     Color color,
     Decoration decoration,
+    BoxConstraints constraints,
     AlignmentGeometry alignment,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
@@ -73,6 +87,7 @@ abstract class SuperMultipleChildContainer extends SuperBaseContainer {
   SuperMultipleChildContainer({
     Color color,
     Decoration decoration,
+    BoxConstraints constraints,
     AlignmentGeometry alignment,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,

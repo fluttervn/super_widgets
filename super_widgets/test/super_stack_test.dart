@@ -109,6 +109,8 @@ void main() {
     expect(_superStack.padding, null);
     expect(_superStack.key, null);
     expect(_superStack.decoration, null);
+    expect(_superStack.constraints,
+        BoxConstraints.expand(width: double.infinity, height: double.infinity));
     // Default alignment & innerAlignment is Alignment.
     expect(_superStack.alignment, equals(Alignment.topLeft));
     expect(_superStack.innerAlignment, equals(Alignment.topLeft));
@@ -154,6 +156,7 @@ void main() {
     expect(_superStack.padding, EdgeInsets.all(10));
     expect(_superStack.key, Key('SuperStack'));
     expect(_superStack.decoration, BoxDecoration(color: Colors.pink));
+    expect(_superStack.constraints, BoxConstraints.tightFor(width: 300, height: 250));
     // Default alignment & innerAlignment is Alignment.
     expect(_superStack.alignment, equals(Alignment.bottomLeft));
     expect(_superStack.innerAlignment, equals(Alignment.center));

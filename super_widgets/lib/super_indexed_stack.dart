@@ -19,6 +19,7 @@ class SuperIndexedStack extends SuperMultipleChildContainer {
   SuperIndexedStack({
     Color color,
     Decoration decoration,
+    BoxConstraints constraints,
     Alignment alignment,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
@@ -36,6 +37,7 @@ class SuperIndexedStack extends SuperMultipleChildContainer {
           alignment: alignment,
           color: color,
           decoration: decoration,
+          constraints: constraints,
           width: width,
           height: height,
           children: children,
