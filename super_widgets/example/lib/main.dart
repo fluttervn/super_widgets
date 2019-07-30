@@ -1,3 +1,4 @@
+import 'package:example/super_row_page.dart';
 import 'package:flutter/material.dart';
 
 import 'super_indexed_stack_page.dart';
@@ -29,6 +30,7 @@ class MyHomePage extends StatelessWidget {
   final Map<String, Widget> mapScreens = {
     "SuperStack": SuperStackPage(),
     "SuperIndexedStack": SuperIndexedStackPage(),
+    "SuperRow": SuperRowPage(),
   };
 
   @override
