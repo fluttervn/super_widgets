@@ -31,14 +31,67 @@ void main() {
       matching: find.byType(Stack),
     );
     expect(stackFinder, findsOneWidget);
+    final Stack _stack = tester.widget(stackFinder);
+    expect(_stack.children, equals(children));
 
     // children should be in Stack
     final childrenFinder = find.descendant(
       of: stackFinder,
       matching: find.byType(Text),
     );
-    expect(stackFinder, findsWidgets);
+    expect(childrenFinder, findsWidgets);
+  });
+
+  testWidgets('SuperStack internal implementation value', (WidgetTester tester) async {
+    final List<Widget> children = [
+      Text('Text 1'),
+      Text('Text 2'),
+    ];
+    final superStack = SuperStack(
+      children: children,
+      width: 300,
+      height: 250,
+      color: Colors.pink,
+      alignment: Alignment.bottomLeft,
+      margin: EdgeInsets.all(5),
+      padding: EdgeInsets.all(10),
+      key: Key('SuperStack'),
+      fit: StackFit.expand,
+      innerAlignment: Alignment.center,
+    );
+    // Since we don't choose MaterialApp as root, we must wrap child in a Directionality instead
+    // https://stackoverflow.com/a/49689947/190309
+    await tester.pumpWidget(Directionality(
+      child: superStack,
+      textDirection: TextDirection.ltr,
+    ));
+
+    final superStackFinder = find.byWidget(superStack);
+    final containerFinder = find.descendant(
+      of: superStackFinder,
+      matching: find.byType(Container),
+    );
+    final stackFinder = find.descendant(
+      of: containerFinder,
+      matching: find.byType(Stack),
+    );
+
+    final SuperStack _superStack = tester.widget(superStackFinder);
+    final Container _container = tester.widget(containerFinder);
     final Stack _stack = tester.widget(stackFinder);
+
+    // verify Container
+    expect(_container.margin, EdgeInsets.all(5));
+    expect(_container.padding, EdgeInsets.all(10));
+    expect(_container.decoration, BoxDecoration(color: Colors.pink));
+    expect(_container.alignment, equals(Alignment.bottomLeft));
+    expect(_superStack.width, equals(300));
+    expect(_superStack.height, equals(250));
+
+    // verify Stack
+    expect(_stack.key, Key('SuperStack'));
+    expect(_stack.alignment, equals(Alignment.center));
+    expect(_stack.fit, equals(StackFit.expand));
     expect(_stack.children, equals(children));
   });
 
