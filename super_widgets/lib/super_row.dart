@@ -6,6 +6,9 @@ class SuperRow extends SuperMultipleChildContainer {
   /// [mainAxisAlignment] of [Row], default is [MainAxisAlignment.start]
   final MainAxisAlignment mainAxisAlignment;
 
+  /// [crossAxisAlignment] of [Row], default is [CrossAxisAlignment.start]
+  final CrossAxisAlignment crossAxisAlignment;
+
   /// [mainAxisSize] of [Row], default is [MainAxisSize.max]
   final MainAxisSize mainAxisSize;
 
@@ -17,17 +20,16 @@ class SuperRow extends SuperMultipleChildContainer {
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     @required List<Widget> children,
-    Alignment innerAlignment,
     double width,
     double height,
     this.mainAxisAlignment = MainAxisAlignment.start,
+    this.crossAxisAlignment = CrossAxisAlignment.start,
     this.mainAxisSize = MainAxisSize.max,
   }) : super(
           key: key,
           margin: margin,
           padding: padding,
           alignment: alignment,
-          innerAlignment: innerAlignment,
           color: color,
           decoration: decoration,
           width: width,
@@ -46,6 +48,7 @@ class SuperRow extends SuperMultipleChildContainer {
       width: width,
       height: height,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: mainAxisAlignment,
         mainAxisSize: mainAxisSize,
         children: children,

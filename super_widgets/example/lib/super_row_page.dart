@@ -16,18 +16,16 @@ class SuperRowPage extends StatelessWidget {
   Widget buildBody(BuildContext context) {
     return Center(
       child: SuperRow(
-        color: Colors.blueAccent,
+        color: Colors.grey,
         margin: EdgeInsets.all(10),
-        padding: EdgeInsets.only(right: 20),
+        padding: EdgeInsets.all(5),
         height: 300,
-        innerAlignment: Alignment.bottomCenter,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         alignment: Alignment.centerRight,
         children: <Widget>[
-          Text('Row 1'),
-          Container(color: Colors.red, width: 100),
-          Text('Row 2'),
+          Container(color: Colors.red, width: 50),
           Container(color: Colors.green, width: 100),
-          Container(color: Colors.blue, width: 100),
+          Container(color: Colors.blue, width: 75),
         ],
       ),
     );
