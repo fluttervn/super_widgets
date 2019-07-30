@@ -10,6 +10,9 @@ class SuperIndexedStack extends SuperMultipleChildContainer {
   /// Default is [StackFit.loose]
   final StackFit sizing;
 
+  /// Align the [children] of within the Stack, default is [Alignment.topLeft].
+  final AlignmentGeometry innerAlignment;
+
   /// The index of the child to show.
   final int index;
 
@@ -21,9 +24,9 @@ class SuperIndexedStack extends SuperMultipleChildContainer {
     EdgeInsetsGeometry margin,
     @required List<Widget> children,
     Key key,
-    Alignment innerAlignment,
     double width,
     double height,
+    this.innerAlignment = Alignment.topLeft,
     this.index = 0,
     this.sizing = StackFit.loose,
   }) : super(
@@ -31,7 +34,6 @@ class SuperIndexedStack extends SuperMultipleChildContainer {
           margin: margin,
           padding: padding,
           alignment: alignment,
-          innerAlignment: innerAlignment,
           color: color,
           decoration: decoration,
           width: width,

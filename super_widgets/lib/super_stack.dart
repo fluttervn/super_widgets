@@ -10,6 +10,9 @@ class SuperStack extends SuperMultipleChildContainer {
   /// Default is [StackFit.loose]
   final StackFit fit;
 
+  /// Align the [children] of within the Stack, default is [Alignment.topLeft].
+  final AlignmentGeometry innerAlignment;
+
   SuperStack({
     Color color,
     Decoration decoration,
@@ -18,16 +21,15 @@ class SuperStack extends SuperMultipleChildContainer {
     EdgeInsetsGeometry margin,
     @required List<Widget> children,
     Key key,
-    Alignment innerAlignment,
     double width,
     double height,
+    this.innerAlignment = Alignment.topLeft,
     this.fit = StackFit.loose,
   }) : super(
           key: key,
           margin: margin,
           padding: padding,
           alignment: alignment,
-          innerAlignment: innerAlignment,
           color: color,
           decoration: decoration,
           width: width,

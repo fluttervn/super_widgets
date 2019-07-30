@@ -21,9 +21,6 @@ abstract class SuperBaseContainer extends StatelessWidget {
   /// argument: BoxDecoration(color: color)
   final Decoration decoration;
 
-  /// Align the [children] of within the Stack.
-  final AlignmentGeometry innerAlignment;
-
   /// Width of container, by default is double.infinity
   final double width;
 
@@ -37,7 +34,6 @@ abstract class SuperBaseContainer extends StatelessWidget {
     this.padding,
     this.margin,
     this.key,
-    this.innerAlignment = Alignment.topLeft,
     this.width = double.infinity,
     this.height = double.infinity,
   }) : decoration = decoration ?? (color != null ? BoxDecoration(color: color) : null);
@@ -67,7 +63,6 @@ abstract class SuperSingleChildContainer extends SuperBaseContainer {
           width: width ?? double.infinity,
           height: height ?? double.infinity,
           alignment: alignment ?? Alignment.topLeft,
-          innerAlignment: innerAlignment ?? Alignment.topLeft,
         );
 }
 
@@ -82,7 +77,6 @@ abstract class SuperMultipleChildContainer extends SuperBaseContainer {
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Key key,
-    AlignmentGeometry innerAlignment,
     double width,
     double height,
     @required this.children,
@@ -95,6 +89,5 @@ abstract class SuperMultipleChildContainer extends SuperBaseContainer {
           width: width ?? double.infinity,
           height: height ?? double.infinity,
           alignment: alignment ?? Alignment.topLeft,
-          innerAlignment: innerAlignment ?? Alignment.topLeft,
         );
 }
