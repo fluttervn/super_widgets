@@ -37,7 +37,9 @@ void main() {
       of: stackFinder,
       matching: find.byType(Text),
     );
-    expect(childrenFinder.evaluate().length, 2);
+    expect(stackFinder, findsWidgets);
+    final Stack _stack = tester.widget(stackFinder);
+    expect(_stack.children, equals(children));
   });
 
   testWidgets('SuperStack default value', (WidgetTester tester) async {
