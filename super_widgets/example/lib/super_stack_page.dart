@@ -19,13 +19,13 @@ class SuperStackPage extends StatelessWidget {
         color: Colors.blueAccent,
         margin: EdgeInsets.all(10),
         padding: EdgeInsets.only(right: 20),
-        innerAlignment: Alignment.bottomCenter,
         alignment: Alignment.centerRight,
+        childAlignment: Alignment.bottomRight,
         fit: StackFit.loose,
         children: <Widget>[
           Container(color: Colors.red, width: 200, height: 200),
           Container(color: Colors.green, width: 100, height: 100),
-          Text('SuperStack demo'),
+          Text('SuperStack'),
         ],
       ),
     );

@@ -1,60 +1,39 @@
 import 'package:flutter/widgets.dart';
 
-import 'super_container.dart';
-
-class SuperStack extends SuperMultipleChildContainer {
-  /// The constraints passed into the [Stack] from its parent are either
-  /// loosened ([StackFit.loose]) or tightened to their biggest size
-  /// ([StackFit.expand]).
-  ///
-  /// Default is [StackFit.loose]
-  final StackFit fit;
-
-  /// Align the [children] of within the Stack, default is [Alignment.topLeft].
-  final AlignmentGeometry innerAlignment;
-
+class SuperStack extends Container {
   SuperStack({
-    Color color,
-    Decoration decoration,
-    BoxConstraints constraints,
+    Key key,
     Alignment alignment,
     EdgeInsetsGeometry padding,
-    EdgeInsetsGeometry margin,
-    @required List<Widget> children,
-    Key key,
+    Color color,
+    Decoration decoration,
+    Decoration foregroundDecoration,
     double width,
     double height,
-    this.innerAlignment = Alignment.topLeft,
-    this.fit = StackFit.loose,
+    BoxConstraints constraints,
+    EdgeInsetsGeometry margin,
+    Matrix4 transform,
+    Key childKey,
+    @required List<Widget> children,
+    Alignment childAlignment = Alignment.topLeft,
+    StackFit fit = StackFit.loose,
   }) : super(
           key: key,
-          margin: margin,
-          padding: padding,
           alignment: alignment,
+          padding: padding,
           color: color,
           decoration: decoration,
-          constraints: constraints,
+          foregroundDecoration: foregroundDecoration,
           width: width,
           height: height,
-          children: children,
+          constraints: constraints,
+          margin: margin,
+          transform: transform,
+          child: Stack(
+            children: children,
+            fit: fit,
+            alignment: childAlignment,
+            key: childKey,
+          ),
         );
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      alignment: alignment,
-      margin: margin,
-      decoration: decoration,
-      constraints: constraints,
-      padding: padding,
-      width: width,
-      height: height,
-      child: Stack(
-        key: key,
-        children: children,
-        alignment: innerAlignment,
-        fit: fit,
-      ),
-    );
-  }
 }
