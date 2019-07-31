@@ -29,10 +29,10 @@ class MyHomePage extends StatelessWidget {
   final String title;
 
   final Map<String, Widget> mapScreens = {
-    "SuperStack": SuperStackPage(),
-    "SuperIndexedStack": SuperIndexedStackPage(),
-    "SuperRow": SuperRowPage(),
-    "SuperColumn": SuperColumnPage(),
+    'SuperStack': SuperStackPage(),
+    'SuperIndexedStack': SuperIndexedStackPage(),
+    'SuperRow': SuperRowPage(),
+    'SuperColumn': SuperColumnPage(),
   };
 
   @override
