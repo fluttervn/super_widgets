@@ -12,10 +12,10 @@ void main() {
     ));
 
     // Should have 1 IndexedStack inside SuperIndexedStack
-    final stackFinder = find.byType(IndexedStack);
-    expect(stackFinder, findsOneWidget);
+    final indexedStackFinder = find.byType(IndexedStack);
+    expect(indexedStackFinder, findsOneWidget);
 
-    final IndexedStack indexedStack = tester.widget(stackFinder);
+    final IndexedStack indexedStack = tester.widget(indexedStackFinder);
     expect(indexedStack.alignment, equals(AlignmentDirectional.topStart));
     expect(indexedStack.fit, equals(StackFit.loose));
     expect(indexedStack.children, equals(<Widget>[]));
@@ -50,8 +50,8 @@ void main() {
       textDirection: TextDirection.ltr,
     ));
 
-    final Finder stackFinder = find.byType(IndexedStack).first;
-    final IndexedStack indexedStack = tester.widget(stackFinder);
+    final Finder indexedStackFinder = find.byType(IndexedStack).first;
+    final IndexedStack indexedStack = tester.widget(indexedStackFinder);
 
     expect(indexedStack.key, equals(Key('SuperIndexedStack')));
     expect(indexedStack.alignment, equals(AlignmentDirectional.center));
