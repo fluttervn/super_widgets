@@ -19,7 +19,8 @@ class SuperIndexedStackPage extends StatelessWidget {
         color: Colors.grey,
         margin: EdgeInsets.all(10),
         padding: EdgeInsets.only(right: 20),
-        index: 2,
+        childKey: Key('SuperIndexedStack'),
+        index: 1,
         children: <Widget>[
           Container(color: Colors.yellow, width: 300, height: 100),
           Container(

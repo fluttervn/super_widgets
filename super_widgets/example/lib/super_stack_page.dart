@@ -20,6 +20,7 @@ class SuperStackPage extends StatelessWidget {
         margin: EdgeInsets.all(10),
         padding: EdgeInsets.only(right: 20),
         alignment: Alignment.centerRight,
+        childKey: Key('SuperStack'),
         childAlignment: Alignment.bottomRight,
         fit: StackFit.loose,
         children: <Widget>[
