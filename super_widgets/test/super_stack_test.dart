@@ -16,6 +16,7 @@ void main() {
     expect(stackFinder, findsOneWidget);
 
     final Stack _stack = tester.widget(stackFinder);
+    expect(_stack.key, isNull);
     expect(_stack.alignment, equals(AlignmentDirectional.topStart));
     expect(_stack.fit, equals(StackFit.loose));
     expect(_stack.children, equals(<Widget>[]));
