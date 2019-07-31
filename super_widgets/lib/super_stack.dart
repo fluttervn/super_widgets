@@ -5,11 +5,11 @@ class SuperStack extends Container {
   /// with [Stack] params:
   ///
   /// - childKey: Key of the [Stack]
-  /// - children: List of Widgets of [Stack]
+  /// - children: List of Widgets of [Stack], default is empty list
   /// - childAlignment: the [AlignmentGeometry] of [Stack], default is [AlignmentDirectional.topStart]
   /// - fit: the [StackFit] of [Stack], default is [StackFit.loose]
   /// - textDirection: the [TextDirection] of [Stack]
-  /// overflow: the [Overflow] of [Stack], default is [Overflow.clip]
+  /// - overflow: the [Overflow] of [Stack], default is [Overflow.clip]
   SuperStack({
     Key key,
     AlignmentGeometry alignment,
@@ -23,7 +23,7 @@ class SuperStack extends Container {
     EdgeInsetsGeometry margin,
     Matrix4 transform,
     Key childKey,
-    @required List<Widget> children,
+    List<Widget> children,
     AlignmentGeometry childAlignment = AlignmentDirectional.topStart,
     StackFit fit = StackFit.loose,
     TextDirection textDirection,
@@ -41,7 +41,7 @@ class SuperStack extends Container {
           margin: margin,
           transform: transform,
           child: Stack(
-            children: children,
+            children: children ?? <Widget>[],
             fit: fit,
             alignment: childAlignment,
             key: childKey,

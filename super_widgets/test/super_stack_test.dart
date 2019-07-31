@@ -5,8 +5,7 @@ import 'package:super_widgets/super_stack.dart';
 
 void main() {
   testWidgets('SuperStack structure & default child value', (WidgetTester tester) async {
-    final List<Widget> children = [];
-    final superStack = SuperStack(children: children);
+    final superStack = SuperStack();
     await tester.pumpWidget(Directionality(
       child: superStack,
       textDirection: TextDirection.ltr,
@@ -19,7 +18,7 @@ void main() {
     final Stack _stack = tester.widget(stackFinder);
     expect(_stack.alignment, equals(AlignmentDirectional.topStart));
     expect(_stack.fit, equals(StackFit.loose));
-    expect(_stack.children, equals(children));
+    expect(_stack.children, equals(<Widget>[]));
   });
 
   testWidgets('SuperStack full child value', (WidgetTester tester) async {
