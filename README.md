@@ -1,7 +1,7 @@
 ![Pub](https://img.shields.io/pub/v/super_widgets) [![GitHub license](https://img.shields.io/github/license/anticafe/super_widgets)](https://github.com/anticafe/super_widgets/blob/master/LICENSE)
 # super_widgets
 
-Make Flutter widgets&#x27; code becomes shorter and richer.
+Make Flutter widgets' code becomes shorter and richer.
 
 This project is an attempt to combine multiple Flutter widgets into single widget - the single one will inherit almost all properties of the original widgets. For example, instead of creating a `Stack` with `padding` and `color` by having `Container` > `Stack`, we can use `SuperStack`.
 
