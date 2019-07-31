@@ -24,6 +24,8 @@ import 'package:super_widgets/super_widgets.dart';
 List of SuperWidgets is:
 - [SuperStack](https://github.com/aqwert/flutter_platform_widgets/blob/master/README.md#superstack)
 - [SuperIndexedStack](https://github.com/aqwert/flutter_platform_widgets/blob/master/README.md#superindexedstack)
+- [SuperRow](https://github.com/aqwert/flutter_platform_widgets/blob/master/README.md#superrow)
+- [SuperColumn](https://github.com/aqwert/flutter_platform_widgets/blob/master/README.md#supercolumn)
 
 ### SuperStack
 Is the combination of `Container` > `Stack`
@@ -62,7 +64,6 @@ SuperStack(
   ],
 )
 ```
-
 ### SuperIndexedStack
 Is the combination of `Container` > `IndexedStack`
 ```dart
@@ -77,6 +78,46 @@ SuperIndexedStack(
     Container(color: Colors.red, width: 200, height: 200),
     Container(color: Colors.green, width: 100, height: 100),
     Text('SuperStack demo'),
+  ],
+)
+```
+### SuperRow
+Is the combination of `Container` > `Row`
+```dart
+SuperRow(
+  color: Colors.grey,
+  margin: EdgeInsets.all(10),
+  padding: EdgeInsets.all(5),
+  height: 300,
+  alignment: Alignment.centerRight,
+  childKey: Key('SuperRow'),
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
+  mainAxisSize: MainAxisSize.max,
+  crossAxisAlignment: CrossAxisAlignment.stretch,
+  children: <Widget>[
+    Container(color: Colors.red, width: 50),
+    Container(color: Colors.green, width: 100),
+    Container(color: Colors.blue, width: 75),
+  ],
+)
+```
+### SuperColumn
+Is the combination of `Container` > `Column`
+```dart
+SuperColumn(
+  color: Colors.grey,
+  margin: EdgeInsets.all(10),
+  padding: EdgeInsets.all(5),
+  width: 300,
+  alignment: Alignment.centerRight,
+  childKey: Key('SuperColumn'),
+  mainAxisAlignment: MainAxisAlignment.spaceAround,
+  mainAxisSize: MainAxisSize.max,
+  crossAxisAlignment: CrossAxisAlignment.stretch,
+  children: <Widget>[
+    Container(color: Colors.red, height: 50),
+    Container(color: Colors.green, height: 100),
+    Container(color: Colors.blue, height: 75),
   ],
 )
 ```
