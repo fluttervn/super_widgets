@@ -18,6 +18,7 @@ See more about how to install in [pubspec.dev](https://pub.dev/packages/super_wi
 
 List of SuperWidgets is:
 - [SuperStack](https://github.com/aqwert/flutter_platform_widgets/blob/master/README.md#superstack)
+- [SuperIndexedStack](https://github.com/aqwert/flutter_platform_widgets/blob/master/README.md#superindexedstack)
 
 ### SuperStack
 Is the combination of `Container` > `Stack`
@@ -46,9 +47,27 @@ SuperStack(
   color: Colors.blueAccent,
   margin: EdgeInsets.all(10),
   padding: EdgeInsets.all(20),
-  innerAlignment: Alignment.bottomCenter,
-  alignment: Alignment.centerRight,
+  alignment: Alignment.bottomCenter,
+  childAlignment: Alignment.centerRight,
   fit: StackFit.loose,
+  children: <Widget>[
+    Container(color: Colors.red, width: 200, height: 200),
+    Container(color: Colors.green, width: 100, height: 100),
+    Text('SuperStack demo'),
+  ],
+)
+```
+
+### SuperIndexedStack
+Is the combination of `Container` > `IndexedStack`
+```dart
+SuperIndexedStack(
+  color: Colors.blueAccent,
+  padding: EdgeInsets.all(20),
+  alignment: Alignment.bottomCenter,
+  childAlignment: Alignment.centerRight,
+  sizing: StackFit.loose,
+  index: 1,
   children: <Widget>[
     Container(color: Colors.red, width: 200, height: 200),
     Container(color: Colors.green, width: 100, height: 100),
