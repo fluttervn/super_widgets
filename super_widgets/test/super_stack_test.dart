@@ -15,11 +15,11 @@ void main() {
     final stackFinder = find.byType(Stack);
     expect(stackFinder, findsOneWidget);
 
-    final Stack _stack = tester.widget(stackFinder);
-    expect(_stack.key, isNull);
-    expect(_stack.alignment, equals(AlignmentDirectional.topStart));
-    expect(_stack.fit, equals(StackFit.loose));
-    expect(_stack.children, equals(<Widget>[]));
+    final Stack stack = tester.widget(stackFinder);
+    expect(stack.key, isNull);
+    expect(stack.alignment, equals(AlignmentDirectional.topStart));
+    expect(stack.fit, equals(StackFit.loose));
+    expect(stack.children, equals(<Widget>[]));
   });
 
   testWidgets('SuperStack full child value', (WidgetTester tester) async {

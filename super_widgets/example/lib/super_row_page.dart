@@ -20,8 +20,11 @@ class SuperRowPage extends StatelessWidget {
         margin: EdgeInsets.all(10),
         padding: EdgeInsets.all(5),
         height: 300,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         alignment: Alignment.centerRight,
+        childKey: Key('SuperRow'),
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(color: Colors.red, width: 50),
           Container(color: Colors.green, width: 100),
