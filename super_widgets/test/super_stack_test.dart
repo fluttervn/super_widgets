@@ -4,8 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:super_widgets/super_stack.dart';
 
 void main() {
-  testWidgets('SuperStack structure & child value',
-      (WidgetTester tester) async {
+  testWidgets('SuperStack structure & default child value', (WidgetTester tester) async {
     final List<Widget> children = [];
     final superStack = SuperStack(children: children);
     await tester.pumpWidget(Directionality(
@@ -18,27 +17,29 @@ void main() {
     expect(stackFinder, findsOneWidget);
 
     final Stack _stack = tester.widget(stackFinder);
-    expect(_stack.alignment, equals(Alignment.topLeft));
+    expect(_stack.alignment, equals(AlignmentDirectional.topStart));
     expect(_stack.fit, equals(StackFit.loose));
     expect(_stack.children, equals(children));
   });
 
-  testWidgets('SuperStack full value', (WidgetTester tester) async {
+  testWidgets('SuperStack full child value', (WidgetTester tester) async {
     final List<Widget> children = [
       Text('Text 1'),
       Text('Text 2'),
     ];
     final superStack = SuperStack(
-      children: children,
+      alignment: AlignmentDirectional.bottomStart,
+      padding: EdgeInsets.all(10),
+      margin: EdgeInsets.all(5),
+      color: Colors.pink,
       width: 300,
       height: 250,
-      color: Colors.pink,
-      alignment: Alignment.bottomLeft,
-      margin: EdgeInsets.all(5),
-      padding: EdgeInsets.all(10),
-      key: Key('SuperStack'),
+      childKey: Key('SuperStack'),
+      children: children,
       fit: StackFit.expand,
-      childAlignment: Alignment.center,
+      textDirection: TextDirection.rtl,
+      overflow: Overflow.visible,
+      childAlignment: AlignmentDirectional.center,
     );
     // Since we don't choose MaterialApp as root, we must wrap child in a Directionality instead
     // https://stackoverflow.com/a/49689947/190309
@@ -48,10 +49,13 @@ void main() {
     ));
 
     final Finder stackFinder = find.byType(Stack).first;
-    final Stack _stack = tester.widget(stackFinder);
+    final Stack stack = tester.widget(stackFinder);
 
-    expect(_stack.alignment, equals(Alignment.center));
-    expect(_stack.fit, equals(StackFit.expand));
-    expect(_stack.children, equals(children));
+    expect(stack.key, equals(Key('SuperStack')));
+    expect(stack.alignment, equals(AlignmentDirectional.center));
+    expect(stack.fit, equals(StackFit.expand));
+    expect(stack.children, equals(children));
+    expect(stack.textDirection, equals(TextDirection.rtl));
+    expect(stack.overflow, equals(Overflow.visible));
   });
 }

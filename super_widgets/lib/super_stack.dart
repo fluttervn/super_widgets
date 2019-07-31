@@ -1,9 +1,18 @@
 import 'package:flutter/widgets.dart';
 
 class SuperStack extends Container {
+  /// [SuperStack] is a [Container] with [Stack] inside. Its params are all params of [Container]
+  /// with [Stack] params:
+  ///
+  /// - childKey: Key of the [Stack]
+  /// - children: List of Widgets of [Stack]
+  /// - childAlignment: the [AlignmentGeometry] of [Stack], default is [AlignmentDirectional.topStart]
+  /// - fit: the [StackFit] of [Stack], default is [StackFit.loose]
+  /// - textDirection: the [TextDirection] of [Stack]
+  /// overflow: the [Overflow] of [Stack], default is [Overflow.clip]
   SuperStack({
     Key key,
-    Alignment alignment,
+    AlignmentGeometry alignment,
     EdgeInsetsGeometry padding,
     Color color,
     Decoration decoration,
@@ -15,8 +24,10 @@ class SuperStack extends Container {
     Matrix4 transform,
     Key childKey,
     @required List<Widget> children,
-    Alignment childAlignment = Alignment.topLeft,
+    AlignmentGeometry childAlignment = AlignmentDirectional.topStart,
     StackFit fit = StackFit.loose,
+    TextDirection textDirection,
+    Overflow overflow = Overflow.clip,
   }) : super(
           key: key,
           alignment: alignment,
@@ -34,6 +45,8 @@ class SuperStack extends Container {
             fit: fit,
             alignment: childAlignment,
             key: childKey,
+            textDirection: textDirection,
+            overflow: overflow,
           ),
         );
 }
