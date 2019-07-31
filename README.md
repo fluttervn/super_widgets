@@ -10,7 +10,7 @@ In your `pubspec.yaml` file within your Flutter Project:
 
 ```yaml
 dependencies:
-  super_widgets: ^0.0.1
+  super_widgets: ^0.1.0
 ```
 (See more information how to install this package in [pubspec.dev](https://pub.dev/packages/super_widgets#-installing-tab-))
 
