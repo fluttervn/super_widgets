@@ -12,7 +12,12 @@ In your `pubspec.yaml` file within your Flutter Project:
 dependencies:
   super_widgets: ^0.0.1
 ```
-See more about how to install in [pubspec.dev](https://pub.dev/packages/super_widgets#-installing-tab-): 
+(See more information how to install this package in [pubspec.dev](https://pub.dev/packages/super_widgets#-installing-tab-))
+
+Then import it:
+```dart
+import 'package:super_widgets/super_widgets.dart';
+```
 
 ## Widgets
 
