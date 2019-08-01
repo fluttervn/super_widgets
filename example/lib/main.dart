@@ -1,3 +1,4 @@
+import 'package:example/super_raised_button_page.dart';
 import 'package:flutter/material.dart';
 
 import 'super_column_page.dart';
@@ -33,6 +34,7 @@ class MyHomePage extends StatelessWidget {
     'SuperIndexedStack': SuperIndexedStackPage(),
     'SuperRow': SuperRowPage(),
     'SuperColumn': SuperColumnPage(),
+    'SuperRaisedButton': SuperRaisedButtonPage(),
   };
 
   @override
