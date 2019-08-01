@@ -22,10 +22,10 @@ import 'package:super_widgets/super_widgets.dart';
 ## Widgets
 
 List of SuperWidgets is:
-- [SuperStack](https://github.com/aqwert/flutter_platform_widgets/blob/master/README.md#superstack)
-- [SuperIndexedStack](https://github.com/aqwert/flutter_platform_widgets/blob/master/README.md#superindexedstack)
-- [SuperRow](https://github.com/aqwert/flutter_platform_widgets/blob/master/README.md#superrow)
-- [SuperColumn](https://github.com/aqwert/flutter_platform_widgets/blob/master/README.md#supercolumn)
+- [SuperStack](https://github.com/anticafe/super_widgets/blob/master/README.md#superstack)
+- [SuperIndexedStack](https://github.com/anticafe/super_widgets/blob/master/README.md#superindexedstack)
+- [SuperRow](https://github.com/anticafe/super_widgets/blob/master/README.md#superrow)
+- [SuperColumn](https://github.com/anticafe/super_widgets/blob/master/README.md#supercolumn)
 
 ### SuperStack
 Is the combination of `Container` > `Stack`
@@ -124,4 +124,4 @@ SuperColumn(
 
 ## Example
 
-A sample app can be found in the [`example/`](https://github.com/anticafe/super_widgets/tree/master/super_widgets/example) folder.
+A sample app can be found in the [`example/`](https://github.com/anticafe/super_widgets/tree/master/example) folder.
