@@ -26,6 +26,9 @@ List of SuperWidgets is:
 - [SuperIndexedStack](https://github.com/fluttervn/super_widgets/blob/master/README.md#superindexedstack)
 - [SuperRow](https://github.com/fluttervn/super_widgets/blob/master/README.md#superrow)
 - [SuperColumn](https://github.com/fluttervn/super_widgets/blob/master/README.md#supercolumn)
+- [SuperRaisedButton](https://github.com/fluttervn/super_widgets/blob/master/README.md#superraisedbutton)
+- [SuperIcon](https://github.com/fluttervn/super_widgets/blob/master/README.md#supericon)
+- [SuperText](https://github.com/fluttervn/super_widgets/blob/master/README.md#supertext)
 
 ### SuperStack
 Is the combination of `Container` > `Stack`
@@ -121,7 +124,68 @@ SuperColumn(
   ],
 )
 ```
-
+### SuperRaisedButton
+Is the combination of `Container` > `RaisedButton`
+```dart
+SuperRaisedButton(
+  color: Colors.grey[200],
+  margin: EdgeInsets.all(10),
+  padding: EdgeInsets.all(10),
+  width: 200,
+  height: 60,
+  alignment: Alignment.centerRight,
+  childKey: Key('SuperRaisedButton'),
+  onPressed: () {
+    print('Touch on SuperRaisedButton');
+  },
+  childText: Text(
+    'Support us!',
+    style: TextStyle(fontSize: 18, color: Colors.red, fontWeight: FontWeight.bold),
+  ),
+)
+```
+### SuperIcon
+Is the combination of `Container` > `Icon`
+```dart
+SuperIcon(
+  color: Colors.grey[300],
+  margin: EdgeInsets.all(10),
+  padding: EdgeInsets.only(right: 20),
+  alignment: Alignment.centerRight,
+  childKey: Key('SuperIcon'),
+  childColor: Colors.red,
+  icon: Icons.backup,
+  size: 80,
+)
+```
+### SuperText
+Is the combination of `Container` > `Text`
+- Normal text
+```dart
+SuperText(
+  padding: EdgeInsets.all(10),
+  textData: 'SuperText',
+  color: Colors.green,
+  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.pink),
+)
+```
+- Text with Span
+```dart
+SuperText(
+  margin: EdgeInsets.all(5),
+  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black),
+  textSpan: TextSpan(children: [
+    TextSpan(
+      text: 'Super ',
+    ),
+    TextSpan(
+      text: 'Text Span',
+      style: TextStyle(color: Colors.blue, fontSize: 24),
+    ),
+  ]),
+  color: Colors.yellow,
+)
+```
 ## Example
 
 A sample app can be found in the [`example/`](https://github.com/fluttervn/super_widgets/tree/master/example) folder.
