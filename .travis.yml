@@ -18,9 +18,9 @@ before_script:
   - export PATH=$HOME/flutter/bin:$PATH
   - flutter doctor -v
 script:
-  - ./flutter/bin/flutter pub get
-  - ./flutter/bin/cache/dart-sdk/bin/dartfmt -n --set-exit-if-changed ./lib ./test ./example || travis_terminate 1
-  - ./flutter/bin/flutter test --coverage --coverage-path=coverage.lcov
+  - flutter pub get
+  - flutter format -n --set-exit-if-changed ./lib ./test ./example || travis_terminate 1
+  - flutter test --coverage --coverage-path=coverage.lcov
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 cache:
