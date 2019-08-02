@@ -1,4 +1,4 @@
-![Pub](https://img.shields.io/pub/v/super_widgets) [![GitHub license](https://img.shields.io/github/license/anticafe/super_widgets)](https://github.com/anticafe/super_widgets/blob/master/LICENSE)
+[![Pub](https://img.shields.io/pub/v/super_widgets)](https://pub.dev/packages/super_widgets) [![GitHub license](https://img.shields.io/github/license/anticafe/super_widgets)](https://github.com/anticafe/super_widgets/blob/master/LICENSE)
 # super_widgets
 
 Make Flutter widgets' code becomes shorter and richer.
@@ -12,7 +12,7 @@ In your `pubspec.yaml` file within your Flutter Project:
 dependencies:
   super_widgets: ^0.1.0
 ```
-(See more information how to install this package in [pubspec.dev](https://pub.dev/packages/super_widgets#-installing-tab-))
+(Get latest version in [![Pub](https://img.shields.io/pub/v/super_widgets)](https://pub.dev/packages/super_widgets). See more information how to install this package in [pubspec.dev](https://pub.dev/packages/super_widgets#-installing-tab-))
 
 Then import it:
 ```dart
