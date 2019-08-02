@@ -125,3 +125,6 @@ SuperColumn(
 ## Example
 
 A sample app can be found in the [`example/`](https://github.com/fluttervn/super_widgets/tree/master/example) folder.
+
+## Authors
+- [Bui Minh Triet](https://github.com/anticafe) (x3cafe@gmail.com)
