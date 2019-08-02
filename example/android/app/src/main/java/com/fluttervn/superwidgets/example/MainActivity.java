@@ -1,4 +1,4 @@
-package com.groidify.superwidgets.example;
+package com.fluttervn.superwidgets.example;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
