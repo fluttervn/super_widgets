@@ -1,12 +1,12 @@
-import 'package:example/super_icon_page.dart';
-import 'package:example/super_raised_button_page.dart';
-import 'package:example/super_text_page.dart';
 import 'package:flutter/material.dart';
 
 import 'super_column_page.dart';
+import 'super_icon_page.dart';
 import 'super_indexed_stack_page.dart';
+import 'super_raised_button_page.dart';
 import 'super_row_page.dart';
 import 'super_stack_page.dart';
+import 'super_text_page.dart';
 
 void main() => runApp(MyApp());
 
