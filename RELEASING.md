@@ -22,4 +22,5 @@ This document describes our release process, and contains the steps to be follow
 - `tag version` = `vX.Y.Z`
 - `Release title` = `vX.Y.Z - SHORT_DESCRIPTION_WHAT_IN_RELEASE`
 - `Describe this release` = Changelog of this release, in Markdown (can be copied from [CHANGELOG.md](https://github.com/fluttervn/super_widgets/blob/master/CHANGELOG.md))
-15. It's done.
+15. It's safe to delete release branch now.
+16. It's done.
