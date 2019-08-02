@@ -27,7 +27,6 @@ void main() {
       'SuperRaisedButton',
       style: TextStyle(color: Colors.blue, fontSize: 16),
     );
-    final VoidCallback onPressed = () {};
     final superRaisedButton = SuperRaisedButton(
       alignment: AlignmentDirectional.bottomStart,
       padding: EdgeInsets.all(10),
