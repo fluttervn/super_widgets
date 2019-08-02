@@ -1,20 +1,22 @@
-language: dart
 os:
-  - linux
+- linux
 sudo: required
-dist: trusty
-dart:
-- 2.1.0
+dist: xenial
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
     packages:
       - libstdc++6
-      - fonts-droid
+
+cache:
+  directories:
+    - $HOME/.pub-cache
 before_script:
   - git clone https://github.com/flutter/flutter.git -b stable --depth 1
-  - ./flutter/bin/flutter doctor
+  - mv flutter $HOME/flutter
+  - export PATH=$HOME/flutter/bin:$PATH
+  - flutter doctor -v
 script:
   - ./flutter/bin/flutter pub get
   - ./flutter/bin/cache/dart-sdk/bin/dartfmt -n --set-exit-if-changed ./lib ./test ./example || travis_terminate 1
