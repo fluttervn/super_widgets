@@ -3,7 +3,8 @@ dart:
   - stable
 os:
   - linux
-sudo: false
+sudo: required
+dist: trusty
 addons:
   apt:
     # Flutter depends on /usr/lib/x86_64-linux-gnu/libstdc++.so.6 version GLIBCXX_3.4.18
