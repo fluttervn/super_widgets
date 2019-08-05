@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'super_column_page.dart';
 import 'super_icon_page.dart';
 import 'super_indexed_stack_page.dart';
+import 'super_inkwell_page.dart';
 import 'super_raised_button_page.dart';
 import 'super_row_page.dart';
 import 'super_stack_page.dart';
@@ -39,6 +40,7 @@ class MyHomePage extends StatelessWidget {
     'SuperRaisedButton': SuperRaisedButtonPage(),
     'SuperIcon': SuperIconPage(),
     'SuperText': SuperTextPage(),
+    'SuperInkWell': SuperInkWellPage(),
   };
 
   @override
