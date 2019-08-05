@@ -22,7 +22,11 @@ class SuperInkWellPage extends StatelessWidget {
           alignment: Alignment.center,
           childText: Text(
             'default SuperInkWell',
-            style: TextStyle(fontSize: 16, color: Colors.pink, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.pink,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         SizedBox(height: 20),
