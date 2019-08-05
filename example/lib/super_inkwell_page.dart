@@ -36,6 +36,16 @@ class SuperInkWellPage extends StatelessWidget {
             style: TextStyle(fontSize: 16),
           ),
         ),
+        SizedBox(height: 20),
+        SuperInkWell(
+          padding: EdgeInsets.all(10),
+          width: 50,
+          height: 50,
+          alignment: Alignment.center,
+          childText: Icon(
+            Icons.ac_unit,
+          ),
+        ),
       ],
     );
   }
