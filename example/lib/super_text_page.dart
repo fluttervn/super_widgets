@@ -22,11 +22,19 @@ class SuperTextPage extends StatelessWidget {
           padding: EdgeInsets.all(10),
           textData: 'SuperText',
           color: Colors.green,
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.pink),
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.pink,
+          ),
         ),
         SuperText(
           margin: EdgeInsets.all(5),
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, color: Colors.black),
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w900,
+            color: Colors.black,
+          ),
           textSpan: TextSpan(children: [
             TextSpan(
               text: 'Super ',
