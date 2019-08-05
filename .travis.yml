@@ -9,10 +9,6 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - libstdc++6
-
-cache:
-  directories:
-    - $HOME/.pub-cache
 before_script:
   - git clone https://github.com/flutter/flutter.git -b stable --depth 1
   - mv flutter $HOME/flutter
