@@ -28,7 +28,11 @@ class SuperRaisedButtonPage extends StatelessWidget {
         },
         childText: Text(
           'Support us!',
-          style: TextStyle(fontSize: 18, color: Colors.red, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontSize: 18,
+            color: Colors.red,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
