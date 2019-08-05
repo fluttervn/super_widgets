@@ -2,19 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class SuperInkWell extends InkWell {
-  /// [SuperInkWell] is a [Container] with [InkWell] inside. Its params is the combination
+  /// [SuperInkWell] is a [InkWell] with [Container] inside. Its params is the combination
   /// of [Container]'s params (has the same param name) and [InkWell]'s params (has almost the
-  /// same param name, but if have any duplicated name with its parent, then add prefix `child` -
-  /// for example: Container has `color` property, then if [InkWell] also have `color`
-  /// property, then the latter will be rename to `childColor`). The list below only documents
-  /// for [InkWell]
-  ///
-  /// - childKey: [Key] of the [InkWell]
-  /// - InkWell: the [IconData], which is from [Icons], can be null
-  /// - size: The size ([double]) of the InkWell in logical pixels of the [InkWell]
-  /// - childColor: [Color] of the [InkWell]
-  /// - semanticLabel: semanticLabel ([String]) of the [InkWell]
-  /// - textDirection: [TextDirection], if this is null, the ambient [Directionality] is used instead.
+  /// same param name.
   SuperInkWell({
     Key key,
     GestureTapCallback onTap,
