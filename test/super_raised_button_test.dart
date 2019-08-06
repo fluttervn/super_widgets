@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:super_widgets/super_raised_button.dart';
 
 void main() {
-  testWidgets('SuperRaisedButton structure & default child value', (WidgetTester tester) async {
+  testWidgets('SuperRaisedButton default value', (WidgetTester tester) async {
 //    final VoidCallback onPressed = () {};
     final superRaisedButton = SuperRaisedButton();
     await tester.pumpWidget(Directionality(
@@ -22,7 +22,7 @@ void main() {
     expect(raisedButton.child, equals(null));
   });
 
-  testWidgets('SuperRaisedButton full child value', (WidgetTester tester) async {
+  testWidgets('SuperRaisedButton full value', (WidgetTester tester) async {
     final Text text = Text(
       'SuperRaisedButton',
       style: TextStyle(color: Colors.blue, fontSize: 16),
@@ -37,8 +37,7 @@ void main() {
       childKey: Key('SuperRaisedButton'),
       childText: text,
     );
-    // Since we don't choose MaterialApp as root, we must wrap child in a Directionality instead
-    // https://stackoverflow.com/a/49689947/190309
+
     await tester.pumpWidget(Directionality(
       child: superRaisedButton,
       textDirection: TextDirection.ltr,

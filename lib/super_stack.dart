@@ -1,15 +1,25 @@
 import 'package:flutter/widgets.dart';
 
+/// [SuperStack] is a [Container] with [Stack] inside.
 class SuperStack extends Container {
-  /// [SuperStack] is a [Container] with [Stack] inside. Its params are all params of [Container]
-  /// with [Stack] params:
+  /// Create new [SuperStack]. Its params is the combination of [Container]'s
+  /// params (has the same param name) and [Stack]'s  params (has almost the
+  /// same param name, but if have any duplicated name with its parent,
+  /// then add prefix `child` - for example: if [Container] has `color`
+  /// property, and [Stack] also  have `color` property, then the latter will
+  /// be rename to `childColor`).
   ///
-  /// - childKey: Key of the [Stack]
-  /// - children: List of Widgets of [Stack], default is empty list
-  /// - childAlignment: the [AlignmentGeometry] of [Stack], default is [AlignmentDirectional.topStart]
-  /// - fit: the [StackFit] of [Stack], default is [StackFit.loose]
-  /// - textDirection: the [TextDirection] of [Stack]
-  /// - overflow: the [Overflow] of [Stack], default is [Overflow.clip]
+  /// The list below only show default params of [Container] :
+  ///
+  /// - alignment: default is [AlignmentDirectional.topStart]
+  ///
+  /// The list below only show renamed or default params of [Stack] :
+  ///
+  /// - [childKey] : [Key] of the [Stack]
+  /// - [childAlignment] : default is [AlignmentDirectional.topStart]
+  /// - [fit] : default is [StackFit.loose]
+  /// - [overflow] : default is [Overflow.clip]
+  /// - [children] : default is `<Widget>[]`
   SuperStack({
     Key key,
     AlignmentGeometry alignment,

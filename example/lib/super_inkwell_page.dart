@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:super_widgets/super_inkwell.dart';
 import 'package:super_widgets/super_widgets.dart';
 
+/// SuperInkWell demo
 class SuperInkWellPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,6 +15,7 @@ class SuperInkWellPage extends StatelessWidget {
     );
   }
 
+  /// Content of this page
   Widget buildBody(BuildContext context) {
     return SuperColumn(
       children: [

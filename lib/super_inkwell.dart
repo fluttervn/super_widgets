@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+/// [SuperInkWell] is a [InkWell] with [Container] inside
 class SuperInkWell extends InkWell {
-  /// [SuperInkWell] is a [InkWell] with [Container] inside. Its params is the combination
-  /// of [Container]'s params (has the same param name) and [InkWell]'s params (has almost the
-  /// same param name.
+  /// Create new [SuperInkWell]. Its params is the combination of
+  /// [Container]'s params (has the same param name) and [InkWell]'s
+  /// params (has almost the same param name, but if have any duplicated name
+  /// with its parent, then add prefix `child` - for example: if [Container]
+  /// has `color` property, and [InkWell] also  have `color` property,
+  /// then the latter will be rename to `childColor`).
+  ///
+  /// The list below only show renamed or default params of [InkWell] :
+  ///
+  /// - [onTap] : default empty [GestureTapCallback]
+  ///
+  /// The list below only show default params of [Container] :
+  ///
+  /// - [childKey] : [Key] of the [InkWell]
+  /// - [alignment] : default is [AlignmentDirectional.topStart]
+  ///
   SuperInkWell({
     Key key,
     GestureTapCallback onTap,
@@ -23,7 +37,7 @@ class SuperInkWell extends InkWell {
     bool excludeFromSemantics = false,
     Key childKey,
     Widget childText,
-    AlignmentGeometry alignment,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,

@@ -1,17 +1,26 @@
 import 'package:flutter/widgets.dart';
 
+/// [SuperColumn] is a [Container] with [Column] inside
 class SuperColumn extends Container {
-  /// [SuperColumn] is a [Container] with [Column] inside. Its params are all params of [Container]
-  /// with [Column] params:
+  /// Create new [SuperColumn]. Its params is the combination of [Container]'s
+  /// params (has the same param name) and [Column]'s  params (has almost the
+  /// same param name, but if have any duplicated name with its parent,
+  /// then add prefix `child` - for example: if [Container] has `color`
+  /// property, and [Column] also  have `color` property, then the latter will
+  /// be rename to `childColor`).
   ///
-  /// - childKey: Key of the [Column]
-  /// - children: List of Widgets of [Column], default is empty list
-  /// - mainAxisAlignment: the [MainAxisAlignment] of [Column], default is [MainAxisAlignment.start]
-  /// - mainAxisSize: the [MainAxisSize] of [Column], default is [MainAxisSize.max]
-  /// - crossAxisAlignment: the [CrossAxisAlignment] of [Column], default is [CrossAxisAlignment.center]
-  /// - textDirection: the [TextDirection] of [Column]
-  /// - verticalDirection: the [VerticalDirection] of [Column], default is [VerticalDirection.down]
-  /// - textBaseline: the [TextBaseline] of [Column]
+  /// The list below only show default params of [Container] :
+  ///
+  /// - [alignment] : default is [AlignmentDirectional.topStart]
+  ///
+  /// The list below only show renamed or default params of [Column] :
+  ///
+  /// - [childKey] : [Key] of the [Column]
+  /// - [children] : default is `<Widget>[]`
+  /// - [mainAxisAlignment] : default is [MainAxisAlignment.start]
+  /// - [mainAxisSize] : default is [MainAxisSize.max]
+  /// - [crossAxisAlignment] : default is [CrossAxisAlignment.center]
+  /// - [verticalDirection] : default is [VerticalDirection.down]
   SuperColumn({
     Key key,
     AlignmentGeometry alignment,

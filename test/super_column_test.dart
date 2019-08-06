@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:super_widgets/super_column.dart';
 
 void main() {
-  testWidgets('SuperColumn structure & default child value', (WidgetTester tester) async {
+  testWidgets('SuperColumn default value', (WidgetTester tester) async {
     final superColumn = SuperColumn();
     await tester.pumpWidget(Directionality(
       child: superColumn,
@@ -26,7 +26,7 @@ void main() {
     expect(column.textBaseline, isNull);
   });
 
-  testWidgets('SuperColumn full child value', (WidgetTester tester) async {
+  testWidgets('SuperColumn full value', (WidgetTester tester) async {
     final List<Widget> children = [
       Text('Text 1'),
       Text('Text 2'),
@@ -47,8 +47,7 @@ void main() {
       verticalDirection: VerticalDirection.up,
       textBaseline: TextBaseline.alphabetic,
     );
-    // Since we don't choose MaterialApp as root, we must wrap child in a Directionality instead
-    // https://stackoverflow.com/a/49689947/190309
+
     await tester.pumpWidget(Directionality(
       child: superColumn,
       textDirection: TextDirection.ltr,

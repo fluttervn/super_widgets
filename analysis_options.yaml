@@ -2,7 +2,6 @@ include: package:pedantic/analysis_options.yaml
 analyzer:
   exclude:
     - "**/*.g.dart"
-    - "/example/**/*.dart"
   strong-mode:
     implicit-casts: false
     implicit-dynamic: false
@@ -46,7 +45,7 @@ linter:
     - no_duplicate_case_values
     - non_constant_identifier_names
     - null_closures
-#    - omit_local_variable_types
+    - omit_local_variable_types
     - only_throw_errors
     - overridden_fields
     - package_api_docs
@@ -55,7 +54,7 @@ linter:
     - prefer_adjacent_string_concatenation
     - prefer_collection_literals
     - prefer_conditional_assignment
-#    - prefer_const_constructors
+    - prefer_const_constructors
     - prefer_contains
     - prefer_equal_for_default_values
     - prefer_final_fields

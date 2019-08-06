@@ -1,30 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+/// [SuperText] is a [Container] with [Text] inside
 class SuperText extends Container {
-  /// [SuperText] is a [Container] with [Text] inside. Its params is the combination
-  /// of [Container]'s params (has the same param name) and [Text]'s params (has almost the
-  /// same param name, but if have any duplicated name with its parent, then add prefix `child` -
-  /// for example: Container has `color` property, then if [Text] also have `color`
-  /// property, then the latter will be rename to `childColor`). The list below only documents
-  /// for [Text]
+  /// Create new [SuperText]. Its params is the combination of [Container]'s
+  /// params (has the same param name) and [Text]'s  params (has almost the
+  /// same param name, but if have any duplicated name with its parent,
+  /// then add prefix `child` - for example: if [Container] has `color`
+  /// property, and [Text] also  have `color` property, then the latter will
+  /// be rename to `childColor`).
   ///
-  /// - childKey: [Key] of the [Text]
-  /// - textData: [String]: The text to display. This will be null if a [textSpan] is provided instead.
-  /// - textSpan: The text to display as a [TextSpan]. This will be null if [data] is provided instead.
-  /// - style: The [TextStyle] to use for this text.
-  /// - strutStyle: {@macro flutter.painting.textPainter.strutStyle}
-  /// - textAlign: [TextAlign]: How the text should be aligned horizontally.
-  /// - textDirection: [TextDirection]: The directionality of the text.
-  /// - locale: Used to select a font when the same Unicode character can be rendered differently, depending on the [Locale].
-  /// - softWrap: Whether the text should break at soft line breaks.
-  /// - overflow: [TextOverflow]: How visual overflow should be handled.
-  /// - textScaleFactor: [double]: The number of font pixels for each logical pixel.
-  /// - maxLines: [int]: An optional maximum number of lines for the text to span, wrapping if necessary
-  /// - semanticsLabel: [String]: An alternative semantics label for this text.
+  /// The list below only show default params of [Container]:
+  ///
+  /// - alignment: default is [AlignmentDirectional.topStart]
+  ///
+  /// The list below only show renamed or default params of [Text]:
+  ///
+  /// - [childKey] : [Key] of the [Text]
+  /// - [textData] & [textSpan] : Only allow one
   SuperText({
     Key key,
-    AlignmentGeometry alignment,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
     Color color,
     Decoration decoration,

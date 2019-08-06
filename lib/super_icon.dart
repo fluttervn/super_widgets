@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+/// [SuperIcon] is a [Container] with [Icon] inside
 class SuperIcon extends Container {
-  /// [SuperIcon] is a [Container] with [Icon] inside. Its params is the combination
-  /// of [Container]'s params (has the same param name) and [Icon]'s params (has almost the
-  /// same param name, but if have any duplicated name with its parent, then add prefix `child` -
-  /// for example: Container has `color` property, then if [Icon] also have `color`
-  /// property, then the latter will be rename to `childColor`). The list below only documents
-  /// for [Icon]
+  /// Create new [SuperIcon]. Its params is the combination of [Container]'s
+  /// params (has the same param name) and [Icon]'s  params (has almost the
+  /// same param name, but if have any duplicated name with its parent,
+  /// then add prefix `child` - for example: if [Container] has `color`
+  /// property, and [Icon] also  have `color` property, then the latter will
+  /// be rename to `childColor`).
   ///
-  /// - childKey: [Key] of the [Icon]
-  /// - icon: the [IconData], which is from [Icons], can be null
-  /// - size: The size ([double]) of the icon in logical pixels of the [Icon]
-  /// - childColor: [Color] of the [Icon]
-  /// - semanticLabel: semanticLabel ([String]) of the [Icon]
-  /// - textDirection: [TextDirection], if this is null, the ambient [Directionality] is used instead.
+  /// The list below only show default params of [Container] :
+  ///
+  /// - [alignment] : default is [AlignmentDirectional.topStart]
+  ///
+  /// The list below only show renamed or default params of [Icon] :
+  ///
+  /// - [childKey] : [Key] of the [Icon]
   SuperIcon({
     Key key,
     AlignmentGeometry alignment,

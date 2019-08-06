@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:super_widgets/super_widgets.dart';
 
+/// SuperIndexedStack demo
 class SuperIndexedStackPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -13,6 +14,7 @@ class SuperIndexedStackPage extends StatelessWidget {
     );
   }
 
+  /// Content of this page
   Widget buildBody(BuildContext context) {
     return Center(
       child: SuperIndexedStack(

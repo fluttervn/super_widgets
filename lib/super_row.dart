@@ -1,20 +1,29 @@
 import 'package:flutter/widgets.dart';
 
+/// [SuperRow] is a [Container] with [Row] inside
 class SuperRow extends Container {
-  /// [SuperRow] is a [Container] with [Row] inside. Its params are all params of [Container]
-  /// with [Row] params:
+  /// Create new [SuperRow]. Its params is the combination of
+  /// [Container]'s params (has the same param name) and [Row]'s
+  /// params (has almost the same param name, but if have any duplicated name
+  /// with its parent, then add prefix `child` - for example: if [Container]
+  /// has `color` property, and [Row] also  have `color` property,
+  /// then the latter will be rename to `childColor`).
   ///
-  /// - childKey: Key of the [Row]
-  /// - children: List of Widgets of [Row], default is empty list
-  /// - mainAxisAlignment: the [MainAxisAlignment] of [Row], default is [MainAxisAlignment.start]
-  /// - mainAxisSize: the [MainAxisSize] of [Row], default is [MainAxisSize.max]
-  /// - crossAxisAlignment: the [CrossAxisAlignment] of [Row], default is [CrossAxisAlignment.center]
-  /// - textDirection: the [TextDirection] of [Row]
-  /// - verticalDirection: the [VerticalDirection] of [Row], default is [VerticalDirection.down]
-  /// - textBaseline: the [TextBaseline] of [Row]
+  /// The list below only show default params of [Container] :
+  ///
+  /// - [alignment] : default is [AlignmentDirectional.topStart]
+  ///
+  /// The list below only show renamed or default params of [Row] :
+  ///
+  /// - [childKey] : [Key] of the [Row]
+  /// - [children] : default is `<Widget>[]`
+  /// - [mainAxisAlignment] : default is [MainAxisAlignment.start]
+  /// - [mainAxisSize] : default is [MainAxisSize.max]
+  /// - [crossAxisAlignment] : default is [CrossAxisAlignment.center]
+  /// - [verticalDirection] : default is [VerticalDirection.down]
   SuperRow({
     Key key,
-    AlignmentGeometry alignment,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
     Color color,
     Decoration decoration,
