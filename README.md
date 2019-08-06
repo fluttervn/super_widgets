@@ -1,4 +1,4 @@
-[![Pub](https://img.shields.io/pub/v/super_widgets)](https://pub.dev/packages/super_widgets) [![GitHub license](https://img.shields.io/github/license/anticafe/super_widgets)](https://github.com/anticafe/super_widgets/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/fluttervn/super_widgets.svg?branch=master)](https://travis-ci.org/fluttervn/super_widgets) [![Pub](https://img.shields.io/pub/v/super_widgets)](https://pub.dev/packages/super_widgets) [![GitHub license](https://img.shields.io/github/license/anticafe/super_widgets)](https://github.com/anticafe/super_widgets/blob/master/LICENSE)
 # super_widgets
 
 Make Flutter widgets' code becomes shorter and richer.
