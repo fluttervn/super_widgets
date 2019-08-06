@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:super_widgets/super_row.dart';
 
 void main() {
-  testWidgets('SuperRow structure & default child value', (WidgetTester tester) async {
+  testWidgets('SuperRow default value', (WidgetTester tester) async {
     final superRow = SuperRow();
     await tester.pumpWidget(Directionality(
       child: superRow,
@@ -47,8 +47,7 @@ void main() {
       verticalDirection: VerticalDirection.up,
       textBaseline: TextBaseline.alphabetic,
     );
-    // Since we don't choose MaterialApp as root, we must wrap child in a Directionality instead
-    // https://stackoverflow.com/a/49689947/190309
+
     await tester.pumpWidget(Directionality(
       child: superRow,
       textDirection: TextDirection.ltr,

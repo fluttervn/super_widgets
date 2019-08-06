@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'super_column_page.dart';
 import 'super_icon_page.dart';
 import 'super_indexed_stack_page.dart';
+import 'super_inkwell_page.dart';
 import 'super_raised_button_page.dart';
 import 'super_row_page.dart';
 import 'super_stack_page.dart';
@@ -10,8 +11,8 @@ import 'super_text_page.dart';
 
 void main() => runApp(MyApp());
 
+/// This widget is the root of your application.
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,18 +20,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(
-        title: 'Flutter SuperWidgets Demo',
-      ),
+      home: MyHomePage(),
     );
   }
 }
 
+/// Main page with list of entries inside
 class MyHomePage extends StatelessWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
+  /// List of <screen name, widget name>
   final Map<String, Widget> mapScreens = {
     'SuperStack': SuperStackPage(),
     'SuperIndexedStack': SuperIndexedStackPage(),
@@ -39,13 +36,14 @@ class MyHomePage extends StatelessWidget {
     'SuperRaisedButton': SuperRaisedButtonPage(),
     'SuperIcon': SuperIconPage(),
     'SuperText': SuperTextPage(),
+    'SuperInkWell': SuperInkWellPage(),
   };
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text('Flutter SuperWidgets Demo'),
       ),
       body: Center(
         child: ListView.builder(
@@ -53,7 +51,7 @@ class MyHomePage extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             final title = mapScreens.keys.elementAt(index);
             return ListTile(
-              title: new Text(title, style: TextStyle(fontSize: 16)),
+              title: Text(title, style: TextStyle(fontSize: 16)),
               onTap: () {
                 print('MyHomePage: click on: $index: $title');
                 gotoScreen(context, mapScreens[title]);
@@ -73,7 +71,11 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
+  /// Go to destination screen (widget)
   void gotoScreen(BuildContext context, Widget screen) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => screen));
+    Navigator.push(
+      context,
+      MaterialPageRoute<Widget>(builder: (context) => screen),
+    );
   }
 }

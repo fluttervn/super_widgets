@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:super_widgets/super_widgets.dart';
 
+/// SuperRaisedButton demo
 class SuperRaisedButtonPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -13,6 +14,7 @@ class SuperRaisedButtonPage extends StatelessWidget {
     );
   }
 
+  /// Content of this page
   Widget buildBody(BuildContext context) {
     return Center(
       child: SuperRaisedButton(
@@ -28,7 +30,11 @@ class SuperRaisedButtonPage extends StatelessWidget {
         },
         childText: Text(
           'Support us!',
-          style: TextStyle(fontSize: 18, color: Colors.red, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontSize: 18,
+            color: Colors.red,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );

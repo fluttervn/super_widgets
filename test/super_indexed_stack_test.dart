@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:super_widgets/super_indexed_stack.dart';
 
 void main() {
-  testWidgets('SuperIndexedStack structure & default child value', (WidgetTester tester) async {
+  testWidgets('SuperIndexedStack default value', (WidgetTester tester) async {
     final superIndexedStack = SuperIndexedStack();
     await tester.pumpWidget(Directionality(
       child: superIndexedStack,
@@ -24,7 +24,7 @@ void main() {
     expect(indexedStack.key, isNull);
   });
 
-  testWidgets('SuperIndexedStack full child value', (WidgetTester tester) async {
+  testWidgets('SuperIndexedStack full value', (WidgetTester tester) async {
     final List<Widget> children = [
       Text('Text 1'),
       Text('Text 2'),
@@ -43,8 +43,7 @@ void main() {
       childAlignment: AlignmentDirectional.center,
       index: 1,
     );
-    // Since we don't choose MaterialApp as root, we must wrap child in a Directionality instead
-    // https://stackoverflow.com/a/49689947/190309
+
     await tester.pumpWidget(Directionality(
       child: superIndexedStack,
       textDirection: TextDirection.ltr,

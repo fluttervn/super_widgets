@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:super_widgets/super_stack.dart';
 
 void main() {
-  testWidgets('SuperStack structure & default child value', (WidgetTester tester) async {
+  testWidgets('SuperStack child value', (WidgetTester tester) async {
     final superStack = SuperStack();
     await tester.pumpWidget(Directionality(
       child: superStack,
@@ -41,8 +41,7 @@ void main() {
       overflow: Overflow.visible,
       childAlignment: AlignmentDirectional.center,
     );
-    // Since we don't choose MaterialApp as root, we must wrap child in a Directionality instead
-    // https://stackoverflow.com/a/49689947/190309
+
     await tester.pumpWidget(Directionality(
       child: superStack,
       textDirection: TextDirection.ltr,

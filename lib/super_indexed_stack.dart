@@ -1,15 +1,25 @@
 import 'package:flutter/widgets.dart';
 
+/// [SuperIndexedStack] is a [Container] with [IndexedStack] inside
 class SuperIndexedStack extends Container {
-  /// [SuperIndexedStack] is a [Container] with [Stack] inside. Its params are all params of [Container]
-  /// with [Stack] params:
+  /// Create new [SuperIndexedStack]. Its params is the combination of
+  /// [Container]'s params (has the same param name) and [IndexedStack]'s
+  /// params (has almost the same param name, but if have any duplicated name
+  /// with its parent, then add prefix `child` - for example: if [Container]
+  /// has `color` property, and [IndexedStack] also  have `color` property,
+  /// then the latter will be rename to `childColor`).
   ///
-  /// - childKey: Key of the [Stack]
-  /// - children: List of Widgets of [Stack]
-  /// - childAlignment: the [AlignmentGeometry] of [Stack], default is [AlignmentDirectional.topStart]
-  /// - fit: the [StackFit] of [Stack], default is [StackFit.loose]
-  /// - textDirection: the [TextDirection] of [Stack]
-  /// - overflow: the [Overflow] of [Stack], default is [Overflow.clip]
+  /// The list below only show default params of [Container] :
+  ///
+  /// - [alignment] : default is [AlignmentDirectional.topStart]
+  ///
+  /// The list below only show renamed or default params of [IndexedStack] :
+  ///
+  /// - [childKey] : [Key] of the [IndexedStack]
+  /// - [childAlignment] : default is [AlignmentDirectional.topStart]
+  /// - [sizing] : default is [StackFit.loose]
+  /// - [index] : default is 0
+  /// - [children] : default is `<Widget>[]`
   SuperIndexedStack({
     Key key,
     AlignmentGeometry alignment,

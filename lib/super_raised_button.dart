@@ -1,37 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+/// SuperRaisedButton] is a [Container] with [RaisedButton] inside
 class SuperRaisedButton extends Container {
-  /// [SuperRaisedButton] is a [Container] with [RaisedButton] inside. Its params is the combination
-  /// of [Container]'s params (has the same param name) and [RaisedButton]'s params (has almost the
-  /// same param name, but if have any duplicated name with its parent, then add prefix `child` -
-  /// for example: Container has `color` property, then if [RaisedButton] also have `color`
-  /// property, then the latter will be rename to `childColor`). The list below only documents
-  /// for [RaisedButton]
+  /// Create new [SuperRaisedButton]. Its params is the combination of
+  /// [Container]'s params (has the same param name) and [RaisedButton]'s
+  /// params (has almost the same param name, but if have any duplicated name
+  /// with its parent, then add prefix `child` - for example: if [Container]
+  /// has `color` property, and [RaisedButton] also  have `color` property,
+  /// then the latter will be rename to `childColor`).
   ///
-  /// - childKey: [Key] of the [RaisedButton]
-  /// - childText: the [Widget] inside the [RaisedButton], often is a [Text]
-  /// - onPressed: [VoidCallback] press event of the [RaisedButton]
-  /// - onHighlightChanged: [ValueChanged] highlight event of the [RaisedButton]
-  /// - textTheme: [ButtonTextTheme] of the [RaisedButton]
-  /// - textColor: text [Color] of the [RaisedButton]
-  /// - disabledTextColor: disabled text [Color] of the [RaisedButton]
-  /// - childColor: background color [Color] of the [RaisedButton]
-  /// - disabledColor: disable background color [Color] of the [RaisedButton]
-  /// - highlightColor: highlight background color [Color] of the [RaisedButton]
-  /// - splashColor: splash [Color] of the [RaisedButton]
-  /// - colorBrightness: [Brightness] color of the [RaisedButton]
-  /// - elevation: elevation value ([double]) of the [RaisedButton]
-  /// - highlightElevation: highlight elevation value ([double]) of the [RaisedButton]
-  /// - disabledElevation: disable elevation value ([double]) of the [RaisedButton]
-  /// - childPadding: padding ([EdgeInsetsGeometry]) of the [RaisedButton]
-  /// - shape: shape ([ShapeBorder]) of the [RaisedButton]
-  /// - clipBehavior: clip behavior ([Clip]) of the [RaisedButton], default is [Clip.none]
-  /// - materialTapTargetSize: [MaterialTapTargetSize] of the [RaisedButton]
-  /// - animationDuration: splash animation duration ([Duration]) of the [RaisedButton]
+  /// The list below only show default params of [Container] :
+  ///
+  /// - [alignment] : default is [AlignmentDirectional.topStart]
+  ///
+  /// The list below only show renamed or default params of [RaisedButton] :
+  ///
+  /// - [childKey] : [Key] of the [RaisedButton]
+  /// - [childPadding] : padding of the [RaisedButton]
+  /// - [childColor] : [Color] of the [RaisedButton]
+  /// - [clipBehavior] : default is [Clip.none]
+  /// - [onPressed] : default is empty [VoidCallback]
+  ///
   SuperRaisedButton({
     Key key,
-    AlignmentGeometry alignment,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
     Color color,
     Decoration decoration,
@@ -66,9 +59,9 @@ class SuperRaisedButton extends Container {
         assert(disabledElevation == null || disabledElevation >= 0.0),
         super(
           key: key,
+          color: color,
           alignment: alignment,
           padding: padding,
-          color: color,
           decoration: decoration,
           foregroundDecoration: foregroundDecoration,
           width: width,
@@ -83,7 +76,7 @@ class SuperRaisedButton extends Container {
             textTheme: textTheme,
             textColor: textColor,
             disabledTextColor: disabledTextColor,
-            color: color,
+            color: childColor,
             disabledColor: disabledColor,
             highlightColor: highlightColor,
             splashColor: splashColor,
@@ -91,7 +84,7 @@ class SuperRaisedButton extends Container {
             elevation: elevation,
             highlightElevation: highlightElevation,
             disabledElevation: disabledElevation,
-            padding: padding,
+            padding: childPadding,
             shape: shape,
             clipBehavior: clipBehavior,
             materialTapTargetSize: materialTapTargetSize,
