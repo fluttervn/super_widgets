@@ -59,6 +59,16 @@ class SuperRaisedButton extends Container {
         assert(disabledElevation == null || disabledElevation >= 0.0),
         super(
           key: key,
+          color: color,
+          alignment: alignment,
+          padding: padding,
+          decoration: decoration,
+          foregroundDecoration: foregroundDecoration,
+          width: width,
+          height: height,
+          constraints: constraints,
+          margin: margin,
+          transform: transform,
           child: RaisedButton(
             key: childKey,
             onPressed: onPressed ?? () {},
