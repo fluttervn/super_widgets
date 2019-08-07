@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
 
 /// [SuperScrollViewRow] is a [SingleChildScrollView] with [Row]
-/// inside.
+/// inside, it means scrollDirection is [Axis.horizontal]
 class SuperScrollViewRow extends SingleChildScrollView {
   /// Create new [SuperScrollViewRow].
   ///
@@ -17,7 +17,6 @@ class SuperScrollViewRow extends SingleChildScrollView {
   ///
   /// The list below only show default params of [SingleChildScrollView] :
   ///
-  /// - scrollDirection: default is [Axis.vertical]
   /// - reverse: default is false
   ///
   /// The list below only show renamed or default params of [Row] :
@@ -30,7 +29,6 @@ class SuperScrollViewRow extends SingleChildScrollView {
   /// - [verticalDirection] : default is [VerticalDirection.down]
   SuperScrollViewRow({
     Key key,
-    Axis scrollDirection = Axis.vertical,
     bool reverse = false,
     EdgeInsetsGeometry padding,
     bool primary,
@@ -47,7 +45,7 @@ class SuperScrollViewRow extends SingleChildScrollView {
     TextBaseline textBaseline,
   }) : super(
           key: key,
-          scrollDirection: scrollDirection,
+          scrollDirection: Axis.horizontal,
           reverse: reverse,
           padding: padding,
           primary: primary,

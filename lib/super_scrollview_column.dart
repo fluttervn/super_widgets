@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
 
 /// [SuperScrollViewColumn] is a [SingleChildScrollView] with [Column]
-/// inside.
+/// inside, it means scrollDirection is [Axis.vertical]
 class SuperScrollViewColumn extends SingleChildScrollView {
   /// Create new [SuperScrollViewColumn].
   ///
@@ -16,8 +16,6 @@ class SuperScrollViewColumn extends SingleChildScrollView {
   /// property, then the latter will be rename to `childColor`).
   ///
   /// The list below only show default params of [SingleChildScrollView] :
-  ///
-  /// - scrollDirection: default is [Axis.vertical]
   /// - reverse: default is false
   ///
   /// The list below only show renamed or default params of [Column] :
@@ -30,7 +28,6 @@ class SuperScrollViewColumn extends SingleChildScrollView {
   /// - [verticalDirection] : default is [VerticalDirection.down]
   SuperScrollViewColumn({
     Key key,
-    Axis scrollDirection = Axis.vertical,
     bool reverse = false,
     EdgeInsetsGeometry padding,
     bool primary,
@@ -47,7 +44,7 @@ class SuperScrollViewColumn extends SingleChildScrollView {
     TextBaseline textBaseline,
   }) : super(
           key: key,
-          scrollDirection: scrollDirection,
+          scrollDirection: Axis.vertical,
           reverse: reverse,
           padding: padding,
           primary: primary,
