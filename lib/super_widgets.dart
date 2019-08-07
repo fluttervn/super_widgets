@@ -8,5 +8,6 @@ export 'super_raised_button.dart';
 export 'super_row.dart';
 export 'super_scrollview_column.dart';
 export 'super_scrollview_container.dart';
+export 'super_scrollview_row.dart';
 export 'super_stack.dart';
 export 'super_text.dart';
