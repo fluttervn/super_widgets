@@ -6,6 +6,7 @@ import 'super_indexed_stack_page.dart';
 import 'super_inkwell_page.dart';
 import 'super_raised_button_page.dart';
 import 'super_row_page.dart';
+import 'super_scrollview_container_page.dart';
 import 'super_stack_page.dart';
 import 'super_text_page.dart';
 
@@ -37,6 +38,7 @@ class MyHomePage extends StatelessWidget {
     'SuperIcon': SuperIconPage(),
     'SuperText': SuperTextPage(),
     'SuperInkWell': SuperInkWellPage(),
+    'SuperScrollViewContainer': SuperScrollViewContainerPage(),
   };
 
   @override
