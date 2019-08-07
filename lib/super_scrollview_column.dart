@@ -16,7 +16,9 @@ class SuperScrollViewColumn extends SingleChildScrollView {
   /// property, then the latter will be rename to `childColor`).
   ///
   /// The list below only show default params of [SingleChildScrollView] :
+  ///
   /// - reverse: default is false
+  /// - dragStartBehavior: default is [DragStartBehavior.start]
   ///
   /// The list below only show renamed or default params of [Column] :
   ///
@@ -33,7 +35,7 @@ class SuperScrollViewColumn extends SingleChildScrollView {
     bool primary,
     ScrollPhysics physics,
     ScrollController controller,
-    DragStartBehavior dragStartBehavior,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
     Key childKey,
     List<Widget> children,
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,

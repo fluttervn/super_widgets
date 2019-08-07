@@ -19,6 +19,7 @@ class SuperScrollViewContainer extends SingleChildScrollView {
   ///
   /// - scrollDirection: default is [Axis.vertical]
   /// - reverse: default is false
+  /// - dragStartBehavior: default is [DragStartBehavior.start]
   ///
   /// The list below only show renamed or default params of [Container] :
   ///
@@ -32,7 +33,7 @@ class SuperScrollViewContainer extends SingleChildScrollView {
     bool primary,
     ScrollPhysics physics,
     ScrollController controller,
-    DragStartBehavior dragStartBehavior,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
     Key childKey,
     AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry childPadding,

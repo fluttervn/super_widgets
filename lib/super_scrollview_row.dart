@@ -18,6 +18,7 @@ class SuperScrollViewRow extends SingleChildScrollView {
   /// The list below only show default params of [SingleChildScrollView] :
   ///
   /// - reverse: default is false
+  /// - dragStartBehavior: default is [DragStartBehavior.start]
   ///
   /// The list below only show renamed or default params of [Row] :
   ///
@@ -34,7 +35,7 @@ class SuperScrollViewRow extends SingleChildScrollView {
     bool primary,
     ScrollPhysics physics,
     ScrollController controller,
-    DragStartBehavior dragStartBehavior,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
     Key childKey,
     List<Widget> children,
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
