@@ -19,7 +19,7 @@ class SuperIcon extends Container {
   /// - [childKey] : [Key] of the [Icon]
   SuperIcon({
     Key key,
-    AlignmentGeometry alignment,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
     Color color,
     Decoration decoration,

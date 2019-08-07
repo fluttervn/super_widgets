@@ -10,6 +10,10 @@ addons:
     packages:
       - libstdc++6
       - fonts-droid-fallback
+# safelist
+branches:
+  only:
+    - master
 install:
   - echo 'Avoid default Travis CI install step' # this is to avoid an error with pub in Travis
 before_script:
