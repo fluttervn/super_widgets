@@ -23,7 +23,7 @@ class SuperColumn extends Container {
   /// - [verticalDirection] : default is [VerticalDirection.down]
   SuperColumn({
     Key key,
-    AlignmentGeometry alignment,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
     Color color,
     Decoration decoration,

@@ -22,7 +22,7 @@ class SuperStack extends Container {
   /// - [children] : default is `<Widget>[]`
   SuperStack({
     Key key,
-    AlignmentGeometry alignment,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
     Color color,
     Decoration decoration,
