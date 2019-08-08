@@ -29,6 +29,10 @@ List of SuperWidgets is:
 - [SuperRaisedButton](https://github.com/fluttervn/super_widgets/blob/master/README.md#superraisedbutton)
 - [SuperIcon](https://github.com/fluttervn/super_widgets/blob/master/README.md#supericon)
 - [SuperText](https://github.com/fluttervn/super_widgets/blob/master/README.md#supertext)
+- [SuperInkWell](https://github.com/fluttervn/super_widgets/blob/master/README.md#superinkwell)
+- [SuperScrollViewContainer](https://github.com/fluttervn/super_widgets/blob/master/README.md#superscrollviewcontainer)
+- [SuperScrollViewColumn](https://github.com/fluttervn/super_widgets/blob/master/README.md#superscrollviewcolumn)
+- [SuperScrollViewRow](https://github.com/fluttervn/super_widgets/blob/master/README.md#superscrollviewrow)
 
 ### SuperStack
 Is the combination of `Container` > `Stack`
@@ -185,6 +189,85 @@ SuperText(
   ]),
   color: Colors.yellow,
 )
+```
+### SuperInkWell
+Is the combination of `InkWell` > `Container`
+```dart
+SuperInkWell(
+  padding: EdgeInsets.all(10),
+  width: 200,
+  height: 50,
+  alignment: Alignment.center,
+  childText: Text(
+    'SuperInkWell with size',
+    style: TextStyle(fontSize: 16),
+  ),
+),
+```
+### SuperScrollViewContainer
+Is the combination of `SingleChildScrollView` > `Container`
+```dart
+SuperScrollViewContainer(
+  color: Colors.grey[300],
+  padding: EdgeInsets.all(10),
+  child: Text(
+    'This\n\nis\n\nSuper\n\nScroll\n\nView'
+    '\n\nContainer\n\nvertical\n\npage',
+    style: TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+      color: Colors.red,
+    ),
+  ),
+),
+```
+### SuperScrollViewColumn
+Is the combination of `SingleChildScrollView` > `Column`
+```dart
+var textStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 48);
+SuperScrollViewColumn(
+  crossAxisAlignment: CrossAxisAlignment.start,
+  padding: EdgeInsets.all(10),
+  children: <Widget>[
+    Text('This', style: textStyle),
+    Text('...', style: textStyle),
+    Text('is', style: textStyle),
+    Text('...', style: textStyle),
+    Text('the', style: textStyle),
+    Text('...', style: textStyle),
+    Text('Super', style: textStyle),
+    Text('...', style: textStyle),
+    Text('ScrollView', style: textStyle),
+    Text('...', style: textStyle),
+    Text('Column', style: textStyle),
+    Text('...', style: textStyle),
+    Text('demo', style: textStyle),
+  ],
+);
+```
+### SuperScrollViewRow
+Is the combination of `SingleChildScrollView` > `Row`
+```dart
+var textStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 32);
+SuperScrollViewRow(
+  crossAxisAlignment: CrossAxisAlignment.start,
+  padding: EdgeInsets.all(10),
+  children: <Widget>[
+    Text('This', style: textStyle),
+    Text('...', style: textStyle),
+    Text('is', style: textStyle),
+    Text('...', style: textStyle),
+    Text('the', style: textStyle),
+    Text('...', style: textStyle),
+    Text('Super', style: textStyle),
+    Text('...', style: textStyle),
+    Text('ScrollView', style: textStyle),
+    Text('...', style: textStyle),
+    Text('Row', style: textStyle),
+    Text('...', style: textStyle),
+    Text('demo', style: textStyle),
+  ],
+);
 ```
 ## Example
 
