@@ -6,9 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 1.0.0 - First stable release - Aug 8, 2019
+### Added
+- Introduce new widgets: `SuperInkWell`, `SuperScrollViewContainer`, `SuperScrollViewColumn` and `SuperScrollViewRow`
+
 ## 0.2.0 - Aug 2, 2019
 ### Added
-- Introduce new widgets: `SuperIcon`, `SuperTẽt` and `SuperRaisedButton`
+- Introduce new widgets: `SuperIcon`, `SuperText` and `SuperRaisedButton`
 
 ## 0.1.0 - Jul 31, 2019
 ### Added
