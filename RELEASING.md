@@ -12,7 +12,7 @@ This document describes our release process, and contains the steps to be follow
 5. In release branch > `CHANGELOG.md`, add a section for this release
 6. Ensure that the release branch is building and that tests are passing
 7. Run Flutter Analyzer (`flutter analyze --current-package`) in Android Studio Terminal to ensure no more issues
-8. Run `flutter pub pub publish --dry-run` in Android Studio Terminal to test publish package (Refer to [Pub.dev#Publishing package](https://flutter.dev/docs/development/packages-and-plugins/developing-packages). If have any error or warning, let fix it and re-run that command.
+8. Run `flutter pub pub publish --dry-run` in Android Studio Terminal to test publish package (Refer to [Pub.dev#Publishing package](https://flutter.dev/docs/development/packages-and-plugins/developing-packages)). If have any error or warning, let fix it and re-run that command.
 9. Create pull request from release branch to master branch
 10. In Github, merge that pull request.
 11. In Android Studio, switch to master branch, pull code to update.
