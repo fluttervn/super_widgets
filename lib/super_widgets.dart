@@ -1,6 +1,8 @@
 library super_widgets;
 
+export 'super_card.dart';
 export 'super_column.dart';
+export 'super_container.dart';
 export 'super_icon.dart';
 export 'super_indexed_stack.dart';
 export 'super_inkwell.dart';

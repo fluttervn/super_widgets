@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'super_card_page.dart';
 import 'super_column_page.dart';
+import 'super_container_page.dart';
 import 'super_icon_page.dart';
 import 'super_indexed_stack_page.dart';
 import 'super_inkwell_page.dart';
@@ -32,6 +34,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   /// List of <screen name, widget name>
   final Map<String, Widget> mapScreens = {
+    'SuperContainer': SuperContainerPage(),
     'SuperStack': SuperStackPage(),
     'SuperIndexedStack': SuperIndexedStackPage(),
     'SuperRow': SuperRowPage(),
@@ -43,6 +46,7 @@ class MyHomePage extends StatelessWidget {
     'SuperScrollViewContainer': SuperScrollViewContainerPage(),
     'SuperScrollViewColumn': SuperScrollViewColumnPage(),
     'SuperScrollViewRow': SuperScrollViewRowPage(),
+    'SuperCard': SuperCardPage(),
   };
 
   @override
