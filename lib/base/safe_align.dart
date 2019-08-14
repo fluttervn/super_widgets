@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 /// SafeAlign is a custom widget of [Align], which wraps child inside
 /// a Align.
 ///
-/// If has no Align, just return the child to avoid unnecessary deep level
+/// If has no alignment, just return the child to avoid unnecessary deep level
 class SafeAlign extends StatelessWidget {
   /// alignment
   final AlignmentGeometry alignment;
@@ -11,8 +11,7 @@ class SafeAlign extends StatelessWidget {
   /// child
   final Widget child;
 
-  /// Creates a widget that mimics [Container] with combination of common
-  /// painting, positioning, and sizing widgets.
+  /// Creates SafeAlign
   SafeAlign({
     Key key,
     this.alignment,

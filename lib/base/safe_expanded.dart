@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 /// SafeExpanded is a custom widget of [Expanded], which wraps child inside
 /// a Expanded.
 ///
-/// If has no padding, just return the child to avoid unnecessary deep level
+/// If has no flex, just return the child to avoid unnecessary deep level
 class SafeExpanded extends StatelessWidget {
   /// flex
   final int flex;
@@ -11,8 +11,7 @@ class SafeExpanded extends StatelessWidget {
   /// child
   final Widget child;
 
-  /// Creates a widget that mimics [Container] with combination of common
-  /// painting, positioning, and sizing widgets.
+  /// Creates SafeExpanded
   SafeExpanded({
     Key key,
     this.flex,
