@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'super_card_page.dart';
 import 'super_column_page.dart';
 import 'super_container_page.dart';
 import 'super_icon_page.dart';
@@ -46,7 +45,6 @@ class MyHomePage extends StatelessWidget {
     'SuperScrollViewContainer': SuperScrollViewContainerPage(),
     'SuperScrollViewColumn': SuperScrollViewColumnPage(),
     'SuperScrollViewRow': SuperScrollViewRowPage(),
-    'SuperCard': SuperCardPage(),
   };
 
   @override
