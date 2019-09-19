@@ -25,8 +25,9 @@ class SuperContainer extends BaseContainer {
           padding: padding,
           color: color,
           decoration: decoration,
-          width: width,
-          height: height,
+    //TODO(triet) Fix it later
+    width: width.toString(),
+    height: height.toString(),
           constraints: constraints,
           margin: margin,
           expandFlex: expandFlex,
