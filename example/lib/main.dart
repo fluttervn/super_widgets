@@ -12,6 +12,7 @@ import 'super_scrollview_container_page.dart';
 import 'super_scrollview_row_page.dart';
 import 'super_stack_page.dart';
 import 'super_text_page.dart';
+import 'test_container_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   /// List of <screen name, widget name>
   final Map<String, Widget> mapScreens = {
+    'TestContainer': TestContainerPage(),
     'SuperContainer': SuperContainerPage(),
     'SuperStack': SuperStackPage(),
     'SuperIndexedStack': SuperIndexedStackPage(),

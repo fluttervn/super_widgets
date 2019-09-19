@@ -41,15 +41,35 @@ class DynamicSize extends StatelessWidget {
           child: child,
         );
       } else if (height == 'wrap') {
-        current = Wrap(
-          alignment: WrapAlignment.start,
-          direction: Axis.horizontal,
+        current = Row(
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[child],
+        );
+      } else {
+        double dHeight = double.parse(height);
+        current = Container(
+          width: double.infinity,
+          height: dHeight,
+          child: child,
         );
       }
-    }
-
-    if (padding != null) {
-      current = Padding(padding: padding, child: current);
+    } else if (width == 'wrap') {
+      if (height == 'full') {
+        current = Column(
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[child],
+        );
+      } else if (height == 'wrap') {
+        current = Wrap(
+          children: <Widget>[child],
+        );
+      } else {
+        double dHeight = double.parse(height);
+        current = Column(
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[child],
+        );
+      }
     }
 
     return current;
