@@ -35,17 +35,6 @@ class SuperContainerPage extends StatelessWidget {
           child: Text('h=$defaultH, w = not specified (default)'),
         ),
         boxH,
-        Row(
-          children: <Widget>[
-            SuperContainer(
-              color: bgColor,
-              child: Text('h=$defaultH, expandedFlex = 1'),
-              height: defaultH,
-              expandFlex: 1,
-            ),
-          ],
-        ),
-        boxH,
         SuperContainer(
           color: bgColor,
           width: 200,

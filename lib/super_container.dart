@@ -15,22 +15,19 @@ class SuperContainer extends BaseContainer {
     double width,
     double height,
     BoxConstraints constraints,
-
-    /// To use [expandFlex], its parent must be a [Row], [Column] or [Flex]
-    int expandFlex,
+    String dynamicSize,
     Widget child,
   }) : super(
           key: key,
           alignment: alignment,
           padding: padding,
           color: color,
+          width: width,
+          height: height,
+          dynamicSize: dynamicSize,
           decoration: decoration,
-    //TODO(triet) Fix it later
-    width: width.toString(),
-    height: height.toString(),
           constraints: constraints,
           margin: margin,
-          expandFlex: expandFlex,
           child: child,
         );
 }

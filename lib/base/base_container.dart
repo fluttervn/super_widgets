@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:super_widgets/base/dynamic_size.dart';
 import 'package:super_widgets/base/safe_decorated_box.dart';
 
 import 'safe_align.dart';
-import 'safe_expanded.dart';
 import 'safe_padding.dart';
 
 /// BaseContainer is an abstract widget which has almost properties such as
@@ -29,25 +29,17 @@ class BaseContainer extends StatelessWidget {
   /// Empty space to surround the [decoration] and [child].
   final EdgeInsetsGeometry margin;
 
-  /// Width (string) of the container. Its default value is `wrap`:
-  /// - wrap: is [Wrap] widget
-  /// - full: is [Expanded] widget
-  /// - any integer (100, 250...): is exact width of this widget
-  final String width;
+  /// Width (double) of the container.
+  final double width;
 
-  /// Height (string) of the container. Its default value is `wrap`:
-  /// - wrap: is [Wrap] widget
-  /// - full: is [Expanded] widget
-  /// - any integer (100, 250...): is exact height of this widget
-  final String height;
+  /// Height (double) of the container.
+  final double height;
 
-  /// The flex factor to use for this child
+  /// Dynamic size of this widget
   ///
-  /// If null or zero, the child is inflexible and determines its own size. If
-  /// non-zero, the amount of space the child's can occupy in the main axis is
-  /// determined by dividing the free space (after placing the inflexible
-  /// children) according to the flex factors of the flexible children.
-  final int expandFlex;
+  /// If is 'wrap', then this widget will be wrapped into a [Wrap] widget.
+  /// If is 'full', then this widget will be wrapped into a [Expanded] widget
+  final String dynamicSize;
 
   /// The [child] contained by the container.
   final Widget child;
@@ -71,7 +63,7 @@ class BaseContainer extends StatelessWidget {
     this.width,
     this.height,
     BoxConstraints constraints,
-    this.expandFlex = 0,
+    this.dynamicSize,
     this.child,
   })  : assert(margin == null || margin.isNonNegative),
         assert(padding == null || padding.isNonNegative),
@@ -82,8 +74,7 @@ class BaseContainer extends StatelessWidget {
             'Cannot provide both a color and a decoration\n'
             'The color argument is just a shorthand for '
             '"decoration: new BoxDecoration(color: color)".'),
-        decoration =
-            decoration ?? (color != null ? BoxDecoration(color: color) : null),
+        decoration = decoration ?? (color != null ? BoxDecoration(color: color) : null),
         super(key: key);
 
   @override
@@ -97,12 +88,11 @@ class BaseContainer extends StatelessWidget {
 
     current = SafeDecoratedBox(decoration: decoration, child: current);
 
-    // parse width and height, then set its size
-    if (width == 'full') {}
+    // Wrap into a DynamicSize
+    current = DynamicSize(dynamicSize: dynamicSize, child: current);
 
+    // Margin must be the last widget to wrapped
     current = SafePadding(padding: margin, child: current);
-
-    current = SafeExpanded(child: current, flex: expandFlex);
 
     return current;
   }
