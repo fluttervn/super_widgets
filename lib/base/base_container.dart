@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:super_widgets/base/dynamic_size.dart';
 import 'package:super_widgets/base/safe_decorated_box.dart';
 
-import 'safe_padding.dart';
 import 'safe_widget.dart';
 
 /// BaseContainer is an abstract widget which has almost properties such as
@@ -89,7 +88,7 @@ class BaseContainer extends StatelessWidget {
     current = safeAlign(alignment: alignment, child: current);
 
     final EdgeInsetsGeometry effectivePadding = _paddingIncludingDecoration;
-    current = SafePadding(padding: effectivePadding, child: current);
+    current = safePadding(padding: effectivePadding, child: current);
 
     current = SafeDecoratedBox(decoration: decoration, child: current);
 
@@ -97,7 +96,7 @@ class BaseContainer extends StatelessWidget {
     current = DynamicSize(dynamicSize: dynamicSize, child: current);
 
     // Margin must be the last widget to wrapped
-    current = SafePadding(padding: margin, child: current);
+    current = safePadding(padding: margin, child: current);
 
     return current;
   }
