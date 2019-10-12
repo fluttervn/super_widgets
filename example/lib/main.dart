@@ -1,5 +1,6 @@
-import 'package:example/container_size_child_no_scroll_page.dart';
 import 'package:example/container_size_child_scroll_page.dart';
+import 'package:example/container_size_children_no_scroll_page.dart';
+import 'package:example/container_size_single_child_page.dart';
 import 'package:flutter/material.dart';
 
 import 'container_size_scroll_no_child_page.dart';
@@ -36,8 +37,9 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   /// List of <screen name, widget name>
   final Map<String, Widget> mapScreens = {
+    'ContainerSizeSingleChild': ContainerSizeSingleChildPage(),
     'ContainerSizeScrollNoChild': ContainerSizeScrollNoChildPage(),
-    'ContainerSizeChildNoScroll': ContainerSizeChildNoScrollPage(),
+    'ContainerSizeChildrenNoScroll': ContainerSizeChildrenNoScrollPage(),
     'ContainerSizeChildAndScroll': ContainerSizeChildAndScrollPage(),
     'SuperContainer': SuperContainerPage(),
     'SuperStack': SuperStackPage(),

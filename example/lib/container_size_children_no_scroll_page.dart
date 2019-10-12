@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 /// TestContainerNoScroll sample
-class ContainerSizeChildNoScrollPage extends StatelessWidget {
+class ContainerSizeChildrenNoScrollPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ContainerSizeChildNoScroll'),
+        title: Text('ContainerSizeChildrenNoScroll'),
       ),
       body: buildBody(context),
     );
