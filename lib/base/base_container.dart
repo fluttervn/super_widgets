@@ -3,12 +3,12 @@ import 'package:flutter/widgets.dart';
 import 'package:super_widgets/base/dynamic_size.dart';
 import 'package:super_widgets/base/safe_decorated_box.dart';
 
-import 'safe_align.dart';
 import 'safe_padding.dart';
+import 'safe_widget.dart';
 
 /// BaseContainer is an abstract widget which has almost properties such as
 /// [alignment], [padding], [margin], color, [decoration],
-/// [width], [height] and [expandFlex].
+/// [width], [height] and [dynamicSize].
 ///
 /// Note: this widget doesn't support BoxConstraints
 class BaseContainer extends StatelessWidget {
@@ -51,6 +51,11 @@ class BaseContainer extends StatelessWidget {
     return padding.add(decorationPadding);
   }
 
+  static Decoration _decorationFromColor(Color color) {
+    if (color == null) return null;
+    return BoxDecoration(color: color);
+  }
+
   /// Creates a widget that mimics [Container] with combination of common
   /// painting, positioning, and sizing widgets.
   BaseContainer({
@@ -74,14 +79,14 @@ class BaseContainer extends StatelessWidget {
             'Cannot provide both a color and a decoration\n'
             'The color argument is just a shorthand for '
             '"decoration: new BoxDecoration(color: color)".'),
-        decoration = decoration ?? (color != null ? BoxDecoration(color: color) : null),
+        decoration = decoration ?? _decorationFromColor(color),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Widget current = child;
 
-    current = SafeAlign(alignment: alignment, child: current);
+    current = safeAlign(alignment: alignment, child: current);
 
     final EdgeInsetsGeometry effectivePadding = _paddingIncludingDecoration;
     current = SafePadding(padding: effectivePadding, child: current);
