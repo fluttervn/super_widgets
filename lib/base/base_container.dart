@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:super_widgets/base/dynamic_size.dart';
 
 import 'safe_widget.dart';
 
@@ -92,7 +91,7 @@ class BaseContainer extends StatelessWidget {
     current = safeDecoratedBox(decoration: decoration, child: current);
 
     // Wrap into a DynamicSize
-    current = DynamicSize(dynamicSize: dynamicSize, child: current);
+    current = safeDynamicSize(dynamicSize: dynamicSize, child: current);
 
     // Margin must be the last widget to wrapped
     current = safePadding(padding: margin, child: current);

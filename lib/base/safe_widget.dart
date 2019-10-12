@@ -51,3 +51,24 @@ Widget safeConstrainedBox({
 
   return current;
 }
+
+/// Wrap this [child] inside an DynamicSize widget.
+///
+/// dynamicSize: (string) is the dynamic size of the container.
+/// Its default value is empty, or its value can be:
+///
+/// - wrap: will be wrapped inside a [Wrap] widget
+/// - full: will be wrapped inside an [Expanded] widget
+Widget safeDynamicSize({
+  @required String dynamicSize,
+  @required Widget child,
+}) {
+  Widget current = child;
+  if (dynamicSize == 'full') {
+    current = Expanded(child: child);
+  } else if (dynamicSize == 'wrap') {
+    current = Wrap(children: <Widget>[current]);
+  }
+
+  return current;
+}
