@@ -25,3 +25,29 @@ Widget safePadding({
 
   return current;
 }
+
+/// Wrap this [child] inside an [DecoratedBox] widget
+Widget safeDecoratedBox({
+  @required Decoration decoration,
+  @required Widget child,
+}) {
+  Widget current = child;
+  if (decoration != null) {
+    current = DecoratedBox(decoration: decoration, child: current);
+  }
+
+  return current;
+}
+
+/// Wrap this [child] inside an [DecoratedBox] widget
+Widget safeConstrainedBox({
+  @required BoxConstraints constraints,
+  @required Widget child,
+}) {
+  Widget current = child;
+  if (constraints != null) {
+    current = ConstrainedBox(constraints: constraints, child: current);
+  }
+
+  return current;
+}

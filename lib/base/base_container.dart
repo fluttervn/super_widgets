@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:super_widgets/base/dynamic_size.dart';
-import 'package:super_widgets/base/safe_decorated_box.dart';
 
 import 'safe_widget.dart';
 
@@ -90,7 +89,7 @@ class BaseContainer extends StatelessWidget {
     final EdgeInsetsGeometry effectivePadding = _paddingIncludingDecoration;
     current = safePadding(padding: effectivePadding, child: current);
 
-    current = SafeDecoratedBox(decoration: decoration, child: current);
+    current = safeDecoratedBox(decoration: decoration, child: current);
 
     // Wrap into a DynamicSize
     current = DynamicSize(dynamicSize: dynamicSize, child: current);
