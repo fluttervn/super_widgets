@@ -27,10 +27,11 @@ Widget safePadding({
 }
 
 /// Wrap this [child] inside an [DecoratedBox] widget
-Widget safeDecoratedBox(
-    {@required Decoration decoration,
-    @required Widget child,
-    DecorationPosition position = DecorationPosition.background}) {
+Widget safeDecoratedBox({
+  @required Decoration decoration,
+  @required Widget child,
+  DecorationPosition position = DecorationPosition.background,
+}) {
   Widget current = child;
   if (decoration != null) {
     current = DecoratedBox(
