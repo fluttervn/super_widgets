@@ -20,7 +20,7 @@ class SuperText extends BaseContainer {
   ///
   /// - [childKey] : [Key] of the [Text]
   /// - [textData] & [textSpan] : Only allow one
-  SuperText({
+  SuperText(String textData, {
     Key key,
     AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
@@ -33,7 +33,6 @@ class SuperText extends BaseContainer {
     EdgeInsetsGeometry margin,
     Matrix4 transform,
     Key childKey,
-    String textData,
     TextSpan textSpan,
     TextStyle style,
     StrutStyle strutStyle,
@@ -46,12 +45,8 @@ class SuperText extends BaseContainer {
     int maxLines,
     String semanticsLabel,
   })  : assert(
-          textData != null || textSpan != null,
-          'Text widget must have non-empty textData and non-null textSpan',
-        ),
-        assert(
-          textData == null || textSpan == null,
-          'Text widget cannot have both textData and textSpan',
+  textData != null,
+  'Text widget must have non-empty textData',
         ),
         super(
             key: key,
@@ -65,33 +60,74 @@ class SuperText extends BaseContainer {
             constraints: constraints,
             margin: margin,
             transform: transform,
-            child: textSpan == null
-                ? Text(
-                    textData,
-                    key: childKey,
-                    style: style,
-                    strutStyle: strutStyle,
-                    textAlign: textAlign,
-                    textDirection: textDirection,
-                    locale: locale,
-                    softWrap: softWrap,
-                    overflow: overflow,
-                    textScaleFactor: textScaleFactor,
-                    maxLines: maxLines,
-                    semanticsLabel: semanticsLabel,
-                  )
-                : Text.rich(
-                    textSpan,
-                    key: childKey,
-                    style: style,
-                    strutStyle: strutStyle,
-                    textAlign: textAlign,
-                    textDirection: textDirection,
-                    locale: locale,
-                    softWrap: softWrap,
-                    overflow: overflow,
-                    textScaleFactor: textScaleFactor,
-                    maxLines: maxLines,
-                    semanticsLabel: semanticsLabel,
-                  ));
+          child: Text(
+            textData,
+            key: childKey,
+            style: style,
+            strutStyle: strutStyle,
+            textAlign: textAlign,
+            textDirection: textDirection,
+            locale: locale,
+            softWrap: softWrap,
+            overflow: overflow,
+            textScaleFactor: textScaleFactor,
+            maxLines: maxLines,
+            semanticsLabel: semanticsLabel,
+          ));
+
+  SuperText.rich(TextSpan textSpan, {
+    Key key,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    EdgeInsetsGeometry padding,
+    Color color,
+    Decoration decoration,
+    Decoration foregroundDecoration,
+    double width,
+    double height,
+    BoxConstraints constraints,
+    EdgeInsetsGeometry margin,
+    Matrix4 transform,
+    Key childKey,
+    String textData,
+    TextStyle style,
+    StrutStyle strutStyle,
+    TextAlign textAlign,
+    TextDirection textDirection,
+    Locale locale,
+    bool softWrap,
+    TextOverflow overflow,
+    double textScaleFactor,
+    int maxLines,
+    String semanticsLabel,
+  })
+      : assert(
+  textSpan != null,
+  'Text widget must have non-null textSpan',
+  ),
+        super(
+          key: key,
+          alignment: alignment,
+          padding: padding,
+          color: color,
+          decoration: decoration,
+          foregroundDecoration: foregroundDecoration,
+          width: width,
+          height: height,
+          constraints: constraints,
+          margin: margin,
+          transform: transform,
+          child: Text.rich(
+            textSpan,
+            key: childKey,
+            style: style,
+            strutStyle: strutStyle,
+            textAlign: textAlign,
+            textDirection: textDirection,
+            locale: locale,
+            softWrap: softWrap,
+            overflow: overflow,
+            textScaleFactor: textScaleFactor,
+            maxLines: maxLines,
+            semanticsLabel: semanticsLabel,
+          ));
 }
