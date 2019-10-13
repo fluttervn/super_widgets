@@ -56,6 +56,19 @@ Widget safeConstrainedBox({
   return current;
 }
 
+/// Wrap this [child] inside an [Transform] widget
+Widget safeTransform({
+  @required Matrix4 transform,
+  @required Widget child,
+}) {
+  Widget current = child;
+  if (transform != null) {
+    current = Transform(transform: transform, child: current);
+  }
+
+  return current;
+}
+
 /// Wrap this [child] inside an DynamicSize widget.
 ///
 /// dynamicSize: (string) is the dynamic size of the container.

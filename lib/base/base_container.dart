@@ -43,6 +43,9 @@ class BaseContainer extends StatelessWidget {
   /// The [padding] goes inside the constraints.
   final BoxConstraints constraints;
 
+  /// The transformation matrix to apply before painting the container.
+  final Matrix4 transform;
+
   /// The [child] contained by the container.
   final Widget child;
 
@@ -72,6 +75,7 @@ class BaseContainer extends StatelessWidget {
     double height,
     BoxConstraints constraints,
     this.dynamicSize,
+    this.transform,
     this.child,
   })  : assert(margin == null || margin.isNonNegative),
         assert(padding == null || padding.isNonNegative),
@@ -112,8 +116,11 @@ class BaseContainer extends StatelessWidget {
     // Margin must be the last widget to wrapped
     current = safePadding(padding: margin, child: current);
 
-    // Finally, wrap into a DynamicSize for [Expanded] or [Wrap]
+    // Then, wrap into a DynamicSize for [Expanded] or [Wrap]
     current = safeDynamicSize(dynamicSize: dynamicSize, child: current);
+
+    // Finally, wrap into a [Transform]
+    current = safeTransform(transform: transform, child: current);
 
     return current;
   }
