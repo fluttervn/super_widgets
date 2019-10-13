@@ -23,20 +23,25 @@ class BaseContainer extends StatelessWidget {
   /// argument.
   final Decoration decoration;
 
+  /// The decoration to paint in front of the [child].
+  final Decoration foregroundDecoration;
+
   /// Empty space to surround the [decoration] and [child].
   final EdgeInsetsGeometry margin;
-
-  /// Width (double) of the container.
-  final double width;
-
-  /// Height (double) of the container.
-  final double height;
 
   /// Dynamic size of this widget
   ///
   /// If is 'wrap', then this widget will be wrapped into a [Wrap] widget.
   /// If is 'full', then this widget will be wrapped into a [Expanded] widget
   final String dynamicSize;
+
+  /// Additional constraints to apply to the child.
+  ///
+  /// The constructor `width` and `height` arguments are combined with the
+  /// `constraints` argument to set this property.
+  ///
+  /// The [padding] goes inside the constraints.
+  final BoxConstraints constraints;
 
   /// The [child] contained by the container.
   final Widget child;
@@ -62,8 +67,9 @@ class BaseContainer extends StatelessWidget {
     this.margin,
     Color color,
     Decoration decoration,
-    this.width,
-    this.height,
+    this.foregroundDecoration,
+    double width,
+    double height,
     BoxConstraints constraints,
     this.dynamicSize,
     this.child,
@@ -77,6 +83,10 @@ class BaseContainer extends StatelessWidget {
             'The color argument is just a shorthand for '
             '"decoration: new BoxDecoration(color: color)".'),
         decoration = decoration ?? _decorationFromColor(color),
+        constraints = (width != null || height != null)
+            ? constraints?.tighten(width: width, height: height) ??
+                BoxConstraints.tightFor(width: width, height: height)
+            : constraints,
         super(key: key);
 
   @override
@@ -90,11 +100,20 @@ class BaseContainer extends StatelessWidget {
 
     current = safeDecoratedBox(decoration: decoration, child: current);
 
-    // Wrap into a DynamicSize
-    current = safeDynamicSize(dynamicSize: dynamicSize, child: current);
+    current = safeDecoratedBox(
+      decoration: foregroundDecoration,
+      position: DecorationPosition.foreground,
+      child: current,
+    );
+
+    // Wrap into ConstrainedBox for size of widget
+    current = safeConstrainedBox(constraints: constraints, child: current);
 
     // Margin must be the last widget to wrapped
     current = safePadding(padding: margin, child: current);
+
+    // Finally, wrap into a DynamicSize for [Expanded] or [Wrap]
+    current = safeDynamicSize(dynamicSize: dynamicSize, child: current);
 
     return current;
   }

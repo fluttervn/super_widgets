@@ -27,13 +27,17 @@ Widget safePadding({
 }
 
 /// Wrap this [child] inside an [DecoratedBox] widget
-Widget safeDecoratedBox({
-  @required Decoration decoration,
-  @required Widget child,
-}) {
+Widget safeDecoratedBox(
+    {@required Decoration decoration,
+    @required Widget child,
+    DecorationPosition position = DecorationPosition.background}) {
   Widget current = child;
   if (decoration != null) {
-    current = DecoratedBox(decoration: decoration, child: current);
+    current = DecoratedBox(
+      decoration: decoration,
+      child: current,
+      position: position,
+    );
   }
 
   return current;
