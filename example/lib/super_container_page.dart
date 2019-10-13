@@ -23,6 +23,7 @@ class SuperContainerPage extends StatelessWidget {
     return SuperScrollViewColumn(
       crossAxisAlignment: CrossAxisAlignment.start,
       padding: EdgeInsets.all(10),
+      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         SuperContainer(
           color: bgColor,
@@ -32,7 +33,7 @@ class SuperContainerPage extends StatelessWidget {
         SuperContainer(
           color: bgColor,
           height: defaultH,
-          child: Text('h=$defaultH, w = not specified (default)'),
+          child: Text('h=$defaultH, w = not specified'),
         ),
         boxH,
         SuperContainer(

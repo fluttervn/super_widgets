@@ -1,3 +1,4 @@
+import 'package:example/super_container_dynamic_size_page.dart';
 import 'package:flutter/material.dart';
 
 import 'super_column_page.dart';
@@ -34,6 +35,7 @@ class MyHomePage extends StatelessWidget {
   /// List of <screen name, widget name>
   final Map<String, Widget> mapScreens = {
     'SuperContainer': SuperContainerPage(),
+    'SuperContainer dynamicSize': SuperContainerDynamicSizePage(),
     'SuperStack': SuperStackPage(),
     'SuperIndexedStack': SuperIndexedStackPage(),
     'SuperRow': SuperRowPage(),
