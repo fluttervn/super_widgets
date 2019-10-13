@@ -1,7 +1,9 @@
 import 'package:flutter/widgets.dart';
 
+import 'base/base_container.dart';
+
 /// [SuperStack] is a [Container] with [Stack] inside.
-class SuperStack extends Container {
+class SuperStack extends BaseContainer {
   /// Create new [SuperStack]. Its params is the combination of [Container]'s
   /// params (has the same param name) and [Stack]'s  params (has almost the
   /// same param name, but if have any duplicated name with its parent,
