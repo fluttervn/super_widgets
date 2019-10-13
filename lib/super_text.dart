@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import 'base/base_container.dart';
+
 /// [SuperText] is a [Container] with [Text] inside
-class SuperText extends Container {
+class SuperText extends BaseContainer {
   /// Create new [SuperText]. Its params is the combination of [Container]'s
   /// params (has the same param name) and [Text]'s  params (has almost the
   /// same param name, but if have any duplicated name with its parent,
