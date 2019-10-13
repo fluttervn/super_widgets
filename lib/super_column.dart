@@ -1,7 +1,9 @@
 import 'package:flutter/widgets.dart';
 
+import 'base/base_container.dart';
+
 /// [SuperColumn] is a [Container] with [Column] inside
-class SuperColumn extends Container {
+class SuperColumn extends BaseContainer {
   /// Create new [SuperColumn]. Its params is the combination of [Container]'s
   /// params (has the same param name) and [Column]'s  params (has almost the
   /// same param name, but if have any duplicated name with its parent,
