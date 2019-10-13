@@ -37,7 +37,7 @@ class SuperInkWell extends InkWell {
     bool excludeFromSemantics = false,
     Key childKey,
     Widget child,
-    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    AlignmentGeometry alignment = AlignmentDirectional.center,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
