@@ -36,7 +36,7 @@ class SuperInkWell extends InkWell {
     bool enableFeedback = true,
     bool excludeFromSemantics = false,
     Key childKey,
-    Widget childText,
+    Widget child,
     AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
@@ -75,7 +75,7 @@ class SuperInkWell extends InkWell {
             constraints: constraints,
             margin: margin,
             transform: transform,
-            child: childText,
+            child: child,
           ),
         );
 }
