@@ -1,7 +1,9 @@
 import 'package:flutter/widgets.dart';
 
+import 'base/base_container.dart';
+
 /// [SuperRow] is a [Container] with [Row] inside
-class SuperRow extends Container {
+class SuperRow extends BaseContainer {
   /// Create new [SuperRow]. Its params is the combination of
   /// [Container]'s params (has the same param name) and [Row]'s
   /// params (has almost the same param name, but if have any duplicated name
@@ -25,13 +27,15 @@ class SuperRow extends Container {
     Key key,
     AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
+    EdgeInsetsGeometry margin,
     Color color,
     Decoration decoration,
     Decoration foregroundDecoration,
     double width,
     double height,
     BoxConstraints constraints,
-    EdgeInsetsGeometry margin,
+    String dynamicSize,
+    bool ignoreSizeInfinityConstraints = false,
     Matrix4 transform,
     Key childKey,
     List<Widget> children,
@@ -51,6 +55,8 @@ class SuperRow extends Container {
           width: width,
           height: height,
           constraints: constraints,
+          dynamicSize: dynamicSize,
+          ignoreSizeInfinityConstraints: ignoreSizeInfinityConstraints,
           margin: margin,
           transform: transform,
           child: Row(
