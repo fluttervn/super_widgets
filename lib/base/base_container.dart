@@ -47,8 +47,8 @@ class BaseContainer extends StatelessWidget {
   final Matrix4 transform;
 
   /// If width or height or constraints contains an infinity value, you can
-  /// use this flags to ignore all width, height, [alignment] or [constraints].
-  /// If yes, then only [margin] or [padding] takes effect in term of size.
+  /// use this flags to ignore all width, height or [constraints]. If yes,
+  /// then only [margin] or [padding] takes effect ir term of size.
   final bool ignoreSizeInfinityConstraints;
 
   /// The [child] contained by the container.
@@ -103,7 +103,7 @@ class BaseContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget current = child;
 
-    if (!ignoreSizeInfinityConstraints) {
+    if (false == ignoreSizeInfinityConstraints) {
       // When ignore Infinity Size & Constraints, also ignore Align
       current = safeAlign(alignment: alignment, child: current);
     }
@@ -119,7 +119,7 @@ class BaseContainer extends StatelessWidget {
       child: current,
     );
 
-    if (!ignoreSizeInfinityConstraints) {
+    if (false == ignoreSizeInfinityConstraints) {
       // Wrap into ConstrainedBox for size of widget
       current = safeConstrainedBox(constraints: constraints, child: current);
     }
