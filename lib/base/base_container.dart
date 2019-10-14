@@ -5,7 +5,7 @@ import 'safe_widget.dart';
 
 /// BaseContainer is an abstract widget which has almost properties such as
 /// [alignment], [padding], [margin], color, [decoration],
-/// [width], [height] and [dynamicSize].
+/// width, height and [dynamicSize].
 ///
 /// Note: this widget doesn't support BoxConstraints
 class BaseContainer extends StatelessWidget {
@@ -46,6 +46,11 @@ class BaseContainer extends StatelessWidget {
   /// The transformation matrix to apply before painting the container.
   final Matrix4 transform;
 
+  /// If width or height or constraints contains an infinity value, you can
+  /// use this flags to ignore all width, height or [constraints]. If yes,
+  /// then only [margin] or [padding] takes effect ir term of size.
+  final bool ignoreSizeInfinityConstraints;
+
   /// The [child] contained by the container.
   final Widget child;
 
@@ -75,6 +80,7 @@ class BaseContainer extends StatelessWidget {
     double height,
     BoxConstraints constraints,
     this.dynamicSize,
+    this.ignoreSizeInfinityConstraints = false,
     this.transform,
     this.child,
   })  : assert(margin == null || margin.isNonNegative),
@@ -110,8 +116,10 @@ class BaseContainer extends StatelessWidget {
       child: current,
     );
 
-    // Wrap into ConstrainedBox for size of widget
-    current = safeConstrainedBox(constraints: constraints, child: current);
+    if (ignoreSizeInfinityConstraints) {
+      // Wrap into ConstrainedBox for size of widget
+      current = safeConstrainedBox(constraints: constraints, child: current);
+    }
 
     // Margin must be the last widget to wrapped
     current = safePadding(padding: margin, child: current);
