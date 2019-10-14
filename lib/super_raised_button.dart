@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import 'base/base_container.dart';
+
 /// SuperRaisedButton] is a [Container] with [RaisedButton] inside
-class SuperRaisedButton extends Container {
+class SuperRaisedButton extends BaseContainer {
   /// Create new [SuperRaisedButton]. Its params is the combination of
   /// [Container]'s params (has the same param name) and [RaisedButton]'s
   /// params (has almost the same param name, but if have any duplicated name
@@ -26,16 +28,18 @@ class SuperRaisedButton extends Container {
     Key key,
     AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
+    EdgeInsetsGeometry margin,
     Color color,
     Decoration decoration,
     Decoration foregroundDecoration,
     double width,
     double height,
     BoxConstraints constraints,
-    EdgeInsetsGeometry margin,
+    String dynamicSize,
+    bool ignoreSizeInfinityConstraints = false,
     Matrix4 transform,
     Key childKey,
-    Widget childText,
+    Widget child,
     VoidCallback onPressed,
     ValueChanged<bool> onHighlightChanged,
     ButtonTextTheme textTheme,
@@ -62,12 +66,14 @@ class SuperRaisedButton extends Container {
           color: color,
           alignment: alignment,
           padding: padding,
+          margin: margin,
           decoration: decoration,
           foregroundDecoration: foregroundDecoration,
           width: width,
           height: height,
           constraints: constraints,
-          margin: margin,
+          dynamicSize: dynamicSize,
+          ignoreSizeInfinityConstraints: ignoreSizeInfinityConstraints,
           transform: transform,
           child: RaisedButton(
             key: childKey,
@@ -89,7 +95,7 @@ class SuperRaisedButton extends Container {
             clipBehavior: clipBehavior,
             materialTapTargetSize: materialTapTargetSize,
             animationDuration: animationDuration,
-            child: childText,
+            child: child,
           ),
         );
 }
