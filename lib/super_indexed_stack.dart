@@ -1,7 +1,9 @@
 import 'package:flutter/widgets.dart';
 
+import 'base/base_container.dart';
+
 /// [SuperIndexedStack] is a [Container] with [IndexedStack] inside
-class SuperIndexedStack extends Container {
+class SuperIndexedStack extends BaseContainer {
   /// Create new [SuperIndexedStack]. Its params is the combination of
   /// [Container]'s params (has the same param name) and [IndexedStack]'s
   /// params (has almost the same param name, but if have any duplicated name
@@ -24,13 +26,15 @@ class SuperIndexedStack extends Container {
     Key key,
     AlignmentGeometry alignment,
     EdgeInsetsGeometry padding,
+    EdgeInsetsGeometry margin,
     Color color,
     Decoration decoration,
     Decoration foregroundDecoration,
     double width,
     double height,
     BoxConstraints constraints,
-    EdgeInsetsGeometry margin,
+    String dynamicSize,
+    bool ignoreSizeInfinityConstraints,
     Matrix4 transform,
     Key childKey,
     List<Widget> children,
@@ -42,13 +46,15 @@ class SuperIndexedStack extends Container {
           key: key,
           alignment: alignment,
           padding: padding,
+          margin: margin,
           color: color,
           decoration: decoration,
           foregroundDecoration: foregroundDecoration,
           width: width,
           height: height,
           constraints: constraints,
-          margin: margin,
+          dynamicSize: dynamicSize,
+          ignoreSizeInfinityConstraints: ignoreSizeInfinityConstraints,
           transform: transform,
           child: IndexedStack(
             children: children ?? <Widget>[],
