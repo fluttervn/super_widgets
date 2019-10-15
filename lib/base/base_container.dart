@@ -50,6 +50,7 @@ class BaseContainer extends StatelessWidget {
   /// use this flags to ignore all width, height or [constraints]. If yes,
   /// then only [margin] or [padding] takes effect ir term of size.
   final bool ignoreSizeInfinityConstraints;
+  final SizedBox _sizedBox;
 
   /// The [child] contained by the container.
   final Widget child;
@@ -64,6 +65,12 @@ class BaseContainer extends StatelessWidget {
   static Decoration _decorationFromColor(Color color) {
     if (color == null) return null;
     return BoxDecoration(color: color);
+  }
+
+  static SizedBox _sizedBoxFromWidthHeight({double width, double height}) {
+    if (width != null && width > 0 && height != null && height > 0)
+      return SizedBox(width: width, height: height);
+    return null;
   }
 
   /// Creates a widget that mimics [Container] with combination of common
@@ -97,6 +104,7 @@ class BaseContainer extends StatelessWidget {
             ? constraints?.tighten(width: width, height: height) ??
                 BoxConstraints.tightFor(width: width, height: height)
             : constraints,
+        _sizedBox = _sizedBoxFromWidthHeight(width: width, height: height),
         super(key: key);
 
   @override
@@ -119,9 +127,18 @@ class BaseContainer extends StatelessWidget {
       child: current,
     );
 
-    if (false == ignoreSizeInfinityConstraints) {
-      // Wrap into ConstrainedBox for size of widget
-      current = safeConstrainedBox(constraints: constraints, child: current);
+    if (ignoreSizeInfinityConstraints != null) {
+      if (ignoreSizeInfinityConstraints == false) {
+        // Wrap into ConstrainedBox for size of widget
+        current = safeConstrainedBox(constraints: constraints, child: current);
+      } else if (_sizedBox != null) {
+        print('Set ignoreSizeInfinityConstraints with sizedBox=$_sizedBox');
+        current = SizedBox(
+          width: _sizedBox.width,
+          height: _sizedBox.height,
+          child: current,
+        );
+      }
     }
 
     // Margin must be the last widget to wrapped
