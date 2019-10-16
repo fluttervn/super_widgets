@@ -35,7 +35,7 @@ void main() {
       width: 300,
       height: 250,
       childKey: Key('SuperRaisedButton'),
-      childText: text,
+      child: text,
     );
 
     await tester.pumpWidget(Directionality(

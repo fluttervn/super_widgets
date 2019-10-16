@@ -22,7 +22,7 @@ class SuperInkWellPage extends StatelessWidget {
         SizedBox(height: 20),
         SuperInkWell(
           alignment: Alignment.center,
-          childText: Text(
+          child: Text(
             'default SuperInkWell',
             style: TextStyle(
               fontSize: 16,
@@ -37,7 +37,7 @@ class SuperInkWellPage extends StatelessWidget {
           width: 200,
           height: 50,
           alignment: Alignment.center,
-          childText: Text(
+          child: Text(
             'SuperInkWell with size',
             style: TextStyle(fontSize: 16),
           ),
@@ -48,7 +48,7 @@ class SuperInkWellPage extends StatelessWidget {
           width: 50,
           height: 50,
           alignment: Alignment.center,
-          childText: Icon(
+          child: Icon(
             Icons.ac_unit,
           ),
         ),
