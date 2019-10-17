@@ -19,6 +19,8 @@ class SuperContainer extends BaseContainer {
     BoxConstraints constraints,
     String dynamicSize,
     bool ignoreSizeInfinityConstraints = false,
+    VoidCallback onPressed,
+    VoidCallback onLongPressed,
     Matrix4 transform,
     Widget child,
   }) : super(
@@ -34,6 +36,8 @@ class SuperContainer extends BaseContainer {
           constraints: constraints,
           dynamicSize: dynamicSize,
           ignoreSizeInfinityConstraints: ignoreSizeInfinityConstraints,
+          onPressed: onPressed,
+          onLongPressed: onLongPressed,
           transform: transform,
           child: child,
         );

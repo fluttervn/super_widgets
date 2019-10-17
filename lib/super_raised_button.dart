@@ -37,6 +37,7 @@ class SuperRaisedButton extends BaseContainer {
     BoxConstraints constraints,
     String dynamicSize,
     bool ignoreSizeInfinityConstraints = false,
+    VoidCallback onLongPressed,
     Matrix4 transform,
     Key childKey,
     Widget child,
@@ -74,6 +75,7 @@ class SuperRaisedButton extends BaseContainer {
           constraints: constraints,
           dynamicSize: dynamicSize,
           ignoreSizeInfinityConstraints: ignoreSizeInfinityConstraints,
+          onLongPressed: onLongPressed,
           transform: transform,
           child: RaisedButton(
             key: childKey,

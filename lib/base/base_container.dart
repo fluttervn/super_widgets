@@ -47,10 +47,10 @@ class BaseContainer extends StatelessWidget {
   final Matrix4 transform;
 
   /// Callback when user presses on this widget
-  final VoidCallback onPress;
+  final VoidCallback onPressed;
 
   /// Callback when user long-presses on this widget
-  final VoidCallback onLongPress;
+  final VoidCallback onLongPressed;
 
   /// If width or height or constraints contains an infinity value, you can
   /// use this flags to ignore all width, height or [constraints]. If yes,
@@ -95,8 +95,8 @@ class BaseContainer extends StatelessWidget {
     BoxConstraints constraints,
     this.dynamicSize,
     this.ignoreSizeInfinityConstraints = false,
-    this.onPress,
-    this.onLongPress,
+    this.onPressed,
+    this.onLongPressed,
     this.transform,
     this.child,
   })  : assert(margin == null || margin.isNonNegative),
@@ -162,8 +162,8 @@ class BaseContainer extends StatelessWidget {
     // Don't forget to wrap this widget into GestureDetector
     current = safeOnPress(
       child: current,
-      onLongPress: onLongPress,
-      onPress: onPress,
+      onLongPressed: onLongPressed,
+      onPressed: onPressed,
     );
 
     return current;
