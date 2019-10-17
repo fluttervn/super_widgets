@@ -46,6 +46,12 @@ class BaseContainer extends StatelessWidget {
   /// The transformation matrix to apply before painting the container.
   final Matrix4 transform;
 
+  /// Callback when user presses on this widget
+  final VoidCallback onPress;
+
+  /// Callback when user long-presses on this widget
+  final VoidCallback onLongPress;
+
   /// If width or height or constraints contains an infinity value, you can
   /// use this flags to ignore all width, height or [constraints]. If yes,
   /// then only [margin] or [padding] takes effect ir term of size.
@@ -68,8 +74,9 @@ class BaseContainer extends StatelessWidget {
   }
 
   static SizedBox _sizedBoxFromWidthHeight({double width, double height}) {
-    if (width != null && width > 0 && height != null && height > 0)
+    if (width != null && width > 0 && height != null && height > 0) {
       return SizedBox(width: width, height: height);
+    }
     return null;
   }
 
@@ -88,6 +95,8 @@ class BaseContainer extends StatelessWidget {
     BoxConstraints constraints,
     this.dynamicSize,
     this.ignoreSizeInfinityConstraints = false,
+    this.onPress,
+    this.onLongPress,
     this.transform,
     this.child,
   })  : assert(margin == null || margin.isNonNegative),
@@ -149,6 +158,13 @@ class BaseContainer extends StatelessWidget {
 
     // Finally, wrap into a [Transform]
     current = safeTransform(transform: transform, child: current);
+
+    // Don't forget to wrap this widget into GestureDetector
+    current = safeOnPress(
+      child: current,
+      onLongPress: onLongPress,
+      onPress: onPress,
+    );
 
     return current;
   }

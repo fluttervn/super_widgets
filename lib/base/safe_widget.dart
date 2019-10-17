@@ -90,3 +90,20 @@ Widget safeDynamicSize({
 
   return current;
 }
+
+/// Wrap this widget into a [GestureDetector] to allow [onPress] and
+/// [onLongPress]
+Widget safeOnPress({
+  @required Widget child,
+  VoidCallback onPress,
+  VoidCallback onLongPress,
+}) {
+  if (onPress != null || onLongPress != null) {
+    return GestureDetector(
+      child: child,
+      onTap: onPress,
+      onLongPress: onLongPress,
+    );
+  }
+  return child;
+}
