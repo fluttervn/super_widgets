@@ -34,7 +34,7 @@ class SuperStack extends BaseContainer {
     double height,
     BoxConstraints constraints,
     String dynamicSize,
-    bool ignoreSizeInfinityConstraints,
+    bool ignoreSizeInfinityConstraints = false,
     Matrix4 transform,
     Key childKey,
     List<Widget> children,
