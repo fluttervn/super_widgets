@@ -19,7 +19,7 @@ class SuperText extends BaseContainer {
   /// The list below only show renamed or default params of [Text]:
   ///
   /// - [childKey] : [Key] of the [Text]
-  /// - [textData] & [textSpan] : Only allow one
+  /// - [textData]: text (String)
   SuperText(
     String textData, {
     Key key,
