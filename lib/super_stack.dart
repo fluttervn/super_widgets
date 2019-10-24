@@ -57,10 +57,10 @@ class SuperStack extends BaseContainer {
           ignoreSizeInfinityConstraints: ignoreSizeInfinityConstraints,
           transform: transform,
           child: Stack(
+            key: childKey,
             children: children ?? <Widget>[],
             fit: fit,
             alignment: childAlignment,
-            key: childKey,
             textDirection: textDirection,
             overflow: overflow,
           ),
