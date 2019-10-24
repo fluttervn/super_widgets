@@ -19,7 +19,8 @@ class SuperIcon extends BaseContainer {
   /// The list below only show renamed or default params of [Icon] :
   ///
   /// - [childKey] : [Key] of the [Icon]
-  SuperIcon(IconData icon, {
+  SuperIcon(
+    IconData icon, {
     Key key,
     AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
