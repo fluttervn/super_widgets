@@ -1,6 +1,7 @@
 library super_widgets;
 
 export 'super_card.dart';
+export 'super_circle_avatar.dart';
 export 'super_clip_rrect.dart';
 export 'super_column.dart';
 export 'super_container.dart';
