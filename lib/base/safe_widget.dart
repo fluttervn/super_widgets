@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 /// Wrap this [child] inside an [Align] widget
@@ -65,6 +66,22 @@ Widget safeTransform({
   Widget current = child;
   if (transform != null) {
     current = Transform(transform: transform, child: current);
+  }
+
+  return current;
+}
+
+/// Wrap this [child] inside an [InkWell] widget
+/// If enable InkWell but splashColor is null, then will use splashColor from
+/// Theme instead
+Widget safeInkWell({
+  bool enableInkWell,
+  Color splashColor,
+  @required Widget child,
+}) {
+  Widget current = child;
+  if (true == enableInkWell) {
+    current = InkWell(splashColor: splashColor, child: current);
   }
 
   return current;

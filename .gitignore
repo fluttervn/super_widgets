@@ -28,6 +28,9 @@ pubspec.lock
 .pub/
 build/
 
+# Ignore these examples
+# dashboard_reborn/
+
 # Android related
 **/android/**/gradle-wrapper.jar
 **/android/.gradle
