@@ -18,4 +18,5 @@ export 'super_scrollview_container.dart';
 export 'super_scrollview_row.dart';
 export 'super_scrollview_stack.dart';
 export 'super_stack.dart';
+export 'super_style.dart';
 export 'super_text.dart';
