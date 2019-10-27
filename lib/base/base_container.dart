@@ -5,7 +5,7 @@ import 'safe_widget.dart';
 
 /// BaseContainer is an abstract widget which has almost properties such as
 /// [alignment], [padding], [margin], color, [decoration],
-/// width, height and [dynamicSize].
+/// width, height and [flex].
 ///
 /// Note: this widget doesn't support BoxConstraints
 class BaseContainer extends StatelessWidget {
@@ -33,7 +33,7 @@ class BaseContainer extends StatelessWidget {
   ///
   /// If is 'wrap', then this widget will be wrapped into a [Wrap] widget.
   /// If is 'full', then this widget will be wrapped into a [Expanded] widget
-  final String dynamicSize;
+  final int flex;
 
   /// Additional constraints to apply to the child.
   ///
@@ -93,7 +93,7 @@ class BaseContainer extends StatelessWidget {
     double width,
     double height,
     BoxConstraints constraints,
-    this.dynamicSize,
+    this.flex,
     bool ignoreImplicitWidthHeight = false,
     this.onPressed,
     this.onLongPressed,
@@ -153,7 +153,7 @@ class BaseContainer extends StatelessWidget {
     current = safePadding(padding: margin, child: current);
 
     // Then, wrap into a DynamicSize for [Expanded] or [Wrap]
-    current = safeDynamicSize(dynamicSize: dynamicSize, child: current);
+    current = safeFlex(flex: flex, child: current);
 
     // Finally, wrap into a [Transform]
     current = safeTransform(transform: transform, child: current);

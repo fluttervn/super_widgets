@@ -33,7 +33,7 @@ class SuperIndexedStack extends BaseContainer {
     double width,
     double height,
     BoxConstraints constraints,
-    String dynamicSize,
+    int flex,
     bool ignoreImplicitWidthHeight,
     Matrix4 transform,
     Key childKey,
@@ -53,7 +53,7 @@ class SuperIndexedStack extends BaseContainer {
           width: width,
           height: height,
           constraints: constraints,
-          dynamicSize: dynamicSize,
+          flex: flex,
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           transform: transform,
           child: IndexedStack(

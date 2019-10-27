@@ -48,7 +48,7 @@ class SuperInkWell extends InkWell {
     double width,
     double height,
     BoxConstraints constraints,
-    String dynamicSize,
+    int flex,
     bool ignoreImplicitWidthHeight = false,
     Matrix4 transform,
   }) : super(
@@ -78,7 +78,7 @@ class SuperInkWell extends InkWell {
             width: width,
             height: height,
             constraints: constraints,
-            dynamicSize: dynamicSize,
+            flex: flex,
             ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
             transform: transform,
             child: child,

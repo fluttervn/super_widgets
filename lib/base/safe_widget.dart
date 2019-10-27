@@ -94,15 +94,17 @@ Widget safeInkWell({
 ///
 /// - wrap: will be wrapped inside a [Wrap] widget
 /// - full: will be wrapped inside an [Expanded] widget
-Widget safeDynamicSize({
-  @required String dynamicSize,
+Widget safeFlex({
+  int flex,
   @required Widget child,
 }) {
   Widget current = child;
-  if (dynamicSize == 'full') {
-    current = Expanded(child: child);
-  } else if (dynamicSize == 'wrap') {
-    current = Wrap(children: <Widget>[current]);
+  if (flex != null) {
+    if (flex >= 1) {
+      current = Expanded(child: child, flex: flex);
+    } else if (flex == 0) {
+      current = Wrap(children: <Widget>[current]);
+    }
   }
 
   return current;

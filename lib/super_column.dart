@@ -34,7 +34,7 @@ class SuperColumn extends BaseContainer {
     double width,
     double height,
     BoxConstraints constraints,
-    String dynamicSize,
+    int flex,
     bool ignoreImplicitWidthHeight = false,
     Matrix4 transform,
     Key childKey,
@@ -56,7 +56,7 @@ class SuperColumn extends BaseContainer {
           width: width,
           height: height,
           constraints: constraints,
-          dynamicSize: dynamicSize,
+          flex: flex,
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           transform: transform,
           child: Column(
