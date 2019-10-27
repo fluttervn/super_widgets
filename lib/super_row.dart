@@ -35,7 +35,7 @@ class SuperRow extends BaseContainer {
     double height,
     BoxConstraints constraints,
     String dynamicSize,
-    bool ignoreSizeInfinityConstraints = false,
+    bool ignoreImplicitWidthHeight = false,
     Matrix4 transform,
     Key childKey,
     List<Widget> children,
@@ -56,7 +56,7 @@ class SuperRow extends BaseContainer {
           height: height,
           constraints: constraints,
           dynamicSize: dynamicSize,
-          ignoreSizeInfinityConstraints: ignoreSizeInfinityConstraints,
+          ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           margin: margin,
           transform: transform,
           child: Row(

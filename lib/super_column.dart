@@ -35,7 +35,7 @@ class SuperColumn extends BaseContainer {
     double height,
     BoxConstraints constraints,
     String dynamicSize,
-    bool ignoreSizeInfinityConstraints = false,
+    bool ignoreImplicitWidthHeight = false,
     Matrix4 transform,
     Key childKey,
     List<Widget> children,
@@ -57,7 +57,7 @@ class SuperColumn extends BaseContainer {
           height: height,
           constraints: constraints,
           dynamicSize: dynamicSize,
-          ignoreSizeInfinityConstraints: ignoreSizeInfinityConstraints,
+          ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           transform: transform,
           child: Column(
             key: childKey,

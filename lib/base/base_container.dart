@@ -55,7 +55,7 @@ class BaseContainer extends StatelessWidget {
   /// If width or height or constraints contains an infinity value, you can
   /// use this flags to ignore all width, height or [constraints]. If yes,
   /// then only [margin] or [padding] takes effect ir term of size.
-  final bool ignoreSizeInfinityConstraints;
+  final bool ignoreImplicitWidthHeight;
   final SizedBox _sizedBox;
 
   /// The [child] contained by the container.
@@ -94,7 +94,7 @@ class BaseContainer extends StatelessWidget {
     double height,
     BoxConstraints constraints,
     this.dynamicSize,
-    this.ignoreSizeInfinityConstraints = false,
+    bool ignoreImplicitWidthHeight = false,
     this.onPressed,
     this.onLongPressed,
     this.transform,
@@ -108,6 +108,7 @@ class BaseContainer extends StatelessWidget {
             'Cannot provide both a color and a decoration\n'
             'The color argument is just a shorthand for '
             '"decoration: new BoxDecoration(color: color)".'),
+        ignoreImplicitWidthHeight = ignoreImplicitWidthHeight ?? false,
         decoration = decoration ?? _decorationFromColor(color),
         constraints = (width != null || height != null)
             ? constraints?.tighten(width: width, height: height) ??
@@ -120,7 +121,7 @@ class BaseContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget current = child;
 
-    if (false == ignoreSizeInfinityConstraints) {
+    if (false == ignoreImplicitWidthHeight) {
       // When ignore Infinity Size & Constraints, also ignore Align
       current = safeAlign(alignment: alignment, child: current);
     }
@@ -136,18 +137,16 @@ class BaseContainer extends StatelessWidget {
       child: current,
     );
 
-    if (ignoreSizeInfinityConstraints != null) {
-      if (ignoreSizeInfinityConstraints == false) {
-        // Wrap into ConstrainedBox for size of widget
-        current = safeConstrainedBox(constraints: constraints, child: current);
-      } else if (_sizedBox != null) {
-        print('Set ignoreSizeInfinityConstraints with sizedBox=$_sizedBox');
-        current = SizedBox(
-          width: _sizedBox.width,
-          height: _sizedBox.height,
-          child: current,
-        );
-      }
+    if (ignoreImplicitWidthHeight == false) {
+      // Wrap into ConstrainedBox for size of widget
+      current = safeConstrainedBox(constraints: constraints, child: current);
+    } else if (_sizedBox != null) {
+      print('Set ignoreImplicitWidthHeight with sizedBox=$_sizedBox');
+      current = SizedBox(
+        width: _sizedBox.width,
+        height: _sizedBox.height,
+        child: current,
+      );
     }
 
     // Margin must be the last widget to wrapped

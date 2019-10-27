@@ -34,7 +34,7 @@ class SuperIndexedStack extends BaseContainer {
     double height,
     BoxConstraints constraints,
     String dynamicSize,
-    bool ignoreSizeInfinityConstraints,
+    bool ignoreImplicitWidthHeight,
     Matrix4 transform,
     Key childKey,
     List<Widget> children,
@@ -54,7 +54,7 @@ class SuperIndexedStack extends BaseContainer {
           height: height,
           constraints: constraints,
           dynamicSize: dynamicSize,
-          ignoreSizeInfinityConstraints: ignoreSizeInfinityConstraints,
+          ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           transform: transform,
           child: IndexedStack(
             children: children ?? <Widget>[],
