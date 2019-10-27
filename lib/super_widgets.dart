@@ -11,6 +11,7 @@ export 'super_indexed_stack.dart';
 export 'super_inkwell.dart';
 export 'super_list_tile.dart';
 export 'super_listview.dart';
+export 'super_outline_button.dart';
 export 'super_raised_button.dart';
 export 'super_row.dart';
 export 'super_scrollview_column.dart';
