@@ -14,8 +14,6 @@ class SuperContainerDynamicSizePage extends StatelessWidget {
     );
   }
 
-  final double _defaultH = 50;
-
   /// Content of this page
   Widget buildBody(BuildContext context) {
     final boxH = SizedBox(height: 10);
