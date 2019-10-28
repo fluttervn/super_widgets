@@ -5,6 +5,7 @@ export 'super_circle_avatar.dart';
 export 'super_clip_rrect.dart';
 export 'super_column.dart';
 export 'super_container.dart';
+export 'super_flat_button.dart';
 export 'super_icon.dart';
 export 'super_icon_button.dart';
 export 'super_indexed_stack.dart';
