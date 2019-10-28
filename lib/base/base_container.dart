@@ -4,10 +4,11 @@ import 'package:flutter/widgets.dart';
 import 'safe_widget.dart';
 
 /// BaseContainer is an abstract widget which has almost properties such as
-/// [alignment], [padding], [margin], color, [decoration],
-/// width, height and [flex].
+/// [alignment], [padding], [margin], `color`, [decoration], `width`, `height`,
+/// [flex], [onPressed] and [onLongPressed].
 ///
-/// Note: this widget doesn't support BoxConstraints
+/// # Layout behavior
+/// -
 class BaseContainer extends StatelessWidget {
   /// Align the [child] within the container.
   final AlignmentGeometry alignment;
