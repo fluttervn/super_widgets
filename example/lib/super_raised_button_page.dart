@@ -28,7 +28,7 @@ class SuperRaisedButtonPage extends StatelessWidget {
         onPressed: () {
           print('Touch on SuperRaisedButton');
         },
-        childText: Text(
+        child: Text(
           'Support us!',
           style: TextStyle(
             fontSize: 18,

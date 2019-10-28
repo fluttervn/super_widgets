@@ -3,24 +3,23 @@ import 'package:flutter/widgets.dart';
 
 import 'base/base_container.dart';
 
-/// [SuperIcon] is a [Container] with [Icon] inside
-class SuperIcon extends BaseContainer {
-  /// Create new [SuperIcon]. Its params is the combination of [Container]'s
-  /// params (has the same param name) and [Icon]'s  params (has almost the
+/// [SuperClipRRect] is a [Container] with [ClipRRect] inside
+class SuperClipRRect extends BaseContainer {
+  /// Create new [SuperClipRRect]. Its params is the combination of [Container]'s
+  /// params (has the same param name) and [ClipRRect]'s  params (has almost the
   /// same param name, but if have any duplicated name with its parent,
   /// then add prefix `child` - for example: if [Container] has `color`
-  /// property, and [Icon] also  have `color` property, then the latter will
+  /// property, and [ClipRRect] also  have `color` property, then the latter will
   /// be rename to `childColor`).
   ///
-  /// The list below only show default params of [Container] :
+  /// The list below only show default params of [BaseContainer] :
   ///
   /// - [alignment] : default is [AlignmentDirectional.topStart]
   ///
-  /// The list below only show renamed or default params of [Icon] :
+  /// The list below only show renamed or default params of [ClipRRect] :
   ///
-  /// - [childKey] : [Key] of the [Icon]
-  SuperIcon(
-    IconData icon, {
+  /// - [childKey] : [Key] of the [ClipRRect]
+  SuperClipRRect({
     Key key,
     AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
@@ -32,16 +31,18 @@ class SuperIcon extends BaseContainer {
     double height,
     BoxConstraints constraints,
     int flex,
-    bool ignoreImplicitWidthHeight = false,
+    bool ignoreImplicitWidthHeight = true,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
     Matrix4 transform,
     Key childKey,
-    double size,
-    Color childColor,
-    String semanticLabel,
-    TextDirection textDirection,
-  }) : super(
+    @required Widget child,
+    BorderRadius borderRadius,
+    CustomClipper<RRect> clipper,
+    Clip clipBehavior = Clip.antiAlias,
+  })  : assert(borderRadius != null || clipper != null),
+        assert(clipBehavior != null),
+        super(
           key: key,
           alignment: alignment,
           padding: padding,
@@ -57,13 +58,12 @@ class SuperIcon extends BaseContainer {
           onLongPressed: onLongPressed,
           margin: margin,
           transform: transform,
-          child: Icon(
-            icon,
+          child: ClipRRect(
             key: childKey,
-            size: size,
-            color: childColor,
-            semanticLabel: semanticLabel,
-            textDirection: textDirection,
+            child: child,
+            borderRadius: borderRadius,
+            clipper: clipper,
+            clipBehavior: clipBehavior,
           ),
         );
 }

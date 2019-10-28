@@ -18,13 +18,13 @@ class SuperIconPage extends StatelessWidget {
   Widget buildBody(BuildContext context) {
     return Center(
       child: SuperIcon(
+        Icons.backup,
         color: Colors.grey[300],
         margin: EdgeInsets.all(10),
         padding: EdgeInsets.only(right: 20),
         alignment: Alignment.centerRight,
         childKey: Key('SuperIcon'),
         childColor: Colors.red,
-        icon: Icons.backup,
         size: 80,
       ),
     );

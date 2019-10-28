@@ -1,7 +1,9 @@
 import 'package:flutter/widgets.dart';
 
+import 'base/base_container.dart';
+
 /// [SuperColumn] is a [Container] with [Column] inside
-class SuperColumn extends Container {
+class SuperColumn extends BaseContainer {
   /// Create new [SuperColumn]. Its params is the combination of [Container]'s
   /// params (has the same param name) and [Column]'s  params (has almost the
   /// same param name, but if have any duplicated name with its parent,
@@ -25,13 +27,15 @@ class SuperColumn extends Container {
     Key key,
     AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
+    EdgeInsetsGeometry margin,
     Color color,
     Decoration decoration,
     Decoration foregroundDecoration,
     double width,
     double height,
     BoxConstraints constraints,
-    EdgeInsetsGeometry margin,
+    int flex,
+    bool ignoreImplicitWidthHeight = false,
     Matrix4 transform,
     Key childKey,
     List<Widget> children,
@@ -45,13 +49,15 @@ class SuperColumn extends Container {
           key: key,
           alignment: alignment,
           padding: padding,
+          margin: margin,
           color: color,
           decoration: decoration,
           foregroundDecoration: foregroundDecoration,
           width: width,
           height: height,
           constraints: constraints,
-          margin: margin,
+          flex: flex,
+          ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           transform: transform,
           child: Column(
             key: childKey,
