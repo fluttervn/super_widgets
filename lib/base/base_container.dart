@@ -4,12 +4,13 @@ import 'package:flutter/widgets.dart';
 import 'safe_widget.dart';
 
 /// BaseContainer is an abstract widget which has almost properties such as
-/// [alignment], [padding], [margin], color, [decoration],
-/// width, height and [flex].
+/// [alignment], [padding], [margin], `color`, [decoration], `width`, `height`,
+/// [flex], [onPressed] and [onLongPressed].
 ///
-/// Note: this widget doesn't support BoxConstraints
+/// # Layout behavior
+/// -
 class BaseContainer extends StatelessWidget {
-  /// Align the [child] within the container.
+  /// Align the [child] within the container. Default is [Alignment.topLeft]
   final AlignmentGeometry alignment;
 
   /// Empty space to inscribe inside the [decoration]. The [child], if any, is
@@ -29,10 +30,13 @@ class BaseContainer extends StatelessWidget {
   /// Empty space to surround the [decoration] and [child].
   final EdgeInsetsGeometry margin;
 
-  /// Dynamic size of this widget
+  /// /// The flex factor to use for this child
   ///
-  /// If is 'wrap', then this widget will be wrapped into a [Wrap] widget.
-  /// If is 'full', then this widget will be wrapped into a [Expanded] widget
+  /// If is 0, then this widget will be wrapped into a [Wrap] widget.
+  /// If is 1, then this widget will be wrapped into a [Expanded] widget.
+  /// If is larger than 1, then this widget will be wrapped into a [Expanded]
+  /// widget with flex value.
+  /// Its default value is null, then it doesn't affect to this widget
   final int flex;
 
   /// Additional constraints to apply to the child.
@@ -52,13 +56,15 @@ class BaseContainer extends StatelessWidget {
   /// Callback when user long-presses on this widget
   final VoidCallback onLongPressed;
 
+  /// Sometimes a widget doesn't specify width or height but let its size
+  /// depends on its parent size or
   /// If width or height or constraints contains an infinity value, you can
   /// use this flags to ignore all width, height or [constraints]. If yes,
   /// then only [margin] or [padding] takes effect ir term of size.
   final bool ignoreImplicitWidthHeight;
   final SizedBox _sizedBox;
 
-  /// The [child] contained by the container.
+  /// The [child] contained by the BaseContainer.
   final Widget child;
 
   EdgeInsetsGeometry get _paddingIncludingDecoration {
