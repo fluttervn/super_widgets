@@ -21,8 +21,8 @@ class SuperTextPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         SuperText(
+          'SuperText',
           padding: EdgeInsets.all(10),
-          textData: 'SuperText',
           color: Colors.green,
           style: TextStyle(
             fontSize: 18,
@@ -30,22 +30,20 @@ class SuperTextPage extends StatelessWidget {
             color: Colors.pink,
           ),
         ),
-        SuperText(
+        SuperText.rich(
+          TextSpan(children: [
+            TextSpan(text: 'Super '),
+            TextSpan(
+              text: 'Text Span',
+              style: TextStyle(color: Colors.blue, fontSize: 24),
+            ),
+          ]),
           margin: EdgeInsets.all(5),
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w900,
             color: Colors.black,
           ),
-          textSpan: TextSpan(children: [
-            TextSpan(
-              text: 'Super ',
-            ),
-            TextSpan(
-              text: 'Text Span',
-              style: TextStyle(color: Colors.blue, fontSize: 24),
-            ),
-          ]),
           color: Colors.yellow,
         ),
       ],

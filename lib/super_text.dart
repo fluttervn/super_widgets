@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import 'base/base_container.dart';
+
 /// [SuperText] is a [Container] with [Text] inside
-class SuperText extends Container {
+class SuperText extends BaseContainer {
   /// Create new [SuperText]. Its params is the combination of [Container]'s
   /// params (has the same param name) and [Text]'s  params (has almost the
   /// same param name, but if have any duplicated name with its parent,
@@ -17,22 +19,25 @@ class SuperText extends Container {
   /// The list below only show renamed or default params of [Text]:
   ///
   /// - [childKey] : [Key] of the [Text]
-  /// - [textData] & [textSpan] : Only allow one
-  SuperText({
+  /// - [textData]: text (String)
+  SuperText(
+    String textData, {
     Key key,
     AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
+    EdgeInsetsGeometry margin,
     Color color,
     Decoration decoration,
     Decoration foregroundDecoration,
     double width,
     double height,
     BoxConstraints constraints,
-    EdgeInsetsGeometry margin,
+    int flex,
+    bool ignoreImplicitWidthHeight = true,
+    VoidCallback onPressed,
+    VoidCallback onLongPressed,
     Matrix4 transform,
     Key childKey,
-    String textData,
-    TextSpan textSpan,
     TextStyle style,
     StrutStyle strutStyle,
     TextAlign textAlign,
@@ -43,14 +48,7 @@ class SuperText extends Container {
     double textScaleFactor,
     int maxLines,
     String semanticsLabel,
-  })  : assert(
-          textData != null || textSpan != null,
-          'Text widget must have non-empty textData and non-null textSpan',
-        ),
-        assert(
-          textData == null || textSpan == null,
-          'Text widget cannot have both textData and textSpan',
-        ),
+  })  : assert(textData != null, 'Text widget must have non-empty textData'),
         super(
             key: key,
             alignment: alignment,
@@ -61,35 +59,84 @@ class SuperText extends Container {
             width: width,
             height: height,
             constraints: constraints,
+            flex: flex,
+            ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
+            onPressed: onPressed,
+            onLongPressed: onLongPressed,
             margin: margin,
             transform: transform,
-            child: textSpan == null
-                ? Text(
-                    textData,
-                    key: childKey,
-                    style: style,
-                    strutStyle: strutStyle,
-                    textAlign: textAlign,
-                    textDirection: textDirection,
-                    locale: locale,
-                    softWrap: softWrap,
-                    overflow: overflow,
-                    textScaleFactor: textScaleFactor,
-                    maxLines: maxLines,
-                    semanticsLabel: semanticsLabel,
-                  )
-                : Text.rich(
-                    textSpan,
-                    key: childKey,
-                    style: style,
-                    strutStyle: strutStyle,
-                    textAlign: textAlign,
-                    textDirection: textDirection,
-                    locale: locale,
-                    softWrap: softWrap,
-                    overflow: overflow,
-                    textScaleFactor: textScaleFactor,
-                    maxLines: maxLines,
-                    semanticsLabel: semanticsLabel,
-                  ));
+            child: Text(
+              textData,
+              key: childKey,
+              style: style,
+              strutStyle: strutStyle,
+              textAlign: textAlign,
+              textDirection: textDirection,
+              locale: locale,
+              softWrap: softWrap,
+              overflow: overflow,
+              textScaleFactor: textScaleFactor,
+              maxLines: maxLines,
+              semanticsLabel: semanticsLabel,
+            ));
+
+  SuperText.rich(
+    TextSpan textSpan, {
+    Key key,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    EdgeInsetsGeometry padding,
+    EdgeInsetsGeometry margin,
+    Color color,
+    Decoration decoration,
+    Decoration foregroundDecoration,
+    double width,
+    double height,
+    BoxConstraints constraints,
+    int flex,
+    bool ignoreImplicitWidthHeight = false,
+    VoidCallback onPressed,
+    VoidCallback onLongPressed,
+    Matrix4 transform,
+    Key childKey,
+    TextStyle style,
+    StrutStyle strutStyle,
+    TextAlign textAlign,
+    TextDirection textDirection,
+    Locale locale,
+    bool softWrap,
+    TextOverflow overflow,
+    double textScaleFactor,
+    int maxLines,
+    String semanticsLabel,
+  })  : assert(textSpan != null, 'Text widget must have non-null textSpan'),
+        super(
+            key: key,
+            alignment: alignment,
+            padding: padding,
+            margin: margin,
+            color: color,
+            decoration: decoration,
+            foregroundDecoration: foregroundDecoration,
+            width: width,
+            height: height,
+            constraints: constraints,
+            flex: flex,
+            ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
+            onPressed: onPressed,
+            onLongPressed: onLongPressed,
+            transform: transform,
+            child: Text.rich(
+              textSpan,
+              key: childKey,
+              style: style,
+              strutStyle: strutStyle,
+              textAlign: textAlign,
+              textDirection: textDirection,
+              locale: locale,
+              softWrap: softWrap,
+              overflow: overflow,
+              textScaleFactor: textScaleFactor,
+              maxLines: maxLines,
+              semanticsLabel: semanticsLabel,
+            ));
 }

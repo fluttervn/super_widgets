@@ -3,30 +3,30 @@ import 'package:flutter/widgets.dart';
 
 import 'base/base_container.dart';
 
-/// SuperRaisedButton] is a [Container] with [RaisedButton] inside
-class SuperRaisedButton extends BaseContainer {
-  /// Create new [SuperRaisedButton]. Its params is the combination of
-  /// [Container]'s params (has the same param name) and [RaisedButton]'s
+/// SuperFlatButton] is a [Container] with [FlatButton] inside
+class SuperFlatButton extends BaseContainer {
+  /// Create new [SuperFlatButton]. Its params is the combination of
+  /// [Container]'s params (has the same param name) and [FlatButton]'s
   /// params (has almost the same param name, but if have any duplicated name
   /// with its parent, then add prefix `child` - for example: if [Container]
-  /// has `color` property, and [RaisedButton] also  have `color` property,
+  /// has `color` property, and [FlatButton] also  have `color` property,
   /// then the latter will be rename to `childColor`).
   ///
   /// The list below only show default params of [Container] :
   ///
   /// - [alignment] : default is [AlignmentDirectional.topStart]
   ///
-  /// The list below only show renamed or default params of [RaisedButton] :
+  /// The list below only show renamed or default params of [FlatButton] :
   ///
-  /// - [childKey] : [Key] of the [RaisedButton]
-  /// - [childPadding] : padding of the [RaisedButton]
-  /// - [childColor] : [Color] of the [RaisedButton]
+  /// - [childKey] : [Key] of the [FlatButton]
+  /// - [childPadding] : padding of the [FlatButton]
+  /// - [childColor] : [Color] of the [FlatButton]
   /// - [clipBehavior] : default is [Clip.none]
   /// - [onPressed] : default is empty [VoidCallback]
   ///
-  SuperRaisedButton({
+  SuperFlatButton({
     Key key,
-    AlignmentGeometry alignment /* = AlignmentDirectional.topStart*/,
+    AlignmentGeometry alignment,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -40,7 +40,6 @@ class SuperRaisedButton extends BaseContainer {
     VoidCallback onLongPressed,
     Matrix4 transform,
     Key childKey,
-    Widget child,
     VoidCallback onPressed,
     ValueChanged<bool> onHighlightChanged,
     ButtonTextTheme textTheme,
@@ -48,20 +47,19 @@ class SuperRaisedButton extends BaseContainer {
     Color disabledTextColor,
     Color childColor,
     Color disabledColor,
+    Color focusColor,
+    Color hoverColor,
     Color highlightColor,
     Color splashColor,
     Brightness colorBrightness,
-    double elevation,
-    double highlightElevation,
-    double disabledElevation,
     EdgeInsetsGeometry childPadding,
     ShapeBorder shape,
-    Clip clipBehavior = Clip.none,
+    Clip clipBehavior,
+    FocusNode focusNode,
+    bool autofocus = false,
     MaterialTapTargetSize materialTapTargetSize,
-    Duration animationDuration,
-  })  : assert(elevation == null || elevation >= 0.0),
-        assert(highlightElevation == null || highlightElevation >= 0.0),
-        assert(disabledElevation == null || disabledElevation >= 0.0),
+    @required Widget child,
+  })  : assert(autofocus != null),
         super(
           key: key,
           color: color,
@@ -77,26 +75,26 @@ class SuperRaisedButton extends BaseContainer {
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight ?? false,
           onLongPressed: onLongPressed,
           transform: transform,
-          child: RaisedButton(
+          child: FlatButton(
             key: childKey,
-            onPressed: onPressed ?? () {},
+            onPressed: onPressed,
             onHighlightChanged: onHighlightChanged,
             textTheme: textTheme,
             textColor: textColor,
             disabledTextColor: disabledTextColor,
             color: childColor,
             disabledColor: disabledColor,
+            focusColor: focusColor,
+            hoverColor: hoverColor,
             highlightColor: highlightColor,
             splashColor: splashColor,
             colorBrightness: colorBrightness,
-            elevation: elevation,
-            highlightElevation: highlightElevation,
-            disabledElevation: disabledElevation,
             padding: childPadding,
             shape: shape,
             clipBehavior: clipBehavior,
+            focusNode: focusNode,
+            autofocus: autofocus,
             materialTapTargetSize: materialTapTargetSize,
-            animationDuration: animationDuration,
             child: child,
           ),
         );

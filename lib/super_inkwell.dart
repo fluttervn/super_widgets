@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import 'base/base_container.dart';
+
 /// [SuperInkWell] is a [InkWell] with [Container] inside
 class SuperInkWell extends InkWell {
   /// Create new [SuperInkWell]. Its params is the combination of
@@ -36,8 +38,8 @@ class SuperInkWell extends InkWell {
     bool enableFeedback = true,
     bool excludeFromSemantics = false,
     Key childKey,
-    Widget childText,
-    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    Widget child,
+    AlignmentGeometry alignment = AlignmentDirectional.center,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -46,6 +48,8 @@ class SuperInkWell extends InkWell {
     double width,
     double height,
     BoxConstraints constraints,
+    int flex,
+    bool ignoreImplicitWidthHeight = false,
     Matrix4 transform,
   }) : super(
           key: key,
@@ -63,19 +67,21 @@ class SuperInkWell extends InkWell {
           customBorder: customBorder,
           enableFeedback: enableFeedback,
           excludeFromSemantics: excludeFromSemantics,
-          child: Container(
+          child: BaseContainer(
             key: childKey,
             alignment: alignment,
             padding: padding,
+            margin: margin,
             color: color,
             decoration: decoration,
             foregroundDecoration: foregroundDecoration,
             width: width,
             height: height,
             constraints: constraints,
-            margin: margin,
+            flex: flex,
+            ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
             transform: transform,
-            child: childText,
+            child: child,
           ),
         );
 }

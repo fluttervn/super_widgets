@@ -3,24 +3,23 @@ import 'package:flutter/widgets.dart';
 
 import 'base/base_container.dart';
 
-/// [SuperIcon] is a [Container] with [Icon] inside
-class SuperIcon extends BaseContainer {
-  /// Create new [SuperIcon]. Its params is the combination of [Container]'s
-  /// params (has the same param name) and [Icon]'s  params (has almost the
+/// [SuperListTile] is a [Container] with [ListTile] inside
+class SuperListTile extends BaseContainer {
+  /// Create new [SuperListTile]. Its params is the combination of [Container]'s
+  /// params (has the same param name) and [ListTile]'s  params (has almost the
   /// same param name, but if have any duplicated name with its parent,
   /// then add prefix `child` - for example: if [Container] has `color`
-  /// property, and [Icon] also  have `color` property, then the latter will
+  /// property, and [ListTile] also  have `color` property, then the latter will
   /// be rename to `childColor`).
   ///
   /// The list below only show default params of [Container] :
   ///
   /// - [alignment] : default is [AlignmentDirectional.topStart]
   ///
-  /// The list below only show renamed or default params of [Icon] :
+  /// The list below only show renamed or default params of [ListTile] :
   ///
-  /// - [childKey] : [Key] of the [Icon]
-  SuperIcon(
-    IconData icon, {
+  /// - [childKey] : [Key] of the [ListTile]
+  SuperListTile({
     Key key,
     AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
@@ -32,16 +31,27 @@ class SuperIcon extends BaseContainer {
     double height,
     BoxConstraints constraints,
     int flex,
-    bool ignoreImplicitWidthHeight = false,
+    bool ignoreImplicitWidthHeight = true,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
     Matrix4 transform,
     Key childKey,
-    double size,
-    Color childColor,
-    String semanticLabel,
-    TextDirection textDirection,
-  }) : super(
+    Widget leading,
+    Widget title,
+    Widget subtitle,
+    Widget trailing,
+    bool isThreeLine = false,
+    bool dense,
+    EdgeInsetsGeometry contentPadding,
+    VoidCallback onTap,
+    VoidCallback onLongPress,
+    bool enabled = true,
+    bool selected = false,
+  })  : assert(isThreeLine != null),
+        assert(enabled != null),
+        assert(selected != null),
+        assert(!isThreeLine || subtitle != null),
+        super(
           key: key,
           alignment: alignment,
           padding: padding,
@@ -57,13 +67,19 @@ class SuperIcon extends BaseContainer {
           onLongPressed: onLongPressed,
           margin: margin,
           transform: transform,
-          child: Icon(
-            icon,
+          child: ListTile(
             key: childKey,
-            size: size,
-            color: childColor,
-            semanticLabel: semanticLabel,
-            textDirection: textDirection,
+            leading: leading,
+            title: title,
+            subtitle: subtitle,
+            trailing: trailing,
+            isThreeLine: isThreeLine,
+            dense: dense,
+            contentPadding: contentPadding,
+            enabled: enabled,
+            onTap: onTap,
+            onLongPress: onLongPress,
+            selected: selected,
           ),
         );
 }
