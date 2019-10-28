@@ -39,7 +39,7 @@ class SuperContainerDynamicSizePage extends StatelessWidget {
         _wrapInContainer(
           SuperContainer(
             color: bgColor,
-            dynamicSize: 'full',
+            flex: 1,
             child: Text('SuperContent:dynamicSize=full, no width, no height'),
           ),
         ),
@@ -48,7 +48,7 @@ class SuperContainerDynamicSizePage extends StatelessWidget {
         _wrapInContainer(
           SuperContainer(
             color: bgColor,
-            dynamicSize: 'full',
+            flex: 1,
             width: double.infinity,
             child: Text('dynamicSize=full, width=infinity, no height'),
           ),
@@ -58,7 +58,7 @@ class SuperContainerDynamicSizePage extends StatelessWidget {
         _wrapInContainer(
           SuperContainer(
             color: bgColor,
-            dynamicSize: 'full',
+            flex: 1,
             width: 150,
             child: Text('dynamicSize=full, width=150, no height'),
           ),
@@ -68,7 +68,7 @@ class SuperContainerDynamicSizePage extends StatelessWidget {
         _wrapInContainer(
           SuperContainer(
             color: bgColor,
-            dynamicSize: 'full',
+            flex: 1,
             width: double.infinity,
             height: 30,
             child: Text('dynamicSize=full, width=infinity, height=30'),
