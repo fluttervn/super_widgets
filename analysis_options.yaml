@@ -10,3 +10,5 @@ analyzer:
     include_file_not_found: ignore
 linter:
   rules:
+    omit_local_variable_types: false
+    empty_constructor_bodies: false
