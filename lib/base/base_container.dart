@@ -7,8 +7,6 @@ import 'safe_widget.dart';
 /// [alignment], [padding], [margin], `color`, [decoration], `width`, `height`,
 /// [flex], [onPressed] and [onLongPressed].
 ///
-/// # Layout behavior
-/// -
 class BaseContainer extends StatelessWidget {
   /// Align the [child] within the container.
   final AlignmentGeometry alignment;
