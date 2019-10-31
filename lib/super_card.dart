@@ -11,7 +11,7 @@ class SuperCard extends BaseContainer {
   /// Thus its params is the combination of [Container]'s
   /// params and [Card]'s  params.
   ///
-  /// Params of the parent widget is:
+  /// <b>Params of the parent widget is:</b>
   ///
   /// - `key` : Key of parent widget
   /// - `alignment`: an align value from [AlignmentDirectional]
@@ -22,6 +22,7 @@ class SuperCard extends BaseContainer {
   ///  value like 100.0, or [double.infinity], or null, like the size value of
   ///  [Container]
   /// - `constraints`: like [BoxConstraints] of [Container]
+  /// - `transform`: the transformation matrix to apply before painting the parent.
   /// - `flex`: same as `flex` value which is used in [Flexible].
   ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget
   ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value
@@ -33,9 +34,13 @@ class SuperCard extends BaseContainer {
   /// expanding to full width.
   /// - `onPressed`: action when press on parent widget
   /// - `onLongPressed`: action when long-press on parent widget
-  /// - `transform`: the transformation matrix to apply before painting the parent.
+  /// - `enableInkWell` and `splashColor`: Wrap this widget inside an
+  /// [InkWell]. Its default value is `FALSE`.
+  ///  - If [enableInkWell] is not true, then just return this [widget].
+  ///  - If [enableInkWell] is true splashColor is null, then `splashColor`
+  /// will be automatically gotten from Theme instead.
   ///
-  /// Params of the child widget is:
+  /// <b>Params of the child widget is:</b>
   ///
   /// - `childKey`: [Key] of [Card]
   /// - `child`: child widget of [Card]
@@ -59,11 +64,6 @@ class SuperCard extends BaseContainer {
   /// - `semanticContainer`: Whether this widget represents a single semantic
   /// container, or if false, a collection of individual semantic nodes.
   /// Defaults to true.
-  /// - `enableInkWell` and `splashColor`: Wrap this widget inside an
-  /// [InkWell]. Its default value is `FALSE`.
-  ///  - If [enableInkWell] is not true, then just return this [widget].
-  ///  - If [enableInkWell] is true splashColor is null, then `splashColor`
-  /// will be automatically gotten from Theme instead.
   SuperCard({
     Key key,
     AlignmentGeometry alignment,
