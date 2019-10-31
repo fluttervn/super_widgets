@@ -85,8 +85,8 @@ Widget safeTransform({
 ///
 /// If [enableInkWell] is not true, then just return this [widget].
 ///
-/// If [enableInkWell] is true but splashColor is null, then will use
-/// default splashColor from Theme instead.
+/// If [enableInkWell] is true but `splashColor` is null, then `splashColor`
+/// will be automatically gotten from Theme instead.
 Widget safeInkWell({
   bool enableInkWell,
   Color splashColor,

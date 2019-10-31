@@ -15,7 +15,6 @@ class SuperCard extends BaseContainer {
   ///
   /// - `key` : Key of parent widget
   /// - `alignment`: an align value from [AlignmentDirectional]
-  /// - `padding`: a padding value from [EdgeInsetsGeometry]
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the [child].
   /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
@@ -40,17 +39,35 @@ class SuperCard extends BaseContainer {
   /// Params of the child widget is:
   ///
   /// - `childKey`: [Key] of [Card]
+  /// - `child`: child widget of [Card]
   /// - `childColor`: [Color] of [Card]
-  /// - `elevation`: `elevation` of [Card]. Default is 1.0
+  /// - `elevation`: the z-coordinate at which to place this card. This
+  /// controls the size of the shadow below the card. If this property is null
+  /// then [ThemeData.cardTheme.elevation] is used, if that's null, the
+  /// default value is 1.0.
   /// - `shape`: [ShapeBorder] of [Card]. Default is [RoundedRectangleBorder]
   /// with a circular corner radius of 4.0.
   /// - `borderOnForeground`: default is true: whether to paint the shape
   /// border in front of the child of [Card].
-  ///
+  /// - `margin`: the empty space that surrounds the card. Defines the card's
+  /// outer [Container.margin].
+  ///  - If this property is null then [ThemeData.cardTheme.margin] is used.
+  ///  - If that's null, the default margin is 4.0 logical pixels on all sides.
+  /// - `padding`: the padding between [Card] vs. its child.
+  /// - `clipBehavior`: {@macro flutter.widgets.Clip}. If this property is null
+  /// then [ThemeData.cardTheme.clipBehavior] is used. If that's null then the
+  /// behavior will be [Clip.none].
+  /// - `semanticContainer`: Whether this widget represents a single semantic
+  /// container, or if false, a collection of individual semantic nodes.
+  /// Defaults to true.
+  /// - `enableInkWell` and `splashColor`: Wrap this widget inside an
+  /// [InkWell]. Its default value is `FALSE`.
+  ///  - If [enableInkWell] is not true, then just return this [widget].
+  ///  - If [enableInkWell] is true splashColor is null, then `splashColor`
+  /// will be automatically gotten from Theme instead.
   SuperCard({
     Key key,
-    AlignmentGeometry alignment = AlignmentDirectional.topStart,
-    EdgeInsetsGeometry padding,
+    AlignmentGeometry alignment,
     Color color,
     Decoration decoration,
     Decoration foregroundDecoration,
@@ -68,7 +85,7 @@ class SuperCard extends BaseContainer {
     ShapeBorder shape,
     bool borderOnForeground = true,
     EdgeInsetsGeometry margin,
-    EdgeInsetsGeometry childPadding,
+    EdgeInsetsGeometry padding,
     Clip clipBehavior,
     Widget child,
     bool semanticContainer = true,
@@ -77,10 +94,10 @@ class SuperCard extends BaseContainer {
   })  : assert(elevation == null || elevation >= 0.0),
         assert(borderOnForeground != null),
         assert(enableInkWell != null),
+        assert(semanticContainer != null),
         super(
           key: key,
           alignment: alignment,
-          padding: padding,
           color: color,
           decoration: decoration,
           foregroundDecoration: foregroundDecoration,
@@ -103,7 +120,7 @@ class SuperCard extends BaseContainer {
               borderOnForeground: borderOnForeground,
               margin: margin,
               clipBehavior: clipBehavior,
-              child: safePadding(padding: childPadding, child: child),
+              child: safePadding(padding: padding, child: child),
               semanticContainer: semanticContainer,
             ),
           ),
