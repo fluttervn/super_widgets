@@ -18,7 +18,6 @@ class SuperCard extends BaseContainer {
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the [child].
   /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
-  /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
   /// - `width` and `height` values include the padding. It can be a double
   ///  value like 100.0, or [double.infinity], or null, like the size value of
   ///  [Container]
