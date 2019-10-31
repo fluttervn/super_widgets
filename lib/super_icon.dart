@@ -5,24 +5,55 @@ import 'base/base_container.dart';
 
 /// [SuperIcon] is a [Container] with [Icon] inside
 class SuperIcon extends BaseContainer {
-  /// Create new [SuperIcon]. Its params is the combination of [Container]'s
-  /// params (has the same param name) and [Icon]'s  params (has almost the
-  /// same param name, but if have any duplicated name with its parent,
-  /// then add prefix `child` - for example: if [Container] has `color`
-  /// property, and [Icon] also  have `color` property, then the latter will
-  /// be rename to `childColor`).
+  /// Create new [SuperIcon] which has a [Container] (parent) with
+  /// a [Icon] (child) inside.
+  /// Thus its params is the combination of [Container]'s
+  /// params and [Icon]'s  params.
   ///
-  /// The list below only show default params of [Container] :
+  /// <b>Params of the parent widget is:</b>
   ///
-  /// - [alignment] : default is [AlignmentDirectional.topStart]
+  /// - `key` : Key of parent widget
+  /// - `alignment`: an align value from [AlignmentDirectional]
+  /// - `color` and `decoration`: only one params is valid. It's the
+  /// decoration to paint behind the [child].
+  /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
+  /// - `width` and `height` values include the padding. It can be a double
+  ///  value like 100.0, or [double.infinity], or null, like the size value of
+  ///  [Container]
+  /// - `constraints`: like [BoxConstraints] of [Container]
+  /// - `transform`: the transformation matrix to apply before painting the parent.
+  /// - `flex`: same as `flex` value which is used in [Flexible].
+  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget
+  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value
+  ///  - If flex is null, just return [child] widget
+  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
+  /// `height` of [child] might depends on [alignment] or its parent's size.
+  /// But in some cases we need its size is exactly wrap its [child], for
+  /// example the container of [Text] wrap the size of [Text] instead of
+  /// expanding to full width.
+  /// - `onPressed`: action when press on parent widget
+  /// - `onLongPressed`: action when long-press on parent widget
+  /// - `enableInkWell` and `splashColor`: Wrap this widget inside an
+  /// [InkWell]. Its default value is `FALSE`.
+  ///  - If [enableInkWell] is not true, then just return this [widget].
+  ///  - If [enableInkWell] is true splashColor is null, then `splashColor`
+  /// will be automatically gotten from Theme instead.
   ///
-  /// The list below only show renamed or default params of [Icon] :
+  /// <b>Params of the child widget is:</b>
   ///
-  /// - [childKey] : [Key] of the [Icon]
+  /// - `childKey`: [Key] of [Icon]
+  /// - `icon`: the icon to display. The available icons are described in [Icons].
+  /// - `size`: Since [Icon] is squared, we must specify the size of the icon
+  /// in logical pixels.
+  /// - `childColor`: the color to use when drawing the icon. Defaults to the
+  /// current [IconTheme] color, if any.
+  /// - `semanticLabel`: semantic label for the icon.
+  /// - `textDirection`: the text direction to use for rendering the icon. If
+  /// this is null, the ambient [Directionality] is used instead.
   SuperIcon(
     IconData icon, {
     Key key,
-    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    AlignmentGeometry alignment,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -31,11 +62,13 @@ class SuperIcon extends BaseContainer {
     double width,
     double height,
     BoxConstraints constraints,
+    Matrix4 transform,
     int flex,
-    bool ignoreImplicitWidthHeight = false,
+    bool ignoreImplicitWidthHeight = true,
+    bool enableInkWell = false,
+    Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
-    Matrix4 transform,
     Key childKey,
     double size,
     Color childColor,
