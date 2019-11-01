@@ -14,7 +14,7 @@ class SuperStack extends BaseContainer {
   /// - `key` : Key of parent widget
   /// - `alignment`: an align value from [AlignmentDirectional]
   /// - `margin`: the margin between this widget vs. its parent.
-  /// - `padding`: the padding between this widget vs. the [Stack] inside.
+  /// - `padding`: the padding between this widget vs. the [Stack].
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the [child].
   /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
