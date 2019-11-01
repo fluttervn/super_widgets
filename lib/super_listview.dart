@@ -18,7 +18,6 @@ class SuperListView extends BaseContainer {
   /// [AlignmentDirectional.topStart].
   /// - `padding`: padding between this widget vs. the [Container] inside
   /// - `margin`: margin between this widget vs. its parent.
-  /// - `margin`: margin between this widget vs. its parent.
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the [Container].
   /// - `foregroundDecoration`: The decoration to paint in front of the [Container].
