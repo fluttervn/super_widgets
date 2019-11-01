@@ -135,7 +135,73 @@ class SuperListView extends BaseContainer {
           ),
         );
 
-  /// Creates a scrollable, linear array of widgets (ListView) on demand.
+  /// Create new [SuperListView] which has a [Container] (parent) with
+  /// a [ListView] (child) inside, with result is a scrollable, linear array
+  /// of widgets that are created on demand.
+  ///
+  /// Thus its params is the combination of [Container]'s
+  /// params and [ListView]'s  params.
+  ///
+  /// <b>Params of the parent widget is:</b>
+  ///
+  /// - `key` : Key of parent widget
+  /// - `alignment`: Align the [Container] within this widget. Defaults to
+  /// [AlignmentDirectional.topStart].
+  /// - `padding`: padding between this widget vs. the [Container] inside
+  /// - `margin`: margin between this widget vs. its parent.
+  /// - `margin`: margin between this widget vs. its parent.
+  /// - `color` and `decoration`: only one params is valid. It's the
+  /// decoration to paint behind the [Container].
+  /// - `foregroundDecoration`: The decoration to paint in front of the [Container].
+  /// - `width` and `height` values include the padding. It can be a double
+  /// value like 100.0, or [double.infinity], or null, like the size value of
+  /// [Container]
+  /// - `constraints`: like [BoxConstraints] of [Container]
+  /// - `transform`: the transformation matrix to apply before painting the parent.
+  /// - `flex`: same as `flex` value which is used in [Flexible].
+  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget
+  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value
+  ///  - If flex is null, just return [child] widget
+  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
+  /// `height` of [child] might depends on [alignment] or its parent's size.
+  /// But in some cases we need its size is exactly wrap its [child], for
+  /// example the container of [Text] wrap the size of [Text] instead of
+  /// expanding to full width.
+  ///
+  /// <b>Params of the child widget is:</b>
+  ///
+  /// - `childKey`: [Key] of [ListView]
+  /// - `itemBuilder`: the builder to create list of children of [ListView].
+  /// - `scrollDirection`: the axis along which the scroll view scrolls.
+  /// Defaults to [Axis.vertical].
+  /// - `reverse` : Whether the scroll view scrolls in the reading direction.
+  /// Defaults to false.
+  /// [Container].
+  /// - `controller`: An object that can be used to control the position to
+  /// which this scroll view is scrolled.
+  /// - `primary`: Whether this is the primary scroll view associated with the
+  /// parent [PrimaryScrollController].
+  /// - `physics`: How the scroll view should respond to user input. For
+  /// example, determines how the scroll view continues to animate after the
+  /// user stops dragging the scroll view. Defaults to matching platform
+  /// conventions.
+  /// - `shrinkWrap`: Whether the extent of the scroll view in the
+  /// [scrollDirection] should be determined by the contents being viewed.
+  /// Defaults to false.
+  /// - `childPadding`: padding between the [ListView] vs. its children.
+  /// - `itemExtent`: If non-null, forces the children to have the given extent
+  /// in the scroll direction.
+  /// - `addAutomaticKeepAlives`: Whether to wrap each child in an
+  /// [AutomaticKeepAlive]. Defaults to true.
+  /// - `addRepaintBoundaries`: Whether to wrap each child in a
+  /// [RepaintBoundary]. Defaults to true.
+  /// - `addSemanticIndexes`: Whether to wrap each child in an
+  /// [IndexedSemantics]. Defaults to true.
+  /// - `cacheExtent`: {@macro flutter.rendering.viewport.cacheExtent}
+  /// - `semanticChildCount`: The number of children that will contribute
+  /// semantic information.
+  /// - `dragStartBehavior`: {@macro flutter.widgets.scrollable.dragStartBehavior}.
+  /// Defaults to [DragStartBehavior.start].
   SuperListView.builder({
     Key key,
     AlignmentGeometry alignment = AlignmentDirectional.topStart,
