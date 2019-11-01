@@ -4,30 +4,49 @@ import 'package:flutter/widgets.dart';
 /// [SuperScrollViewRow] is a [SingleChildScrollView] with [Row]
 /// inside, it means scrollDirection is [Axis.horizontal]
 class SuperScrollViewRow extends SingleChildScrollView {
-  /// Create new [SuperScrollViewRow].
+  /// Create new [SuperScrollViewContainer] which has a [SingleChildScrollView]
+  /// (parent) with a [Row] (child) inside.
+  /// Thus its params is the combination of [SingleChildScrollView]'s
+  /// params and [Row]'s  params.
   ///
-  /// - Its parent is [SingleChildScrollView].
-  /// - Its child is [Row].
+  /// <b>Params of the parent widget is:</b>
   ///
-  /// Its params is the combination of parent's params (has the same param
-  /// name) and child's  params (has almost the same param name, but if have
-  /// any duplicated name with its parent, then add prefix `child`).
-  /// For example: if parent has `color` property, and child also  have `color`
-  /// property, then the latter will be rename to `childColor`).
+  /// - `key` : Key of parent widget
+  /// - `scrollDirection`: The axis along which the scroll view scrolls.
+  /// Defaults to [Axis.vertical].
+  /// - `reverse` : Whether the scroll view scrolls in the reading direction.
+  /// Defaults to false.
+  /// - `padding`: padding between the [SingleChildScrollView] vs. the
+  /// [Row].
+  /// - `primary`: Whether this is the primary scroll view associated with the
+  /// parent [PrimaryScrollController].
+  /// - `physics`: How the scroll view should respond to user input. For
+  /// example, determines how the scroll view continues to animate after the
+  /// user stops dragging the scroll view. Defaults to matching platform
+  /// conventions.
+  /// - `controller`: An object that can be used to control the position to
+  /// which this scroll view is scrolled.
+  /// - `dragStartBehavior`: {@macro flutter.widgets.scrollable.dragStartBehavior}.
+  /// Defaults to [DragStartBehavior.start].
   ///
-  /// The list below only show default params of [SingleChildScrollView] :
+  /// <b>Params of the child widget is:</b>
   ///
-  /// - reverse: default is false
-  /// - dragStartBehavior: default is [DragStartBehavior.start]
-  ///
-  /// The list below only show renamed or default params of [Row] :
-  ///
-  /// - [childKey] : [Key] of the [Row]
-  /// - [children] : default is `<Widget>[]`
-  /// - [mainAxisAlignment] : default is [MainAxisAlignment.start]
-  /// - [mainAxisSize] : default is [MainAxisSize.max]
-  /// - [crossAxisAlignment] : default is [CrossAxisAlignment.center]
-  /// - [verticalDirection] : default is [VerticalDirection.down]
+  /// - `childKey`: [Key] of [Row].
+  /// - `children`: list of children widget of [Row].
+  /// - `mainAxisAlignment`: How the children should be placed along the main
+  /// axis. Defaults to [MainAxisAlignment.start].
+  /// - `mainAxisSize`: How much space should be occupied in the main axis.
+  /// Defaults to [MainAxisSize.max].
+  /// - `crossAxisAlignment`: How the children should be placed along the cross
+  /// axis. Defaults to [CrossAxisAlignment.center].
+  /// - `verticalDirection`: Determines the order to lay children out
+  /// vertically and how to interpret `start` and `end` in the vertical
+  /// direction. Defaults to [VerticalDirection.down].
+  /// - `textDirection`: Determines the order to lay children out horizontally
+  /// and how to interpret `start` and `end` in the horizontal direction.
+  /// Defaults to the ambient [Directionality].
+  /// - `textBaseline`: If aligning items according to their baseline, which
+  /// baseline to use.
   SuperScrollViewRow({
     Key key,
     bool reverse = false,
@@ -35,14 +54,14 @@ class SuperScrollViewRow extends SingleChildScrollView {
     bool primary,
     ScrollPhysics physics,
     ScrollController controller,
-    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    DragStartBehavior dragStartBehavior,
     Key childKey,
     List<Widget> children,
-    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
-    MainAxisSize mainAxisSize = MainAxisSize.max,
-    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+    MainAxisAlignment mainAxisAlignment,
+    MainAxisSize mainAxisSize,
+    CrossAxisAlignment crossAxisAlignment,
     TextDirection textDirection,
-    VerticalDirection verticalDirection = VerticalDirection.down,
+    VerticalDirection verticalDirection,
     TextBaseline textBaseline,
   }) : super(
           key: key,
@@ -52,14 +71,14 @@ class SuperScrollViewRow extends SingleChildScrollView {
           primary: primary,
           physics: physics,
           controller: controller,
-          dragStartBehavior: dragStartBehavior,
+          dragStartBehavior: dragStartBehavior ?? DragStartBehavior.start,
           child: Row(
             key: childKey,
             children: children ?? <Widget>[],
-            mainAxisAlignment: mainAxisAlignment,
-            mainAxisSize: mainAxisSize,
-            crossAxisAlignment: crossAxisAlignment,
-            verticalDirection: verticalDirection,
+            mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.start,
+            mainAxisSize: mainAxisSize ?? MainAxisSize.max,
+            crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
+            verticalDirection: verticalDirection ?? VerticalDirection.down,
             textDirection: textDirection,
             textBaseline: textBaseline,
           ),
