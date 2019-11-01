@@ -5,25 +5,69 @@ import 'base/base_container.dart';
 
 /// SuperRaisedButton] is a [Container] with [RaisedButton] inside
 class SuperRaisedButton extends BaseContainer {
-  /// Create new [SuperRaisedButton]. Its params is the combination of
-  /// [Container]'s params (has the same param name) and [RaisedButton]'s
-  /// params (has almost the same param name, but if have any duplicated name
-  /// with its parent, then add prefix `child` - for example: if [Container]
-  /// has `color` property, and [RaisedButton] also  have `color` property,
-  /// then the latter will be rename to `childColor`).
+  /// Create new [SuperFlatButton] which has a [Container] (parent) with
+  /// a [RaisedButton] (child) inside.
+  /// Thus its params is the combination of [Container]'s
+  /// params and [RaisedButton]'s  params.
   ///
-  /// The list below only show default params of [Container] :
+  /// <b>Params of the parent widget is:</b>
   ///
-  /// - [alignment] : default is [AlignmentDirectional.topStart]
+  /// - `key` : Key of parent widget
+  /// - `alignment`: an align value from [AlignmentDirectional]
+  /// - `color` and `decoration`: only one params is valid. It's the
+  /// decoration to paint behind the [child].
+  /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
+  /// - `width` and `height` values include the padding. It can be a double
+  ///  value like 100.0, or [double.infinity], or null, like the size value of
+  ///  [Container]
+  /// - `constraints`: like [BoxConstraints] of [Container]
+  /// - `transform`: the transformation matrix to apply before painting the parent.
+  /// - `flex`: same as `flex` value which is used in [Flexible].
+  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget
+  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value
+  ///  - If flex is null, just return [child] widget
+  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
+  /// `height` of [child] might depends on [alignment] or its parent's size.
+  /// But in some cases we need its size is exactly wrap its [child], for
+  /// example the container of [Text] wrap the size of [Text] instead of
+  /// expanding to full width.
+  /// - `onLongPressed`: action when long-press on parent widget
+  /// - `enableInkWell` and `splashColor`: Wrap this widget inside an
+  /// [InkWell]. Its default value is `FALSE`.
+  ///  - If [enableInkWell] is not true, then just return this [widget].
+  ///  - If [enableInkWell] is true splashColor is null, then `splashColor`
+  /// will be automatically gotten from Theme instead.
   ///
-  /// The list below only show renamed or default params of [RaisedButton] :
+  /// <b>Params of the child widget is:</b>
   ///
-  /// - [childKey] : [Key] of the [RaisedButton]
-  /// - [childPadding] : padding of the [RaisedButton]
-  /// - [childColor] : [Color] of the [RaisedButton]
-  /// - [clipBehavior] : default is [Clip.none]
-  /// - [onPressed] : default is empty [VoidCallback]
-  ///
+  /// - `childKey`: [Key] of [RaisedButton]
+  /// - `child`: the button's label.
+  /// - `onPressed`: is `onPressed` action of button
+  /// - `onHighlightChanged`: is `onHighlightChanged` action of button
+  /// - `textTheme`: defines the button's base colors, and the defaults for the
+  /// button's minimum size, internal padding, and shape. Defaults to
+  /// `ButtonTheme.of(context).textTheme`.
+  /// - `textColor`: the color to use for this button's text.
+  /// - `disabledTextColor`: the color to use for this button's text when the
+  /// - `childColor`: the button's fill color, displayed by its [Material],
+  /// while it is in its default (unpressed, [enabled]) state.
+  /// - `disabledColor`: the fill color of the button when the button is disabled.
+  /// - `highlightColor`: the highlight color of the button's [InkWell].
+  /// - `splashColor`: the color to use for this button's text.
+  /// - `colorBrightness`: the theme brightness to use for this button.
+  /// - `elevation`: the z-coordinate at which to place this button relative to
+  /// its parent. Defaults to 2.
+  /// - `highlightElevation`: the elevation for the button's [Material] relative
+  /// to its parent when the button is [enabled] and pressed. Defaults to 8.0.
+  /// - `disabledElevation`: the elevation for the button's [Material] relative
+  /// to its parent when the button is not [enabled]. Defaults to 0.0.
+  /// - `childPadding`: the internal padding for the button's [child].
+  /// - `shape`: the shape of the button's [Material]. The button's highlight
+  /// and splash are clipped to this shape.
+  /// - `clipBehavior`: {@macro flutter.widgets.Clip}
+  /// - `materialTapTargetSize`: configures the minimum size of the tap target.
+  /// - `animationDuration`: Defines the duration of animated changes for
+  /// [shape] and [elevation].
   SuperRaisedButton({
     Key key,
     AlignmentGeometry alignment /* = AlignmentDirectional.topStart*/,

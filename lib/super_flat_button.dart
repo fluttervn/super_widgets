@@ -66,7 +66,6 @@ class SuperFlatButton extends BaseContainer {
   /// - `focusNode`: {@macro flutter.widgets.Focus.focusNode}
   /// - `autofocus`: {@macro flutter.widgets.Focus.autofocus}
   /// - `materialTapTargetSize`: configures the minimum size of the tap target.
-  ///
   SuperFlatButton({
     Key key,
     AlignmentGeometry alignment,
