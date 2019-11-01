@@ -5,22 +5,61 @@ import 'base/base_container.dart';
 
 /// [SuperInkWell] is a [InkWell] with [Container] inside
 class SuperInkWell extends InkWell {
-  /// Create new [SuperInkWell]. Its params is the combination of
-  /// [Container]'s params (has the same param name) and [InkWell]'s
-  /// params (has almost the same param name, but if have any duplicated name
-  /// with its parent, then add prefix `child` - for example: if [Container]
-  /// has `color` property, and [InkWell] also  have `color` property,
-  /// then the latter will be rename to `childColor`).
+  /// Create new [SuperInkWell] which has a [InkWell] (parent) with
+  /// a [Container] (child) inside.
+  /// Thus its params is the combination of [InkWell]'s
+  /// params and [Container]'s  params.
   ///
-  /// The list below only show renamed or default params of [InkWell] :
+  /// <b>Params of the parent widget is:</b>
   ///
-  /// - [onTap] : default empty [GestureTapCallback]
+  /// - `key`: key of parent widget.
+  /// - `onTap`: called when the user taps this part of the material.
+  /// - `onDoubleTap`: called when the user taps down this part of the material.
+  /// - `onLongPress`: called when the user long-presses on this part of the material.
+  /// - `onTapDown`: called when the user taps down this part of the material.
+  /// - `onTapCancel`: called when the user cancels a tap that was started on
+  /// this part of the material.
+  /// - `onHighlightChanged`: called when this part of the material either
+  /// becomes highlighted or stops being highlighted.
+  /// - `highlightColor`: the highlight color of the ink response when pressed.
+  /// If this property is null then the highlight color of the theme,
+  /// [ThemeData.highlightColor], will be used.
+  /// - `splashColor`: the splash color of the ink response. If this property
+  /// is null then the splash color of the theme, [ThemeData.splashColor],
+  /// will be used.
+  /// - `splashFactory`: defines the appearance of the splash. Defaults to the
+  /// value of the theme's splash factory: [ThemeData.splashFactory].
+  /// - `radius`: the radius of the ink splash.
+  /// - `borderRadius`: the clipping radius of the containing rect. This is
+  /// effective only if [customBorder] is null.
+  /// - `customBorder`: the custom clip border which overrides [borderRadius].
+  /// - `enableFeedback`: whether detected gestures should provide acoustic
+  /// and/or haptic feedback.
+  /// - `excludeFromSemantics`: whether to exclude the gestures introduced by
+  /// this widget from the semantics tree.
   ///
-  /// The list below only show default params of [Container] :
+  /// <b>Params of the child widget is:</b>
   ///
-  /// - [childKey] : [Key] of the [InkWell]
-  /// - [alignment] : default is [AlignmentDirectional.topStart]
-  ///
+  /// - `alignment`: an align value from [AlignmentDirectional]
+  /// - `margin`: the margin between [InkWell] vs the inner [Container].
+  /// - `padding`: the padding between [Container] vs. its child.
+  /// - `color` and `decoration`: only one params is valid. It's the
+  /// decoration to paint behind the [child].
+  /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
+  /// - `width` and `height` values include the padding. It can be a double
+  ///  value like 100.0, or [double.infinity], or null, like the size value of
+  ///  [Container]
+  /// - `constraints`: like [BoxConstraints] of [Container]
+  /// - `transform`: the transformation matrix to apply before painting the parent.
+  /// - `flex`: same as `flex` value which is used in [Flexible].
+  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget
+  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value
+  ///  - If flex is null, just return [child] widget
+  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
+  /// `height` of [child] might depends on [alignment] or its parent's size.
+  /// But in some cases we need its size is exactly wrap its [child], for
+  /// example the container of [Text] wrap the size of [Text] instead of
+  /// expanding to full width.
   SuperInkWell({
     Key key,
     GestureTapCallback onTap,
@@ -78,9 +117,9 @@ class SuperInkWell extends InkWell {
             width: width,
             height: height,
             constraints: constraints,
+            transform: transform,
             flex: flex,
             ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
-            transform: transform,
             child: child,
           ),
         );
