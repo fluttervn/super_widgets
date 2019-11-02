@@ -13,7 +13,7 @@ class SuperListView extends BaseContainer {
   ///
   /// <b>Params of the parent widget is:</b>
   ///
-  /// - `key` : Key of parent widget
+  /// - `key` : key of parent widget.
   /// - `alignment`: Align the [Container] within this widget. Defaults to
   /// [AlignmentDirectional.topStart].
   /// - `padding`: padding between this widget vs. the [Container] inside
@@ -143,7 +143,7 @@ class SuperListView extends BaseContainer {
   ///
   /// <b>Params of the parent widget is:</b>
   ///
-  /// - `key` : Key of parent widget
+  /// - `key` : key of parent widget.
   /// - `alignment`: Align the [Container] within this widget. Defaults to
   /// [AlignmentDirectional.topStart].
   /// - `padding`: padding between this widget vs. the [Container] inside

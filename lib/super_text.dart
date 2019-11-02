@@ -12,7 +12,7 @@ class SuperText extends BaseContainer {
   ///
   /// <b>Params of the parent widget is:</b>
   ///
-  /// - `key` : Key of parent widget
+  /// - `key` : key of parent widget.
   /// - `alignment`: an align value from [AlignmentDirectional]
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the [child].
@@ -127,7 +127,7 @@ class SuperText extends BaseContainer {
   ///
   /// <b>Params of the parent widget is:</b>
   ///
-  /// - `key` : Key of parent widget
+  /// - `key` : key of parent widget.
   /// - `alignment`: an align value from [AlignmentDirectional]
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the [child].

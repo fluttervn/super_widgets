@@ -11,7 +11,7 @@ class SuperScrollViewColumn extends SingleChildScrollView {
   ///
   /// <b>Params of the parent widget is:</b>
   ///
-  /// - `key` : Key of parent widget
+  /// - `key` : key of parent widget.
   /// - `scrollDirection`: The axis along which the scroll view scrolls.
   /// Defaults to [Axis.vertical].
   /// - `reverse` : Whether the scroll view scrolls in the reading direction.

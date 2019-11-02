@@ -12,7 +12,7 @@ class SuperClipRRect extends BaseContainer {
   ///
   /// Params of the parent widget is:
   ///
-  /// - [key] : Key of parent widget
+  /// - [key] : key of parent widget.
   /// - [alignment]: an align value from [AlignmentDirectional]
   /// - `margin`: the margin between [ClipRRect] vs. its child.
   /// - `padding`: the padding between [ClipRRect] vs. its child.

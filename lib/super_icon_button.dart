@@ -12,7 +12,7 @@ class SuperIconButton extends BaseContainer {
   ///
   /// <b>Params of the parent widget is:</b>
   ///
-  /// - `key` : Key of parent widget
+  /// - `key` : key of parent widget.
   /// - `alignment`: an align value from [AlignmentDirectional]
   /// - `margin`: the margin between this widget vs. its parent.
   /// - `padding`: the padding between this widget vs. its child.

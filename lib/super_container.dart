@@ -7,7 +7,7 @@ import 'base/base_container.dart';
 class SuperContainer extends BaseContainer {
   /// Create new [SuperContainer] with the following params:
   ///
-  /// - `key` : Key of parent widget
+  /// - `key` : key of parent widget.
   /// - `alignment`: an align value from [AlignmentDirectional]
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the [child].
