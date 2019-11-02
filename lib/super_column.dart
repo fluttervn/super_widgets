@@ -46,7 +46,7 @@ class SuperColumn extends BaseContainer {
   /// - [verticalDirection]: determines the order to lay children out vertically
   /// and how to interpret `start` and `end` in the vertical direction.
   /// Defaults to [VerticalDirection.down].
-  /// - [textBaseline]: If aligning items according to their baseline, which
+  /// - [textBaseline]: if aligning items according to their baseline, which
   /// baseline to use.
   SuperColumn({
     Key key,

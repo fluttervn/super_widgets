@@ -42,7 +42,7 @@ class SuperStack extends BaseContainer {
   /// - `childAlignment`: How to align the non-positioned and
   /// partially-positioned children in the stack. Default is
   /// [AlignmentDirectional.topStart].
-  /// - `textDirection`: The text direction with which to resolve [alignment].
+  /// - `textDirection`: the text direction with which to resolve [alignment].
   /// Defaults to the ambient [Directionality].
   SuperStack({
     Key key,

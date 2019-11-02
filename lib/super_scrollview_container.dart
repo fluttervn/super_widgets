@@ -12,7 +12,7 @@ class SuperScrollViewContainer extends SingleChildScrollView {
   /// <b>Params of the parent widget is:</b>
   ///
   /// - `key` : key of parent widget.
-  /// - `scrollDirection`: The axis along which the scroll view scrolls.
+  /// - `scrollDirection`: the axis along which the scroll view scrolls.
   /// Defaults to [Axis.vertical].
   /// - `reverse` : Whether the scroll view scrolls in the reading direction.
   /// Defaults to false.
@@ -38,7 +38,7 @@ class SuperScrollViewContainer extends SingleChildScrollView {
   /// - `childPadding`: padding between the [Container] to the [child]
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the [Container].
-  /// - `foregroundDecoration`: The decoration to paint in front of the [Container].
+  /// - `foregroundDecoration`: the decoration to paint in front of the [Container].
   /// - `width` and `height` values include the padding. It can be a double
   /// value like 100.0, or [double.infinity], or null, like the size value of
   /// [Container]

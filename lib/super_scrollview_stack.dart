@@ -12,7 +12,7 @@ class SuperScrollViewStack extends SingleChildScrollView {
   /// <b>Params of the parent widget is:</b>
   ///
   /// - `key` : key of parent widget.
-  /// - `scrollDirection`: The axis along which the scroll view scrolls.
+  /// - `scrollDirection`: the axis along which the scroll view scrolls.
   /// Defaults to [Axis.vertical].
   /// - `reverse` : Whether the scroll view scrolls in the reading direction.
   /// Defaults to false.
@@ -38,7 +38,7 @@ class SuperScrollViewStack extends SingleChildScrollView {
   /// - `childAlignment`: How to align the non-positioned and
   /// partially-positioned children in the stack. Default is
   /// [AlignmentDirectional.topStart].
-  /// - `textDirection`: The text direction with which to resolve [alignment].
+  /// - `textDirection`: the text direction with which to resolve [alignment].
   /// Defaults to the ambient [Directionality].
   SuperScrollViewStack({
     Key key,

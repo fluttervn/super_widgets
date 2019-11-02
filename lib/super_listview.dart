@@ -20,7 +20,7 @@ class SuperListView extends BaseContainer {
   /// - `margin`: margin between this widget vs. its parent.
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the [Container].
-  /// - `foregroundDecoration`: The decoration to paint in front of the [Container].
+  /// - `foregroundDecoration`: the decoration to paint in front of the [Container].
   /// - `width` and `height` values include the padding. It can be a double
   /// value like 100.0, or [double.infinity], or null, like the size value of
   /// [Container]
@@ -57,7 +57,7 @@ class SuperListView extends BaseContainer {
   /// [scrollDirection] should be determined by the contents being viewed.
   /// Defaults to false.
   /// - `childPadding`: padding between the [ListView] vs. its children.
-  /// - `itemExtent`: If non-null, forces the children to have the given extent
+  /// - `itemExtent`: if non-null, forces the children to have the given extent
   /// in the scroll direction.
   /// - `addAutomaticKeepAlives`: Whether to wrap each child in an
   /// [AutomaticKeepAlive]. Defaults to true.
@@ -66,7 +66,7 @@ class SuperListView extends BaseContainer {
   /// - `addSemanticIndexes`: Whether to wrap each child in an
   /// [IndexedSemantics]. Defaults to true.
   /// - `cacheExtent`: {@macro flutter.rendering.viewport.cacheExtent}
-  /// - `semanticChildCount`: The number of children that will contribute
+  /// - `semanticChildCount`: the number of children that will contribute
   /// semantic information.
   /// - `dragStartBehavior`: {@macro flutter.widgets.scrollable.dragStartBehavior}.
   /// Defaults to [DragStartBehavior.start].
@@ -151,7 +151,7 @@ class SuperListView extends BaseContainer {
   /// - `margin`: margin between this widget vs. its parent.
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the [Container].
-  /// - `foregroundDecoration`: The decoration to paint in front of the [Container].
+  /// - `foregroundDecoration`: the decoration to paint in front of the [Container].
   /// - `width` and `height` values include the padding. It can be a double
   /// value like 100.0, or [double.infinity], or null, like the size value of
   /// [Container]
@@ -188,7 +188,7 @@ class SuperListView extends BaseContainer {
   /// [scrollDirection] should be determined by the contents being viewed.
   /// Defaults to false.
   /// - `childPadding`: padding between the [ListView] vs. its children.
-  /// - `itemExtent`: If non-null, forces the children to have the given extent
+  /// - `itemExtent`: if non-null, forces the children to have the given extent
   /// in the scroll direction.
   /// - `addAutomaticKeepAlives`: Whether to wrap each child in an
   /// [AutomaticKeepAlive]. Defaults to true.
@@ -197,7 +197,7 @@ class SuperListView extends BaseContainer {
   /// - `addSemanticIndexes`: Whether to wrap each child in an
   /// [IndexedSemantics]. Defaults to true.
   /// - `cacheExtent`: {@macro flutter.rendering.viewport.cacheExtent}
-  /// - `semanticChildCount`: The number of children that will contribute
+  /// - `semanticChildCount`: the number of children that will contribute
   /// semantic information.
   /// - `dragStartBehavior`: {@macro flutter.widgets.scrollable.dragStartBehavior}.
   /// Defaults to [DragStartBehavior.start].

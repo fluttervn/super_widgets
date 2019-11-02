@@ -44,7 +44,7 @@ class SuperClipRRect extends BaseContainer {
   ///  - Values are clamped so that horizontal and vertical radii sums do not
   ///  exceed width/height.
   ///   - This value is ignored if [clipper] is non-null.
-  /// - `clipper`: If non-null, determines which clip to use.
+  /// - `clipper`: if non-null, determines which clip to use.
   /// - `clipBehavior`: {@macro flutter.clipper.clipBehavior}. Default is [Clip.antiAlias]
   SuperClipRRect({
     Key key,

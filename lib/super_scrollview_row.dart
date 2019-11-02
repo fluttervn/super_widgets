@@ -12,7 +12,7 @@ class SuperScrollViewRow extends SingleChildScrollView {
   /// <b>Params of the parent widget is:</b>
   ///
   /// - `key` : key of parent widget.
-  /// - `scrollDirection`: The axis along which the scroll view scrolls.
+  /// - `scrollDirection`: the axis along which the scroll view scrolls.
   /// Defaults to [Axis.vertical].
   /// - `reverse` : Whether the scroll view scrolls in the reading direction.
   /// Defaults to false.
@@ -45,7 +45,7 @@ class SuperScrollViewRow extends SingleChildScrollView {
   /// - `textDirection`: Determines the order to lay children out horizontally
   /// and how to interpret `start` and `end` in the horizontal direction.
   /// Defaults to the ambient [Directionality].
-  /// - `textBaseline`: If aligning items according to their baseline, which
+  /// - `textBaseline`: if aligning items according to their baseline, which
   /// baseline to use.
   SuperScrollViewRow({
     Key key,

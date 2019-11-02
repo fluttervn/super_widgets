@@ -19,7 +19,7 @@ class SuperListTile extends BaseContainer {
   /// - `margin`: margin between this widget vs. its parent.
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the [Container].
-  /// - `foregroundDecoration`: The decoration to paint in front of the [Container].
+  /// - `foregroundDecoration`: the decoration to paint in front of the [Container].
   /// - `width` and `height` values include the padding. It can be a double
   /// value like 100.0, or [double.infinity], or null, like the size value of
   /// [Container]
@@ -63,7 +63,7 @@ class SuperListTile extends BaseContainer {
   /// - `dense`: whether this list tile is part of a vertically dense list.
   /// - `contentPadding`: the tile's internal padding.
   /// - `enabled`: whether this list tile is interactive.
-  /// - `selected`: If this tile is also [enabled] then icons and text are
+  /// - `selected`: if this tile is also [enabled] then icons and text are
   /// rendered with the same color.
   SuperListTile({
     Key key,

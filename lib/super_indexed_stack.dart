@@ -39,11 +39,11 @@ class SuperIndexedStack extends BaseContainer {
   /// - `children`: list of children widget of [IndexedStack]
   /// - `sizing`: How to size the non-positioned children in the [IndexedStack].
   /// Default is [StackFit.loose].
-  /// - `index`: The index of the child of [IndexedStack] to show.
+  /// - `index`: the index of the child of [IndexedStack] to show.
   /// - `childAlignment`: How to align the non-positioned and
   /// partially-positioned children in the [IndexedStack]. Default is
   /// [AlignmentDirectional.topStart].
-  /// - `textDirection`: The text direction with which to resolve [alignment].
+  /// - `textDirection`: the text direction with which to resolve [alignment].
   /// Defaults to the ambient [Directionality].
   SuperIndexedStack({
     Key key,

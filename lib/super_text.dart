@@ -43,17 +43,17 @@ class SuperText extends BaseContainer {
   ///
   /// - `childKey`: [Key] of [Text].
   /// - `textData`:  The text to display.
-  /// - `style`: If non-null, the style to use for this text.
+  /// - `style`: if non-null, the style to use for this text.
   /// - `strutStyle`: {@macro flutter.painting.textPainter.strutStyle}
   /// - `textAlign`: How the text should be aligned horizontally.
-  /// - `textDirection`: The directionality of the text. This decides how
+  /// - `textDirection`: the directionality of the text. This decides how
   /// [textAlign] values like [TextAlign.start] and [TextAlign.end] are
   /// interpreted.
   /// - `locale`: Used to select a font when the same Unicode character can
   /// be rendered differently, depending on the locale.
   /// - `softWrap`: Whether the text should break at soft line breaks.
   /// - `overflow`: How visual overflow should be handled.
-  /// - `textScaleFactor`: The number of font pixels for each logical pixel.
+  /// - `textScaleFactor`: the number of font pixels for each logical pixel.
   /// - `maxLines`: An optional maximum number of lines for the text to span,
   /// wrapping if necessary. If the text exceeds the given number of lines, it
   /// will be truncated according to [overflow].
@@ -158,17 +158,17 @@ class SuperText extends BaseContainer {
   ///
   /// - `childKey`: [Key] of [Text].
   /// - `textSpan`:  The text to display as a [InlineSpan].
-  /// - `style`: If non-null, the style to use for this text.
+  /// - `style`: if non-null, the style to use for this text.
   /// - `strutStyle`: {@macro flutter.painting.textPainter.strutStyle}
   /// - `textAlign`: How the text should be aligned horizontally.
-  /// - `textDirection`: The directionality of the text. This decides how
+  /// - `textDirection`: the directionality of the text. This decides how
   /// [textAlign] values like [TextAlign.start] and [TextAlign.end] are
   /// interpreted.
   /// - `locale`: Used to select a font when the same Unicode character can
   /// be rendered differently, depending on the locale.
   /// - `softWrap`: Whether the text should break at soft line breaks.
   /// - `overflow`: How visual overflow should be handled.
-  /// - `textScaleFactor`: The number of font pixels for each logical pixel.
+  /// - `textScaleFactor`: the number of font pixels for each logical pixel.
   /// - `maxLines`: An optional maximum number of lines for the text to span,
   /// wrapping if necessary. If the text exceeds the given number of lines, it
   /// will be truncated according to [overflow].

@@ -54,7 +54,7 @@ class SuperRow extends BaseContainer {
   /// - `textDirection`: Determines the order to lay children out horizontally
   /// and how to interpret `start` and `end` in the horizontal direction.
   /// Defaults to the ambient [Directionality].
-  /// - `textBaseline`: If aligning items according to their baseline, which
+  /// - `textBaseline`: if aligning items according to their baseline, which
   /// baseline to use.
   SuperRow({
     Key key,
