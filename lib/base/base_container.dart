@@ -15,14 +15,14 @@ class BaseContainer extends StatelessWidget {
   /// placed inside this padding.
   final EdgeInsetsGeometry padding;
 
-  /// The decoration to paint behind the [child].
+  /// The decoration to paint behind the `child`.
   ///
   /// A shorthand for specifying just a solid color is available in the
   /// constructor: set the `color` argument instead of the `decoration`
   /// argument.
   final Decoration decoration;
 
-  /// The decoration to paint in front of the [child].
+  /// The decoration to paint in front of the `child`.
   final Decoration foregroundDecoration;
 
   /// Empty space to surround the [decoration] and [child].
@@ -52,7 +52,7 @@ class BaseContainer extends StatelessWidget {
   /// Callback when user long-presses on this widget
   final VoidCallback onLongPressed;
 
-  /// `width` and `height` of [child] might depends on [alignment] or its
+  /// `width` and `height` of `child` might depends on `alignment` or its
   /// parent's size. But in some cases we need its size is exactly wrap its
   /// [child], for example the container of [Text] wrap the size of [Text]
   /// instead of expanding to full width.
@@ -89,7 +89,7 @@ class BaseContainer extends StatelessWidget {
   ///
   /// - `color` argument is a shorthand for `decoration: BoxDecoration(color: color)`.
   /// Thus you MUST not provide both `color` and `decoration` argument.
-  /// - `decoration`: is the decoration to paint behind the [child].
+  /// - `decoration`: is the decoration to paint behind the `child`.
   /// - The `height` and `width` values include the padding. It can be a double
   /// value like 100.0, or [double.infinity], or null, like the size value of
   /// [Container]

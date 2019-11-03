@@ -15,27 +15,27 @@ class SuperRaisedButton extends BaseContainer {
   /// - `key` : key of parent widget.
   /// - `alignment`: an align value from [AlignmentDirectional].
   /// - `color` and `decoration`: only one params is valid. It's the
-  /// decoration to paint behind the [child].
-  /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
+  /// decoration to paint behind the `child`.
+  /// - `foregroundDecoration`: It's the decoration to paint in front of the `child`.
   /// - `width` and `height` values include the padding. It can be a double
   ///  value like 100.0, or [double.infinity], or null, like the size value of
   ///  [Container].
   /// - `constraints`: like [BoxConstraints] of [Container].
   /// - `transform`: the transformation matrix to apply before painting the parent.
   /// - `flex`: same as `flex` value which is used in [Flexible].
-  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget.
-  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value.
-  ///  - If flex is null, just return [child] widget.
+  ///  - If flex=0: this widget will be wrapped inside a [Wrap] widget.
+  ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
+  ///  - Default flex is null, it means just return this widget.
   /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
-  /// `height` of [child] might depends on [alignment] or its parent's size.
-  /// But in some cases we need its size is exactly wrap its [child], for
+  /// `height` of `child` might depends on `alignment` or its parent's size.
+  /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
   /// expanding to full width.
   /// - `onLongPressed`: action when long-press on parent widget.
   /// - `enableInkWell` and `splashColor`: Wrap this widget inside an
   /// [InkWell]. Its default value is `FALSE`.
-  ///  - If [enableInkWell] is not true, then just return this [widget].
-  ///  - If [enableInkWell] is true splashColor is null, then `splashColor`
+  ///  - If `enableInkWell` is not true, then just return this `widget`.
+  ///  - If `enableInkWell` is true splashColor is null, then `splashColor`
   /// will be automatically gotten from Theme instead.
   ///
   /// <b>Params of the child widget is:</b>
@@ -50,7 +50,7 @@ class SuperRaisedButton extends BaseContainer {
   /// - `textColor`: the color to use for this button's text.
   /// - `disabledTextColor`: the color to use for this button's text when the
   /// - `childColor`: the button's fill color, displayed by its [Material],
-  /// while it is in its default (unpressed, [enabled]) state.
+  /// while it is in its default (unpressed, `enabled`) state.
   /// - `disabledColor`: the fill color of the button when the button is disabled.
   /// - `highlightColor`: the highlight color of the button's [InkWell].
   /// - `splashColor`: the color to use for this button's text.
@@ -61,7 +61,7 @@ class SuperRaisedButton extends BaseContainer {
   /// to its parent when the button is [enabled] and pressed. Defaults to 8.0.
   /// - `disabledElevation`: the elevation for the button's [Material] relative
   /// to its parent when the button is not [enabled]. Defaults to 0.0.
-  /// - `childPadding`: the internal padding for the button's [child].
+  /// - `childPadding`: the internal padding for the button's `child`.
   /// - `shape`: the shape of the button's [Material]. The button's highlight
   /// and splash are clipped to this shape.
   /// - `clipBehavior`: {@macro flutter.widgets.Clip}

@@ -83,7 +83,7 @@ Widget safeTransform({
 
 /// Wrap this [child] inside an [InkWell] widget.
 ///
-/// If [enableInkWell] is not true, then just return this [widget].
+/// If [enableInkWell] is not true, then just return this `widget`.
 ///
 /// If [enableInkWell] is true but `splashColor` is null, then `splashColor`
 /// will be automatically gotten from Theme instead.

@@ -16,20 +16,20 @@ class SuperIndexedStack extends BaseContainer {
   /// - `margin`: the margin between this widget vs. its parent.
   /// - `padding`: the padding between this widget vs. the [IndexedStack].
   /// - `color` and `decoration`: only one params is valid. It's the
-  /// decoration to paint behind the [child].
-  /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
+  /// decoration to paint behind the `child`.
+  /// - `foregroundDecoration`: It's the decoration to paint in front of the `child`.
   /// - `width` and `height` values include the padding. It can be a double
   ///  value like 100.0, or [double.infinity], or null, like the size value of
   ///  [Container].
   /// - `constraints`: like [BoxConstraints] of [Container].
   /// - `transform`: the transformation matrix to apply before painting the parent.
   /// - `flex`: same as `flex` value which is used in [Flexible].
-  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget.
-  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value.
-  ///  - If flex is null, just return [child] widget.
+  ///  - If flex=0: this widget will be wrapped inside a [Wrap] widget.
+  ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
+  ///  - Default flex is null, it means just return this widget.
   /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
-  /// `height` of [child] might depends on [alignment] or its parent's size.
-  /// But in some cases we need its size is exactly wrap its [child], for
+  /// `height` of `child` might depends on `alignment` or its parent's size.
+  /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
   /// expanding to full width.
   ///
