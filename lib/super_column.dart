@@ -14,8 +14,8 @@ class SuperColumn extends BaseContainer {
   /// - `key` : key of parent widget.
   /// - `alignment`: an align value from [AlignmentDirectional].
   /// - `color` and `decoration`: only one params is valid. It's the
-  /// decoration to paint behind the [child].
-  /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
+  /// decoration to paint behind the `child`.
+  /// - `foregroundDecoration`: It's the decoration to paint in front of the `child`.
   /// - `width` and `height` values include the padding. It can be a double
   ///  value like 100.0, or [double.infinity], or null, like the size value of
   ///  [Container].
@@ -25,28 +25,28 @@ class SuperColumn extends BaseContainer {
   ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
   ///  - Default flex is null, it means just return this widget.
   /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
-  /// `height` of [child] might depends on [alignment] or its parent's size.
-  /// But in some cases we need its size is exactly wrap its [child], for
+  /// `height` of `child` might depends on `alignment` or its parent's size.
+  /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
   /// expanding to full width.
   ///
   /// <b>Params of the child widget is:</b>
   ///
-  /// - [childKey]: [Key] of [Column]
-  /// - [children]: list of children widget of [Column]. Default is empty list.
-  /// - [mainAxisAlignment]: how the [children] should be placed along the main
+  /// - `childKey`: [Key] of [Column]
+  /// - `children`: list of children widget of [Column]. Default is empty list.
+  /// - `mainAxisAlignment`: how the [children] should be placed along the main
   /// axis. Default is [MainAxisAlignment.start]
-  /// - [mainAxisSize]: how much space should be occupied in the main axis.
+  /// - `mainAxisSize`: how much space should be occupied in the main axis.
   /// Default is [MainAxisSize.max]
-  /// - [crossAxisAlignment]: how the [children] should be placed along the
+  /// - `crossAxisAlignment`: how the [children] should be placed along the
   /// cross axis. Default is [CrossAxisAlignment.center]
-  /// - [textDirection]: determines the order to lay [children] out horizontally
+  /// - `textDirection`: determines the order to lay [children] out horizontally
   /// and how to interpret `start` and `end` in the horizontal direction.
   /// Defaults to the ambient [Directionality].
-  /// - [verticalDirection]: determines the order to lay children out vertically
+  /// - `verticalDirection`: determines the order to lay children out vertically
   /// and how to interpret `start` and `end` in the vertical direction.
   /// Defaults to [VerticalDirection.down].
-  /// - [textBaseline]: if aligning items according to their baseline, which
+  /// - `textBaseline`: if aligning items according to their baseline, which
   /// baseline to use.
   SuperColumn({
     Key key,

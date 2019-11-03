@@ -31,8 +31,8 @@ class SuperListView extends BaseContainer {
   ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
   ///  - Default flex is null, it means just return this widget.
   /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
-  /// `height` of [child] might depends on [alignment] or its parent's size.
-  /// But in some cases we need its size is exactly wrap its [child], for
+  /// `height` of `child` might depends on `alignment` or its parent's size.
+  /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
   /// expanding to full width.
   ///
@@ -162,8 +162,8 @@ class SuperListView extends BaseContainer {
   ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
   ///  - Default flex is null, it means just return this widget.
   /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
-  /// `height` of [child] might depends on [alignment] or its parent's size.
-  /// But in some cases we need its size is exactly wrap its [child], for
+  /// `height` of `child` might depends on `alignment` or its parent's size.
+  /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
   /// expanding to full width.
   ///

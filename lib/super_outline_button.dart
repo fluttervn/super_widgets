@@ -15,8 +15,8 @@ class SuperOutlineButton extends BaseContainer {
   /// - `key` : key of parent widget.
   /// - `alignment`: an align value from [AlignmentDirectional].
   /// - `color` and `decoration`: only one params is valid. It's the
-  /// decoration to paint behind the [child].
-  /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
+  /// decoration to paint behind the `child`.
+  /// - `foregroundDecoration`: It's the decoration to paint in front of the `child`.
   /// - `width` and `height` values include the padding. It can be a double
   ///  value like 100.0, or [double.infinity], or null, like the size value of
   ///  [Container].
@@ -27,8 +27,8 @@ class SuperOutlineButton extends BaseContainer {
   ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
   ///  - Default flex is null, it means just return this widget.
   /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
-  /// `height` of [child] might depends on [alignment] or its parent's size.
-  /// But in some cases we need its size is exactly wrap its [child], for
+  /// `height` of `child` might depends on `alignment` or its parent's size.
+  /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
   /// expanding to full width.
   /// - `onLongPressed`: action when long-press on parent widget.
@@ -45,7 +45,7 @@ class SuperOutlineButton extends BaseContainer {
   /// - `textColor`: the color to use for this button's text.
   /// - `disabledTextColor`: the color to use for this button's text when the
   /// - `childColor`: the button's fill color, displayed by its [Material],
-  /// while it is in its default (unpressed, [enabled]) state.
+  /// while it is in its default (unpressed, `enabled`) state.
   /// - `focusColor`: the fill color of the button's [Material] when it has the
   /// input focus.
   /// - `hoverColor`: the fill color of the button's [Material] when a pointer
@@ -58,7 +58,7 @@ class SuperOutlineButton extends BaseContainer {
   /// to its parent when the button is not [enabled]. Defaults to 0.0.
   /// - `highlightedBorderColor`: the outline border's color when the button is
   /// [enabled] and pressed.
-  /// - `childPadding`: the internal padding for the button's [child].
+  /// - `childPadding`: the internal padding for the button's `child`.
   /// - `shape`: the shape of the button's [Material]. The button's highlight
   /// and splash are clipped to this shape.
   /// - `clipBehavior`: {@macro flutter.widgets.Clip}

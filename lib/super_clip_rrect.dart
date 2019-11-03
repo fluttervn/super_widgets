@@ -12,13 +12,13 @@ class SuperClipRRect extends BaseContainer {
   ///
   /// Params of the parent widget is:
   ///
-  /// - [key] : key of parent widget.
-  /// - [alignment]: an align value from [AlignmentDirectional].
+  /// - `key` : key of parent widget.
+  /// - `alignment`: an align value from [AlignmentDirectional].
   /// - `margin`: the margin between [ClipRRect] vs. its child.
   /// - `padding`: the padding between [ClipRRect] vs. its child.
   /// - `color` and `decoration`: only one params is valid. It's the
-  /// decoration to paint behind the [child].
-  /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
+  /// decoration to paint behind the `child`.
+  /// - `foregroundDecoration`: It's the decoration to paint in front of the `child`.
   /// - `width` and `height` values include the padding. It can be a double
   ///  value like 100.0, or [double.infinity], or null, like the size value of
   ///  [Container].
@@ -28,8 +28,8 @@ class SuperClipRRect extends BaseContainer {
   ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
   ///  - Default flex is null, it means just return this widget.
   /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
-  /// `height` of [child] might depends on [alignment] or its parent's size.
-  /// But in some cases we need its size is exactly wrap its [child], for
+  /// `height` of `child` might depends on `alignment` or its parent's size.
+  /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
   /// expanding to full width.
   /// - `onPressed`: action when press on parent widget.
