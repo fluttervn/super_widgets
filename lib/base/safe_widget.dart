@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-/// Wrap this [child] inside an [Align] widget
+/// Wrap this [child] inside an [Align] widget.
+///
+/// If [alignment] widget is null, then just return this [child].
 Widget safeAlign({
   @required AlignmentGeometry alignment,
   @required Widget child,
@@ -14,7 +16,9 @@ Widget safeAlign({
   return current;
 }
 
-/// Wrap this [child] inside an [Padding] widget
+/// Wrap this [child] inside an [Padding] widget.
+///
+/// If [padding] widget is null, then just return this [child].
 Widget safePadding({
   @required EdgeInsetsGeometry padding,
   @required Widget child,
@@ -27,7 +31,9 @@ Widget safePadding({
   return current;
 }
 
-/// Wrap this [child] inside an [DecoratedBox] widget
+/// Wrap this [child] inside an [DecoratedBox] widget.
+///
+/// If [decoration] widget is null, then just return this [child].
 Widget safeDecoratedBox({
   @required Decoration decoration,
   @required Widget child,
@@ -45,7 +51,9 @@ Widget safeDecoratedBox({
   return current;
 }
 
-/// Wrap this [child] inside an [DecoratedBox] widget
+/// Wrap this [child] inside an [DecoratedBox] widget.
+///
+/// If [constraints] widget is null, then just return this [child].
 Widget safeConstrainedBox({
   @required BoxConstraints constraints,
   @required Widget child,
@@ -58,7 +66,9 @@ Widget safeConstrainedBox({
   return current;
 }
 
-/// Wrap this [child] inside an [Transform] widget
+/// Wrap this [child] inside an [Transform] widget.
+///
+/// If [transform] widget is null, then just return this [child].
 Widget safeTransform({
   @required Matrix4 transform,
   @required Widget child,
@@ -71,9 +81,12 @@ Widget safeTransform({
   return current;
 }
 
-/// Wrap this [child] inside an [InkWell] widget
-/// If enable InkWell but splashColor is null, then will use splashColor from
-/// Theme instead
+/// Wrap this [child] inside an [InkWell] widget.
+///
+/// If [enableInkWell] is not true, then just return this [widget].
+///
+/// If [enableInkWell] is true but `splashColor` is null, then `splashColor`
+/// will be automatically gotten from Theme instead.
 Widget safeInkWell({
   bool enableInkWell,
   Color splashColor,
@@ -87,13 +100,13 @@ Widget safeInkWell({
   return current;
 }
 
-/// Wrap this [child] inside an DynamicSize widget.
+/// Wrap this [child] inside a [Wrap] or [Expanded] widget.
 ///
-/// dynamicSize: (string) is the dynamic size of the container.
-/// Its default value is empty, or its value can be:
+/// [flex] is same as `flex` value which is used in [Flexible].
 ///
-/// - wrap: will be wrapped inside a [Wrap] widget
-/// - full: will be wrapped inside an [Expanded] widget
+/// - if flex=0: [child] will be wrapped inside a [Wrap] widget.
+/// - if flex>0: [child] will be wrapped inside a [Expanded] with flex value.
+/// - if flex is null, just return [child] widget.
 Widget safeFlex({
   int flex,
   @required Widget child,
@@ -111,7 +124,9 @@ Widget safeFlex({
 }
 
 /// Wrap this widget into a [GestureDetector] to allow [onPressed] and
-/// [onLongPressed]
+/// [onLongPressed].
+///
+/// If both [onPressed] and [onLongPressed] is null, just return the [child]
 Widget safeOnPress({
   @required Widget child,
   VoidCallback onPressed,

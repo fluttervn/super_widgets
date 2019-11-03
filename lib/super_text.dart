@@ -3,27 +3,65 @@ import 'package:flutter/widgets.dart';
 
 import 'base/base_container.dart';
 
-/// [SuperText] is a [Container] with [Text] inside
+/// [SuperText] is a [Container] with [Text] inside.
 class SuperText extends BaseContainer {
-  /// Create new [SuperText]. Its params is the combination of [Container]'s
-  /// params (has the same param name) and [Text]'s  params (has almost the
-  /// same param name, but if have any duplicated name with its parent,
-  /// then add prefix `child` - for example: if [Container] has `color`
-  /// property, and [Text] also  have `color` property, then the latter will
-  /// be rename to `childColor`).
+  /// Create new [SuperText] which has a [Container] (parent) with
+  /// a [Text] (child) inside.
+  /// Thus its params is the combination of [Container]'s
+  /// params and [Text]'s  params.
   ///
-  /// The list below only show default params of [Container]:
+  /// <b>Params of the parent widget is:</b>
   ///
-  /// - alignment: default is [AlignmentDirectional.topStart]
+  /// - `key` : key of parent widget.
+  /// - `alignment`: an align value from [AlignmentDirectional].
+  /// - `color` and `decoration`: only one params is valid. It's the
+  /// decoration to paint behind the [child].
+  /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
+  /// - `width` and `height` values include the padding. It can be a double
+  ///  value like 100.0, or [double.infinity], or null, like the size value of
+  ///  [Container].
+  /// - `constraints`: like [BoxConstraints] of [Container].
+  /// - `transform`: the transformation matrix to apply before painting the parent.
+  /// - `flex`: same as `flex` value which is used in [Flexible].
+  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget.
+  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value.
+  ///  - If flex is null, just return [child] widget.
+  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
+  /// `height` of [child] might depends on [alignment] or its parent's size.
+  /// But in some cases we need its size is exactly wrap its [child], for
+  /// example the container of [Text] wrap the size of [Text] instead of
+  /// expanding to full width.
+  /// - `onPressed`: action when press on parent widget.
+  /// - `onLongPressed`: action when long-press on parent widget.
+  /// - `enableInkWell` and `splashColor`: Wrap this widget inside an
+  /// [InkWell]. Its default value is `FALSE`.
+  ///  - If [enableInkWell] is not true, then just return this [widget].
+  ///  - If [enableInkWell] is true splashColor is null, then `splashColor`
+  /// will be automatically gotten from Theme instead.
   ///
-  /// The list below only show renamed or default params of [Text]:
+  /// <b>Params of the child widget is:</b>
   ///
-  /// - [childKey] : [Key] of the [Text]
-  /// - [textData]: text (String)
+  /// - `childKey`: [Key] of [Text].
+  /// - `textData`:  The text to display.
+  /// - `style`: if non-null, the style to use for this text.
+  /// - `strutStyle`: {@macro flutter.painting.textPainter.strutStyle}
+  /// - `textAlign`: How the text should be aligned horizontally.
+  /// - `textDirection`: the directionality of the text. This decides how
+  /// [textAlign] values like [TextAlign.start] and [TextAlign.end] are
+  /// interpreted.
+  /// - `locale`: Used to select a font when the same Unicode character can
+  /// be rendered differently, depending on the locale.
+  /// - `softWrap`: Whether the text should break at soft line breaks.
+  /// - `overflow`: How visual overflow should be handled.
+  /// - `textScaleFactor`: the number of font pixels for each logical pixel.
+  /// - `maxLines`: An optional maximum number of lines for the text to span,
+  /// wrapping if necessary. If the text exceeds the given number of lines, it
+  /// will be truncated according to [overflow].
+  /// - `semanticsLabel`: An alternative semantics label for this text.
   SuperText(
     String textData, {
     Key key,
-    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    AlignmentGeometry alignment,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -32,11 +70,13 @@ class SuperText extends BaseContainer {
     double width,
     double height,
     BoxConstraints constraints,
+    Matrix4 transform,
     int flex,
     bool ignoreImplicitWidthHeight = true,
+    bool enableInkWell = false,
+    Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
-    Matrix4 transform,
     Key childKey,
     TextStyle style,
     StrutStyle strutStyle,
@@ -51,7 +91,7 @@ class SuperText extends BaseContainer {
   })  : assert(textData != null, 'Text widget must have non-empty textData'),
         super(
             key: key,
-            alignment: alignment,
+            alignment: alignment ?? AlignmentDirectional.topStart,
             padding: padding,
             color: color,
             decoration: decoration,
@@ -80,10 +120,63 @@ class SuperText extends BaseContainer {
               semanticsLabel: semanticsLabel,
             ));
 
+  /// Create new [SuperIcon] which has a [Container] (parent) with
+  /// a [Text] (child) inside.
+  /// Thus its params is the combination of [Container]'s
+  /// params and [Text]'s  params.
+  ///
+  /// <b>Params of the parent widget is:</b>
+  ///
+  /// - `key` : key of parent widget.
+  /// - `alignment`: an align value from [AlignmentDirectional].
+  /// - `color` and `decoration`: only one params is valid. It's the
+  /// decoration to paint behind the [child].
+  /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
+  /// - `width` and `height` values include the padding. It can be a double
+  ///  value like 100.0, or [double.infinity], or null, like the size value of
+  ///  [Container].
+  /// - `constraints`: like [BoxConstraints] of [Container].
+  /// - `transform`: the transformation matrix to apply before painting the parent.
+  /// - `flex`: same as `flex` value which is used in [Flexible].
+  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget.
+  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value.
+  ///  - If flex is null, just return [child] widget.
+  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
+  /// `height` of [child] might depends on [alignment] or its parent's size.
+  /// But in some cases we need its size is exactly wrap its [child], for
+  /// example the container of [Text] wrap the size of [Text] instead of
+  /// expanding to full width.
+  /// - `onPressed`: action when press on parent widget.
+  /// - `onLongPressed`: action when long-press on parent widget.
+  /// - `enableInkWell` and `splashColor`: Wrap this widget inside an
+  /// [InkWell]. Its default value is `FALSE`.
+  ///  - If [enableInkWell] is not true, then just return this [widget].
+  ///  - If [enableInkWell] is true splashColor is null, then `splashColor`
+  /// will be automatically gotten from Theme instead.
+  ///
+  /// <b>Params of the child widget is:</b>
+  ///
+  /// - `childKey`: [Key] of [Text].
+  /// - `textSpan`:  The text to display as a [InlineSpan].
+  /// - `style`: if non-null, the style to use for this text.
+  /// - `strutStyle`: {@macro flutter.painting.textPainter.strutStyle}
+  /// - `textAlign`: How the text should be aligned horizontally.
+  /// - `textDirection`: the directionality of the text. This decides how
+  /// [textAlign] values like [TextAlign.start] and [TextAlign.end] are
+  /// interpreted.
+  /// - `locale`: Used to select a font when the same Unicode character can
+  /// be rendered differently, depending on the locale.
+  /// - `softWrap`: Whether the text should break at soft line breaks.
+  /// - `overflow`: How visual overflow should be handled.
+  /// - `textScaleFactor`: the number of font pixels for each logical pixel.
+  /// - `maxLines`: An optional maximum number of lines for the text to span,
+  /// wrapping if necessary. If the text exceeds the given number of lines, it
+  /// will be truncated according to [overflow].
+  /// - `semanticsLabel`: An alternative semantics label for this text.
   SuperText.rich(
     TextSpan textSpan, {
     Key key,
-    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    AlignmentGeometry alignment,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -111,7 +204,7 @@ class SuperText extends BaseContainer {
   })  : assert(textSpan != null, 'Text widget must have non-null textSpan'),
         super(
             key: key,
-            alignment: alignment,
+            alignment: alignment ?? AlignmentDirectional.topStart,
             padding: padding,
             margin: margin,
             color: color,

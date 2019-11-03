@@ -4,10 +4,9 @@ import 'package:flutter/widgets.dart';
 import 'safe_widget.dart';
 
 /// BaseContainer is an abstract widget which has almost properties such as
-/// [alignment], [padding], [margin], color, [decoration],
-/// width, height and [flex].
+/// [alignment], [padding], [margin], `color`, [decoration], `width`, `height`,
+/// [flex], [onPressed] and [onLongPressed].
 ///
-/// Note: this widget doesn't support BoxConstraints
 class BaseContainer extends StatelessWidget {
   /// Align the [child] within the container.
   final AlignmentGeometry alignment;
@@ -29,10 +28,11 @@ class BaseContainer extends StatelessWidget {
   /// Empty space to surround the [decoration] and [child].
   final EdgeInsetsGeometry margin;
 
-  /// Dynamic size of this widget
+  /// [flex] is same as `flex` value which is used in [Flexible].
   ///
-  /// If is 'wrap', then this widget will be wrapped into a [Wrap] widget.
-  /// If is 'full', then this widget will be wrapped into a [Expanded] widget
+  /// - if flex=0: [child] will be wrapped inside a [Wrap] widget.
+  /// - if flex>0: [child] will be wrapped inside a [Expanded] with flex value.
+  /// - if flex is null, just return [child] widget.
   final int flex;
 
   /// Additional constraints to apply to the child.
@@ -52,9 +52,13 @@ class BaseContainer extends StatelessWidget {
   /// Callback when user long-presses on this widget
   final VoidCallback onLongPressed;
 
-  /// If width or height or constraints contains an infinity value, you can
-  /// use this flags to ignore all width, height or [constraints]. If yes,
-  /// then only [margin] or [padding] takes effect ir term of size.
+  /// `width` and `height` of [child] might depends on [alignment] or its
+  /// parent's size. But in some cases we need its size is exactly wrap its
+  /// [child], for example the container of [Text] wrap the size of [Text]
+  /// instead of expanding to full width.
+  ///
+  /// If we set [ignoreImplicitWidthHeight] to true, then this widget will be
+  /// wrapped into its [child]'s size and don't care about its parent size.
   final bool ignoreImplicitWidthHeight;
   final SizedBox _sizedBox;
 
@@ -82,6 +86,13 @@ class BaseContainer extends StatelessWidget {
 
   /// Creates a widget that mimics [Container] with combination of common
   /// painting, positioning, and sizing widgets.
+  ///
+  /// - `color` argument is a shorthand for `decoration: BoxDecoration(color: color)`.
+  /// Thus you MUST not provide both `color` and `decoration` argument.
+  /// - `decoration`: is the decoration to paint behind the [child].
+  /// - The `height` and `width` values include the padding. It can be a double
+  /// value like 100.0, or [double.infinity], or null, like the size value of
+  /// [Container]
   BaseContainer({
     Key key,
     this.alignment,
@@ -94,7 +105,7 @@ class BaseContainer extends StatelessWidget {
     double height,
     BoxConstraints constraints,
     this.flex,
-    bool ignoreImplicitWidthHeight = false,
+    this.ignoreImplicitWidthHeight,
     this.onPressed,
     this.onLongPressed,
     this.transform,
@@ -108,7 +119,6 @@ class BaseContainer extends StatelessWidget {
             'Cannot provide both a color and a decoration\n'
             'The color argument is just a shorthand for '
             '"decoration: new BoxDecoration(color: color)".'),
-        ignoreImplicitWidthHeight = ignoreImplicitWidthHeight ?? false,
         decoration = decoration ?? _decorationFromColor(color),
         constraints = (width != null || height != null)
             ? constraints?.tighten(width: width, height: height) ??
@@ -121,7 +131,7 @@ class BaseContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget current = child;
 
-    if (false == ignoreImplicitWidthHeight) {
+    if (false == ignoreImplicitWidthHeight ?? false) {
       // When ignore Infinity Size & Constraints, also ignore Align
       current = safeAlign(alignment: alignment, child: current);
     }
@@ -137,7 +147,7 @@ class BaseContainer extends StatelessWidget {
       child: current,
     );
 
-    if (ignoreImplicitWidthHeight == false) {
+    if (false == ignoreImplicitWidthHeight ?? false) {
       // Wrap into ConstrainedBox for size of widget
       current = safeConstrainedBox(constraints: constraints, child: current);
     } else if (_sizedBox != null) {

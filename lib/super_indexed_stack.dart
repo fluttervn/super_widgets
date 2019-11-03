@@ -2,26 +2,49 @@ import 'package:flutter/widgets.dart';
 
 import 'base/base_container.dart';
 
-/// [SuperIndexedStack] is a [Container] with [IndexedStack] inside
+/// [SuperIndexedStack] is a [Container] with [IndexedStack] inside.
 class SuperIndexedStack extends BaseContainer {
-  /// Create new [SuperIndexedStack]. Its params is the combination of
-  /// [Container]'s params (has the same param name) and [IndexedStack]'s
-  /// params (has almost the same param name, but if have any duplicated name
-  /// with its parent, then add prefix `child` - for example: if [Container]
-  /// has `color` property, and [IndexedStack] also  have `color` property,
-  /// then the latter will be rename to `childColor`).
+  /// Create new [SuperStack] which has a [Container] (parent) with
+  /// a [IndexedStack] (child) inside.
+  /// Thus its params is the combination of [Container]'s
+  /// params and [IndexedStack]'s  params.
   ///
-  /// The list below only show default params of [Container] :
+  /// <b>Params of the parent widget is:</b>
   ///
-  /// - [alignment] : default is [AlignmentDirectional.topStart]
+  /// - `key` : key of parent widget.
+  /// - `alignment`: an align value from [AlignmentDirectional].
+  /// - `margin`: the margin between this widget vs. its parent.
+  /// - `padding`: the padding between this widget vs. the [IndexedStack].
+  /// - `color` and `decoration`: only one params is valid. It's the
+  /// decoration to paint behind the [child].
+  /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
+  /// - `width` and `height` values include the padding. It can be a double
+  ///  value like 100.0, or [double.infinity], or null, like the size value of
+  ///  [Container].
+  /// - `constraints`: like [BoxConstraints] of [Container].
+  /// - `transform`: the transformation matrix to apply before painting the parent.
+  /// - `flex`: same as `flex` value which is used in [Flexible].
+  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget.
+  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value.
+  ///  - If flex is null, just return [child] widget.
+  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
+  /// `height` of [child] might depends on [alignment] or its parent's size.
+  /// But in some cases we need its size is exactly wrap its [child], for
+  /// example the container of [Text] wrap the size of [Text] instead of
+  /// expanding to full width.
   ///
-  /// The list below only show renamed or default params of [IndexedStack] :
+  /// <b>Params of the child widget is:</b>
   ///
-  /// - [childKey] : [Key] of the [IndexedStack]
-  /// - [childAlignment] : default is [AlignmentDirectional.topStart]
-  /// - [sizing] : default is [StackFit.loose]
-  /// - [index] : default is 0
-  /// - [children] : default is `<Widget>[]`
+  /// - `childKey`: [Key] of [IndexedStack].
+  /// - `children`: list of children widget of [IndexedStack]
+  /// - `sizing`: How to size the non-positioned children in the [IndexedStack].
+  /// Default is [StackFit.loose].
+  /// - `index`: the index of the child of [IndexedStack] to show.
+  /// - `childAlignment`: How to align the non-positioned and
+  /// partially-positioned children in the [IndexedStack]. Default is
+  /// [AlignmentDirectional.topStart].
+  /// - `textDirection`: the text direction with which to resolve [alignment].
+  /// Defaults to the ambient [Directionality].
   SuperIndexedStack({
     Key key,
     AlignmentGeometry alignment,
@@ -38,13 +61,13 @@ class SuperIndexedStack extends BaseContainer {
     Matrix4 transform,
     Key childKey,
     List<Widget> children,
-    AlignmentGeometry childAlignment = AlignmentDirectional.topStart,
+    AlignmentGeometry childAlignment,
     StackFit sizing = StackFit.loose,
     TextDirection textDirection,
     int index = 0,
   }) : super(
           key: key,
-          alignment: alignment,
+          alignment: alignment ?? AlignmentDirectional.topStart,
           padding: padding,
           margin: margin,
           color: color,
@@ -59,7 +82,7 @@ class SuperIndexedStack extends BaseContainer {
           child: IndexedStack(
             children: children ?? <Widget>[],
             sizing: sizing,
-            alignment: childAlignment,
+            alignment: childAlignment ?? AlignmentDirectional.topStart,
             key: childKey,
             textDirection: textDirection,
             index: index,
