@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 
 import 'base/base_container.dart';
 
-/// [SuperColumn] is a [Container] with [Column] inside
+/// [SuperColumn] is a [Container] with [Column] inside.
 class SuperColumn extends BaseContainer {
   /// Create new [SuperColumn] which has a [Container] (parent) with
   /// a [Column] (child) inside.
@@ -12,18 +12,18 @@ class SuperColumn extends BaseContainer {
   /// <b>Params of the parent widget is:</b>
   ///
   /// - `key` : key of parent widget.
-  /// - `alignment`: an align value from [AlignmentDirectional]
+  /// - `alignment`: an align value from [AlignmentDirectional].
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the [child].
   /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
   /// - `width` and `height` values include the padding. It can be a double
   ///  value like 100.0, or [double.infinity], or null, like the size value of
-  ///  [Container]
-  /// - `constraints`: like [BoxConstraints] of [Container]
+  ///  [Container].
+  /// - `constraints`: like [BoxConstraints] of [Container].
   /// - `flex`: same as `flex` value which is used in [Flexible].
-  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget
-  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value
-  ///  - If flex is null, just return [child] widget
+  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget.
+  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value.
+  ///  - If flex is null, just return [child] widget.
   /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
   /// `height` of [child] might depends on [alignment] or its parent's size.
   /// But in some cases we need its size is exactly wrap its [child], for

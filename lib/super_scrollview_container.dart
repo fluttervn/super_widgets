@@ -42,7 +42,7 @@ class SuperScrollViewContainer extends SingleChildScrollView {
   /// - `width` and `height` values include the padding. It can be a double
   /// value like 100.0, or [double.infinity], or null, like the size value of
   /// [Container]
-  /// - `constraints`: like [BoxConstraints] of [Container]
+  /// - `constraints`: like [BoxConstraints] of [Container].
   /// - `transform`: the transformation matrix to apply before painting the parent.
   SuperScrollViewContainer({
     Key key,

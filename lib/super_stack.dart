@@ -12,7 +12,7 @@ class SuperStack extends BaseContainer {
   /// <b>Params of the parent widget is:</b>
   ///
   /// - `key` : key of parent widget.
-  /// - `alignment`: an align value from [AlignmentDirectional]
+  /// - `alignment`: an align value from [AlignmentDirectional].
   /// - `margin`: the margin between this widget vs. its parent.
   /// - `padding`: the padding between this widget vs. the [Stack].
   /// - `color` and `decoration`: only one params is valid. It's the
@@ -20,13 +20,13 @@ class SuperStack extends BaseContainer {
   /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
   /// - `width` and `height` values include the padding. It can be a double
   ///  value like 100.0, or [double.infinity], or null, like the size value of
-  ///  [Container]
-  /// - `constraints`: like [BoxConstraints] of [Container]
+  ///  [Container].
+  /// - `constraints`: like [BoxConstraints] of [Container].
   /// - `transform`: the transformation matrix to apply before painting the parent.
   /// - `flex`: same as `flex` value which is used in [Flexible].
-  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget
-  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value
-  ///  - If flex is null, just return [child] widget
+  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget.
+  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value.
+  ///  - If flex is null, just return [child] widget.
   /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
   /// `height` of [child] might depends on [alignment] or its parent's size.
   /// But in some cases we need its size is exactly wrap its [child], for
@@ -35,7 +35,7 @@ class SuperStack extends BaseContainer {
   ///
   /// <b>Params of the child widget is:</b>
   ///
-  /// - `childKey`: [Key] of [Stack]
+  /// - `childKey`: [Key] of [Stack].
   /// - `children`: list of children widget of [Stack]
   /// - `fit`: How to size the non-positioned children in the stack. Default is [StackFit.loose].
   /// - `overflow`: Whether overflowing children should be clipped. Default is [Overflow.clip].

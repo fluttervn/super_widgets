@@ -30,9 +30,9 @@ class BaseContainer extends StatelessWidget {
 
   /// [flex] is same as `flex` value which is used in [Flexible].
   ///
-  /// - if flex=0: [child] will be wrapped inside a [Wrap] widget
-  /// - if flex>0: [child] will be wrapped inside a [Expanded] with flex value
-  /// - if flex is null, just return [child] widget
+  /// - if flex=0: [child] will be wrapped inside a [Wrap] widget.
+  /// - if flex>0: [child] will be wrapped inside a [Expanded] with flex value.
+  /// - if flex is null, just return [child] widget.
   final int flex;
 
   /// Additional constraints to apply to the child.

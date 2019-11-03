@@ -31,8 +31,8 @@ class SuperScrollViewStack extends SingleChildScrollView {
   ///
   /// <b>Params of the child widget is:</b>
   ///
-  /// - `childKey`: [Key] of [Stack]
-  /// - `children`: list of children widget of [Stack]
+  /// - `childKey`: [Key] of [Stack].
+  /// - `children`: list of children widget of [Stack].
   /// - `fit`: How to size the non-positioned children in the stack. Default is [StackFit.loose].
   /// - `overflow`: Whether overflowing children should be clipped. Default is [Overflow.clip].
   /// - `childAlignment`: How to align the non-positioned and

@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 
 import 'base/base_container.dart';
 
-/// [SuperInkWell] is a [InkWell] with [Container] inside
+/// [SuperInkWell] is a [InkWell] with [Container] inside.
 class SuperInkWell extends InkWell {
   /// Create new [SuperInkWell] which has a [InkWell] (parent) with
   /// a [Container] (child) inside.
@@ -40,7 +40,7 @@ class SuperInkWell extends InkWell {
   ///
   /// <b>Params of the child widget is:</b>
   ///
-  /// - `alignment`: an align value from [AlignmentDirectional]
+  /// - `alignment`: an align value from [AlignmentDirectional].
   /// - `margin`: the margin between [InkWell] vs the inner [Container].
   /// - `padding`: the padding between [Container] vs. its child.
   /// - `color` and `decoration`: only one params is valid. It's the
@@ -48,13 +48,13 @@ class SuperInkWell extends InkWell {
   /// - `foregroundDecoration`: It's the decoration to paint in front of the [child].
   /// - `width` and `height` values include the padding. It can be a double
   ///  value like 100.0, or [double.infinity], or null, like the size value of
-  ///  [Container]
-  /// - `constraints`: like [BoxConstraints] of [Container]
+  ///  [Container].
+  /// - `constraints`: like [BoxConstraints] of [Container].
   /// - `transform`: the transformation matrix to apply before painting the parent.
   /// - `flex`: same as `flex` value which is used in [Flexible].
-  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget
-  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value
-  ///  - If flex is null, just return [child] widget
+  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget.
+  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value.
+  ///  - If flex is null, just return [child] widget.
   /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
   /// `height` of [child] might depends on [alignment] or its parent's size.
   /// But in some cases we need its size is exactly wrap its [child], for

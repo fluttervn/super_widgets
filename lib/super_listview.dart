@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 
 import 'base/base_container.dart';
 
-/// [SuperListView] is a [Container] with [ListView] inside
+/// [SuperListView] is a [Container] with [ListView] inside.
 class SuperListView extends BaseContainer {
   /// Create new [SuperListView] which has a [Container] (parent) with
   /// a [ListView] (child) inside.
@@ -16,7 +16,7 @@ class SuperListView extends BaseContainer {
   /// - `key` : key of parent widget.
   /// - `alignment`: Align the [Container] within this widget. Defaults to
   /// [AlignmentDirectional.topStart].
-  /// - `padding`: padding between this widget vs. the [Container] inside
+  /// - `padding`: padding between this widget vs. the [Container] inside.
   /// - `margin`: margin between this widget vs. its parent.
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the [Container].
@@ -24,12 +24,12 @@ class SuperListView extends BaseContainer {
   /// - `width` and `height` values include the padding. It can be a double
   /// value like 100.0, or [double.infinity], or null, like the size value of
   /// [Container]
-  /// - `constraints`: like [BoxConstraints] of [Container]
+  /// - `constraints`: like [BoxConstraints] of [Container].
   /// - `transform`: the transformation matrix to apply before painting the parent.
   /// - `flex`: same as `flex` value which is used in [Flexible].
-  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget
-  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value
-  ///  - If flex is null, just return [child] widget
+  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget.
+  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value.
+  ///  - If flex is null, just return [child] widget.
   /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
   /// `height` of [child] might depends on [alignment] or its parent's size.
   /// But in some cases we need its size is exactly wrap its [child], for
@@ -38,8 +38,8 @@ class SuperListView extends BaseContainer {
   ///
   /// <b>Params of the child widget is:</b>
   ///
-  /// - `childKey`: [Key] of [ListView]
-  /// - `children`: list of children of [ListView]
+  /// - `childKey`: [Key] of [ListView].
+  /// - `children`: list of children of [ListView].
   /// - `scrollDirection`: the axis along which the scroll view scrolls.
   /// Defaults to [Axis.vertical].
   /// - `reverse` : Whether the scroll view scrolls in the reading direction.
@@ -146,7 +146,7 @@ class SuperListView extends BaseContainer {
   /// - `key` : key of parent widget.
   /// - `alignment`: Align the [Container] within this widget. Defaults to
   /// [AlignmentDirectional.topStart].
-  /// - `padding`: padding between this widget vs. the [Container] inside
+  /// - `padding`: padding between this widget vs. the [Container] inside.
   /// - `margin`: margin between this widget vs. its parent.
   /// - `margin`: margin between this widget vs. its parent.
   /// - `color` and `decoration`: only one params is valid. It's the
@@ -155,12 +155,12 @@ class SuperListView extends BaseContainer {
   /// - `width` and `height` values include the padding. It can be a double
   /// value like 100.0, or [double.infinity], or null, like the size value of
   /// [Container]
-  /// - `constraints`: like [BoxConstraints] of [Container]
+  /// - `constraints`: like [BoxConstraints] of [Container].
   /// - `transform`: the transformation matrix to apply before painting the parent.
   /// - `flex`: same as `flex` value which is used in [Flexible].
-  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget
-  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value
-  ///  - If flex is null, just return [child] widget
+  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget.
+  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value.
+  ///  - If flex is null, just return [child] widget.
   /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
   /// `height` of [child] might depends on [alignment] or its parent's size.
   /// But in some cases we need its size is exactly wrap its [child], for
@@ -169,7 +169,7 @@ class SuperListView extends BaseContainer {
   ///
   /// <b>Params of the child widget is:</b>
   ///
-  /// - `childKey`: [Key] of [ListView]
+  /// - `childKey`: [Key] of [ListView].
   /// - `itemBuilder`: the builder to create list of children of [ListView].
   /// - `scrollDirection`: the axis along which the scroll view scrolls.
   /// Defaults to [Axis.vertical].
