@@ -115,7 +115,7 @@ class SuperOutlineButton extends BaseContainer {
           height: height,
           constraints: constraints,
           flex: flex,
-          ignoreImplicitWidthHeight: ignoreImplicitWidthHeight ?? false,
+          ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           onLongPressed: onLongPressed,
           transform: transform,
           child: OutlineButton(
