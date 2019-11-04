@@ -29,7 +29,8 @@ class SuperContainer extends BaseContainer {
   /// [ignoreImplicitWidthHeight] will be set to false.
   /// - `onPressed`: action when press on parent widget.
   /// - `onLongPressed`: action when long-press on parent widget.
-  /// - `enableInkWell` and `splashColor`: Wrap this widget inside an
+  /// - `enableInkWell` and `splashColor`: WILL BE AVAILABLE IN NEXT VERSION.
+  /// Wrap this widget inside an
   /// [InkWell]. Default to `FALSE`.
   ///  - If [enableInkWell] is not true, then just return this [widget].
   ///  - If [enableInkWell] is true splashColor is null, then `splashColor`
