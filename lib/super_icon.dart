@@ -75,7 +75,8 @@ class SuperIcon extends BaseContainer {
     Color childColor,
     String semanticLabel,
     TextDirection textDirection,
-  }) : super(
+  })  : assert(ignoreImplicitWidthHeight != null),
+        super(
           key: key,
           alignment: alignment,
           padding: padding,

@@ -101,7 +101,8 @@ class SuperListView extends BaseContainer {
     List<Widget> children = const <Widget>[],
     int semanticChildCount,
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-  }) : super(
+  })  : assert(ignoreImplicitWidthHeight != null),
+        super(
           key: key,
           alignment: alignment,
           padding: padding,

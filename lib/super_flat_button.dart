@@ -103,6 +103,7 @@ class SuperFlatButton extends BaseContainer {
     MaterialTapTargetSize materialTapTargetSize,
     @required Widget child,
   })  : assert(autofocus != null),
+        assert(ignoreImplicitWidthHeight != null),
         super(
           key: key,
           color: color,

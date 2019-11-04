@@ -107,6 +107,7 @@ class SuperRaisedButton extends BaseContainer {
   })  : assert(elevation == null || elevation >= 0.0),
         assert(highlightElevation == null || highlightElevation >= 0.0),
         assert(disabledElevation == null || disabledElevation >= 0.0),
+        assert(ignoreImplicitWidthHeight != null),
         super(
           key: key,
           color: color,

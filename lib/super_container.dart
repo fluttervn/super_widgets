@@ -53,7 +53,8 @@ class SuperContainer extends BaseContainer {
     VoidCallback onPressed,
     VoidCallback onLongPressed,
     Widget child,
-  }) : super(
+  })  : assert(ignoreImplicitWidthHeight != null),
+        super(
           key: key,
           alignment: alignment,
           padding: padding,

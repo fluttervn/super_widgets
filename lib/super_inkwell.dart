@@ -91,7 +91,8 @@ class SuperInkWell extends InkWell {
     int flex,
     bool ignoreImplicitWidthHeight = true,
     Matrix4 transform,
-  }) : super(
+  })  : assert(ignoreImplicitWidthHeight != null),
+        super(
           key: key,
           onTap: onTap ?? () {},
           onDoubleTap: onDoubleTap,

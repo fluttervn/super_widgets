@@ -66,7 +66,8 @@ class SuperIndexedStack extends BaseContainer {
     StackFit sizing = StackFit.loose,
     TextDirection textDirection,
     int index = 0,
-  }) : super(
+  })  : assert(ignoreImplicitWidthHeight != null),
+        super(
           key: key,
           alignment: alignment ?? AlignmentDirectional.topStart,
           padding: padding,

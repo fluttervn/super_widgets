@@ -204,6 +204,7 @@ class SuperText extends BaseContainer {
     int maxLines,
     String semanticsLabel,
   })  : assert(textSpan != null, 'Text widget must have non-null textSpan'),
+        assert(ignoreImplicitWidthHeight != null),
         super(
             key: key,
             alignment: alignment ?? AlignmentDirectional.topStart,

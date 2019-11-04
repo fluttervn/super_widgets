@@ -93,6 +93,7 @@ class SuperCard extends BaseContainer {
     bool semanticContainer = true,
   })  : assert(elevation == null || elevation >= 0.0),
         assert(borderOnForeground != null),
+        assert(ignoreImplicitWidthHeight != null),
         assert(enableInkWell != null),
         assert(semanticContainer != null),
         super(

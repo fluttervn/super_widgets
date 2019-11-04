@@ -70,6 +70,7 @@ class SuperClipRRect extends BaseContainer {
     Clip clipBehavior = Clip.antiAlias,
   })  : assert(borderRadius != null || clipper != null),
         assert(clipBehavior != null),
+        assert(ignoreImplicitWidthHeight != null),
         super(
           key: key,
           alignment: alignment,

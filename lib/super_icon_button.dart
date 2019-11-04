@@ -96,6 +96,7 @@ class SuperIconButton extends BaseContainer {
         assert(childAlignment != null),
         assert(autofocus != null),
         assert(icon != null),
+        assert(ignoreImplicitWidthHeight != null),
         super(
           key: key,
           alignment: alignment,

@@ -83,7 +83,8 @@ class SuperRow extends BaseContainer {
     TextDirection textDirection,
     VerticalDirection verticalDirection = VerticalDirection.down,
     TextBaseline textBaseline,
-  }) : super(
+  })  : assert(ignoreImplicitWidthHeight != null),
+        super(
           key: key,
           alignment: alignment,
           padding: padding,

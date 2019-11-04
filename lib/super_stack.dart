@@ -65,7 +65,8 @@ class SuperStack extends BaseContainer {
     StackFit fit = StackFit.loose,
     TextDirection textDirection,
     Overflow overflow = Overflow.clip,
-  }) : super(
+  })  : assert(ignoreImplicitWidthHeight != null),
+        super(
           key: key,
           alignment: alignment ?? AlignmentDirectional.topStart,
           padding: padding,

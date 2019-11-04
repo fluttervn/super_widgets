@@ -102,6 +102,7 @@ class SuperOutlineButton extends BaseContainer {
     bool autofocus = false,
   })  : assert(highlightElevation == null || highlightElevation >= 0.0),
         assert(autofocus != null),
+        assert(ignoreImplicitWidthHeight != null),
         super(
           key: key,
           color: color,
