@@ -32,7 +32,8 @@ class SuperIconButton extends BaseContainer {
   /// `height` of [child] might depends on [alignment] or its parent's size.
   /// But in some cases we need its size is exactly wrap its [child], for
   /// example the container of [Text] wrap the size of [Text] instead of
-  /// expanding to full width.
+  /// expanding to full width. Note: if we specify `width` or `height` then
+  /// [ignoreImplicitWidthHeight] will be set to false.
   /// - `onLongPressed`: action when long-press on parent widget.
   ///
   /// <b>Params of the child widget is:</b>
