@@ -76,6 +76,8 @@ class SuperIcon extends BaseContainer {
     String semanticLabel,
     TextDirection textDirection,
   })  : assert(ignoreImplicitWidthHeight != null),
+        assert(enableInkWell != null),
+        assert(icon != null),
         super(
           key: key,
           alignment: alignment,
