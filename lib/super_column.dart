@@ -2,30 +2,55 @@ import 'package:flutter/widgets.dart';
 
 import 'base/base_container.dart';
 
-/// [SuperColumn] is a [Container] with [Column] inside
+/// [SuperColumn] is a [Container] with [Column] inside.
 class SuperColumn extends BaseContainer {
-  /// Create new [SuperColumn]. Its params is the combination of [Container]'s
-  /// params (has the same param name) and [Column]'s  params (has almost the
-  /// same param name, but if have any duplicated name with its parent,
-  /// then add prefix `child` - for example: if [Container] has `color`
-  /// property, and [Column] also  have `color` property, then the latter will
-  /// be rename to `childColor`).
+  /// Create new [SuperColumn] which has a [Container] (parent) with
+  /// a [Column] (child) inside.
+  /// Thus its params is the combination of [Container]'s
+  /// params and [Column]'s  params.
   ///
-  /// The list below only show default params of [Container] :
+  /// <b>Params of the parent widget is:</b>
   ///
-  /// - [alignment] : default is [AlignmentDirectional.topStart]
+  /// - `key` : key of parent widget.
+  /// - `alignment`: an align value from [AlignmentDirectional].
+  /// - `color` and `decoration`: only one params is valid. It's the
+  /// decoration to paint behind the `child`.
+  /// - `foregroundDecoration`: It's the decoration to paint in front of the `child`.
+  /// - `width` and `height` values include the padding. It can be a double
+  ///  value like 100.0, or [double.infinity], or null, like the size value of
+  ///  [Container].
+  /// - `constraints`: like [BoxConstraints] of [Container].
+  /// - `flex`: same as `flex` value which is used in [Flexible].
+  ///  - If flex=0: this widget will be wrapped inside a [Wrap] widget.
+  ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
+  ///  - Default flex is null, it means just return this widget.
+  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
+  /// `height` of `child` might depends on `alignment` or its parent's size.
+  /// But in some cases we need its size is exactly wrap its `child`, for
+  /// example the container of [Text] wrap the size of [Text] instead of
+  /// expanding to full width.
   ///
-  /// The list below only show renamed or default params of [Column] :
+  /// <b>Params of the child widget is:</b>
   ///
-  /// - [childKey] : [Key] of the [Column]
-  /// - [children] : default is `<Widget>[]`
-  /// - [mainAxisAlignment] : default is [MainAxisAlignment.start]
-  /// - [mainAxisSize] : default is [MainAxisSize.max]
-  /// - [crossAxisAlignment] : default is [CrossAxisAlignment.center]
-  /// - [verticalDirection] : default is [VerticalDirection.down]
+  /// - `childKey`: [Key] of [Column]
+  /// - `children`: list of children widget of [Column]. Default is empty list.
+  /// - `mainAxisAlignment`: how the [children] should be placed along the main
+  /// axis. Default is [MainAxisAlignment.start]
+  /// - `mainAxisSize`: how much space should be occupied in the main axis.
+  /// Default is [MainAxisSize.max]
+  /// - `crossAxisAlignment`: how the [children] should be placed along the
+  /// cross axis. Default is [CrossAxisAlignment.center]
+  /// - `textDirection`: determines the order to lay [children] out horizontally
+  /// and how to interpret `start` and `end` in the horizontal direction.
+  /// Defaults to the ambient [Directionality].
+  /// - `verticalDirection`: determines the order to lay children out vertically
+  /// and how to interpret `start` and `end` in the vertical direction.
+  /// Defaults to [VerticalDirection.down].
+  /// - `textBaseline`: if aligning items according to their baseline, which
+  /// baseline to use.
   SuperColumn({
     Key key,
-    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    AlignmentGeometry alignment,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -34,9 +59,13 @@ class SuperColumn extends BaseContainer {
     double width,
     double height,
     BoxConstraints constraints,
+    Matrix4 transform,
     int flex,
     bool ignoreImplicitWidthHeight = false,
-    Matrix4 transform,
+    bool enableInkWell = false,
+    Color splashColor,
+    VoidCallback onPressed,
+    VoidCallback onLongPressed,
     Key childKey,
     List<Widget> children,
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
@@ -58,6 +87,8 @@ class SuperColumn extends BaseContainer {
           constraints: constraints,
           flex: flex,
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
+          onPressed: onPressed,
+          onLongPressed: onLongPressed,
           transform: transform,
           child: Column(
             key: childKey,

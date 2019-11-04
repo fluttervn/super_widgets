@@ -3,25 +3,52 @@ import 'package:flutter/widgets.dart';
 
 import 'base/base_container.dart';
 
-/// [SuperClipRRect] is a [Container] with [ClipRRect] inside
+/// [SuperClipRRect] is a [Container] with [ClipRRect] inside.
 class SuperClipRRect extends BaseContainer {
-  /// Create new [SuperClipRRect]. Its params is the combination of [Container]'s
-  /// params (has the same param name) and [ClipRRect]'s  params (has almost the
-  /// same param name, but if have any duplicated name with its parent,
-  /// then add prefix `child` - for example: if [Container] has `color`
-  /// property, and [ClipRRect] also  have `color` property, then the latter will
-  /// be rename to `childColor`).
+  /// Create new [SuperClipRRect] which has a [Container] (parent) with
+  /// a [ClipRRect] (child) inside.
+  /// Thus its params is the combination of [Container]'s
+  /// params and [ClipRRect]'s  params.
   ///
-  /// The list below only show default params of [BaseContainer] :
+  /// Params of the parent widget is:
   ///
-  /// - [alignment] : default is [AlignmentDirectional.topStart]
+  /// - `key` : key of parent widget.
+  /// - `alignment`: an align value from [AlignmentDirectional].
+  /// - `margin`: the margin between [ClipRRect] vs. its child.
+  /// - `padding`: the padding between [ClipRRect] vs. its child.
+  /// - `color` and `decoration`: only one params is valid. It's the
+  /// decoration to paint behind the `child`.
+  /// - `foregroundDecoration`: It's the decoration to paint in front of the `child`.
+  /// - `width` and `height` values include the padding. It can be a double
+  ///  value like 100.0, or [double.infinity], or null, like the size value of
+  ///  [Container].
+  /// - `constraints`: like [BoxConstraints] of [Container].
+  /// - `flex`: same as `flex` value which is used in [Flexible].
+  ///  - If flex=0: this widget will be wrapped inside a [Wrap] widget.
+  ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
+  ///  - Default flex is null, it means just return this widget.
+  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
+  /// `height` of `child` might depends on `alignment` or its parent's size.
+  /// But in some cases we need its size is exactly wrap its `child`, for
+  /// example the container of [Text] wrap the size of [Text] instead of
+  /// expanding to full width.
+  /// - `onPressed`: action when press on parent widget.
+  /// - `onLongPressed`: action when long-press on parent widget.
+  /// - `transform`: the transformation matrix to apply before painting the parent.
   ///
-  /// The list below only show renamed or default params of [ClipRRect] :
+  /// Params of the child widget is:
   ///
-  /// - [childKey] : [Key] of the [ClipRRect]
+  /// - `childKey`: [Key] of [ClipRRect].
+  /// - `child`: child widget of [ClipRRect].
+  /// - `borderRadius`: the border radius of the rounded corners.
+  ///  - Values are clamped so that horizontal and vertical radii sums do not
+  ///  exceed width/height.
+  ///   - This value is ignored if [clipper] is non-null.
+  /// - `clipper`: if non-null, determines which clip to use.
+  /// - `clipBehavior`: {@macro flutter.clipper.clipBehavior}. Default is [Clip.antiAlias]
   SuperClipRRect({
     Key key,
-    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    AlignmentGeometry alignment,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,

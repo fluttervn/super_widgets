@@ -3,27 +3,67 @@ import 'package:flutter/widgets.dart';
 
 import 'base/base_container.dart';
 
-/// SuperOutlineButton] is a [Container] with [OutlineButton] inside
+/// SuperOutlineButton] is a [Container] with [OutlineButton] inside.
 class SuperOutlineButton extends BaseContainer {
-  /// Create new [SuperOutlineButton]. Its params is the combination of
-  /// [Container]'s params (has the same param name) and [OutlineButton]'s
-  /// params (has almost the same param name, but if have any duplicated name
-  /// with its parent, then add prefix `child` - for example: if [Container]
-  /// has `color` property, and [OutlineButton] also  have `color` property,
-  /// then the latter will be rename to `childColor`).
+  /// Create new [SuperOutlineButton] which has a [Container] (parent) with
+  /// a [OutlineButton] (child) inside.
+  /// Thus its params is the combination of [Container]'s
+  /// params and [OutlineButton]'s  params.
   ///
-  /// The list below only show default params of [Container] :
+  /// <b>Params of the parent widget is:</b>
   ///
-  /// - [alignment] : default is [AlignmentDirectional.topStart]
+  /// - `key` : key of parent widget.
+  /// - `alignment`: an align value from [AlignmentDirectional].
+  /// - `color` and `decoration`: only one params is valid. It's the
+  /// decoration to paint behind the `child`.
+  /// - `foregroundDecoration`: It's the decoration to paint in front of the `child`.
+  /// - `width` and `height` values include the padding. It can be a double
+  ///  value like 100.0, or [double.infinity], or null, like the size value of
+  ///  [Container].
+  /// - `constraints`: like [BoxConstraints] of [Container].
+  /// - `transform`: the transformation matrix to apply before painting the parent.
+  /// - `flex`: same as `flex` value which is used in [Flexible].
+  ///  - If flex=0: this widget will be wrapped inside a [Wrap] widget.
+  ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
+  ///  - Default flex is null, it means just return this widget.
+  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
+  /// `height` of `child` might depends on `alignment` or its parent's size.
+  /// But in some cases we need its size is exactly wrap its `child`, for
+  /// example the container of [Text] wrap the size of [Text] instead of
+  /// expanding to full width.
+  /// - `onLongPressed`: action when long-press on parent widget.
   ///
-  /// The list below only show renamed or default params of [OutlineButton] :
+  /// <b>Params of the child widget is:</b>
   ///
-  /// - [childKey] : [Key] of the [OutlineButton]
-  /// - [childPadding] : padding of the [OutlineButton]
-  /// - [childColor] : [Color] of the [OutlineButton]
-  /// - [clipBehavior] : default is [Clip.none]
-  /// - [onPressed] : default is empty [VoidCallback]
-  ///
+  /// - `childKey`: [Key] of [OutlineButton].
+  /// - `child`: the button's label.
+  /// - `onPressed`: is `onPressed` action of button
+  /// - `onHighlightChanged`: is `onHighlightChanged` action of button
+  /// - `textTheme`: defines the button's base colors, and the defaults for the
+  /// button's minimum size, internal padding, and shape. Defaults to
+  /// `ButtonTheme.of(context).textTheme`.
+  /// - `textColor`: the color to use for this button's text.
+  /// - `disabledTextColor`: the color to use for this button's text when the
+  /// - `childColor`: the button's fill color, displayed by its [Material],
+  /// while it is in its default (unpressed, `enabled`) state.
+  /// - `focusColor`: the fill color of the button's [Material] when it has the
+  /// input focus.
+  /// - `hoverColor`: the fill color of the button's [Material] when a pointer
+  /// is hovering over it.
+  /// - `highlightColor`: the highlight color of the button's [InkWell].
+  /// - `splashColor`: the color to use for this button's text.
+  /// - `highlightElevation`: the elevation for the button's [Material] relative
+  /// to its parent when the button is [enabled] and pressed. Defaults to 8.0.
+  /// - `disabledElevation`: the elevation for the button's [Material] relative
+  /// to its parent when the button is not [enabled]. Defaults to 0.0.
+  /// - `highlightedBorderColor`: the outline border's color when the button is
+  /// [enabled] and pressed.
+  /// - `childPadding`: the internal padding for the button's `child`.
+  /// - `shape`: the shape of the button's [Material]. The button's highlight
+  /// and splash are clipped to this shape.
+  /// - `clipBehavior`: {@macro flutter.widgets.Clip}
+  /// - `focusNode`: {@macro flutter.widgets.Focus.focusNode}
+  /// - `autofocus`: {@macro flutter.widgets.Focus.autofocus}
   SuperOutlineButton({
     Key key,
     AlignmentGeometry alignment,

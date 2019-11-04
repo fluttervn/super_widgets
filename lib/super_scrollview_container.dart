@@ -4,38 +4,57 @@ import 'package:flutter/widgets.dart';
 /// [SuperScrollViewContainer] is a [SingleChildScrollView] with [Container]
 /// inside.
 class SuperScrollViewContainer extends SingleChildScrollView {
-  /// Create new [SuperScrollViewContainer].
+  /// Create new [SuperScrollViewContainer] which has a [SingleChildScrollView]
+  /// (parent) with a [Container] (child) inside.
+  /// Thus its params is the combination of [SingleChildScrollView]'s
+  /// params and [Container]'s  params.
   ///
-  /// - Its parent is [SingleChildScrollView].
-  /// - Its child is [Container].
+  /// <b>Params of the parent widget is:</b>
   ///
-  /// Its params is the combination of parent's params (has the same param
-  /// name) and child's  params (has almost the same param name, but if have
-  /// any duplicated name with its parent, then add prefix `child`).
-  /// For example: if parent has `color` property, and child also  have `color`
-  /// property, then the latter will be rename to `childColor`).
+  /// - `key` : key of parent widget.
+  /// - `scrollDirection`: the axis along which the scroll view scrolls.
+  /// Defaults to [Axis.vertical].
+  /// - `reverse` : Whether the scroll view scrolls in the reading direction.
+  /// Defaults to false.
+  /// - `padding`: padding between the [SingleChildScrollView] vs. the
+  /// [Container].
+  /// - `primary`: Whether this is the primary scroll view associated with the
+  /// parent [PrimaryScrollController].
+  /// - `physics`: How the scroll view should respond to user input. For
+  /// example, determines how the scroll view continues to animate after the
+  /// user stops dragging the scroll view. Defaults to matching platform
+  /// conventions.
+  /// - `controller`: An object that can be used to control the position to
+  /// which this scroll view is scrolled.
+  /// - `dragStartBehavior`: {@macro flutter.widgets.scrollable.dragStartBehavior}.
+  /// Defaults to [DragStartBehavior.start].
   ///
-  /// The list below only show default params of [SingleChildScrollView] :
+  /// <b>Params of the child widget is:</b>
   ///
-  /// - scrollDirection: default is [Axis.vertical]
-  /// - reverse: default is false
-  /// - dragStartBehavior: default is [DragStartBehavior.start]
-  ///
-  /// The list below only show renamed or default params of [Container] :
-  ///
-  /// - [childKey] : [Key] of the [Stack]
-  /// - [alignment] : default is [AlignmentDirectional.topStart]
+  /// - `childKey`: [Key] of [Container].
+  /// - `child`: the widget inside [Container].
+  /// - `alignment`: Align the [Container] within this widget. Defaults to
+  /// [AlignmentDirectional.topStart].
+  /// - `childPadding`: padding between the [Container] to the `child`
+  /// - `color` and `decoration`: only one params is valid. It's the
+  /// decoration to paint behind the [Container].
+  /// - `foregroundDecoration`: the decoration to paint in front of the [Container].
+  /// - `width` and `height` values include the padding. It can be a double
+  /// value like 100.0, or [double.infinity], or null, like the size value of
+  /// [Container]
+  /// - `constraints`: like [BoxConstraints] of [Container].
+  /// - `transform`: the transformation matrix to apply before painting the parent.
   SuperScrollViewContainer({
     Key key,
-    Axis scrollDirection = Axis.vertical,
+    Axis scrollDirection,
     bool reverse = false,
     EdgeInsetsGeometry padding,
     bool primary,
     ScrollPhysics physics,
     ScrollController controller,
-    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
+    DragStartBehavior dragStartBehavior,
     Key childKey,
-    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    AlignmentGeometry alignment,
     EdgeInsetsGeometry childPadding,
     Color color,
     Decoration decoration,
@@ -43,21 +62,20 @@ class SuperScrollViewContainer extends SingleChildScrollView {
     double width,
     double height,
     BoxConstraints constraints,
-    EdgeInsetsGeometry margin,
     Matrix4 transform,
     Widget child,
   }) : super(
           key: key,
-          scrollDirection: scrollDirection,
+          scrollDirection: scrollDirection ?? Axis.vertical,
           reverse: reverse,
           padding: padding,
           primary: primary,
           physics: physics,
           controller: controller,
-          dragStartBehavior: dragStartBehavior,
+          dragStartBehavior: dragStartBehavior ?? DragStartBehavior.start,
           child: Container(
             key: childKey,
-            alignment: alignment,
+            alignment: alignment ?? AlignmentDirectional.topStart,
             padding: childPadding,
             color: color,
             decoration: decoration,
@@ -65,7 +83,6 @@ class SuperScrollViewContainer extends SingleChildScrollView {
             width: width,
             height: height,
             constraints: constraints,
-            margin: margin,
             transform: transform,
             child: child,
           ),
