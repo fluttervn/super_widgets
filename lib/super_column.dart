@@ -76,6 +76,11 @@ class SuperColumn extends BaseContainer {
     VerticalDirection verticalDirection = VerticalDirection.down,
     TextBaseline textBaseline,
   })  : assert(ignoreImplicitWidthHeight != null),
+        assert(enableInkWell != null),
+        assert(mainAxisAlignment != null),
+        assert(mainAxisSize != null),
+        assert(crossAxisAlignment != null),
+        assert(verticalDirection != null),
         super(
           key: key,
           alignment: alignment,
