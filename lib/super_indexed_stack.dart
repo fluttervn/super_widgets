@@ -48,7 +48,7 @@ class SuperIndexedStack extends BaseContainer {
   /// Defaults to the ambient [Directionality].
   SuperIndexedStack({
     Key key,
-    AlignmentGeometry alignment,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -62,14 +62,17 @@ class SuperIndexedStack extends BaseContainer {
     Matrix4 transform,
     Key childKey,
     List<Widget> children,
-    AlignmentGeometry childAlignment,
+    AlignmentGeometry childAlignment = AlignmentDirectional.topStart,
     StackFit sizing = StackFit.loose,
     TextDirection textDirection,
     int index = 0,
   })  : assert(ignoreImplicitWidthHeight != null),
+        assert(childAlignment != null),
+        assert(sizing != null),
+        assert(alignment != null),
         super(
           key: key,
-          alignment: alignment ?? AlignmentDirectional.topStart,
+          alignment: alignment,
           padding: padding,
           margin: margin,
           color: color,
@@ -84,7 +87,7 @@ class SuperIndexedStack extends BaseContainer {
           child: IndexedStack(
             children: children ?? <Widget>[],
             sizing: sizing,
-            alignment: childAlignment ?? AlignmentDirectional.topStart,
+            alignment: childAlignment,
             key: childKey,
             textDirection: textDirection,
             index: index,
