@@ -104,6 +104,7 @@ class SuperFlatButton extends BaseContainer {
     @required Widget child,
   })  : assert(autofocus != null),
         assert(ignoreImplicitWidthHeight != null),
+        assert(child != null),
         super(
           key: key,
           color: color,
@@ -116,7 +117,7 @@ class SuperFlatButton extends BaseContainer {
           height: height,
           constraints: constraints,
           flex: flex,
-          ignoreImplicitWidthHeight: ignoreImplicitWidthHeight ?? false,
+          ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           onLongPressed: onLongPressed,
           transform: transform,
           child: FlatButton(
