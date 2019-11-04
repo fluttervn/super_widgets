@@ -92,6 +92,9 @@ class SuperInkWell extends InkWell {
     bool ignoreImplicitWidthHeight = true,
     Matrix4 transform,
   })  : assert(ignoreImplicitWidthHeight != null),
+        assert(alignment != null),
+        assert(enableFeedback != null),
+        assert(excludeFromSemantics != null),
         super(
           key: key,
           onTap: onTap ?? () {},
