@@ -71,6 +71,7 @@ class SuperClipRRect extends BaseContainer {
   })  : assert(borderRadius != null || clipper != null),
         assert(clipBehavior != null),
         assert(ignoreImplicitWidthHeight != null),
+        assert(clipBehavior != null),
         super(
           key: key,
           alignment: alignment,
