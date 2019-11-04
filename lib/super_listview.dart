@@ -102,6 +102,13 @@ class SuperListView extends BaseContainer {
     int semanticChildCount,
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
   })  : assert(ignoreImplicitWidthHeight != null),
+        assert(dragStartBehavior != null),
+        assert(scrollDirection != null),
+        assert(reverse != null),
+        assert(addAutomaticKeepAlives != null),
+        assert(addRepaintBoundaries != null),
+        assert(addRepaintBoundaries != null),
+        assert(addSemanticIndexes != null),
         super(
           key: key,
           alignment: alignment,
