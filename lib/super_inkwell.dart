@@ -55,7 +55,7 @@ class SuperInkWell extends InkWell {
   ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget.
   ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value.
   ///  - If flex is null, just return [child] widget.
-  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
+  /// - `ignoreImplicitWidthHeight`: defaults to `TRUE`. As we know, `width` and
   /// `height` of [child] might depends on [alignment] or its parent's size.
   /// But in some cases we need its size is exactly wrap its [child], for
   /// example the container of [Text] wrap the size of [Text] instead of
@@ -89,7 +89,7 @@ class SuperInkWell extends InkWell {
     double height,
     BoxConstraints constraints,
     int flex,
-    bool ignoreImplicitWidthHeight = false,
+    bool ignoreImplicitWidthHeight = true,
     Matrix4 transform,
   }) : super(
           key: key,

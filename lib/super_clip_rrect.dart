@@ -27,7 +27,7 @@ class SuperClipRRect extends BaseContainer {
   ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget.
   ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value.
   ///  - If flex is null, just return [child] widget.
-  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
+  /// - `ignoreImplicitWidthHeight`: defaults to `TRUE`. As we know, `width` and
   /// `height` of [child] might depends on [alignment] or its parent's size.
   /// But in some cases we need its size is exactly wrap its [child], for
   /// example the container of [Text] wrap the size of [Text] instead of
