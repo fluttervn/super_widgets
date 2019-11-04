@@ -62,7 +62,7 @@ class SuperText extends BaseContainer {
   SuperText(
     String textData, {
     Key key,
-    AlignmentGeometry alignment,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -90,9 +90,12 @@ class SuperText extends BaseContainer {
     int maxLines,
     String semanticsLabel,
   })  : assert(textData != null, 'Text widget must have non-empty textData'),
+        assert(alignment != null),
+        assert(enableInkWell != null),
+        assert(ignoreImplicitWidthHeight != null),
         super(
             key: key,
-            alignment: alignment ?? AlignmentDirectional.topStart,
+            alignment: alignment,
             padding: padding,
             color: color,
             decoration: decoration,
@@ -178,7 +181,7 @@ class SuperText extends BaseContainer {
   SuperText.rich(
     TextSpan textSpan, {
     Key key,
-    AlignmentGeometry alignment,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -205,9 +208,10 @@ class SuperText extends BaseContainer {
     String semanticsLabel,
   })  : assert(textSpan != null, 'Text widget must have non-null textSpan'),
         assert(ignoreImplicitWidthHeight != null),
+        assert(alignment != null),
         super(
             key: key,
-            alignment: alignment ?? AlignmentDirectional.topStart,
+            alignment: alignment,
             padding: padding,
             margin: margin,
             color: color,
