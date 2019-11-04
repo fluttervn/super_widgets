@@ -99,6 +99,7 @@ class SuperListTile extends BaseContainer {
         assert(selected != null),
         assert(!isThreeLine || subtitle != null),
         assert(ignoreImplicitWidthHeight != null),
+        assert(alignment != null),
         super(
           key: key,
           alignment: alignment,
