@@ -71,7 +71,7 @@ class SuperRaisedButton extends BaseContainer {
   /// [shape] and [elevation].
   SuperRaisedButton({
     Key key,
-    AlignmentGeometry alignment /* = AlignmentDirectional.topStart*/,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -108,6 +108,8 @@ class SuperRaisedButton extends BaseContainer {
         assert(highlightElevation == null || highlightElevation >= 0.0),
         assert(disabledElevation == null || disabledElevation >= 0.0),
         assert(ignoreImplicitWidthHeight != null),
+        assert(alignment != null),
+        assert(clipBehavior != null),
         super(
           key: key,
           color: color,
@@ -120,7 +122,7 @@ class SuperRaisedButton extends BaseContainer {
           height: height,
           constraints: constraints,
           flex: flex,
-          ignoreImplicitWidthHeight: ignoreImplicitWidthHeight ?? false,
+          ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           onLongPressed: onLongPressed,
           transform: transform,
           child: RaisedButton(
