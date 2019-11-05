@@ -26,20 +26,19 @@ class SuperListTile extends BaseContainer {
   /// - `constraints`: like [BoxConstraints] of [Container].
   /// - `transform`: the transformation matrix to apply before painting the parent.
   /// - `flex`: same as `flex` value which is used in [Flexible].
-  ///  - If flex=0: [child] will be wrapped inside a [Wrap] widget.
-  ///  - If flex>0: [child] will be wrapped inside a [Expanded] with flex value.
-  ///  - If flex is null, just return [child] widget.
-  /// - `ignoreImplicitWidthHeight`: defaults to `FALSE`. As we know, `width` and
-  /// `height` of [child] might depends on [alignment] or its parent's size.
-  /// But in some cases we need its size is exactly wrap its [child], for
+  ///  - If flex=0: this widget will be wrapped inside a [Wrap] widget.
+  ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
+  ///  - Default flex is null, it means just return this widget.
+  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
+  /// `height` of `child` might depends on `alignment` or its parent's size.
+  /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
   /// expanding to full width. Note: if we specify `width` or `height` then
   /// [ignoreImplicitWidthHeight] will be set to false.
   /// - `onPressed`: action when press on parent widget.
   /// - `onLongPressed`: action when long-press on parent widget.
   /// - `enableInkWell` and `splashColor`: WILL BE AVAILABLE IN NEXT VERSION.
-  /// Wrap this widget inside an
-  /// [InkWell]. Default to `FALSE`.
+  /// Wrap this widget inside an [InkWell]. Default to `FALSE`.
   ///  - If [enableInkWell] is not true, then just return this [widget].
   ///  - If [enableInkWell] is true splashColor is null, then `splashColor`
   /// will be automatically gotten from Theme instead.

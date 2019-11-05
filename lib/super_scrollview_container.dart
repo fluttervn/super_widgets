@@ -35,7 +35,7 @@ class SuperScrollViewContainer extends SingleChildScrollView {
   /// - `child`: the widget inside [Container].
   /// - `alignment`: Align the [Container] within this widget. Defaults to
   /// [AlignmentDirectional.topStart].
-  /// - `childPadding`: padding between the [Container] to the [child]
+  /// - `childPadding`: padding between the [Container] to the `child`
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the [Container].
   /// - `foregroundDecoration`: the decoration to paint in front of the [Container].
