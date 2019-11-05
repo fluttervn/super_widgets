@@ -94,7 +94,7 @@ class SuperCircleAvatar extends StatelessWidget {
   final Color borderColor;
 
   /// Create new [SuperCircleAvatar]
-  SuperCircleAvatar({
+  const SuperCircleAvatar({
     Key key,
     this.child,
     this.backgroundColor,
