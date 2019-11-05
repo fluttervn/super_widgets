@@ -16,29 +16,51 @@ class SuperIndexedStackPage extends StatelessWidget {
 
   /// Content of this page
   Widget buildBody(BuildContext context) {
-    return Center(
-      child: SuperIndexedStack(
-        color: Colors.grey,
-        margin: EdgeInsets.all(10),
-        padding: EdgeInsets.only(right: 20),
-        childKey: Key('SuperIndexedStack'),
-        index: 1,
-        children: <Widget>[
-          Container(color: Colors.yellow, width: 300, height: 100),
-          Container(
-            color: Colors.red,
-            width: 100,
-            height: 300,
-            margin: EdgeInsets.only(left: 50),
-          ),
-          Container(
-            color: Colors.blue,
-            width: 200,
-            height: 300,
-            margin: EdgeInsets.only(right: 40, top: 30),
-          ),
-        ],
+    var children = <Widget>[
+      Container(
+        width: 200,
+        height: 200,
+        color: Colors.red,
       ),
+      Container(
+        width: 200,
+        height: 200,
+        color: Colors.green,
+        margin: EdgeInsets.all(20),
+      ),
+      Container(
+        width: 200,
+        height: 200,
+        color: Colors.blue,
+        margin: EdgeInsets.all(40),
+      ),
+    ];
+
+    return SuperScrollViewColumn(
+      padding: EdgeInsets.all(10),
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        ..._wrapInRow(
+          description: 'SuperIndexedStack with margin, padding & color',
+          widget: SuperIndexedStack(
+            index: 0,
+            margin: EdgeInsets.all(10),
+            padding: EdgeInsets.all(10),
+            color: Colors.grey.shade300,
+            children: children,
+          ),
+        ),
+      ],
     );
+  }
+
+  List<Widget> _wrapInRow({String description, Widget widget}) {
+    return [
+      Text(description),
+      SizedBox(height: 5),
+      widget,
+      SizedBox(height: 20),
+    ];
   }
 }
