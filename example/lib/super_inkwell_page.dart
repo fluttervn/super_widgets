@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:super_widgets/super_inkwell.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:super_widgets/super_widgets.dart';
 
-/// SuperInkWell demo
+/// SuperInkWell sample
 class SuperInkWellPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,42 +17,44 @@ class SuperInkWellPage extends StatelessWidget {
 
   /// Content of this page
   Widget buildBody(BuildContext context) {
-    return SuperColumn(
-      children: [
-        SizedBox(height: 20),
-        SuperInkWell(
-          alignment: Alignment.center,
-          child: Text(
-            'default SuperInkWell',
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.pink,
-              fontWeight: FontWeight.bold,
-            ),
+    void onPressed() {
+      Fluttertoast.showToast(msg: 'action onPressed');
+    }
+
+    return SuperScrollViewColumn(
+      padding: EdgeInsets.all(10),
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        ..._wrapInRow(
+          description: 'SuperInkWell with margin=10, padding=15',
+          widget: SuperInkWell(
+            margin: EdgeInsets.all(10),
+            padding: EdgeInsets.all(15),
+            child: Text('Open Chrome'),
           ),
         ),
-        SizedBox(height: 20),
-        SuperInkWell(
-          padding: EdgeInsets.all(10),
-          width: 200,
-          height: 50,
-          alignment: Alignment.center,
-          child: Text(
-            'SuperInkWell with size',
-            style: TextStyle(fontSize: 16),
-          ),
-        ),
-        SizedBox(height: 20),
-        SuperInkWell(
-          padding: EdgeInsets.all(10),
-          width: 50,
-          height: 50,
-          alignment: Alignment.center,
-          child: Icon(
-            Icons.ac_unit,
+        ..._wrapInRow(
+          description: 'SuperInkWell with onTap, onLongPress',
+          widget: SuperInkWell(
+            margin: EdgeInsets.all(10),
+            onTap: onPressed,
+            onLongPress: () {
+              Fluttertoast.showToast(msg: 'action onLongPress');
+            },
+            child: Text('Open Chrome'),
           ),
         ),
       ],
     );
+  }
+
+  List<Widget> _wrapInRow({String description, Widget widget}) {
+    return [
+      Text(description),
+      SizedBox(height: 5),
+      widget,
+      SizedBox(height: 20),
+    ];
   }
 }
