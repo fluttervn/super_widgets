@@ -30,12 +30,13 @@ class SuperRaisedButton extends BaseContainer {
   /// `height` of `child` might depends on `alignment` or its parent's size.
   /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
-  /// expanding to full width.
+  /// expanding to full width. Note: if we specify `width` or `height` then
+  /// [ignoreImplicitWidthHeight] will be set to false.
   /// - `onLongPressed`: action when long-press on parent widget.
-  /// - `enableInkWell` and `splashColor`: Wrap this widget inside an
-  /// [InkWell]. Its default value is `FALSE`.
-  ///  - If `enableInkWell` is not true, then just return this `widget`.
-  ///  - If `enableInkWell` is true splashColor is null, then `splashColor`
+  /// - `enableInkWell` and `splashColor`: WILL BE AVAILABLE IN NEXT VERSION.
+  /// Wrap this widget inside an [InkWell]. Default to `FALSE`.
+  ///  - If [enableInkWell] is not true, then just return this [widget].
+  ///  - If [enableInkWell] is true splashColor is null, then `splashColor`
   /// will be automatically gotten from Theme instead.
   ///
   /// <b>Params of the child widget is:</b>
@@ -70,7 +71,7 @@ class SuperRaisedButton extends BaseContainer {
   /// [shape] and [elevation].
   SuperRaisedButton({
     Key key,
-    AlignmentGeometry alignment /* = AlignmentDirectional.topStart*/,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -80,7 +81,7 @@ class SuperRaisedButton extends BaseContainer {
     double height,
     BoxConstraints constraints,
     int flex,
-    bool ignoreImplicitWidthHeight = false,
+    bool ignoreImplicitWidthHeight = true,
     VoidCallback onLongPressed,
     Matrix4 transform,
     Key childKey,
@@ -106,6 +107,9 @@ class SuperRaisedButton extends BaseContainer {
   })  : assert(elevation == null || elevation >= 0.0),
         assert(highlightElevation == null || highlightElevation >= 0.0),
         assert(disabledElevation == null || disabledElevation >= 0.0),
+        assert(ignoreImplicitWidthHeight != null),
+        assert(alignment != null),
+        assert(clipBehavior != null),
         super(
           key: key,
           color: color,
@@ -118,7 +122,7 @@ class SuperRaisedButton extends BaseContainer {
           height: height,
           constraints: constraints,
           flex: flex,
-          ignoreImplicitWidthHeight: ignoreImplicitWidthHeight ?? false,
+          ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           onLongPressed: onLongPressed,
           transform: transform,
           child: RaisedButton(

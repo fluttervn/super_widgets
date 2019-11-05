@@ -34,7 +34,8 @@ class SuperListView extends BaseContainer {
   /// `height` of `child` might depends on `alignment` or its parent's size.
   /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
-  /// expanding to full width.
+  /// expanding to full width. Note: if we specify `width` or `height` then
+  /// [ignoreImplicitWidthHeight] will be set to false.
   ///
   /// <b>Params of the child widget is:</b>
   ///
@@ -82,7 +83,7 @@ class SuperListView extends BaseContainer {
     double height,
     BoxConstraints constraints,
     int flex,
-    bool ignoreImplicitWidthHeight = true,
+    bool ignoreImplicitWidthHeight = false,
     Matrix4 transform,
     Key childKey,
     Axis scrollDirection = Axis.vertical,
@@ -100,7 +101,15 @@ class SuperListView extends BaseContainer {
     List<Widget> children = const <Widget>[],
     int semanticChildCount,
     DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-  }) : super(
+  })  : assert(ignoreImplicitWidthHeight != null),
+        assert(dragStartBehavior != null),
+        assert(scrollDirection != null),
+        assert(reverse != null),
+        assert(addAutomaticKeepAlives != null),
+        assert(addRepaintBoundaries != null),
+        assert(addRepaintBoundaries != null),
+        assert(addSemanticIndexes != null),
+        super(
           key: key,
           alignment: alignment,
           padding: padding,
@@ -165,7 +174,8 @@ class SuperListView extends BaseContainer {
   /// `height` of `child` might depends on `alignment` or its parent's size.
   /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
-  /// expanding to full width.
+  /// expanding to full width. Note: if we specify `width` or `height` then
+  /// [ignoreImplicitWidthHeight] will be set to false.
   ///
   /// <b>Params of the child widget is:</b>
   ///
