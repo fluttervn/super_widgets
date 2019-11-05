@@ -1,6 +1,7 @@
 import 'package:example/super_container_flex_page.dart';
 import 'package:flutter/material.dart';
 
+import 'super_card_page.dart';
 import 'super_column_page.dart';
 import 'super_container_page.dart';
 import 'super_icon_page.dart';
@@ -36,6 +37,7 @@ class MyHomePage extends StatelessWidget {
   final Map<String, Widget> mapScreens = {
     'SuperContainer': SuperContainerPage(),
     'SuperContainer flex': SuperContainerFlexPage(),
+    'SuperCard': SuperCardPage(),
     'SuperStack': SuperStackPage(),
     'SuperIndexedStack': SuperIndexedStackPage(),
     'SuperRow': SuperRowPage(),
