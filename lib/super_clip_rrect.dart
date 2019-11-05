@@ -90,10 +90,10 @@ class SuperClipRRect extends BaseContainer {
           transform: transform,
           child: ClipRRect(
             key: childKey,
-            child: child,
             borderRadius: borderRadius,
             clipper: clipper,
             clipBehavior: clipBehavior,
+            child: child,
           ),
         );
 }

@@ -85,12 +85,12 @@ class SuperIndexedStack extends BaseContainer {
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           transform: transform,
           child: IndexedStack(
-            children: children ?? <Widget>[],
             sizing: sizing,
             alignment: childAlignment,
             key: childKey,
             textDirection: textDirection,
             index: index,
+            children: children ?? <Widget>[],
           ),
         );
 }

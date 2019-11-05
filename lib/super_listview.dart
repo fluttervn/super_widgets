@@ -125,7 +125,6 @@ class SuperListView extends BaseContainer {
           transform: transform,
           child: ListView(
             key: childKey,
-            children: children,
             scrollDirection: scrollDirection,
             reverse: reverse,
             controller: controller,
@@ -140,6 +139,7 @@ class SuperListView extends BaseContainer {
             cacheExtent: cacheExtent,
             semanticChildCount: semanticChildCount ?? children.length,
             dragStartBehavior: dragStartBehavior,
+            children: children,
           ),
         );
 

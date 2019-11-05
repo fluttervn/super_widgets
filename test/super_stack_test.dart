@@ -7,8 +7,8 @@ void main() {
   testWidgets('SuperStack child value', (WidgetTester tester) async {
     final superStack = SuperStack();
     await tester.pumpWidget(Directionality(
-      child: superStack,
       textDirection: TextDirection.ltr,
+      child: superStack,
     ));
 
     // Should have 1 Stack inside SuperStack
@@ -35,16 +35,16 @@ void main() {
       width: 300,
       height: 250,
       childKey: Key('SuperStack'),
-      children: children,
       fit: StackFit.expand,
       textDirection: TextDirection.rtl,
       overflow: Overflow.visible,
       childAlignment: AlignmentDirectional.center,
+      children: children,
     );
 
     await tester.pumpWidget(Directionality(
-      child: superStack,
       textDirection: TextDirection.ltr,
+      child: superStack,
     ));
 
     final Finder stackFinder = find.byType(Stack).first;

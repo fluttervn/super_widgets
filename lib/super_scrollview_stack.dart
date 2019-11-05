@@ -72,11 +72,11 @@ class SuperScrollViewStack extends SingleChildScrollView {
           dragStartBehavior: dragStartBehavior,
           child: Stack(
             key: childKey,
-            children: children ?? <Widget>[],
             fit: fit,
             alignment: childAlignment,
             textDirection: textDirection,
             overflow: overflow,
+            children: children ?? <Widget>[],
           ),
         );
 }

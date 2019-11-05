@@ -118,8 +118,8 @@ class SuperCard extends BaseContainer {
             borderOnForeground: borderOnForeground,
             margin: margin,
             clipBehavior: clipBehavior,
-            child: safePadding(padding: padding, child: child),
             semanticContainer: semanticContainer,
+            child: safePadding(padding: padding, child: child),
           ),
         );
 }

@@ -108,13 +108,13 @@ class SuperRow extends BaseContainer {
           transform: transform,
           child: Row(
             key: childKey,
-            children: children ?? <Widget>[],
             mainAxisAlignment: mainAxisAlignment,
             mainAxisSize: mainAxisSize,
             crossAxisAlignment: crossAxisAlignment,
             verticalDirection: verticalDirection,
             textDirection: textDirection,
             textBaseline: textBaseline,
+            children: children ?? <Widget>[],
           ),
         );
 }
