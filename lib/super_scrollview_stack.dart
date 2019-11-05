@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 /// [SuperScrollViewStack] is a [SingleChildScrollView] with [Stack]
 /// inside.
 class SuperScrollViewStack extends SingleChildScrollView {
-  /// Create new [SuperScrollViewContainer] which has a [SingleChildScrollView]
+  /// Create new [SuperScrollViewStack] which has a [SingleChildScrollView]
   /// (parent) with a [Stack] (child) inside.
   /// Thus its params is the combination of [SingleChildScrollView]'s
   /// params and [Stack]'s  params.
@@ -38,39 +38,45 @@ class SuperScrollViewStack extends SingleChildScrollView {
   /// - `childAlignment`: How to align the non-positioned and
   /// partially-positioned children in the stack. Default is
   /// [AlignmentDirectional.topStart].
-  /// - `textDirection`: the text direction with which to resolve [alignment].
-  /// Defaults to the ambient [Directionality].
+  /// - `textDirection`: the text direction with which to resolve
+  /// `childAlignment`. Defaults to the ambient [Directionality].
   SuperScrollViewStack({
     Key key,
-    Axis scrollDirection,
+    Axis scrollDirection = Axis.vertical,
     bool reverse = false,
     EdgeInsetsGeometry padding,
     bool primary,
     ScrollPhysics physics,
     ScrollController controller,
-    DragStartBehavior dragStartBehavior,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
     Key childKey,
     List<Widget> children,
-    AlignmentGeometry childAlignment,
+    AlignmentGeometry childAlignment = AlignmentDirectional.topStart,
     StackFit fit = StackFit.loose,
     TextDirection textDirection,
-    Overflow overflow,
-  }) : super(
+    Overflow overflow = Overflow.clip,
+  })  : assert(reverse != null),
+        assert(scrollDirection != null),
+        assert(dragStartBehavior != null),
+        assert(childAlignment != null),
+        assert(fit != null),
+        assert(overflow != null),
+        super(
           key: key,
-          scrollDirection: scrollDirection ?? Axis.vertical,
+          scrollDirection: scrollDirection,
           reverse: reverse,
           padding: padding,
           primary: primary,
           physics: physics,
           controller: controller,
-          dragStartBehavior: dragStartBehavior ?? DragStartBehavior.start,
+          dragStartBehavior: dragStartBehavior,
           child: Stack(
             key: childKey,
-            children: children ?? <Widget>[],
             fit: fit,
-            alignment: childAlignment ?? AlignmentDirectional.topStart,
+            alignment: childAlignment,
             textDirection: textDirection,
-            overflow: overflow ?? Overflow.clip,
+            overflow: overflow,
+            children: children ?? <Widget>[],
           ),
         );
 }

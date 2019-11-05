@@ -18,7 +18,7 @@ class SuperContainerPage extends StatelessWidget {
   Widget buildBody(BuildContext context) {
     final boxH = SizedBox(height: 10);
     final bgColor = Colors.yellowAccent;
-    final double defaultH = 50;
+    const double defaultH = 50;
 
     return SuperScrollViewColumn(
       crossAxisAlignment: CrossAxisAlignment.start,

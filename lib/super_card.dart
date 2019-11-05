@@ -31,13 +31,14 @@ class SuperCard extends BaseContainer {
   /// `height` of `child` might depends on `alignment` or its parent's size.
   /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
-  /// expanding to full width.
+  /// expanding to full width. Note: if we specify `width` or `height` then
+  /// [ignoreImplicitWidthHeight] will be set to false.
   /// - `onPressed`: action when press on parent widget.
   /// - `onLongPressed`: action when long-press on parent widget.
-  /// - `enableInkWell` and `splashColor`: Wrap this widget inside an
-  /// [InkWell]. Its default value is `FALSE`.
+  /// - `enableInkWell` and `splashColor`: WILL BE AVAILABLE IN NEXT VERSION.
+  /// Wrap this widget inside an InkWell. Default to `FALSE`.
   ///  - If `enableInkWell` is not true, then just return this `widget`.
-  ///  - If `enableInkWell` is true splashColor is null, then `splashColor`
+  ///  - If `enableInkWell` is true & splashColor is null, then `splashColor`
   /// will be automatically gotten from Theme instead.
   ///
   /// <b>Params of the child widget is:</b>
@@ -76,6 +77,7 @@ class SuperCard extends BaseContainer {
     int flex,
     bool ignoreImplicitWidthHeight = false,
     bool enableInkWell = false,
+    // ignore: avoid_unused_constructor_parameters
     Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
@@ -92,6 +94,7 @@ class SuperCard extends BaseContainer {
     bool semanticContainer = true,
   })  : assert(elevation == null || elevation >= 0.0),
         assert(borderOnForeground != null),
+        assert(ignoreImplicitWidthHeight != null),
         assert(enableInkWell != null),
         assert(semanticContainer != null),
         super(
@@ -108,20 +111,16 @@ class SuperCard extends BaseContainer {
           onPressed: onPressed,
           onLongPressed: onLongPressed,
           transform: transform,
-          child: safeInkWell(
-            enableInkWell: enableInkWell,
-            splashColor: splashColor,
-            child: Card(
-              key: childKey,
-              color: childColor,
-              elevation: elevation,
-              shape: shape,
-              borderOnForeground: borderOnForeground,
-              margin: margin,
-              clipBehavior: clipBehavior,
-              child: safePadding(padding: padding, child: child),
-              semanticContainer: semanticContainer,
-            ),
+          child: Card(
+            key: childKey,
+            color: childColor,
+            elevation: elevation,
+            shape: shape,
+            borderOnForeground: borderOnForeground,
+            margin: margin,
+            clipBehavior: clipBehavior,
+            semanticContainer: semanticContainer,
+            child: safePadding(padding: padding, child: child),
           ),
         );
 }

@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 /// [SuperScrollViewColumn] is a [SingleChildScrollView] with [Column]
 /// inside, it means scrollDirection is [Axis.vertical]
 class SuperScrollViewColumn extends SingleChildScrollView {
-  /// Create new [SuperScrollViewContainer] which has a [SingleChildScrollView]
+  /// Create new [SuperScrollViewColumn] which has a [SingleChildScrollView]
   /// (parent) with a [Column] (child) inside.
   /// Thus its params is the combination of [SingleChildScrollView]'s
   /// params and [Column]'s  params.
@@ -54,16 +54,22 @@ class SuperScrollViewColumn extends SingleChildScrollView {
     bool primary,
     ScrollPhysics physics,
     ScrollController controller,
-    DragStartBehavior dragStartBehavior,
+    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
     Key childKey,
     List<Widget> children,
-    MainAxisAlignment mainAxisAlignment,
-    MainAxisSize mainAxisSize,
-    CrossAxisAlignment crossAxisAlignment,
+    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+    MainAxisSize mainAxisSize = MainAxisSize.max,
+    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
     TextDirection textDirection,
-    VerticalDirection verticalDirection,
+    VerticalDirection verticalDirection = VerticalDirection.down,
     TextBaseline textBaseline,
-  }) : super(
+  })  : assert(reverse != null),
+        assert(dragStartBehavior != null),
+        assert(mainAxisAlignment != null),
+        assert(mainAxisSize != null),
+        assert(crossAxisAlignment != null),
+        assert(verticalDirection != null),
+        super(
           key: key,
           scrollDirection: Axis.vertical,
           reverse: reverse,
@@ -71,16 +77,16 @@ class SuperScrollViewColumn extends SingleChildScrollView {
           primary: primary,
           physics: physics,
           controller: controller,
-          dragStartBehavior: dragStartBehavior ?? DragStartBehavior.start,
+          dragStartBehavior: dragStartBehavior,
           child: Column(
             key: childKey,
-            children: children ?? <Widget>[],
-            mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.start,
-            mainAxisSize: mainAxisSize ?? MainAxisSize.max,
-            crossAxisAlignment: crossAxisAlignment ?? CrossAxisAlignment.center,
-            verticalDirection: verticalDirection ?? VerticalDirection.down,
+            mainAxisAlignment: mainAxisAlignment,
+            mainAxisSize: mainAxisSize,
+            crossAxisAlignment: crossAxisAlignment,
+            verticalDirection: verticalDirection,
             textDirection: textDirection,
             textBaseline: textBaseline,
+            children: children ?? <Widget>[],
           ),
         );
 }

@@ -4,7 +4,7 @@ import 'base/base_container.dart';
 
 /// [SuperIndexedStack] is a [Container] with [IndexedStack] inside.
 class SuperIndexedStack extends BaseContainer {
-  /// Create new [SuperStack] which has a [Container] (parent) with
+  /// Create new [SuperIndexedStack] which has a [Container] (parent) with
   /// a [IndexedStack] (child) inside.
   /// Thus its params is the combination of [Container]'s
   /// params and [IndexedStack]'s  params.
@@ -31,7 +31,8 @@ class SuperIndexedStack extends BaseContainer {
   /// `height` of `child` might depends on `alignment` or its parent's size.
   /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
-  /// expanding to full width.
+  /// expanding to full width. Note: if we specify `width` or `height` then
+  /// [ignoreImplicitWidthHeight] will be set to false.
   ///
   /// <b>Params of the child widget is:</b>
   ///
@@ -47,7 +48,7 @@ class SuperIndexedStack extends BaseContainer {
   /// Defaults to the ambient [Directionality].
   SuperIndexedStack({
     Key key,
-    AlignmentGeometry alignment,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -57,17 +58,21 @@ class SuperIndexedStack extends BaseContainer {
     double height,
     BoxConstraints constraints,
     int flex,
-    bool ignoreImplicitWidthHeight,
+    bool ignoreImplicitWidthHeight = false,
     Matrix4 transform,
     Key childKey,
     List<Widget> children,
-    AlignmentGeometry childAlignment,
+    AlignmentGeometry childAlignment = AlignmentDirectional.topStart,
     StackFit sizing = StackFit.loose,
     TextDirection textDirection,
     int index = 0,
-  }) : super(
+  })  : assert(ignoreImplicitWidthHeight != null),
+        assert(childAlignment != null),
+        assert(sizing != null),
+        assert(alignment != null),
+        super(
           key: key,
-          alignment: alignment ?? AlignmentDirectional.topStart,
+          alignment: alignment,
           padding: padding,
           margin: margin,
           color: color,
@@ -80,12 +85,12 @@ class SuperIndexedStack extends BaseContainer {
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           transform: transform,
           child: IndexedStack(
-            children: children ?? <Widget>[],
             sizing: sizing,
-            alignment: childAlignment ?? AlignmentDirectional.topStart,
+            alignment: childAlignment,
             key: childKey,
             textDirection: textDirection,
             index: index,
+            children: children ?? <Widget>[],
           ),
         );
 }

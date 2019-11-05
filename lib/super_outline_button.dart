@@ -30,7 +30,8 @@ class SuperOutlineButton extends BaseContainer {
   /// `height` of `child` might depends on `alignment` or its parent's size.
   /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
-  /// expanding to full width.
+  /// expanding to full width. Note: if we specify `width` or `height` then
+  /// [ignoreImplicitWidthHeight] will be set to false.
   /// - `onLongPressed`: action when long-press on parent widget.
   ///
   /// <b>Params of the child widget is:</b>
@@ -53,11 +54,11 @@ class SuperOutlineButton extends BaseContainer {
   /// - `highlightColor`: the highlight color of the button's [InkWell].
   /// - `splashColor`: the color to use for this button's text.
   /// - `highlightElevation`: the elevation for the button's [Material] relative
-  /// to its parent when the button is [enabled] and pressed. Defaults to 8.0.
+  /// to its parent when the button is enabled and pressed. Defaults to 8.0.
   /// - `disabledElevation`: the elevation for the button's [Material] relative
-  /// to its parent when the button is not [enabled]. Defaults to 0.0.
+  /// to its parent when the button is not enabled. Defaults to 0.0.
   /// - `highlightedBorderColor`: the outline border's color when the button is
-  /// [enabled] and pressed.
+  /// enabled and pressed.
   /// - `childPadding`: the internal padding for the button's `child`.
   /// - `shape`: the shape of the button's [Material]. The button's highlight
   /// and splash are clipped to this shape.
@@ -76,7 +77,7 @@ class SuperOutlineButton extends BaseContainer {
     double height,
     BoxConstraints constraints,
     int flex,
-    bool ignoreImplicitWidthHeight = false,
+    bool ignoreImplicitWidthHeight = true,
     VoidCallback onLongPressed,
     Matrix4 transform,
     Key childKey,
@@ -96,11 +97,13 @@ class SuperOutlineButton extends BaseContainer {
     Color highlightedBorderColor,
     EdgeInsetsGeometry childPadding,
     ShapeBorder shape,
-    Clip clipBehavior,
+    Clip clipBehavior = Clip.none,
     FocusNode focusNode,
     bool autofocus = false,
   })  : assert(highlightElevation == null || highlightElevation >= 0.0),
         assert(autofocus != null),
+        assert(ignoreImplicitWidthHeight != null),
+        assert(clipBehavior != null),
         super(
           key: key,
           color: color,
@@ -113,7 +116,7 @@ class SuperOutlineButton extends BaseContainer {
           height: height,
           constraints: constraints,
           flex: flex,
-          ignoreImplicitWidthHeight: ignoreImplicitWidthHeight ?? false,
+          ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           onLongPressed: onLongPressed,
           transform: transform,
           child: OutlineButton(
@@ -133,7 +136,7 @@ class SuperOutlineButton extends BaseContainer {
             highlightedBorderColor: highlightedBorderColor,
             padding: childPadding,
             shape: shape,
-            clipBehavior: clipBehavior ?? Clip.none,
+            clipBehavior: clipBehavior,
             focusNode: focusNode,
             autofocus: autofocus,
             child: child,

@@ -28,7 +28,8 @@ class SuperColumn extends BaseContainer {
   /// `height` of `child` might depends on `alignment` or its parent's size.
   /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
-  /// expanding to full width.
+  /// expanding to full width. Note: if we specify `width` or `height` then
+  /// [ignoreImplicitWidthHeight] will be set to false.
   ///
   /// <b>Params of the child widget is:</b>
   ///
@@ -63,6 +64,7 @@ class SuperColumn extends BaseContainer {
     int flex,
     bool ignoreImplicitWidthHeight = false,
     bool enableInkWell = false,
+    // ignore: avoid_unused_constructor_parameters
     Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
@@ -74,7 +76,13 @@ class SuperColumn extends BaseContainer {
     TextDirection textDirection,
     VerticalDirection verticalDirection = VerticalDirection.down,
     TextBaseline textBaseline,
-  }) : super(
+  })  : assert(ignoreImplicitWidthHeight != null),
+        assert(enableInkWell != null),
+        assert(mainAxisAlignment != null),
+        assert(mainAxisSize != null),
+        assert(crossAxisAlignment != null),
+        assert(verticalDirection != null),
+        super(
           key: key,
           alignment: alignment,
           padding: padding,
@@ -92,13 +100,13 @@ class SuperColumn extends BaseContainer {
           transform: transform,
           child: Column(
             key: childKey,
-            children: children ?? <Widget>[],
             mainAxisAlignment: mainAxisAlignment,
             mainAxisSize: mainAxisSize,
             crossAxisAlignment: crossAxisAlignment,
             verticalDirection: verticalDirection,
             textDirection: textDirection,
             textBaseline: textBaseline,
+            children: children ?? <Widget>[],
           ),
         );
 }

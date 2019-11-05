@@ -43,8 +43,8 @@ Widget safeDecoratedBox({
   if (decoration != null) {
     current = DecoratedBox(
       decoration: decoration,
-      child: current,
       position: position,
+      child: current,
     );
   }
 
@@ -88,9 +88,9 @@ Widget safeTransform({
 /// If [enableInkWell] is true but `splashColor` is null, then `splashColor`
 /// will be automatically gotten from Theme instead.
 Widget safeInkWell({
+  @required Widget child,
   bool enableInkWell,
   Color splashColor,
-  @required Widget child,
 }) {
   Widget current = child;
   if (true == enableInkWell) {
@@ -108,13 +108,13 @@ Widget safeInkWell({
 /// - if flex>0: [child] will be wrapped inside a [Expanded] with flex value.
 /// - if flex is null, just return [child] widget.
 Widget safeFlex({
-  int flex,
   @required Widget child,
+  int flex,
 }) {
   Widget current = child;
   if (flex != null) {
     if (flex >= 1) {
-      current = Expanded(child: child, flex: flex);
+      current = Expanded(flex: flex, child: child);
     } else if (flex == 0) {
       current = Wrap(children: <Widget>[current]);
     }
@@ -134,9 +134,9 @@ Widget safeOnPress({
 }) {
   if (onPressed != null || onLongPressed != null) {
     return GestureDetector(
-      child: child,
       onTap: onPressed,
       onLongPress: onLongPressed,
+      child: child,
     );
   }
   return child;

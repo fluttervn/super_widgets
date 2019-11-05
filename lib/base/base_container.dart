@@ -59,6 +59,9 @@ class BaseContainer extends StatelessWidget {
   ///
   /// If we set [ignoreImplicitWidthHeight] to true, then this widget will be
   /// wrapped into its [child]'s size and don't care about its parent size.
+  ///
+  /// Note: if we specify `width` or `height` then [ignoreImplicitWidthHeight]
+  /// will be set to false.
   final bool ignoreImplicitWidthHeight;
   final SizedBox _sizedBox;
 
@@ -77,11 +80,28 @@ class BaseContainer extends StatelessWidget {
     return BoxDecoration(color: color);
   }
 
-  static SizedBox _sizedBoxFromWidthHeight({double width, double height}) {
+  static SizedBox _sizedBoxFromWidthHeight({
+    @required double width,
+    @required double height,
+  }) {
     if (width != null && width > 0 && height != null && height > 0) {
       return SizedBox(width: width, height: height);
     }
     return null;
+  }
+
+  /// We've already specified a variable name `ignoreImplicitWidthHeight`,
+  /// but in case it's true, however we also specify `width` or `height`, it
+  /// means we no longer want to ignore implicit size.
+  static bool _shouldIgnoreImplicitWidthHeight({
+    @required bool ignore,
+    @required double width,
+    @required double height,
+  }) {
+    if (width != null || height != null) {
+      return false;
+    }
+    return ignore;
   }
 
   /// Creates a widget that mimics [Container] with combination of common
@@ -105,7 +125,7 @@ class BaseContainer extends StatelessWidget {
     double height,
     BoxConstraints constraints,
     this.flex,
-    this.ignoreImplicitWidthHeight,
+    bool ignoreImplicitWidthHeight,
     this.onPressed,
     this.onLongPressed,
     this.transform,
@@ -125,13 +145,15 @@ class BaseContainer extends StatelessWidget {
                 BoxConstraints.tightFor(width: width, height: height)
             : constraints,
         _sizedBox = _sizedBoxFromWidthHeight(width: width, height: height),
+        ignoreImplicitWidthHeight = _shouldIgnoreImplicitWidthHeight(
+            height: height, width: width, ignore: ignoreImplicitWidthHeight),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Widget current = child;
 
-    if (false == ignoreImplicitWidthHeight ?? false) {
+    if (false == ignoreImplicitWidthHeight) {
       // When ignore Infinity Size & Constraints, also ignore Align
       current = safeAlign(alignment: alignment, child: current);
     }
@@ -147,7 +169,7 @@ class BaseContainer extends StatelessWidget {
       child: current,
     );
 
-    if (false == ignoreImplicitWidthHeight ?? false) {
+    if (false == ignoreImplicitWidthHeight) {
       // Wrap into ConstrainedBox for size of widget
       current = safeConstrainedBox(constraints: constraints, child: current);
     } else if (_sizedBox != null) {

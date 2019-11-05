@@ -8,8 +8,8 @@ void main() {
 //    final VoidCallback onPressed = () {};
     final superRaisedButton = SuperRaisedButton();
     await tester.pumpWidget(Directionality(
-      child: superRaisedButton,
       textDirection: TextDirection.ltr,
+      child: superRaisedButton,
     ));
 
     // Should have 1 RaisedButton inside SuperRaisedButton
@@ -39,8 +39,8 @@ void main() {
     );
 
     await tester.pumpWidget(Directionality(
-      child: superRaisedButton,
       textDirection: TextDirection.ltr,
+      child: superRaisedButton,
     ));
 
     final Finder raisedButtonFinder = find.byType(RaisedButton).first;

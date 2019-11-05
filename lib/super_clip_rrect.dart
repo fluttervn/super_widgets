@@ -31,7 +31,8 @@ class SuperClipRRect extends BaseContainer {
   /// `height` of `child` might depends on `alignment` or its parent's size.
   /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
-  /// expanding to full width.
+  /// expanding to full width. Note: if we specify `width` or `height` then
+  /// [ignoreImplicitWidthHeight] will be set to false.
   /// - `onPressed`: action when press on parent widget.
   /// - `onLongPressed`: action when long-press on parent widget.
   /// - `transform`: the transformation matrix to apply before painting the parent.
@@ -63,11 +64,14 @@ class SuperClipRRect extends BaseContainer {
     VoidCallback onLongPressed,
     Matrix4 transform,
     Key childKey,
+    // ignore: always_put_required_named_parameters_first
     @required Widget child,
     BorderRadius borderRadius,
     CustomClipper<RRect> clipper,
     Clip clipBehavior = Clip.antiAlias,
   })  : assert(borderRadius != null || clipper != null),
+        assert(clipBehavior != null),
+        assert(ignoreImplicitWidthHeight != null),
         assert(clipBehavior != null),
         super(
           key: key,
@@ -87,10 +91,10 @@ class SuperClipRRect extends BaseContainer {
           transform: transform,
           child: ClipRRect(
             key: childKey,
-            child: child,
             borderRadius: borderRadius,
             clipper: clipper,
             clipBehavior: clipBehavior,
+            child: child,
           ),
         );
 }

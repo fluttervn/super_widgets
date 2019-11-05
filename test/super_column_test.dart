@@ -7,8 +7,8 @@ void main() {
   testWidgets('SuperColumn default value', (WidgetTester tester) async {
     final superColumn = SuperColumn();
     await tester.pumpWidget(Directionality(
-      child: superColumn,
       textDirection: TextDirection.ltr,
+      child: superColumn,
     ));
 
     // Should have 1 Column inside SuperColumn
@@ -39,18 +39,18 @@ void main() {
       width: 300,
       height: 250,
       childKey: Key('SuperColumn'),
-      children: children,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       textDirection: TextDirection.rtl,
       verticalDirection: VerticalDirection.up,
       textBaseline: TextBaseline.alphabetic,
+      children: children,
     );
 
     await tester.pumpWidget(Directionality(
-      child: superColumn,
       textDirection: TextDirection.ltr,
+      child: superColumn,
     ));
 
     final Finder columnFinder = find.byType(Column).first;

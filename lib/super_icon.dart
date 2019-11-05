@@ -30,13 +30,14 @@ class SuperIcon extends BaseContainer {
   /// `height` of `child` might depends on `alignment` or its parent's size.
   /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
-  /// expanding to full width.
+  /// expanding to full width. Note: if we specify `width` or `height` then
+  /// [ignoreImplicitWidthHeight] will be set to false.
   /// - `onPressed`: action when press on parent widget.
   /// - `onLongPressed`: action when long-press on parent widget.
-  /// - `enableInkWell` and `splashColor`: Wrap this widget inside an
-  /// [InkWell]. Its default value is `FALSE`.
+  /// - `enableInkWell` and `splashColor`: WILL BE AVAILABLE IN NEXT VERSION.
+  /// Wrap this widget inside an InkWell. Default to `FALSE`.
   ///  - If `enableInkWell` is not true, then just return this `widget`.
-  ///  - If `enableInkWell` is true splashColor is null, then `splashColor`
+  ///  - If `enableInkWell` is true & splashColor is null, then `splashColor`
   /// will be automatically gotten from Theme instead.
   ///
   /// <b>Params of the child widget is:</b>
@@ -66,6 +67,7 @@ class SuperIcon extends BaseContainer {
     int flex,
     bool ignoreImplicitWidthHeight = true,
     bool enableInkWell = false,
+    // ignore: avoid_unused_constructor_parameters
     Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
@@ -74,7 +76,10 @@ class SuperIcon extends BaseContainer {
     Color childColor,
     String semanticLabel,
     TextDirection textDirection,
-  }) : super(
+  })  : assert(ignoreImplicitWidthHeight != null),
+        assert(enableInkWell != null),
+        assert(icon != null),
+        super(
           key: key,
           alignment: alignment,
           padding: padding,
