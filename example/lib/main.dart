@@ -7,6 +7,7 @@ import 'super_column_page.dart';
 import 'super_container_flex_page.dart';
 import 'super_container_page.dart';
 import 'super_flat_button_page.dart';
+import 'super_icon_button_page.dart';
 import 'super_icon_page.dart';
 import 'super_indexed_stack_page.dart';
 import 'super_inkwell_page.dart';
@@ -46,6 +47,7 @@ class MyHomePage extends StatelessWidget {
     'SuperColumn': SuperColumnPage(),
     'SuperFlatButton': SuperFlatButtonPage(),
     'SuperIcon': SuperIconPage(),
+    'SuperIconButton': SuperIconButtonPage(),
     'SuperStack': SuperStackPage(),
     'SuperIndexedStack': SuperIndexedStackPage(),
     'SuperRow': SuperRowPage(),
