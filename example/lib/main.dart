@@ -1,3 +1,4 @@
+import 'package:example/super_clip_rrect_page.dart';
 import 'package:example/super_container_flex_page.dart';
 import 'package:flutter/material.dart';
 
@@ -40,6 +41,7 @@ class MyHomePage extends StatelessWidget {
     'SuperContainer flex': SuperContainerFlexPage(),
     'SuperCard': SuperCardPage(),
     'SuperCircleAvatar': SuperCircleAvatarPage(),
+    'SuperClipRRect': SuperClipRRectPage(),
     'SuperStack': SuperStackPage(),
     'SuperIndexedStack': SuperIndexedStackPage(),
     'SuperRow': SuperRowPage(),
