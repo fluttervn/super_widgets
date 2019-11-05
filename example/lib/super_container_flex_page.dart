@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:super_widgets/super_widgets.dart';
 
 /// SuperContainer sample
-class SuperContainerDynamicSizePage extends StatelessWidget {
+class SuperContainerFlexPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
