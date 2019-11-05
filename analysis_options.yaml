@@ -527,7 +527,7 @@ linter:
     # http://dart-lang.github.io/linter/lints/prefer_const_constructors.html
     # recommendation: optional
     # 0 issues
-    - prefer_const_constructors
+    # - prefer_const_constructors
 
     # Prefer declare const constructors on `@immutable` classes.
     # http://dart-lang.github.io/linter/lints/prefer_const_constructors_in_immutables.html
