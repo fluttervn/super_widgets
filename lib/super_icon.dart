@@ -67,6 +67,7 @@ class SuperIcon extends BaseContainer {
     int flex,
     bool ignoreImplicitWidthHeight = true,
     bool enableInkWell = false,
+    // ignore: avoid_unused_constructor_parameters
     Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,

@@ -35,8 +35,8 @@ class SuperListTile extends BaseContainer {
   /// example the container of [Text] wrap the size of [Text] instead of
   /// expanding to full width. Note: if we specify `width` or `height` then
   /// [ignoreImplicitWidthHeight] will be set to false.
-  /// - `onPressed`: action when press on parent widget.
-  /// - `onLongPressed`: action when long-press on parent widget.
+  /// - `onTap`: action when press on parent widget.
+  /// - `onLongPress`: action when long-press on parent widget.
   /// - `enableInkWell` and `splashColor`: WILL BE AVAILABLE IN NEXT VERSION.
   /// Wrap this widget inside an InkWell. Default to `FALSE`.
   ///  - If `enableInkWell` is not true, then just return this `widget`.
@@ -79,8 +79,6 @@ class SuperListTile extends BaseContainer {
     BoxConstraints constraints,
     int flex,
     bool ignoreImplicitWidthHeight = true,
-    VoidCallback onPressed,
-    VoidCallback onLongPressed,
     Matrix4 transform,
     Key childKey,
     Widget leading,
@@ -112,8 +110,8 @@ class SuperListTile extends BaseContainer {
           constraints: constraints,
           flex: flex,
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
-          onPressed: onPressed,
-          onLongPressed: onLongPressed,
+          onPressed: onTap,
+          onLongPressed: onLongPress,
           margin: margin,
           transform: transform,
           child: ListTile(

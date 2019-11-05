@@ -49,6 +49,7 @@ class SuperContainer extends BaseContainer {
     int flex,
     bool ignoreImplicitWidthHeight = false,
     bool enableInkWell = false,
+    // ignore: avoid_unused_constructor_parameters
     Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,

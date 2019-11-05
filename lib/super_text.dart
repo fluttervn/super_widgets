@@ -75,6 +75,7 @@ class SuperText extends BaseContainer {
     int flex,
     bool ignoreImplicitWidthHeight = true,
     bool enableInkWell = false,
+    // ignore: avoid_unused_constructor_parameters
     Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
@@ -192,6 +193,9 @@ class SuperText extends BaseContainer {
     BoxConstraints constraints,
     int flex,
     bool ignoreImplicitWidthHeight = true,
+    bool enableInkWell = false,
+    // ignore: avoid_unused_constructor_parameters
+    Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
     Matrix4 transform,
@@ -207,6 +211,7 @@ class SuperText extends BaseContainer {
     int maxLines,
     String semanticsLabel,
   })  : assert(textSpan != null, 'Text widget must have non-null textSpan'),
+        assert(enableInkWell != null),
         assert(ignoreImplicitWidthHeight != null),
         assert(alignment != null),
         super(
