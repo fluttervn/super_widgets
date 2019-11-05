@@ -101,6 +101,7 @@ class SuperFlatButton extends BaseContainer {
     FocusNode focusNode,
     bool autofocus = false,
     MaterialTapTargetSize materialTapTargetSize,
+    // ignore: always_put_required_named_parameters_first
     @required Widget child,
   })  : assert(autofocus != null),
         assert(ignoreImplicitWidthHeight != null),

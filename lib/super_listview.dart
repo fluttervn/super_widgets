@@ -236,6 +236,7 @@ class SuperListView extends BaseContainer {
     bool shrinkWrap = false,
     EdgeInsetsGeometry childPadding,
     double itemExtent,
+    // ignore: always_put_required_named_parameters_first
     @required IndexedWidgetBuilder itemBuilder,
     int itemCount,
     bool addAutomaticKeepAlives = true,
