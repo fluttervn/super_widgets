@@ -38,9 +38,9 @@ class SuperListTile extends BaseContainer {
   /// - `onPressed`: action when press on parent widget.
   /// - `onLongPressed`: action when long-press on parent widget.
   /// - `enableInkWell` and `splashColor`: WILL BE AVAILABLE IN NEXT VERSION.
-  /// Wrap this widget inside an [InkWell]. Default to `FALSE`.
-  ///  - If [enableInkWell] is not true, then just return this [widget].
-  ///  - If [enableInkWell] is true splashColor is null, then `splashColor`
+  /// Wrap this widget inside an InkWell. Default to `FALSE`.
+  ///  - If `enableInkWell` is not true, then just return this `widget`.
+  ///  - If `enableInkWell` is true & splashColor is null, then `splashColor`
   /// will be automatically gotten from Theme instead.
   ///
   /// <b>Params of the child widget is:</b>
@@ -56,7 +56,7 @@ class SuperListTile extends BaseContainer {
   /// - `trailing`: the widget to display after the title. Typically an [Icon]
   /// widget. To show right-aligned metadata (assuming left-to-right reading
   /// order; left-aligned for right-to-left reading order), consider using a
-  /// [Row] with [MainAxisAlign.baseline] alignment whose first item is
+  /// [Row] with `MainAxisAlign.baseline` alignment whose first item is
   /// [Expanded] and whose second child is the metadata text, instead of using
   /// the `trailing` property.
   /// - `isThreeLine`: Whether this list tile is intended to display three

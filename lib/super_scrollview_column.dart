@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 /// [SuperScrollViewColumn] is a [SingleChildScrollView] with [Column]
 /// inside, it means scrollDirection is [Axis.vertical]
 class SuperScrollViewColumn extends SingleChildScrollView {
-  /// Create new [SuperScrollViewContainer] which has a [SingleChildScrollView]
+  /// Create new [SuperScrollViewColumn] which has a [SingleChildScrollView]
   /// (parent) with a [Column] (child) inside.
   /// Thus its params is the combination of [SingleChildScrollView]'s
   /// params and [Column]'s  params.

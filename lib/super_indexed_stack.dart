@@ -4,7 +4,7 @@ import 'base/base_container.dart';
 
 /// [SuperIndexedStack] is a [Container] with [IndexedStack] inside.
 class SuperIndexedStack extends BaseContainer {
-  /// Create new [SuperStack] which has a [Container] (parent) with
+  /// Create new [SuperIndexedStack] which has a [Container] (parent) with
   /// a [IndexedStack] (child) inside.
   /// Thus its params is the combination of [Container]'s
   /// params and [IndexedStack]'s  params.
