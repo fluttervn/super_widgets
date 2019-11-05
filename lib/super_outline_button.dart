@@ -54,11 +54,11 @@ class SuperOutlineButton extends BaseContainer {
   /// - `highlightColor`: the highlight color of the button's [InkWell].
   /// - `splashColor`: the color to use for this button's text.
   /// - `highlightElevation`: the elevation for the button's [Material] relative
-  /// to its parent when the button is [enabled] and pressed. Defaults to 8.0.
+  /// to its parent when the button is enabled and pressed. Defaults to 8.0.
   /// - `disabledElevation`: the elevation for the button's [Material] relative
-  /// to its parent when the button is not [enabled]. Defaults to 0.0.
+  /// to its parent when the button is not enabled. Defaults to 0.0.
   /// - `highlightedBorderColor`: the outline border's color when the button is
-  /// [enabled] and pressed.
+  /// enabled and pressed.
   /// - `childPadding`: the internal padding for the button's `child`.
   /// - `shape`: the shape of the button's [Material]. The button's highlight
   /// and splash are clipped to this shape.

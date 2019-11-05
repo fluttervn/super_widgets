@@ -86,11 +86,11 @@ class SuperStack extends BaseContainer {
           transform: transform,
           child: Stack(
             key: childKey,
-            children: children ?? <Widget>[],
             fit: fit,
             alignment: childAlignment,
             textDirection: textDirection,
             overflow: overflow,
+            children: children ?? <Widget>[],
           ),
         );
 }

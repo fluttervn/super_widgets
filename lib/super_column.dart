@@ -64,6 +64,7 @@ class SuperColumn extends BaseContainer {
     int flex,
     bool ignoreImplicitWidthHeight = false,
     bool enableInkWell = false,
+    // ignore: avoid_unused_constructor_parameters
     Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
@@ -99,13 +100,13 @@ class SuperColumn extends BaseContainer {
           transform: transform,
           child: Column(
             key: childKey,
-            children: children ?? <Widget>[],
             mainAxisAlignment: mainAxisAlignment,
             mainAxisSize: mainAxisSize,
             crossAxisAlignment: crossAxisAlignment,
             verticalDirection: verticalDirection,
             textDirection: textDirection,
             textBaseline: textBaseline,
+            children: children ?? <Widget>[],
           ),
         );
 }

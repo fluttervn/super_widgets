@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 /// [SuperScrollViewStack] is a [SingleChildScrollView] with [Stack]
 /// inside.
 class SuperScrollViewStack extends SingleChildScrollView {
-  /// Create new [SuperScrollViewContainer] which has a [SingleChildScrollView]
+  /// Create new [SuperScrollViewStack] which has a [SingleChildScrollView]
   /// (parent) with a [Stack] (child) inside.
   /// Thus its params is the combination of [SingleChildScrollView]'s
   /// params and [Stack]'s  params.
@@ -38,8 +38,8 @@ class SuperScrollViewStack extends SingleChildScrollView {
   /// - `childAlignment`: How to align the non-positioned and
   /// partially-positioned children in the stack. Default is
   /// [AlignmentDirectional.topStart].
-  /// - `textDirection`: the text direction with which to resolve [alignment].
-  /// Defaults to the ambient [Directionality].
+  /// - `textDirection`: the text direction with which to resolve
+  /// `childAlignment`. Defaults to the ambient [Directionality].
   SuperScrollViewStack({
     Key key,
     Axis scrollDirection = Axis.vertical,
@@ -72,11 +72,11 @@ class SuperScrollViewStack extends SingleChildScrollView {
           dragStartBehavior: dragStartBehavior,
           child: Stack(
             key: childKey,
-            children: children ?? <Widget>[],
             fit: fit,
             alignment: childAlignment,
             textDirection: textDirection,
             overflow: overflow,
+            children: children ?? <Widget>[],
           ),
         );
 }

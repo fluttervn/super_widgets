@@ -78,8 +78,9 @@ class SuperIconButton extends BaseContainer {
     Matrix4 transform,
     Key childKey,
     double iconSize = 24.0,
-    EdgeInsets childPadding = const EdgeInsets.all(8.0),
+    EdgeInsets childPadding = const EdgeInsets.all(8),
     AlignmentGeometry childAlignment = Alignment.center,
+    // ignore: always_put_required_named_parameters_first
     @required Widget icon,
     Color childColor,
     Color focusColor,
@@ -87,6 +88,7 @@ class SuperIconButton extends BaseContainer {
     Color highlightColor,
     Color splashColor,
     Color disabledColor,
+    // ignore: always_put_required_named_parameters_first
     @required VoidCallback onPressed,
     FocusNode focusNode,
     bool autofocus = false,

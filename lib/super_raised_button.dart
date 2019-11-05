@@ -5,7 +5,7 @@ import 'base/base_container.dart';
 
 /// SuperRaisedButton] is a [Container] with [RaisedButton] inside.
 class SuperRaisedButton extends BaseContainer {
-  /// Create new [SuperFlatButton] which has a [Container] (parent) with
+  /// Create new [SuperRaisedButton] which has a [Container] (parent) with
   /// a [RaisedButton] (child) inside.
   /// Thus its params is the combination of [Container]'s
   /// params and [RaisedButton]'s  params.
@@ -34,9 +34,9 @@ class SuperRaisedButton extends BaseContainer {
   /// [ignoreImplicitWidthHeight] will be set to false.
   /// - `onLongPressed`: action when long-press on parent widget.
   /// - `enableInkWell` and `splashColor`: WILL BE AVAILABLE IN NEXT VERSION.
-  /// Wrap this widget inside an [InkWell]. Default to `FALSE`.
-  ///  - If [enableInkWell] is not true, then just return this [widget].
-  ///  - If [enableInkWell] is true splashColor is null, then `splashColor`
+  /// Wrap this widget inside an InkWell. Default to `FALSE`.
+  ///  - If `enableInkWell` is not true, then just return this `widget`.
+  ///  - If `enableInkWell` is true & splashColor is null, then `splashColor`
   /// will be automatically gotten from Theme instead.
   ///
   /// <b>Params of the child widget is:</b>
@@ -59,9 +59,9 @@ class SuperRaisedButton extends BaseContainer {
   /// - `elevation`: the z-coordinate at which to place this button relative to
   /// its parent. Defaults to 2.
   /// - `highlightElevation`: the elevation for the button's [Material] relative
-  /// to its parent when the button is [enabled] and pressed. Defaults to 8.0.
+  /// to its parent when the button is enabled and pressed. Defaults to 8.0.
   /// - `disabledElevation`: the elevation for the button's [Material] relative
-  /// to its parent when the button is not [enabled]. Defaults to 0.0.
+  /// to its parent when the button is not enabled. Defaults to 0.0.
   /// - `childPadding`: the internal padding for the button's `child`.
   /// - `shape`: the shape of the button's [Material]. The button's highlight
   /// and splash are clipped to this shape.

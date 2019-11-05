@@ -7,8 +7,8 @@ void main() {
   testWidgets('SuperIndexedStack default value', (WidgetTester tester) async {
     final superIndexedStack = SuperIndexedStack();
     await tester.pumpWidget(Directionality(
-      child: superIndexedStack,
       textDirection: TextDirection.ltr,
+      child: superIndexedStack,
     ));
 
     // Should have 1 IndexedStack inside SuperIndexedStack
@@ -37,16 +37,16 @@ void main() {
       width: 300,
       height: 250,
       childKey: Key('SuperIndexedStack'),
-      children: children,
       sizing: StackFit.expand,
       textDirection: TextDirection.rtl,
       childAlignment: AlignmentDirectional.center,
       index: 1,
+      children: children,
     );
 
     await tester.pumpWidget(Directionality(
-      child: superIndexedStack,
       textDirection: TextDirection.ltr,
+      child: superIndexedStack,
     ));
 
     final Finder indexedStackFinder = find.byType(IndexedStack).first;

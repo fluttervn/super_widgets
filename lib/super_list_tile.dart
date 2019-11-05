@@ -35,12 +35,12 @@ class SuperListTile extends BaseContainer {
   /// example the container of [Text] wrap the size of [Text] instead of
   /// expanding to full width. Note: if we specify `width` or `height` then
   /// [ignoreImplicitWidthHeight] will be set to false.
-  /// - `onPressed`: action when press on parent widget.
-  /// - `onLongPressed`: action when long-press on parent widget.
+  /// - `onTap`: action when press on parent widget.
+  /// - `onLongPress`: action when long-press on parent widget.
   /// - `enableInkWell` and `splashColor`: WILL BE AVAILABLE IN NEXT VERSION.
-  /// Wrap this widget inside an [InkWell]. Default to `FALSE`.
-  ///  - If [enableInkWell] is not true, then just return this [widget].
-  ///  - If [enableInkWell] is true splashColor is null, then `splashColor`
+  /// Wrap this widget inside an InkWell. Default to `FALSE`.
+  ///  - If `enableInkWell` is not true, then just return this `widget`.
+  ///  - If `enableInkWell` is true & splashColor is null, then `splashColor`
   /// will be automatically gotten from Theme instead.
   ///
   /// <b>Params of the child widget is:</b>
@@ -56,7 +56,7 @@ class SuperListTile extends BaseContainer {
   /// - `trailing`: the widget to display after the title. Typically an [Icon]
   /// widget. To show right-aligned metadata (assuming left-to-right reading
   /// order; left-aligned for right-to-left reading order), consider using a
-  /// [Row] with [MainAxisAlign.baseline] alignment whose first item is
+  /// [Row] with `MainAxisAlign.baseline` alignment whose first item is
   /// [Expanded] and whose second child is the metadata text, instead of using
   /// the `trailing` property.
   /// - `isThreeLine`: Whether this list tile is intended to display three
@@ -79,8 +79,6 @@ class SuperListTile extends BaseContainer {
     BoxConstraints constraints,
     int flex,
     bool ignoreImplicitWidthHeight = true,
-    VoidCallback onPressed,
-    VoidCallback onLongPressed,
     Matrix4 transform,
     Key childKey,
     Widget leading,
@@ -112,8 +110,8 @@ class SuperListTile extends BaseContainer {
           constraints: constraints,
           flex: flex,
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
-          onPressed: onPressed,
-          onLongPressed: onLongPressed,
+          onPressed: onTap,
+          onLongPressed: onLongPress,
           margin: margin,
           transform: transform,
           child: ListTile(

@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 /// [SuperScrollViewRow] is a [SingleChildScrollView] with [Row]
 /// inside, it means scrollDirection is [Axis.horizontal]
 class SuperScrollViewRow extends SingleChildScrollView {
-  /// Create new [SuperScrollViewContainer] which has a [SingleChildScrollView]
+  /// Create new [SuperScrollViewRow] which has a [SingleChildScrollView]
   /// (parent) with a [Row] (child) inside.
   /// Thus its params is the combination of [SingleChildScrollView]'s
   /// params and [Row]'s  params.
@@ -80,13 +80,13 @@ class SuperScrollViewRow extends SingleChildScrollView {
           dragStartBehavior: dragStartBehavior,
           child: Row(
             key: childKey,
-            children: children ?? <Widget>[],
             mainAxisAlignment: mainAxisAlignment,
             mainAxisSize: mainAxisSize,
             crossAxisAlignment: crossAxisAlignment,
             verticalDirection: verticalDirection,
             textDirection: textDirection,
             textBaseline: textBaseline,
+            children: children ?? <Widget>[],
           ),
         );
 }

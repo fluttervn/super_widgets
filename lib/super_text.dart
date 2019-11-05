@@ -35,9 +35,9 @@ class SuperText extends BaseContainer {
   /// - `onPressed`: action when press on parent widget.
   /// - `onLongPressed`: action when long-press on parent widget.
   /// - `enableInkWell` and `splashColor`: WILL BE AVAILABLE IN NEXT VERSION.
-  /// Wrap this widget inside an [InkWell]. Default to `FALSE`.
-  ///  - If [enableInkWell] is not true, then just return this [widget].
-  ///  - If [enableInkWell] is true splashColor is null, then `splashColor`
+  /// Wrap this widget inside an InkWell. Default to `FALSE`.
+  ///  - If `enableInkWell` is not true, then just return this `widget`.
+  ///  - If `enableInkWell` is true & splashColor is null, then `splashColor`
   /// will be automatically gotten from Theme instead.
   ///
   /// <b>Params of the child widget is:</b>
@@ -75,6 +75,7 @@ class SuperText extends BaseContainer {
     int flex,
     bool ignoreImplicitWidthHeight = true,
     bool enableInkWell = false,
+    // ignore: avoid_unused_constructor_parameters
     Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
@@ -124,7 +125,7 @@ class SuperText extends BaseContainer {
               semanticsLabel: semanticsLabel,
             ));
 
-  /// Create new [SuperIcon] which has a [Container] (parent) with
+  /// Create new [SuperText] which has a [Container] (parent) with
   /// a [Text] (child) inside.
   /// Thus its params is the combination of [Container]'s
   /// params and [Text]'s  params.
@@ -154,9 +155,9 @@ class SuperText extends BaseContainer {
   /// - `onPressed`: action when press on parent widget.
   /// - `onLongPressed`: action when long-press on parent widget.
   /// - `enableInkWell` and `splashColor`: WILL BE AVAILABLE IN NEXT VERSION.
-  /// Wrap this widget inside an [InkWell]. Default to `FALSE`.
-  ///  - If [enableInkWell] is not true, then just return this [widget].
-  ///  - If [enableInkWell] is true splashColor is null, then `splashColor`
+  /// Wrap this widget inside an InkWell. Default to `FALSE`.
+  ///  - If `enableInkWell` is not true, then just return this `widget`.
+  ///  - If `enableInkWell` is true & splashColor is null, then `splashColor`
   /// will be automatically gotten from Theme instead.
   ///
   /// <b>Params of the child widget is:</b>
@@ -192,6 +193,9 @@ class SuperText extends BaseContainer {
     BoxConstraints constraints,
     int flex,
     bool ignoreImplicitWidthHeight = true,
+    bool enableInkWell = false,
+    // ignore: avoid_unused_constructor_parameters
+    Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
     Matrix4 transform,
@@ -207,6 +211,7 @@ class SuperText extends BaseContainer {
     int maxLines,
     String semanticsLabel,
   })  : assert(textSpan != null, 'Text widget must have non-null textSpan'),
+        assert(enableInkWell != null),
         assert(ignoreImplicitWidthHeight != null),
         assert(alignment != null),
         super(

@@ -7,8 +7,8 @@ void main() {
   testWidgets('SuperRow default value', (WidgetTester tester) async {
     final superRow = SuperRow();
     await tester.pumpWidget(Directionality(
-      child: superRow,
       textDirection: TextDirection.ltr,
+      child: superRow,
     ));
 
     // Should have 1 Row inside SuperRow
@@ -39,18 +39,18 @@ void main() {
       width: 300,
       height: 250,
       childKey: Key('SuperRow'),
-      children: children,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       textDirection: TextDirection.rtl,
       verticalDirection: VerticalDirection.up,
       textBaseline: TextBaseline.alphabetic,
+      children: children,
     );
 
     await tester.pumpWidget(Directionality(
-      child: superRow,
       textDirection: TextDirection.ltr,
+      child: superRow,
     ));
 
     final Finder stackFinder = find.byType(Row).first;

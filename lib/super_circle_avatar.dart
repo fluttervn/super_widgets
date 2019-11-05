@@ -94,7 +94,7 @@ class SuperCircleAvatar extends StatelessWidget {
   final Color borderColor;
 
   /// Create new [SuperCircleAvatar]
-  SuperCircleAvatar({
+  const SuperCircleAvatar({
     Key key,
     this.child,
     this.backgroundColor,
@@ -115,21 +115,21 @@ class SuperCircleAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget current = CircleAvatar(
       key: key,
-      child: child,
       backgroundColor: backgroundColor,
       backgroundImage: backgroundImage,
       foregroundColor: foregroundColor,
       radius: radius,
       minRadius: minRadius,
       maxRadius: maxRadius,
+      child: child,
     );
     if (borderWidth > 0 && borderColor != null) {
       current = CircleAvatar(
-        child: current,
         backgroundColor: borderColor,
         radius: radius == null ? null : radius + borderWidth,
         minRadius: minRadius == null ? null : minRadius + borderWidth,
         maxRadius: maxRadius == null ? null : maxRadius + borderWidth,
+        child: current,
       );
     }
     current = safePadding(padding: margin, child: current);

@@ -64,6 +64,7 @@ class SuperClipRRect extends BaseContainer {
     VoidCallback onLongPressed,
     Matrix4 transform,
     Key childKey,
+    // ignore: always_put_required_named_parameters_first
     @required Widget child,
     BorderRadius borderRadius,
     CustomClipper<RRect> clipper,
@@ -90,10 +91,10 @@ class SuperClipRRect extends BaseContainer {
           transform: transform,
           child: ClipRRect(
             key: childKey,
-            child: child,
             borderRadius: borderRadius,
             clipper: clipper,
             clipBehavior: clipBehavior,
+            child: child,
           ),
         );
 }
