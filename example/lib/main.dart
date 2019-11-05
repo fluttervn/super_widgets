@@ -1,11 +1,12 @@
-import 'package:example/super_clip_rrect_page.dart';
-import 'package:example/super_container_flex_page.dart';
 import 'package:flutter/material.dart';
 
 import 'super_card_page.dart';
 import 'super_circle_avatar_page.dart';
+import 'super_clip_rrect_page.dart';
 import 'super_column_page.dart';
+import 'super_container_flex_page.dart';
 import 'super_container_page.dart';
+import 'super_flat_button_page.dart';
 import 'super_icon_page.dart';
 import 'super_indexed_stack_page.dart';
 import 'super_inkwell_page.dart';
@@ -43,6 +44,7 @@ class MyHomePage extends StatelessWidget {
     'SuperCircleAvatar': SuperCircleAvatarPage(),
     'SuperClipRRect': SuperClipRRectPage(),
     'SuperColumn': SuperColumnPage(),
+    'SuperFlatButton': SuperFlatButtonPage(),
     'SuperStack': SuperStackPage(),
     'SuperIndexedStack': SuperIndexedStackPage(),
     'SuperRow': SuperRowPage(),
