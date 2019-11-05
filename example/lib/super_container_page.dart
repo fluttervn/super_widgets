@@ -16,8 +16,8 @@ class SuperContainerPage extends StatelessWidget {
 
   /// Content of this page
   Widget buildBody(BuildContext context) {
-    final boxH = SizedBox(height: 10);
-    final bgColor = Colors.yellowAccent;
+    const boxH = SizedBox(height: 10);
+    const bgColor = Colors.yellowAccent;
     const double defaultH = 50;
 
     return SuperScrollViewColumn(
