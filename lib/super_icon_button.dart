@@ -78,7 +78,7 @@ class SuperIconButton extends BaseContainer {
     Matrix4 transform,
     Key childKey,
     double iconSize = 24.0,
-    EdgeInsets childPadding = const EdgeInsets.all(8.0),
+    EdgeInsets childPadding = const EdgeInsets.all(8),
     AlignmentGeometry childAlignment = Alignment.center,
     @required Widget icon,
     Color childColor,
