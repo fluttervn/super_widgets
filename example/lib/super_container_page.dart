@@ -68,6 +68,22 @@ class SuperContainerPage extends StatelessWidget {
           child: Text('alignment=center'),
         ),
         boxH,
+        SuperContainer(
+          color: bgColor,
+          width: double.infinity,
+          height: defaultH,
+          alignment: AlignmentDirectional.bottomEnd,
+          child: Text('alignment=bottomEnd'),
+        ),
+        boxH,
+        SuperContainer(
+          color: bgColor,
+          width: double.infinity,
+          height: defaultH,
+          alignment: AlignmentDirectional.center,
+          child: Text('alignment=center'),
+        ),
+        boxH,
       ],
     );
   }
