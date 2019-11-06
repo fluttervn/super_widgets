@@ -58,10 +58,10 @@ class MyHomePage extends StatelessWidget {
     'SuperOutlineButton': SuperOutlineButtonPage(),
     'SuperRaisedButton': SuperRaisedButtonPage(),
     'SuperRow': SuperRowPage(),
+    'SuperScrollViewColumn': SuperScrollViewColumnPage(),
     'SuperStack': SuperStackPage(),
     'SuperText': SuperTextPage(),
     'SuperScrollViewContainer': SuperScrollViewContainerPage(),
-    'SuperScrollViewColumn': SuperScrollViewColumnPage(),
     'SuperScrollViewRow': SuperScrollViewRowPage(),
   };
 
