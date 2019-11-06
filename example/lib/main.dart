@@ -11,6 +11,7 @@ import 'super_icon_button_page.dart';
 import 'super_icon_page.dart';
 import 'super_indexed_stack_page.dart';
 import 'super_inkwell_page.dart';
+import 'super_list_tile_page.dart';
 import 'super_raised_button_page.dart';
 import 'super_row_page.dart';
 import 'super_scrollview_column_page.dart';
@@ -50,6 +51,7 @@ class MyHomePage extends StatelessWidget {
     'SuperIconButton': SuperIconButtonPage(),
     'SuperIndexedStack': SuperIndexedStackPage(),
     'SuperInkWell': SuperInkWellPage(),
+    'SuperListTile': SuperListTilePage(),
     'SuperStack': SuperStackPage(),
     'SuperRow': SuperRowPage(),
     'SuperRaisedButton': SuperRaisedButtonPage(),

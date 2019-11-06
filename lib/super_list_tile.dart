@@ -62,7 +62,8 @@ class SuperListTile extends BaseContainer {
   /// - `isThreeLine`: Whether this list tile is intended to display three
   /// lines of text. Defaults to false
   /// - `dense`: whether this list tile is part of a vertically dense list.
-  /// - `contentPadding`: the tile's internal padding.
+  /// - `contentPadding`: the tile's internal padding. If null,
+  /// `EdgeInsets.symmetric(horizontal: 16.0)` is used.
   /// - `enabled`: whether this list tile is interactive.
   /// - `selected`: if this tile is also [enabled] then icons and text are
   /// rendered with the same color.
@@ -110,12 +111,12 @@ class SuperListTile extends BaseContainer {
           constraints: constraints,
           flex: flex,
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
-          onPressed: onTap,
-          onLongPressed: onLongPress,
           margin: margin,
           transform: transform,
           child: ListTile(
             key: childKey,
+            onTap: onTap,
+            onLongPress: onLongPress,
             leading: leading,
             title: title,
             subtitle: subtitle,
