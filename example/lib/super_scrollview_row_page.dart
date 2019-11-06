@@ -21,19 +21,28 @@ class SuperScrollViewRowPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       padding: EdgeInsets.all(10),
       children: <Widget>[
-        Text('This', style: textStyle),
-        Text('...', style: textStyle),
-        Text('is', style: textStyle),
-        Text('...', style: textStyle),
-        Text('the', style: textStyle),
-        Text('...', style: textStyle),
-        Text('Super', style: textStyle),
-        Text('...', style: textStyle),
-        Text('ScrollView', style: textStyle),
-        Text('...', style: textStyle),
-        Text('Row', style: textStyle),
-        Text('...', style: textStyle),
-        Text('demo', style: textStyle),
+        buildItem(1),
+        buildItem(2),
+        buildItem(3),
+        buildItem(4),
+        buildItem(5),
+        buildItem(6),
+      ],
+    );
+  }
+
+  Widget buildItem(int index) {
+    return SuperColumn(
+      padding: EdgeInsets.all(5),
+      margin: EdgeInsets.all(5),
+      height: 100,
+      decoration: BoxDecoration(
+        color: Colors.grey.shade300,
+        borderRadius: BorderRadius.circular(5),
+      ),
+      children: <Widget>[
+        Text('Item $index', style: TextStyleBold()),
+        Text('Description $index'),
       ],
     );
   }
