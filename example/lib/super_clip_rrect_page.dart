@@ -3,13 +3,13 @@ import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:super_widgets/super_widgets.dart';
 
-/// SuperInkWell sample
-class SuperInkWellPage extends StatelessWidget {
+/// SuperClipRRect sample
+class SuperClipRRectPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('SuperInkWell'),
+        title: Text('SuperClipRRect'),
       ),
       body: buildBody(context),
     );
@@ -17,32 +17,26 @@ class SuperInkWellPage extends StatelessWidget {
 
   /// Content of this page
   Widget buildBody(BuildContext context) {
-    void onPressed() {
-      Fluttertoast.showToast(msg: 'action onPressed');
-    }
-
     return SuperScrollViewColumn(
       padding: EdgeInsets.all(10),
       mainAxisSize: MainAxisSize.max,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         ..._wrapInRow(
-          description: 'SuperInkWell with margin=10, padding=15',
-          widget: SuperInkWell(
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(15),
-            child: Text('Open Chrome'),
-          ),
-        ),
-        ..._wrapInRow(
-          description: 'SuperInkWell with onTap, onLongPress',
-          widget: SuperInkWell(
-            margin: EdgeInsets.all(10),
-            onTap: onPressed,
-            onLongPress: () {
-              Fluttertoast.showToast(msg: 'action onLongPress');
+          description: 'SuperCircleAvatar with border=15, margin=20, and '
+              'onPressed, onLongPressed',
+          widget: SuperClipRRect(
+            margin: EdgeInsets.all(20),
+            borderRadius: BorderRadius.circular(40),
+            onPressed: () {
+              Fluttertoast.showToast(msg: 'Action: onPressed');
             },
-            child: Text('Open Chrome'),
+            onLongPressed: () {
+              Fluttertoast.showToast(msg: 'Action: onLongPressed');
+            },
+            child: Image(
+              image: NetworkImage('https://picsum.photos/250?image=9'),
+            ),
           ),
         ),
       ],

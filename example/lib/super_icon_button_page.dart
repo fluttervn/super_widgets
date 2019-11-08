@@ -3,13 +3,13 @@ import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:super_widgets/super_widgets.dart';
 
-/// SuperInkWell sample
-class SuperInkWellPage extends StatelessWidget {
+/// SuperIconButton sample
+class SuperIconButtonPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('SuperInkWell'),
+        title: Text('SuperIconButton'),
       ),
       body: buildBody(context),
     );
@@ -27,22 +27,31 @@ class SuperInkWellPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         ..._wrapInRow(
-          description: 'SuperInkWell with margin=10, padding=15',
-          widget: SuperInkWell(
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(15),
-            child: Text('Open Chrome'),
+          description: 'Default IconButton',
+          widget: IconButton(
+            icon: Icon(Icons.group),
+            iconSize: 24,
+            onPressed: onPressed,
           ),
         ),
         ..._wrapInRow(
-          description: 'SuperInkWell with onTap, onLongPress',
-          widget: SuperInkWell(
-            margin: EdgeInsets.all(10),
-            onTap: onPressed,
-            onLongPress: () {
-              Fluttertoast.showToast(msg: 'action onLongPress');
+          description: 'SuperIconButton with margin=30',
+          widget: SuperIconButton(
+            icon: Icon(Icons.group),
+            iconSize: 24,
+            onPressed: onPressed,
+            margin: EdgeInsets.all(30),
+          ),
+        ),
+        ..._wrapInRow(
+          description: 'SuperIconButton with onLongPressed',
+          widget: SuperIconButton(
+            icon: Icon(Icons.group),
+            iconSize: 24,
+            onPressed: onPressed,
+            onLongPressed: () {
+              Fluttertoast.showToast(msg: 'action onLongPressed');
             },
-            child: Text('Open Chrome'),
           ),
         ),
       ],

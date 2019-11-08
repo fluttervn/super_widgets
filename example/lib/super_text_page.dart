@@ -30,6 +30,17 @@ class SuperTextPage extends StatelessWidget {
             color: Colors.pink,
           ),
         ),
+        SuperText(
+          'SuperText align=right',
+          padding: EdgeInsets.all(2),
+          width: double.infinity,
+          alignment: AlignmentDirectional.centerEnd,
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+            color: Colors.pink,
+          ),
+        ),
         SuperText.rich(
           TextSpan(children: [
             TextSpan(text: 'Super '),

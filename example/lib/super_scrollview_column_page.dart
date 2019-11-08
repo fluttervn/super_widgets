@@ -18,9 +18,12 @@ class SuperScrollViewColumnPage extends StatelessWidget {
   Widget buildBody(BuildContext context) {
     var textStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 32);
     return SuperScrollViewColumn(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      padding: EdgeInsets.all(10),
+      crossAxisAlignment: CrossAxisAlignment.center,
+      padding: EdgeInsets.all(20),
+      physics: BouncingScrollPhysics(),
       children: <Widget>[
+        Text('SuperScrollViewColumn with padding=20, '
+            'cross axis alignment=center'),
         Text('This', style: textStyle),
         Text('...', style: textStyle),
         Text('is', style: textStyle),
@@ -44,7 +47,7 @@ class SuperScrollViewColumnPage extends StatelessWidget {
         Text('...', style: textStyle),
         Text('by', style: textStyle),
         Text('...', style: textStyle),
-        Text('https://fluttervn.com', style: textStyle),
+        Text('https://github.com/fluttervn/super_widgets', style: textStyle),
       ],
     );
   }

@@ -3,13 +3,13 @@ import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:super_widgets/super_widgets.dart';
 
-/// SuperRaisedButton sample
-class SuperRaisedButtonPage extends StatelessWidget {
+/// SuperFlatButton sample
+class SuperFlatButtonPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('SuperRaisedButton'),
+        title: Text('SuperFlatButton'),
       ),
       body: buildBody(context),
     );
@@ -33,25 +33,24 @@ class SuperRaisedButtonPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         ..._wrapInRow(
-          description: 'Default RaisedButton',
-          widget: RaisedButton(
+          description: 'Default FlatButton',
+          widget: FlatButton(
             onPressed: onPressed,
             child: child,
           ),
         ),
         ..._wrapInRow(
-          description: 'SuperRaisedButton with h=50, onPressed, onLongPressed',
-          widget: SuperRaisedButton(
+          description: 'SuperFlatButton with h=50, onPressed, onLongPressed',
+          widget: SuperFlatButton(
             onPressed: onPressed,
             onLongPressed: onLongPressed,
             height: 50,
-            textColor: Colors.indigo,
             child: child,
           ),
         ),
         ..._wrapInRow(
-          description: 'SuperRaisedButton: h=50, margin=10, childPadding=15',
-          widget: SuperRaisedButton(
+          description: 'SuperFlatButton with h=50, margin=10, childPadding=15',
+          widget: SuperFlatButton(
             onPressed: onPressed,
             margin: EdgeInsets.all(10),
             childPadding: EdgeInsets.all(15),
@@ -60,25 +59,12 @@ class SuperRaisedButtonPage extends StatelessWidget {
           ),
         ),
         ..._wrapInRow(
-          description: 'SuperRaisedButton with infinity width',
-          widget: SuperRaisedButton(
+          description: 'SuperFlatButton with infinity width',
+          widget: SuperFlatButton(
             onPressed: onPressed,
             margin: EdgeInsets.all(10),
             width: double.infinity,
             height: 50,
-            child: child,
-          ),
-        ),
-        ..._wrapInRow(
-          description: 'SuperRaisedButton with shape',
-          widget: SuperRaisedButton(
-            onPressed: onPressed,
-            margin: EdgeInsets.all(10),
-            width: double.infinity,
-            height: 50,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(40)),
-            ),
             child: child,
           ),
         ),

@@ -3,13 +3,13 @@ import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:super_widgets/super_widgets.dart';
 
-/// SuperRaisedButton sample
-class SuperRaisedButtonPage extends StatelessWidget {
+/// SuperOutlineButton sample
+class SuperOutlineButtonPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('SuperRaisedButton'),
+        title: Text('SuperOutlineButton'),
       ),
       body: buildBody(context),
     );
@@ -33,25 +33,26 @@ class SuperRaisedButtonPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         ..._wrapInRow(
-          description: 'Default RaisedButton',
-          widget: RaisedButton(
+          description: 'Default OutlineButton',
+          widget: OutlineButton(
             onPressed: onPressed,
             child: child,
           ),
         ),
         ..._wrapInRow(
-          description: 'SuperRaisedButton with h=50, onPressed, onLongPressed',
-          widget: SuperRaisedButton(
+          description: 'SuperOutlineButton with h=50, onPressed, onLongPressed',
+          widget: SuperOutlineButton(
             onPressed: onPressed,
             onLongPressed: onLongPressed,
             height: 50,
-            textColor: Colors.indigo,
             child: child,
+            textColor: Colors.indigo,
           ),
         ),
         ..._wrapInRow(
-          description: 'SuperRaisedButton: h=50, margin=10, childPadding=15',
-          widget: SuperRaisedButton(
+          description:
+              'SuperOutlineButton with h=50, margin=10, childPadding=15',
+          widget: SuperOutlineButton(
             onPressed: onPressed,
             margin: EdgeInsets.all(10),
             childPadding: EdgeInsets.all(15),
@@ -60,8 +61,8 @@ class SuperRaisedButtonPage extends StatelessWidget {
           ),
         ),
         ..._wrapInRow(
-          description: 'SuperRaisedButton with infinity width',
-          widget: SuperRaisedButton(
+          description: 'SuperOutlineButton with infinity width',
+          widget: SuperOutlineButton(
             onPressed: onPressed,
             margin: EdgeInsets.all(10),
             width: double.infinity,
@@ -70,8 +71,8 @@ class SuperRaisedButtonPage extends StatelessWidget {
           ),
         ),
         ..._wrapInRow(
-          description: 'SuperRaisedButton with shape',
-          widget: SuperRaisedButton(
+          description: 'SuperOutlineButton with shape',
+          widget: SuperOutlineButton(
             onPressed: onPressed,
             margin: EdgeInsets.all(10),
             width: double.infinity,

@@ -1,11 +1,19 @@
-import 'package:example/super_container_dynamic_size_page.dart';
 import 'package:flutter/material.dart';
 
+import 'super_card_page.dart';
+import 'super_circle_avatar_page.dart';
+import 'super_clip_rrect_page.dart';
 import 'super_column_page.dart';
+import 'super_container_flex_page.dart';
 import 'super_container_page.dart';
+import 'super_flat_button_page.dart';
+import 'super_icon_button_page.dart';
 import 'super_icon_page.dart';
 import 'super_indexed_stack_page.dart';
 import 'super_inkwell_page.dart';
+import 'super_list_tile_page.dart';
+import 'super_listview_page.dart';
+import 'super_outlilne_button_page.dart';
 import 'super_raised_button_page.dart';
 import 'super_row_page.dart';
 import 'super_scrollview_column_page.dart';
@@ -35,18 +43,26 @@ class MyHomePage extends StatelessWidget {
   /// List of <screen name, widget name>
   final Map<String, Widget> mapScreens = {
     'SuperContainer': SuperContainerPage(),
-    'SuperContainer dynamicSize': SuperContainerDynamicSizePage(),
-    'SuperStack': SuperStackPage(),
-    'SuperIndexedStack': SuperIndexedStackPage(),
-    'SuperRow': SuperRowPage(),
+    'SuperContainer flex': SuperContainerFlexPage(),
+    'SuperCard': SuperCardPage(),
+    'SuperCircleAvatar': SuperCircleAvatarPage(),
+    'SuperClipRRect': SuperClipRRectPage(),
     'SuperColumn': SuperColumnPage(),
-    'SuperRaisedButton': SuperRaisedButtonPage(),
+    'SuperFlatButton': SuperFlatButtonPage(),
     'SuperIcon': SuperIconPage(),
-    'SuperText': SuperTextPage(),
+    'SuperIconButton': SuperIconButtonPage(),
+    'SuperIndexedStack': SuperIndexedStackPage(),
     'SuperInkWell': SuperInkWellPage(),
-    'SuperScrollViewContainer': SuperScrollViewContainerPage(),
+    'SuperListTile': SuperListTilePage(),
+    'SuperListView': SuperListViewPage(),
+    'SuperOutlineButton': SuperOutlineButtonPage(),
+    'SuperRaisedButton': SuperRaisedButtonPage(),
+    'SuperRow': SuperRowPage(),
     'SuperScrollViewColumn': SuperScrollViewColumnPage(),
+    'SuperScrollViewContainer': SuperScrollViewContainerPage(),
     'SuperScrollViewRow': SuperScrollViewRowPage(),
+    'SuperStack': SuperStackPage(),
+    'SuperText': SuperTextPage(),
   };
 
   @override

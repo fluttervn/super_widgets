@@ -16,21 +16,51 @@ class SuperStackPage extends StatelessWidget {
 
   /// Content of this page
   Widget buildBody(BuildContext context) {
-    return Center(
-      child: SuperStack(
-        color: Colors.blueAccent,
-        margin: EdgeInsets.all(10),
-        padding: EdgeInsets.only(right: 20),
-        alignment: Alignment.centerRight,
-        childKey: Key('SuperStack'),
-        childAlignment: Alignment.bottomRight,
-        fit: StackFit.loose,
-        children: <Widget>[
-          Container(color: Colors.red, width: 200, height: 200),
-          Container(color: Colors.green, width: 100, height: 100),
-          Text('SuperStack'),
-        ],
+    var children = <Widget>[
+      Container(
+        width: double.infinity,
+        height: 200,
+        color: Colors.red,
+        margin: EdgeInsets.only(right: 40),
       ),
+      Container(
+        width: double.infinity,
+        height: 200,
+        color: Colors.green,
+        margin: EdgeInsets.only(left: 20, top: 20, right: 20),
+      ),
+      Container(
+        width: double.infinity,
+        height: 200,
+        color: Colors.blue,
+        margin: EdgeInsets.only(left: 40, top: 40),
+      ),
+    ];
+
+    return SuperScrollViewColumn(
+      padding: EdgeInsets.all(10),
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        ..._wrapInRow(
+          description: 'SuperStack with margin, padding & color',
+          widget: SuperStack(
+            margin: EdgeInsets.all(10),
+            padding: EdgeInsets.all(10),
+            color: Colors.grey.shade300,
+            children: children,
+          ),
+        ),
+      ],
     );
+  }
+
+  List<Widget> _wrapInRow({String description, Widget widget}) {
+    return [
+      Text(description),
+      SizedBox(height: 5),
+      widget,
+      SizedBox(height: 20),
+    ];
   }
 }

@@ -22,15 +22,11 @@ class SuperScrollViewContainerPage extends StatelessWidget {
         Expanded(
           child: SuperScrollViewContainer(
             color: Colors.grey[300],
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.all(25),
             child: Text(
               'This\n\nis\n\nSuper\n\nScroll\n\nView'
               '\n\nContainer\n\nvertical\n\npage',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.red,
-              ),
+              style: TextStyleBold(fontSize: 24, color: Colors.red),
             ),
           ),
         ),
@@ -38,16 +34,12 @@ class SuperScrollViewContainerPage extends StatelessWidget {
         Expanded(
           child: SuperScrollViewContainer(
             color: Colors.grey[300],
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.all(25),
             scrollDirection: Axis.horizontal,
             child: Text(
               'This ... is... Super ... Scroll ... View ... '
               'Container ... horizontal ... page',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.red,
-              ),
+              style: TextStyleBold(fontSize: 24, color: Colors.red),
             ),
           ),
         ),

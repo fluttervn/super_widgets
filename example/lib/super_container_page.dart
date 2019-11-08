@@ -16,8 +16,8 @@ class SuperContainerPage extends StatelessWidget {
 
   /// Content of this page
   Widget buildBody(BuildContext context) {
-    final boxH = SizedBox(height: 10);
-    final bgColor = Colors.yellowAccent;
+    const boxH = SizedBox(height: 10);
+    const bgColor = Colors.yellowAccent;
     const double defaultH = 50;
 
     return SuperScrollViewColumn(
@@ -63,6 +63,22 @@ class SuperContainerPage extends StatelessWidget {
         SuperContainer(
           color: bgColor,
           width: 200,
+          height: defaultH,
+          alignment: AlignmentDirectional.center,
+          child: Text('alignment=center'),
+        ),
+        boxH,
+        SuperContainer(
+          color: bgColor,
+          width: double.infinity,
+          height: defaultH,
+          alignment: AlignmentDirectional.bottomEnd,
+          child: Text('alignment=bottomEnd'),
+        ),
+        boxH,
+        SuperContainer(
+          color: bgColor,
+          width: double.infinity,
           height: defaultH,
           alignment: AlignmentDirectional.center,
           child: Text('alignment=center'),

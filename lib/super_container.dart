@@ -35,6 +35,7 @@ class SuperContainer extends BaseContainer {
   ///  - If `enableInkWell` is true & splashColor is null, then `splashColor`
   /// will be automatically gotten from Theme instead.
   SuperContainer({
+    @required Widget child,
     Key key,
     AlignmentGeometry alignment,
     EdgeInsetsGeometry padding,
@@ -53,9 +54,9 @@ class SuperContainer extends BaseContainer {
     Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
-    Widget child,
   })  : assert(ignoreImplicitWidthHeight != null),
         assert(enableInkWell != null),
+        assert(child != null),
         super(
           key: key,
           alignment: alignment,
