@@ -17,7 +17,6 @@ class SuperContainerFlexPage extends StatelessWidget {
   /// Content of this page
   Widget buildBody(BuildContext context) {
     final boxH = SizedBox(height: 10);
-    const Color bgColor = Colors.yellowAccent;
 
     return SuperScrollViewColumn(
       padding: EdgeInsets.all(10),
@@ -34,15 +33,6 @@ class SuperContainerFlexPage extends StatelessWidget {
         ),*/
         boxH,
       ],
-    );
-  }
-
-  Widget _wrapInContainer(Widget child) {
-    return Container(
-      color: Colors.greenAccent,
-      width: double.infinity,
-      height: 70,
-      child: child,
     );
   }
 }
