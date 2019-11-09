@@ -72,8 +72,9 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter SuperWidgets Demo'),
       ),
       body: Center(
-        child: ListView.builder(
+        child: ListView.separated(
           itemCount: mapScreens.length,
+          physics: BouncingScrollPhysics(),
           itemBuilder: (BuildContext context, int index) {
             final title = mapScreens.keys.elementAt(index);
             return ListTile(
@@ -85,6 +86,9 @@ class MyHomePage extends StatelessWidget {
             );
           },
           padding: EdgeInsets.all(10),
+          separatorBuilder: (BuildContext context, int index) {
+            return Divider();
+          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
