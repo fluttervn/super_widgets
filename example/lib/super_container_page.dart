@@ -369,6 +369,164 @@ class SuperContainerPage extends StatelessWidget {
     ];
   }
 
+  List<Widget> _containerSizeInFlexible(BuildContext context) {
+    return [
+      Divider(),
+      ..._wrapInRow2(
+        context,
+        description: 'Default with just color, margin=10, padding=20',
+        widget: SuperContainer(
+          color: mainBgColor,
+          margin: EdgeInsets.all(10),
+          padding: EdgeInsets.all(5),
+          child: childTextBox,
+        ),
+      ),
+      ..._wrapInRow2(
+        context,
+        description: 'infinity width',
+        widget: SuperContainer(
+          width: double.infinity,
+          padding: EdgeInsets.all(5),
+          color: mainBgColor,
+          child: childTextBox,
+        ),
+      ),
+      ..._wrapInRow2(
+        context,
+        description: 'infinity height',
+        error: 'Cannot using infinity height for SuperContainer inside a '
+            'parent with flexible height too',
+        widget: SuperContainer(
+          height: double.infinity,
+          padding: EdgeInsets.all(5),
+          color: mainBgColor,
+          child: childTextBox,
+        ),
+      ),
+      ..._wrapInRow2(
+        context,
+        description: 'infinity width & height',
+        error: 'Cannot using infinity height for SuperContainer inside a '
+            'parent with flexible height too',
+        widget: SuperContainer(
+          width: double.infinity,
+          height: double.infinity,
+          color: mainBgColor,
+          child: childTextBox,
+        ),
+      ),
+      ..._wrapInRow2(
+        context,
+        description: 'width = 250',
+        widget: SuperContainer(
+          width: 250,
+          padding: EdgeInsets.all(5),
+          color: mainBgColor,
+          child: childTextBox,
+        ),
+      ),
+      ..._wrapInRow2(
+        context,
+        description: 'height = 150',
+        widget: SuperContainer(
+          height: 150,
+          padding: EdgeInsets.all(5),
+          color: mainBgColor,
+          child: childTextBox,
+        ),
+      ),
+      ..._wrapInRow2(
+        context,
+        description: 'width = infinity, height = 150',
+        widget: SuperContainer(
+          width: double.infinity,
+          height: 150,
+          padding: EdgeInsets.all(5),
+          color: mainBgColor,
+          child: childTextBox,
+        ),
+      ),
+      ..._wrapInRow2(
+        context,
+        description: 'width = 250, height = infinity',
+        error: 'Cannot using infinity height for SuperContainer inside a '
+            'parent with flexible height too',
+        widget: SuperContainer(
+          height: double.infinity,
+          width: 250,
+          color: mainBgColor,
+          child: childTextBox,
+        ),
+      ),
+      ..._wrapInRow(
+        context,
+        description: 'width = infinity, height = infinity',
+        widget: SuperContainer(
+          height: double.infinity,
+          width: double.infinity,
+          color: mainBgColor,
+          child: childTextBox,
+        ),
+      ),
+    ];
+  }
+
+  List<Widget> _containerFlexInFlexible(BuildContext context) {
+    return [
+      Divider(),
+      Text('flex = 1, no width, height = 40'),
+      Row(
+        children: <Widget>[
+          SuperContainer(
+            color: mainBgColor,
+            height: 40,
+            flex: 1,
+            child: childTextBox,
+          ),
+        ],
+      ),
+      Divider(),
+      Text('flex = 1 vs. flex = 1'),
+      Row(
+        children: <Widget>[
+          SuperContainer(
+            color: mainBgColor,
+            height: 40,
+            flex: 1,
+            child: childTextBox,
+          ),
+          SizedBox(width: 10),
+          SuperContainer(
+            color: mainBgColor,
+            height: 40,
+            flex: 1,
+            child: childTextBox,
+          ),
+        ],
+      ),
+      Divider(),
+      Text('flex = 1 vs. flex = 2'),
+      Row(
+        children: <Widget>[
+          SuperContainer(
+            color: mainBgColor,
+            height: 40,
+            flex: 1,
+            child: childTextBox,
+          ),
+          SizedBox(width: 10),
+          SuperContainer(
+            color: mainBgColor,
+            height: 40,
+            flex: 2,
+            child: childTextBox,
+          ),
+        ],
+      ),
+    ];
+  }
+
   /// Content of this page
   Widget buildBody(BuildContext context) {
     return SuperScrollViewColumn(
@@ -392,6 +550,17 @@ class SuperContainerPage extends StatelessWidget {
           title: header('onPressed and onLongPressed'),
           children: _containerOnPress(context),
         ),
+        ExpansionTile(
+          title:
+              header('Width & height in flexible (Row, Column, Flex) widget'),
+          children: _containerSizeInFlexible(context),
+        ),
+        Divider(),
+        ExpansionTile(
+          title: header('Using flex in flexible (Row, Column, Flex) widget'),
+          children: _containerFlexInFlexible(context),
+        ),
+        Divider(),
       ],
     );
   }
@@ -420,6 +589,47 @@ class SuperContainerPage extends StatelessWidget {
                     widget,
                   ],
                 ),
+              ),
+            ),
+          );
+        },
+      ),
+      Divider(),
+    ];
+  }
+
+  List<Widget> _wrapInRow2(
+    BuildContext context, {
+    String description,
+    Widget widget,
+    String error,
+  }) {
+    return [
+      ListTile(
+        title: Text(description),
+        trailing: Icon(Icons.arrow_forward_ios),
+        onTap: () {
+          if (error != null && error.isNotEmpty) {
+            Fluttertoast.showToast(msg: error, toastLength: Toast.LENGTH_LONG);
+            return;
+          }
+          showModalBottomSheet(
+            context: _scaffoldKey.currentContext,
+            builder: (context) => Scaffold(
+              appBar: AppBar(
+                title: Text(description, maxLines: 2),
+              ),
+              body: SuperScrollViewColumn(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                padding: EdgeInsets.all(5),
+                children: [
+                  Text('Top...'),
+                  SizedBox(height: 5),
+                  widget,
+                  SizedBox(height: 5),
+                  Text('Bottom...'),
+                ],
               ),
             ),
           );
