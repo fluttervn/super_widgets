@@ -4,7 +4,6 @@ import 'super_card_page.dart';
 import 'super_circle_avatar_page.dart';
 import 'super_clip_rrect_page.dart';
 import 'super_column_page.dart';
-import 'super_container_flex_page.dart';
 import 'super_container_page.dart';
 import 'super_flat_button_page.dart';
 import 'super_icon_button_page.dart';
@@ -43,7 +42,6 @@ class MyHomePage extends StatelessWidget {
   /// List of <screen name, widget name>
   final Map<String, Widget> mapScreens = {
     'SuperContainer': SuperContainerPage(),
-    'SuperContainer flex': SuperContainerFlexPage(),
     'SuperCard': SuperCardPage(),
     'SuperCircleAvatar': SuperCircleAvatarPage(),
     'SuperClipRRect': SuperClipRRectPage(),
