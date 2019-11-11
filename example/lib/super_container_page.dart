@@ -298,8 +298,6 @@ class SuperContainerPage extends StatelessWidget {
       ..._wrapInRow(
         context,
         description: 'infinity height',
-        error: 'Cannot create a SuperContainer with infinity height inside a '
-            'perent widget with infinity height too.',
         widget: SuperContainer(
           height: double.infinity,
           padding: EdgeInsets.all(5),
@@ -310,8 +308,6 @@ class SuperContainerPage extends StatelessWidget {
       ..._wrapInRow(
         context,
         description: 'infinity width & height',
-        error: 'Cannot create a SuperContainer with infinity height inside a '
-            'perent widget with infinity height too.',
         widget: SuperContainer(
           width: double.infinity,
           height: double.infinity,
@@ -353,8 +349,6 @@ class SuperContainerPage extends StatelessWidget {
       ..._wrapInRow(
         context,
         description: 'width = 250, height = infinity',
-        error: 'Cannot create a SuperContainer with infinity height inside a '
-            'perent widget with infinity height too.',
         widget: SuperContainer(
           height: double.infinity,
           width: 250,
@@ -365,8 +359,6 @@ class SuperContainerPage extends StatelessWidget {
       ..._wrapInRow(
         context,
         description: 'width = infinity, height = infinity',
-        error: 'Cannot create a SuperContainer with infinity height inside a '
-            'perent widget with infinity height too.',
         widget: SuperContainer(
           height: double.infinity,
           width: double.infinity,
@@ -408,17 +400,12 @@ class SuperContainerPage extends StatelessWidget {
     BuildContext context, {
     String description,
     Widget widget,
-    String error = '',
   }) {
     return [
       ListTile(
         title: Text(description),
         trailing: Icon(Icons.arrow_forward_ios),
         onTap: () {
-          if (error != null && error.isNotEmpty) {
-            Fluttertoast.showToast(msg: error, toastLength: Toast.LENGTH_LONG);
-            return;
-          }
           showModalBottomSheet(
             context: _scaffoldKey.currentContext,
             builder: (context) => Scaffold(
@@ -427,16 +414,10 @@ class SuperContainerPage extends StatelessWidget {
               ),
               body: SuperScrollViewContainer(
                 padding: EdgeInsets.all(5),
-                height: 400,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
+                height: 300,
+                child: Stack(
                   children: <Widget>[
-                    Text('Top of item'),
-                    SizedBox(height: 5),
                     widget,
-                    SizedBox(height: 5),
-                    Text('Bottom of item'),
                   ],
                 ),
               ),
