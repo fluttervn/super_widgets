@@ -43,6 +43,32 @@ class SuperContainerPage extends StatelessWidget {
     );
   }
 
+  List<Widget> _containerOnPress(BuildContext context) {
+    return [
+      Divider(),
+      SuperContainer(
+        margin: EdgeInsets.all(10),
+        height: 40,
+        alignment: Alignment.center,
+        onPressed: () {
+          Fluttertoast.showToast(msg: 'action onPress');
+        },
+        child: Text('Press here'),
+      ),
+      Divider(),
+      SuperContainer(
+        margin: EdgeInsets.all(10),
+        height: 40,
+        alignment: Alignment.center,
+        onLongPressed: () {
+          Fluttertoast.showToast(msg: 'action onLongPressed');
+        },
+        child: Text('Long-press here'),
+      ),
+      Divider(),
+    ];
+  }
+
   List<Widget> _containerAlignmentInNonFlexible(BuildContext context) {
     return [
       Divider(),
@@ -368,6 +394,11 @@ class SuperContainerPage extends StatelessWidget {
         ExpansionTile(
           title: header('Alignment in non-flexible (Row, Column, Flex) widget'),
           children: _containerAlignmentInNonFlexible(context),
+        ),
+        Divider(),
+        ExpansionTile(
+          title: header('onPressed and onLongPressed'),
+          children: _containerOnPress(context),
         ),
       ],
     );
