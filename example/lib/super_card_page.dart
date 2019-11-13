@@ -1,106 +1,48 @@
+import 'package:example/base/base_demo_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:super_widgets/super_widgets.dart';
 
 /// SuperCard sample
-class SuperCardPage extends StatelessWidget {
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final Color mainBgColor = Colors.grey.shade400;
-
-  final Text childTextBox = Text(
-    'child of Super *',
-    style: TextStyle(
-      color: Colors.red,
-      fontWeight: FontWeight.bold,
-      backgroundColor: Colors.yellow,
-    ),
-  );
-
-  final ListTile listTile = ListTile(
-    leading: Icon(Icons.message),
-    title: Text('fluttervn/super_widgets'),
-    subtitle: Text('Combine multiple widgets into single one'),
-  );
-
-  final ListTile listTileSmall = ListTile(
-    leading: Icon(Icons.message),
-    title: Text('fluttervn/super_widgets'),
-    subtitle: Text('Github.com'),
-  );
-
-  final ShapeBorder shapeBorder = RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(10),
-  );
-
-  Text header(String text) {
-    return Text(
-      text,
-      style: TextStyle(fontSize: 24),
-    );
-  }
-
-  Text title(String text) {
-    return Text(
-      text,
-      style: TextStyleBold(fontSize: 20),
-    );
-  }
-
+class SuperCardPage extends BaseDemoPage {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        key: _scaffoldKey,
-        title: Text('SuperCard'),
+  List<Widget> buildContent(BuildContext context) {
+    return [
+      buildExpansionTile(
+        title: 'Width & height in non-flexible (Row, Column, '
+            'Flex) widget',
+        initiallyExpanded: true,
+        children: _cardWidthAndHeight(context),
       ),
-      body: buildBody(context),
-    );
-  }
-
-  /// Content of this page
-  Widget buildBody(BuildContext context) {
-    return SuperScrollViewColumn(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      padding: EdgeInsets.all(10),
-      mainAxisSize: MainAxisSize.max,
-      children: <Widget>[
-        ExpansionTile(
-          title: header('Width & height in non-flexible (Row, Column, '
-              'Flex) widget'),
-          initiallyExpanded: true,
-          children: _cardWidthAndHeight(context),
-        ),
-        Divider(),
-        ExpansionTile(
-          title: header('Outer decoration'),
-          children: _cardOuterDecoration(context),
-        ),
-        Divider(),
-        ExpansionTile(
-          title: header('Margin and padding'),
-          children: _cardMarginAndPadding(context),
-        ),
-        Divider(),
-        ExpansionTile(
-          title: header('Alignment'),
-          children: _cardAlignment(context),
-        ),
-        Divider(),
-        ExpansionTile(
-          title: header('onPress & onLongPress'),
-          children: _cardOnPress(context),
-        ),
-        Divider(),
-      ],
-    );
+      Divider(),
+      buildExpansionTile(
+        title: 'Outer decoration',
+        children: _cardOuterDecoration(context),
+      ),
+      Divider(),
+      buildExpansionTile(
+        title: 'Margin and padding',
+        children: _cardMarginAndPadding(context),
+      ),
+      Divider(),
+      buildExpansionTile(
+        title: 'Alignment',
+        children: _cardAlignment(context),
+      ),
+      Divider(),
+      buildExpansionTile(
+        title: 'onPress & onLongPress',
+        children: _cardOnPress(context),
+      ),
+      Divider(),
+    ];
   }
 
   List<Widget> _cardWidthAndHeight(BuildContext context) {
     return [
       Divider(),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'Default SuperCard',
         widget: SuperCard(
@@ -110,7 +52,7 @@ class SuperCardPage extends StatelessWidget {
         ),
       ),
       Divider(),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'no width specified, height = 100',
         widget: SuperCard(
@@ -121,7 +63,7 @@ class SuperCardPage extends StatelessWidget {
         ),
       ),
       Divider(),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'width = infinity, height = 100',
         widget: SuperCard(
@@ -133,7 +75,7 @@ class SuperCardPage extends StatelessWidget {
         ),
       ),
       Divider(),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'width = 300, height = 100',
         widget: SuperCard(
@@ -145,7 +87,7 @@ class SuperCardPage extends StatelessWidget {
         ),
       ),
       Divider(),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'width = 300, no height specified',
         widget: SuperCard(
@@ -161,7 +103,7 @@ class SuperCardPage extends StatelessWidget {
   List<Widget> _cardOuterDecoration(BuildContext context) {
     return [
       Divider(),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'Color',
         widget: SuperCard(
@@ -172,7 +114,7 @@ class SuperCardPage extends StatelessWidget {
         ),
       ),
       Divider(),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'BoxDecoration',
         widget: SuperCard(
@@ -191,7 +133,7 @@ class SuperCardPage extends StatelessWidget {
   List<Widget> _cardAlignment(BuildContext context) {
     return [
       Divider(),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'alignment = center => NOT WORK',
         widget: SuperCard(
@@ -209,7 +151,7 @@ class SuperCardPage extends StatelessWidget {
   List<Widget> _cardMarginAndPadding(BuildContext context) {
     return [
       Divider(),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'Margin (between card vs. its parent) = 15',
         widget: SuperCard(
@@ -220,7 +162,7 @@ class SuperCardPage extends StatelessWidget {
         ),
       ),
       Divider(),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'Padding (between Card vs. its content) = 15',
         widget: SuperCard(
@@ -231,7 +173,7 @@ class SuperCardPage extends StatelessWidget {
         ),
       ),
       Divider(),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'Margin = 15, Padding = 5',
         widget: SuperCard(
@@ -268,39 +210,6 @@ class SuperCardPage extends StatelessWidget {
         ),
       ),
       SizedBox(height: 5),
-    ];
-  }
-
-  List<Widget> _wrapInRow(
-    BuildContext context, {
-    String description,
-    Widget widget,
-  }) {
-    return [
-      ListTile(
-        title: Text(description),
-        trailing: Icon(Icons.arrow_forward_ios),
-        onTap: () {
-          showModalBottomSheet(
-            context: _scaffoldKey.currentContext,
-            builder: (context) => Scaffold(
-              appBar: AppBar(
-                title: Text(description, maxLines: 2),
-              ),
-              body: SuperScrollViewContainer(
-                padding: EdgeInsets.all(5),
-                height: 300,
-                child: Stack(
-                  children: <Widget>[
-                    widget,
-                  ],
-                ),
-              ),
-            ),
-          );
-        },
-      ),
-      Divider(),
     ];
   }
 }

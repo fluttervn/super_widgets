@@ -1,46 +1,41 @@
+import 'package:example/base/base_demo_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:super_widgets/super_widgets.dart';
 
 /// SuperContainer sample
-class SuperContainerPage extends StatelessWidget {
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
-
+class SuperContainerPage extends BaseDemoPage {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        key: _scaffoldKey,
-        title: Text('SuperContainer'),
+  List<Widget> buildContent(BuildContext context) {
+    return [
+      buildExpansionTile(
+        title: 'Width & height in non-flexible (Row, Column, '
+            'Flex) widget',
+        initiallyExpanded: true,
+        children: _containerSizeInNonFlexible(context),
       ),
-      body: buildBody(context),
-    );
-  }
-
-  final Color mainBgColor = Colors.grey.shade400;
-
-  final Text childTextBox = Text(
-    'child of Super *',
-    style: TextStyle(
-      color: Colors.red,
-      fontWeight: FontWeight.bold,
-      backgroundColor: Colors.yellow,
-    ),
-  );
-
-  Text header(String text) {
-    return Text(
-      text,
-      style: TextStyle(fontSize: 24),
-    );
-  }
-
-  Text title(String text) {
-    return Text(
-      text,
-      style: TextStyleBold(fontSize: 20),
-    );
+      Divider(),
+      buildExpansionTile(
+        title: 'Alignment in non-flexible (Row, Column, Flex) widget',
+        children: _containerAlignmentInNonFlexible(context),
+      ),
+      Divider(),
+      buildExpansionTile(
+        title: 'onPressed and onLongPressed',
+        children: _containerOnPress(context),
+      ),
+      buildExpansionTile(
+        title: 'Width & height in flexible (Row, Column, Flex) widget',
+        children: _containerSizeInFlexible(context),
+      ),
+      Divider(),
+      buildExpansionTile(
+        title: 'Using flex in flexible (Row, Column, Flex) widget',
+        children: _containerFlexInFlexible(context),
+      ),
+      Divider(),
+    ];
   }
 
   List<Widget> _containerOnPress(BuildContext context) {
@@ -50,9 +45,7 @@ class SuperContainerPage extends StatelessWidget {
         margin: EdgeInsets.all(10),
         height: 40,
         alignment: Alignment.center,
-        onPressed: () {
-          Fluttertoast.showToast(msg: 'action onPress');
-        },
+        onPressed: showToastOnPress,
         child: Text('Press here'),
       ),
       Divider(),
@@ -74,7 +67,7 @@ class SuperContainerPage extends StatelessWidget {
       Divider(),
       title('No size specified'),
       Divider(),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'centerRight align',
         widget: SuperContainer(
@@ -83,7 +76,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'center align',
         widget: SuperContainer(
@@ -92,7 +85,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'centerLeft align',
         widget: SuperContainer(
@@ -104,7 +97,7 @@ class SuperContainerPage extends StatelessWidget {
       Divider(),
       title('Infinity width, no height specified'),
       Divider(),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'centerRight align',
         widget: SuperContainer(
@@ -114,7 +107,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'center align',
         widget: SuperContainer(
@@ -124,7 +117,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'centerLeft align',
         widget: SuperContainer(
@@ -137,7 +130,7 @@ class SuperContainerPage extends StatelessWidget {
       Divider(),
       title('Width = 300, no height specified'),
       Divider(),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'centerRight align',
         widget: SuperContainer(
@@ -147,7 +140,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'center align',
         widget: SuperContainer(
@@ -157,7 +150,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'centerLeft align',
         widget: SuperContainer(
@@ -170,7 +163,7 @@ class SuperContainerPage extends StatelessWidget {
       Divider(),
       title('Width = 300, height = 200'),
       Divider(),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'centerRight align',
         widget: SuperContainer(
@@ -181,7 +174,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'center align',
         widget: SuperContainer(
@@ -192,7 +185,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'centerLeft align',
         widget: SuperContainer(
@@ -203,7 +196,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'topLeft align',
         widget: SuperContainer(
@@ -214,7 +207,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'topCenter align',
         widget: SuperContainer(
@@ -225,7 +218,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'topRight align',
         widget: SuperContainer(
@@ -236,7 +229,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'bottomLeft align',
         widget: SuperContainer(
@@ -247,7 +240,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'bottomCenter align',
         widget: SuperContainer(
@@ -258,7 +251,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'bottomRight align',
         widget: SuperContainer(
@@ -275,7 +268,7 @@ class SuperContainerPage extends StatelessWidget {
   List<Widget> _containerSizeInNonFlexible(BuildContext context) {
     return [
       Divider(),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'Default with just color, margin=10, padding=20',
         widget: SuperContainer(
@@ -285,7 +278,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'infinity width',
         widget: SuperContainer(
@@ -295,7 +288,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'infinity height',
         widget: SuperContainer(
@@ -305,7 +298,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'infinity width & height',
         widget: SuperContainer(
@@ -315,7 +308,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'width = 250',
         widget: SuperContainer(
@@ -325,7 +318,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'height = 150',
         widget: SuperContainer(
@@ -335,7 +328,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'width = infinity, height = 150',
         widget: SuperContainer(
@@ -346,7 +339,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'width = 250, height = infinity',
         widget: SuperContainer(
@@ -356,7 +349,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'width = infinity, height = infinity',
         widget: SuperContainer(
@@ -372,7 +365,7 @@ class SuperContainerPage extends StatelessWidget {
   List<Widget> _containerSizeInFlexible(BuildContext context) {
     return [
       Divider(),
-      ..._wrapInRow2(
+      ...showEntryInBottomSheetWithFlexibleContent(
         context,
         description: 'Default with just color, margin=10, padding=20',
         widget: SuperContainer(
@@ -382,7 +375,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow2(
+      ...showEntryInBottomSheetWithFlexibleContent(
         context,
         description: 'infinity width',
         widget: SuperContainer(
@@ -392,7 +385,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow2(
+      ...showEntryInBottomSheetWithFlexibleContent(
         context,
         description: 'infinity height',
         error: 'Cannot using infinity height for SuperContainer inside a '
@@ -404,7 +397,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow2(
+      ...showEntryInBottomSheetWithFlexibleContent(
         context,
         description: 'infinity width & height',
         error: 'Cannot using infinity height for SuperContainer inside a '
@@ -416,7 +409,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow2(
+      ...showEntryInBottomSheetWithFlexibleContent(
         context,
         description: 'width = 250',
         widget: SuperContainer(
@@ -426,7 +419,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow2(
+      ...showEntryInBottomSheetWithFlexibleContent(
         context,
         description: 'height = 150',
         widget: SuperContainer(
@@ -436,7 +429,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow2(
+      ...showEntryInBottomSheetWithFlexibleContent(
         context,
         description: 'width = infinity, height = 150',
         widget: SuperContainer(
@@ -447,7 +440,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow2(
+      ...showEntryInBottomSheetWithFlexibleContent(
         context,
         description: 'width = 250, height = infinity',
         error: 'Cannot using infinity height for SuperContainer inside a '
@@ -459,7 +452,7 @@ class SuperContainerPage extends StatelessWidget {
           child: childTextBox,
         ),
       ),
-      ..._wrapInRow(
+      ...showEntryInBottomSheetWithNonFlexContent(
         context,
         description: 'width = infinity, height = infinity',
         widget: SuperContainer(
@@ -524,118 +517,6 @@ class SuperContainerPage extends StatelessWidget {
           ),
         ],
       ),
-    ];
-  }
-
-  /// Content of this page
-  Widget buildBody(BuildContext context) {
-    return SuperScrollViewColumn(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      padding: EdgeInsets.all(10),
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        ExpansionTile(
-          title: header('Width & height in non-flexible (Row, Column, '
-              'Flex) widget'),
-          initiallyExpanded: true,
-          children: _containerSizeInNonFlexible(context),
-        ),
-        Divider(),
-        ExpansionTile(
-          title: header('Alignment in non-flexible (Row, Column, Flex) widget'),
-          children: _containerAlignmentInNonFlexible(context),
-        ),
-        Divider(),
-        ExpansionTile(
-          title: header('onPressed and onLongPressed'),
-          children: _containerOnPress(context),
-        ),
-        ExpansionTile(
-          title:
-              header('Width & height in flexible (Row, Column, Flex) widget'),
-          children: _containerSizeInFlexible(context),
-        ),
-        Divider(),
-        ExpansionTile(
-          title: header('Using flex in flexible (Row, Column, Flex) widget'),
-          children: _containerFlexInFlexible(context),
-        ),
-        Divider(),
-      ],
-    );
-  }
-
-  List<Widget> _wrapInRow(
-    BuildContext context, {
-    String description,
-    Widget widget,
-  }) {
-    return [
-      ListTile(
-        title: Text(description),
-        trailing: Icon(Icons.arrow_forward_ios),
-        onTap: () {
-          showModalBottomSheet(
-            context: _scaffoldKey.currentContext,
-            builder: (context) => Scaffold(
-              appBar: AppBar(
-                title: Text(description, maxLines: 2),
-              ),
-              body: SuperScrollViewContainer(
-                padding: EdgeInsets.all(5),
-                height: 300,
-                child: Stack(
-                  children: <Widget>[
-                    widget,
-                  ],
-                ),
-              ),
-            ),
-          );
-        },
-      ),
-      Divider(),
-    ];
-  }
-
-  List<Widget> _wrapInRow2(
-    BuildContext context, {
-    String description,
-    Widget widget,
-    String error,
-  }) {
-    return [
-      ListTile(
-        title: Text(description),
-        trailing: Icon(Icons.arrow_forward_ios),
-        onTap: () {
-          if (error != null && error.isNotEmpty) {
-            Fluttertoast.showToast(msg: error, toastLength: Toast.LENGTH_LONG);
-            return;
-          }
-          showModalBottomSheet(
-            context: _scaffoldKey.currentContext,
-            builder: (context) => Scaffold(
-              appBar: AppBar(
-                title: Text(description, maxLines: 2),
-              ),
-              body: SuperScrollViewColumn(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                padding: EdgeInsets.all(5),
-                children: [
-                  Text('Top...'),
-                  SizedBox(height: 5),
-                  widget,
-                  SizedBox(height: 5),
-                  Text('Bottom...'),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
-      Divider(),
     ];
   }
 }
