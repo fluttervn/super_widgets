@@ -6,6 +6,7 @@ import 'package:super_widgets/super_widgets.dart';
 abstract class BaseDemoPage extends StatelessWidget {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   final Color mainBgColor = Colors.grey.shade400;
+
   final Text childTextBox = Text(
     'child of Super *',
     style: TextStyle(
@@ -143,10 +144,16 @@ abstract class BaseDemoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String clazzName = runtimeType.toString();
+    int index = clazzName.indexOf('Page');
+    if (index > -1) {
+      clazzName = clazzName.substring(0, index);
+    }
+
     return Scaffold(
       appBar: AppBar(
         key: _scaffoldKey,
-        title: Text('SuperContainer'),
+        title: Text(clazzName),
       ),
       body: SuperScrollViewColumn(
         crossAxisAlignment: CrossAxisAlignment.start,
