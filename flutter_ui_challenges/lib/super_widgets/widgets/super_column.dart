@@ -73,27 +73,27 @@ class SuperColumn extends BaseContainer {
     // Container action
     VoidCallback pOnPressed,
     VoidCallback pOnLongPressed,
-    // Row key
+    // Column key
     Key cKey,
-    // Row position & size
+    // Column position & size
     AlignmentGeometry cAlignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry cMargin,
     double cMarginAllPx,
     EdgeInsetsGeometry cPadding,
     double cPaddingAllPx,
     int cFlex,
-    // Row style
+    // Column style
     Color cColor,
     Decoration cDecoration,
     Decoration cForegroundDecoration,
-    // Specific property of Row
+    // Specific property of Column
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
     MainAxisSize mainAxisSize = MainAxisSize.max,
     CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
     TextDirection textDirection,
     VerticalDirection verticalDirection = VerticalDirection.down,
     TextBaseline textBaseline,
-    // Row children
+    // Column children
     List<Widget> children,
   })  : assert(pIgnoreImplicitWidthHeight != null),
         assert(pAlignment != null),
