@@ -129,79 +129,76 @@ class ProfileTwoPage extends StatelessWidget {
       pMargin: EdgeInsets.only(top: 50),
       pHeight: 240,
       children: <Widget>[
-        Container(
-          padding: EdgeInsets.only(top: 40, left: 30, right: 30, bottom: 10),
-          child: Material(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+        SuperColumn(
+          pPadding: EdgeInsets.only(top: 40, left: 30, right: 30, bottom: 10),
+          materialType: MaterialType.canvas,
+          materialShape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          materialElevation: 5,
+          children: <Widget>[
+            SizedBox(height: 50),
+            Text(
+              'Mebina Nepal',
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .title,
             ),
-            elevation: 5,
-            color: Colors.white,
-            child: Column(
+            SizedBox(height: 5),
+            Text('UI/UX designer | Foodie | Kathmandu'),
+            SizedBox(height: 16),
+            SuperRow(
+              pHeight: 40,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                SizedBox(height: 50),
-                Text(
-                  'Mebina Nepal',
-                  style: Theme.of(context).textTheme.title,
+                SuperListTile(
+                  pFlex: 1,
+                  title: Text(
+                    '302',
+                    textAlign: TextAlign.center,
+                    style: TextStyleBold(),
+                  ),
+                  subtitle: Text('Posts'.toUpperCase(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 11)),
                 ),
-                SizedBox(height: 5),
-                Text('UI/UX designer | Foodie | Kathmandu'),
-                SizedBox(height: 16),
-                SuperRow(
-                  pHeight: 40,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    SuperListTile(
-                      pFlex: 1,
-                      title: Text(
-                        '302',
-                        textAlign: TextAlign.center,
-                        style: TextStyleBold(),
-                      ),
-                      subtitle: Text('Posts'.toUpperCase(),
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 11)),
-                    ),
-                    SuperListTile(
-                      pFlex: 1,
-                      title: Text(
-                        '10.3K',
-                        textAlign: TextAlign.center,
-                        style: TextStyleBold(),
-                      ),
-                      subtitle: Text('Followers'.toUpperCase(),
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 11)),
-                    ),
-                    SuperListTile(
-                      pFlex: 1,
-                      title: Text(
-                        '120',
-                        textAlign: TextAlign.center,
-                        style: TextStyleBold(),
-                      ),
-                      subtitle: Text('Following'.toUpperCase(),
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 11)),
-                    ),
-                  ],
-                )
+                SuperListTile(
+                  pFlex: 1,
+                  title: Text(
+                    '10.3K',
+                    textAlign: TextAlign.center,
+                    style: TextStyleBold(),
+                  ),
+                  subtitle: Text('Followers'.toUpperCase(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 11)),
+                ),
+                SuperListTile(
+                  pFlex: 1,
+                  title: Text(
+                    '120',
+                    textAlign: TextAlign.center,
+                    style: TextStyleBold(),
+                  ),
+                  subtitle: Text('Following'.toUpperCase(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 11)),
+                ),
               ],
+            )
+          ],
+        ),
+        Align(
+          alignment: AlignmentDirectional.topCenter,
+          child: Material(
+            elevation: 15,
+            shape: CircleBorder(),
+            child: CircleAvatar(
+              radius: 40,
+              backgroundImage: CachedNetworkImageProvider(avatars[0]),
             ),
           ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Material(
-              elevation: 5,
-              shape: CircleBorder(),
-              child: CircleAvatar(
-                radius: 40,
-                backgroundImage: CachedNetworkImageProvider(avatars[0]),
-              ),
-            ),
-          ],
         ),
       ],
     );
