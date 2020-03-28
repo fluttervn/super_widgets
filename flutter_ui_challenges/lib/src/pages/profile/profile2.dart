@@ -130,72 +130,61 @@ class ProfileTwoPage extends StatelessWidget {
       pHeight: 240,
       children: <Widget>[
         Container(
-          padding: EdgeInsets.only(top: 40, left: 40, right: 40, bottom: 10),
+          padding: EdgeInsets.only(top: 40, left: 30, right: 30, bottom: 10),
           child: Material(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
             elevation: 5,
             color: Colors.white,
             child: Column(
               children: <Widget>[
-                SizedBox(
-                  height: 50,
-                ),
+                SizedBox(height: 50),
                 Text(
                   'Mebina Nepal',
                   style: Theme.of(context).textTheme.title,
                 ),
-                SizedBox(
-                  height: 5,
-                ),
+                SizedBox(height: 5),
                 Text('UI/UX designer | Foodie | Kathmandu'),
-                SizedBox(
-                  // ignore: prefer_int_literals
-                  height: 16.0,
-                ),
-                Container(
-                  height: 40,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Expanded(
-                        child: ListTile(
-                          title: Text(
-                            '302',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          subtitle: Text('Posts'.toUpperCase(),
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 12)),
-                        ),
+                SizedBox(height: 16),
+                SuperRow(
+                  pHeight: 40,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SuperListTile(
+                      pFlex: 1,
+                      title: Text(
+                        '302',
+                        textAlign: TextAlign.center,
+                        style: TextStyleBold(),
                       ),
-                      Expanded(
-                        child: ListTile(
-                          title: Text(
-                            '10.3K',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          subtitle: Text('Followers'.toUpperCase(),
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 12)),
-                        ),
+                      subtitle: Text('Posts'.toUpperCase(),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 11)),
+                    ),
+                    SuperListTile(
+                      pFlex: 1,
+                      title: Text(
+                        '10.3K',
+                        textAlign: TextAlign.center,
+                        style: TextStyleBold(),
                       ),
-                      Expanded(
-                        child: ListTile(
-                          title: Text(
-                            '120',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          subtitle: Text('Following'.toUpperCase(),
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 12)),
-                        ),
+                      subtitle: Text('Followers'.toUpperCase(),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 11)),
+                    ),
+                    SuperListTile(
+                      pFlex: 1,
+                      title: Text(
+                        '120',
+                        textAlign: TextAlign.center,
+                        style: TextStyleBold(),
                       ),
-                    ],
-                  ),
+                      subtitle: Text('Following'.toUpperCase(),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 11)),
+                    ),
+                  ],
                 )
               ],
             ),
