@@ -6,6 +6,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenges/core/presentation/res/assets.dart';
+import 'package:super_widgets/super_widgets.dart';
 
 class ProfileOnePage extends StatelessWidget {
   static const String path = 'lib/src/pages/profile/profile1.dart';
@@ -16,44 +17,38 @@ class ProfileOnePage extends StatelessWidget {
       // height: 50,
       child: Row(
         children: <Widget>[
-          Expanded(
-            child: Container(
-              color: Colors.deepOrange.shade300,
-              child: ListTile(
-                title: Text(
-                  '50895',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24.0),
-                ),
-                subtitle: Text(
-                  'Followers',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.red),
-                ),
-              ),
+          SuperListTile(
+            flex: 1,
+            color: Colors.deepOrange.shade300,
+            title: Text(
+              '50895',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24),
+            ),
+            subtitle: Text(
+              'Followers',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.red),
             ),
           ),
-          Expanded(
-            child: Container(
-              color: Colors.red,
-              child: ListTile(
-                title: Text(
-                  '34524',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24.0),
-                ),
-                subtitle: Text(
-                  'Following',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white70),
-                ),
-              ),
+          SuperListTile(
+            flex: 1,
+            color: Colors.red,
+            title: Text(
+              '34524',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24.0),
+            ),
+            subtitle: Text(
+              'Following',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.white70),
             ),
           ),
         ],
