@@ -2,19 +2,17 @@ import 'package:flutter/widgets.dart';
 
 import '../base/base_container.dart';
 
-/// [SuperRow] is a [Container] with [Row] inside.
-class SuperRow extends BaseContainer {
-  /// Create new [SuperRow] which has a [Container]
-  /// (parent) with a [Row] (child) inside.
+/// [SuperColumn] is a [Container] with [Column] inside.
+class SuperColumn extends BaseContainer {
+  /// Create new [SuperColumn] which has a [Container] (parent) with
+  /// a [Column] (child) inside.
   /// Thus its params is the combination of [Container]'s
-  /// params and [Row]'s  params.
+  /// params and [Column]'s  params.
   ///
   /// <b>Params of the parent widget is:</b>
   ///
   /// - `key` : key of parent widget.
   /// - `alignment`: an align value from [AlignmentDirectional].
-  /// - `padding`: an padding value from [EdgeInsetsGeometry]. It would include
-  /// the `decoration`
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the `child`.
   /// - `foregroundDecoration`: It's the decoration to paint in front of the `child`.
@@ -22,46 +20,38 @@ class SuperRow extends BaseContainer {
   ///  value like 100.0, or [double.infinity], or null, like the size value of
   ///  [Container].
   /// - `constraints`: like [BoxConstraints] of [Container].
-  /// - `transform`: the transformation matrix to apply before painting the parent.
   /// - `flex`: same as `flex` value which is used in [Flexible].
   ///  - If flex=0: this widget will be wrapped inside a [Wrap] widget.
   ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
   ///  - Default flex is null, it means just return this widget.
-  /// - `ignoreImplicitWidthHeight`: default is `TRUE`. As we know, `width` and
+  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
   /// `height` of `child` might depends on `alignment` or its parent's size.
   /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
   /// expanding to full width. Note: if we specify `width` or `height` then
   /// [ignoreImplicitWidthHeight] will be set to false.
-  /// - `onPressed`: action when press on parent widget.
-  /// - `onLongPressed`: action when long-press on parent widget.
-  /// - `enableInkWell` and `splashColor`: WILL BE AVAILABLE IN NEXT VERSION.
-  /// Wrap this widget inside an InkWell. Default to `FALSE`.
-  ///  - If `enableInkWell` is not true, then just return this `widget`.
-  ///  - If `enableInkWell` is true & splashColor is null, then `splashColor`
-  /// will be automatically gotten from Theme instead.
   ///
   /// <b>Params of the child widget is:</b>
   ///
-  /// - `childKey`: [Key] of [Row].
-  /// - `children`: list of children widget of [Row].
-  /// - `mainAxisAlignment`: How the children should be placed along the main
-  /// axis. Defaults to [MainAxisAlignment.start].
-  /// - `mainAxisSize`: How much space should be occupied in the main axis.
-  /// Defaults to [MainAxisSize.max].
-  /// - `crossAxisAlignment`: How the children should be placed along the cross
-  /// axis. Defaults to [CrossAxisAlignment.center].
-  /// - `verticalDirection`: Determines the order to lay children out
-  /// vertically and how to interpret `start` and `end` in the vertical
-  /// direction. Defaults to [VerticalDirection.down].
-  /// - `textDirection`: Determines the order to lay children out horizontally
+  /// - `childKey`: [Key] of [Column]
+  /// - `children`: list of children widget of [Column]. Default is empty list.
+  /// - `mainAxisAlignment`: how the [children] should be placed along the main
+  /// axis. Default is [MainAxisAlignment.start]
+  /// - `mainAxisSize`: how much space should be occupied in the main axis.
+  /// Default is [MainAxisSize.max]
+  /// - `crossAxisAlignment`: how the [children] should be placed along the
+  /// cross axis. Default is [CrossAxisAlignment.center]
+  /// - `textDirection`: determines the order to lay [children] out horizontally
   /// and how to interpret `start` and `end` in the horizontal direction.
   /// Defaults to the ambient [Directionality].
+  /// - `verticalDirection`: determines the order to lay children out vertically
+  /// and how to interpret `start` and `end` in the vertical direction.
+  /// Defaults to [VerticalDirection.down].
   /// - `textBaseline`: if aligning items according to their baseline, which
   /// baseline to use.
-  SuperRow({
+  SuperColumn({
     Key key,
-    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    AlignmentGeometry alignment,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -87,7 +77,6 @@ class SuperRow extends BaseContainer {
     VerticalDirection verticalDirection = VerticalDirection.down,
     TextBaseline textBaseline,
   })  : assert(ignoreImplicitWidthHeight != null),
-        assert(alignment != null),
         assert(enableInkWell != null),
         assert(mainAxisAlignment != null),
         assert(mainAxisSize != null),
@@ -97,6 +86,7 @@ class SuperRow extends BaseContainer {
           key: key,
           alignment: alignment,
           padding: padding,
+          margin: margin,
           color: color,
           decoration: decoration,
           foregroundDecoration: foregroundDecoration,
@@ -107,9 +97,8 @@ class SuperRow extends BaseContainer {
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           onPressed: onPressed,
           onLongPressed: onLongPressed,
-          margin: margin,
           transform: transform,
-          child: Row(
+          child: Column(
             key: childKey,
             mainAxisAlignment: mainAxisAlignment,
             mainAxisSize: mainAxisSize,

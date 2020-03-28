@@ -6,7 +6,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenges/core/presentation/res/assets.dart';
-import 'package:super_widgets/super_widgets.dart';
+import 'package:flutter_ui_challenges/super_widgets/super_widgets.dart';
 
 class ProfileOnePage extends StatelessWidget {
   static const String path = 'lib/src/pages/profile/profile1.dart';
@@ -15,7 +15,7 @@ class ProfileOnePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var statisticsWidget = SuperRow(
 //      height: 50,
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.all(10),
       children: <Widget>[
         SuperListTile(
           flex: 1,

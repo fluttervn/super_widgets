@@ -1,20 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../base/base_container.dart';
 
-/// [SuperRow] is a [Container] with [Row] inside.
-class SuperRow extends BaseContainer {
-  /// Create new [SuperRow] which has a [Container]
-  /// (parent) with a [Row] (child) inside.
-  /// Thus its params is the combination of [Container]'s
-  /// params and [Row]'s  params.
-  ///
-  /// <b>Params of the parent widget is:</b>
+/// [SuperContainer] is a [BaseContainer] with its method exposed for public using.
+class SuperContainer extends BaseContainer {
+  /// Create new [SuperContainer] with the following params:
   ///
   /// - `key` : key of parent widget.
   /// - `alignment`: an align value from [AlignmentDirectional].
-  /// - `padding`: an padding value from [EdgeInsetsGeometry]. It would include
-  /// the `decoration`
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the `child`.
   /// - `foregroundDecoration`: It's the decoration to paint in front of the `child`.
@@ -40,28 +34,10 @@ class SuperRow extends BaseContainer {
   ///  - If `enableInkWell` is not true, then just return this `widget`.
   ///  - If `enableInkWell` is true & splashColor is null, then `splashColor`
   /// will be automatically gotten from Theme instead.
-  ///
-  /// <b>Params of the child widget is:</b>
-  ///
-  /// - `childKey`: [Key] of [Row].
-  /// - `children`: list of children widget of [Row].
-  /// - `mainAxisAlignment`: How the children should be placed along the main
-  /// axis. Defaults to [MainAxisAlignment.start].
-  /// - `mainAxisSize`: How much space should be occupied in the main axis.
-  /// Defaults to [MainAxisSize.max].
-  /// - `crossAxisAlignment`: How the children should be placed along the cross
-  /// axis. Defaults to [CrossAxisAlignment.center].
-  /// - `verticalDirection`: Determines the order to lay children out
-  /// vertically and how to interpret `start` and `end` in the vertical
-  /// direction. Defaults to [VerticalDirection.down].
-  /// - `textDirection`: Determines the order to lay children out horizontally
-  /// and how to interpret `start` and `end` in the horizontal direction.
-  /// Defaults to the ambient [Directionality].
-  /// - `textBaseline`: if aligning items according to their baseline, which
-  /// baseline to use.
-  SuperRow({
+  SuperContainer({
+    @required Widget child,
     Key key,
-    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    AlignmentGeometry alignment,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -78,46 +54,25 @@ class SuperRow extends BaseContainer {
     Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
-    Key childKey,
-    List<Widget> children,
-    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
-    MainAxisSize mainAxisSize = MainAxisSize.max,
-    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
-    TextDirection textDirection,
-    VerticalDirection verticalDirection = VerticalDirection.down,
-    TextBaseline textBaseline,
   })  : assert(ignoreImplicitWidthHeight != null),
-        assert(alignment != null),
         assert(enableInkWell != null),
-        assert(mainAxisAlignment != null),
-        assert(mainAxisSize != null),
-        assert(crossAxisAlignment != null),
-        assert(verticalDirection != null),
+        assert(child != null),
         super(
           key: key,
           alignment: alignment,
           padding: padding,
+          margin: margin,
           color: color,
           decoration: decoration,
           foregroundDecoration: foregroundDecoration,
           width: width,
           height: height,
           constraints: constraints,
+          transform: transform,
           flex: flex,
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           onPressed: onPressed,
           onLongPressed: onLongPressed,
-          margin: margin,
-          transform: transform,
-          child: Row(
-            key: childKey,
-            mainAxisAlignment: mainAxisAlignment,
-            mainAxisSize: mainAxisSize,
-            crossAxisAlignment: crossAxisAlignment,
-            verticalDirection: verticalDirection,
-            textDirection: textDirection,
-            textBaseline: textBaseline,
-            children: children ?? <Widget>[],
-          ),
+          child: child,
         );
 }

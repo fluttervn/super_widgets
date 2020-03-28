@@ -1,20 +1,19 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../base/base_container.dart';
 
-/// [SuperRow] is a [Container] with [Row] inside.
-class SuperRow extends BaseContainer {
-  /// Create new [SuperRow] which has a [Container]
-  /// (parent) with a [Row] (child) inside.
+/// [SuperIcon] is a [Container] with [Icon] inside.
+class SuperIcon extends BaseContainer {
+  /// Create new [SuperIcon] which has a [Container] (parent) with
+  /// a [Icon] (child) inside.
   /// Thus its params is the combination of [Container]'s
-  /// params and [Row]'s  params.
+  /// params and [Icon]'s  params.
   ///
   /// <b>Params of the parent widget is:</b>
   ///
   /// - `key` : key of parent widget.
   /// - `alignment`: an align value from [AlignmentDirectional].
-  /// - `padding`: an padding value from [EdgeInsetsGeometry]. It would include
-  /// the `decoration`
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the `child`.
   /// - `foregroundDecoration`: It's the decoration to paint in front of the `child`.
@@ -27,7 +26,7 @@ class SuperRow extends BaseContainer {
   ///  - If flex=0: this widget will be wrapped inside a [Wrap] widget.
   ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
   ///  - Default flex is null, it means just return this widget.
-  /// - `ignoreImplicitWidthHeight`: default is `TRUE`. As we know, `width` and
+  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
   /// `height` of `child` might depends on `alignment` or its parent's size.
   /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
@@ -43,25 +42,19 @@ class SuperRow extends BaseContainer {
   ///
   /// <b>Params of the child widget is:</b>
   ///
-  /// - `childKey`: [Key] of [Row].
-  /// - `children`: list of children widget of [Row].
-  /// - `mainAxisAlignment`: How the children should be placed along the main
-  /// axis. Defaults to [MainAxisAlignment.start].
-  /// - `mainAxisSize`: How much space should be occupied in the main axis.
-  /// Defaults to [MainAxisSize.max].
-  /// - `crossAxisAlignment`: How the children should be placed along the cross
-  /// axis. Defaults to [CrossAxisAlignment.center].
-  /// - `verticalDirection`: Determines the order to lay children out
-  /// vertically and how to interpret `start` and `end` in the vertical
-  /// direction. Defaults to [VerticalDirection.down].
-  /// - `textDirection`: Determines the order to lay children out horizontally
-  /// and how to interpret `start` and `end` in the horizontal direction.
-  /// Defaults to the ambient [Directionality].
-  /// - `textBaseline`: if aligning items according to their baseline, which
-  /// baseline to use.
-  SuperRow({
+  /// - `childKey`: [Key] of [Icon].
+  /// - `icon`: the icon to display. The available icons are described in [Icons].
+  /// - `size`: Since [Icon] is squared, we must specify the size of the icon
+  /// in logical pixels.
+  /// - `childColor`: the color to use when drawing the icon. Defaults to the
+  /// current [IconTheme] color, if any.
+  /// - `semanticLabel`: semantic label for the icon.
+  /// - `textDirection`: the text direction to use for rendering the icon. If
+  /// this is null, the ambient [Directionality] is used instead.
+  SuperIcon(
+    IconData icon, {
     Key key,
-    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    AlignmentGeometry alignment,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -72,27 +65,20 @@ class SuperRow extends BaseContainer {
     BoxConstraints constraints,
     Matrix4 transform,
     int flex,
-    bool ignoreImplicitWidthHeight = false,
+    bool ignoreImplicitWidthHeight = true,
     bool enableInkWell = false,
     // ignore: avoid_unused_constructor_parameters
     Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
     Key childKey,
-    List<Widget> children,
-    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
-    MainAxisSize mainAxisSize = MainAxisSize.max,
-    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+    double size,
+    Color childColor,
+    String semanticLabel,
     TextDirection textDirection,
-    VerticalDirection verticalDirection = VerticalDirection.down,
-    TextBaseline textBaseline,
   })  : assert(ignoreImplicitWidthHeight != null),
-        assert(alignment != null),
         assert(enableInkWell != null),
-        assert(mainAxisAlignment != null),
-        assert(mainAxisSize != null),
-        assert(crossAxisAlignment != null),
-        assert(verticalDirection != null),
+        assert(icon != null),
         super(
           key: key,
           alignment: alignment,
@@ -109,15 +95,13 @@ class SuperRow extends BaseContainer {
           onLongPressed: onLongPressed,
           margin: margin,
           transform: transform,
-          child: Row(
+          child: Icon(
+            icon,
             key: childKey,
-            mainAxisAlignment: mainAxisAlignment,
-            mainAxisSize: mainAxisSize,
-            crossAxisAlignment: crossAxisAlignment,
-            verticalDirection: verticalDirection,
+            size: size,
+            color: childColor,
+            semanticLabel: semanticLabel,
             textDirection: textDirection,
-            textBaseline: textBaseline,
-            children: children ?? <Widget>[],
           ),
         );
 }
