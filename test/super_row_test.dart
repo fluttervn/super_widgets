@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:super_widgets/super_row.dart';
+import 'package:super_widgets/widgets/super_row.dart';
 
 void main() {
   testWidgets('SuperRow default value', (WidgetTester tester) async {

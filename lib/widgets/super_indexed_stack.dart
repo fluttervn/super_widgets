@@ -1,18 +1,20 @@
 import 'package:flutter/widgets.dart';
 
-import 'base/base_container.dart';
+import '../base/base_container.dart';
 
-/// [SuperColumn] is a [Container] with [Column] inside.
-class SuperColumn extends BaseContainer {
-  /// Create new [SuperColumn] which has a [Container] (parent) with
-  /// a [Column] (child) inside.
+/// [SuperIndexedStack] is a [Container] with [IndexedStack] inside.
+class SuperIndexedStack extends BaseContainer {
+  /// Create new [SuperIndexedStack] which has a [Container] (parent) with
+  /// a [IndexedStack] (child) inside.
   /// Thus its params is the combination of [Container]'s
-  /// params and [Column]'s  params.
+  /// params and [IndexedStack]'s  params.
   ///
   /// <b>Params of the parent widget is:</b>
   ///
   /// - `key` : key of parent widget.
   /// - `alignment`: an align value from [AlignmentDirectional].
+  /// - `margin`: the margin between this widget vs. its parent.
+  /// - `padding`: the padding between this widget vs. the [IndexedStack].
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the `child`.
   /// - `foregroundDecoration`: It's the decoration to paint in front of the `child`.
@@ -20,6 +22,7 @@ class SuperColumn extends BaseContainer {
   ///  value like 100.0, or [double.infinity], or null, like the size value of
   ///  [Container].
   /// - `constraints`: like [BoxConstraints] of [Container].
+  /// - `transform`: the transformation matrix to apply before painting the parent.
   /// - `flex`: same as `flex` value which is used in [Flexible].
   ///  - If flex=0: this widget will be wrapped inside a [Wrap] widget.
   ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
@@ -33,25 +36,19 @@ class SuperColumn extends BaseContainer {
   ///
   /// <b>Params of the child widget is:</b>
   ///
-  /// - `childKey`: [Key] of [Column]
-  /// - `children`: list of children widget of [Column]. Default is empty list.
-  /// - `mainAxisAlignment`: how the [children] should be placed along the main
-  /// axis. Default is [MainAxisAlignment.start]
-  /// - `mainAxisSize`: how much space should be occupied in the main axis.
-  /// Default is [MainAxisSize.max]
-  /// - `crossAxisAlignment`: how the [children] should be placed along the
-  /// cross axis. Default is [CrossAxisAlignment.center]
-  /// - `textDirection`: determines the order to lay [children] out horizontally
-  /// and how to interpret `start` and `end` in the horizontal direction.
+  /// - `childKey`: [Key] of [IndexedStack].
+  /// - `children`: list of children widget of [IndexedStack]
+  /// - `sizing`: How to size the non-positioned children in the [IndexedStack].
+  /// Default is [StackFit.loose].
+  /// - `index`: the index of the child of [IndexedStack] to show.
+  /// - `childAlignment`: How to align the non-positioned and
+  /// partially-positioned children in the [IndexedStack]. Default is
+  /// [AlignmentDirectional.topStart].
+  /// - `textDirection`: the text direction with which to resolve [alignment].
   /// Defaults to the ambient [Directionality].
-  /// - `verticalDirection`: determines the order to lay children out vertically
-  /// and how to interpret `start` and `end` in the vertical direction.
-  /// Defaults to [VerticalDirection.down].
-  /// - `textBaseline`: if aligning items according to their baseline, which
-  /// baseline to use.
-  SuperColumn({
+  SuperIndexedStack({
     Key key,
-    AlignmentGeometry alignment,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -60,28 +57,19 @@ class SuperColumn extends BaseContainer {
     double width,
     double height,
     BoxConstraints constraints,
-    Matrix4 transform,
     int flex,
     bool ignoreImplicitWidthHeight = false,
-    bool enableInkWell = false,
-    // ignore: avoid_unused_constructor_parameters
-    Color splashColor,
-    VoidCallback onPressed,
-    VoidCallback onLongPressed,
+    Matrix4 transform,
     Key childKey,
     List<Widget> children,
-    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
-    MainAxisSize mainAxisSize = MainAxisSize.max,
-    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+    AlignmentGeometry childAlignment = AlignmentDirectional.topStart,
+    StackFit sizing = StackFit.loose,
     TextDirection textDirection,
-    VerticalDirection verticalDirection = VerticalDirection.down,
-    TextBaseline textBaseline,
+    int index = 0,
   })  : assert(ignoreImplicitWidthHeight != null),
-        assert(enableInkWell != null),
-        assert(mainAxisAlignment != null),
-        assert(mainAxisSize != null),
-        assert(crossAxisAlignment != null),
-        assert(verticalDirection != null),
+        assert(childAlignment != null),
+        assert(sizing != null),
+        assert(alignment != null),
         super(
           key: key,
           alignment: alignment,
@@ -95,17 +83,13 @@ class SuperColumn extends BaseContainer {
           constraints: constraints,
           flex: flex,
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
-          onPressed: onPressed,
-          onLongPressed: onLongPressed,
           transform: transform,
-          child: Column(
+          child: IndexedStack(
+            sizing: sizing,
+            alignment: childAlignment,
             key: childKey,
-            mainAxisAlignment: mainAxisAlignment,
-            mainAxisSize: mainAxisSize,
-            crossAxisAlignment: crossAxisAlignment,
-            verticalDirection: verticalDirection,
             textDirection: textDirection,
-            textBaseline: textBaseline,
+            index: index,
             children: children ?? <Widget>[],
           ),
         );

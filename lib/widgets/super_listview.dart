@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'base/base_container.dart';
+import '../base/base_container.dart';
 
 /// [SuperListView] is a [Container] with [ListView] inside.
 class SuperListView extends BaseContainer {

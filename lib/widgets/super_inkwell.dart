@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'base/base_container.dart';
+import '../base/base_container.dart';
 
 /// [SuperInkWell] is a [InkWell] with [Container] inside.
 class SuperInkWell extends InkWell {

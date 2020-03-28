@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'base/base_container.dart';
+import '../base/base_container.dart';
+import '../base/safe_widget.dart';
 
-/// [SuperIcon] is a [Container] with [Icon] inside.
-class SuperIcon extends BaseContainer {
-  /// Create new [SuperIcon] which has a [Container] (parent) with
-  /// a [Icon] (child) inside.
+/// [SuperCard] is a [Container] with [Card] inside.
+class SuperCard extends BaseContainer {
+  /// Create new [SuperCard] which has a [Container] (parent) with
+  /// a [Card] (child) inside.
   /// Thus its params is the combination of [Container]'s
-  /// params and [Icon]'s  params.
+  /// params and [Card]'s  params.
   ///
   /// <b>Params of the parent widget is:</b>
   ///
@@ -42,47 +43,63 @@ class SuperIcon extends BaseContainer {
   ///
   /// <b>Params of the child widget is:</b>
   ///
-  /// - `childKey`: [Key] of [Icon].
-  /// - `icon`: the icon to display. The available icons are described in [Icons].
-  /// - `size`: Since [Icon] is squared, we must specify the size of the icon
-  /// in logical pixels.
-  /// - `childColor`: the color to use when drawing the icon. Defaults to the
-  /// current [IconTheme] color, if any.
-  /// - `semanticLabel`: semantic label for the icon.
-  /// - `textDirection`: the text direction to use for rendering the icon. If
-  /// this is null, the ambient [Directionality] is used instead.
-  SuperIcon(
-    IconData icon, {
+  /// - `childKey`: [Key] of [Card].
+  /// - `child`: child widget of [Card].
+  /// - `childColor`: [Color] of [Card].
+  /// - `elevation`: the z-coordinate at which to place this card. This
+  /// controls the size of the shadow below the card. If this property is null
+  /// then [ThemeData.cardTheme.elevation] is used, if that's null, the
+  /// default value is 1.0.
+  /// - `shape`: [ShapeBorder] of [Card]. Default is [RoundedRectangleBorder]
+  /// with a circular corner radius of 4.0.
+  /// - `borderOnForeground`: default is true: whether to paint the shape
+  /// border in front of the child of [Card].
+  /// - `margin`: the empty space that surrounds the card. Defines the card's
+  /// outer [Container.margin].
+  ///  - If this property is null then [ThemeData.cardTheme.margin] is used.
+  ///  - If that's null, the default margin is 4.0 logical pixels on all sides.
+  /// - `padding`: the padding between [Card] vs. its child.
+  /// - `clipBehavior`: {@macro flutter.widgets.Clip}. If this property is null
+  /// then [ThemeData.cardTheme.clipBehavior] is used. If that's null then the
+  /// behavior will be [Clip.none].
+  /// - `semanticContainer`: Whether this widget represents a single semantic
+  /// container, or if false, a collection of individual semantic nodes.
+  /// Defaults to true.
+  SuperCard({
     Key key,
     AlignmentGeometry alignment,
-    EdgeInsetsGeometry padding,
-    EdgeInsetsGeometry margin,
     Color color,
     Decoration decoration,
     Decoration foregroundDecoration,
     double width,
     double height,
     BoxConstraints constraints,
-    Matrix4 transform,
     int flex,
-    bool ignoreImplicitWidthHeight = true,
+    bool ignoreImplicitWidthHeight = false,
     bool enableInkWell = false,
     // ignore: avoid_unused_constructor_parameters
     Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
+    Matrix4 transform,
     Key childKey,
-    double size,
     Color childColor,
-    String semanticLabel,
-    TextDirection textDirection,
-  })  : assert(ignoreImplicitWidthHeight != null),
+    double elevation,
+    ShapeBorder shape,
+    bool borderOnForeground = true,
+    EdgeInsetsGeometry margin,
+    EdgeInsetsGeometry padding,
+    Clip clipBehavior,
+    Widget child,
+    bool semanticContainer = true,
+  })  : assert(elevation == null || elevation >= 0.0),
+        assert(borderOnForeground != null),
+        assert(ignoreImplicitWidthHeight != null),
         assert(enableInkWell != null),
-        assert(icon != null),
+        assert(semanticContainer != null),
         super(
           key: key,
           alignment: alignment,
-          padding: padding,
           color: color,
           decoration: decoration,
           foregroundDecoration: foregroundDecoration,
@@ -93,15 +110,17 @@ class SuperIcon extends BaseContainer {
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           onPressed: onPressed,
           onLongPressed: onLongPressed,
-          margin: margin,
           transform: transform,
-          child: Icon(
-            icon,
+          child: Card(
             key: childKey,
-            size: size,
             color: childColor,
-            semanticLabel: semanticLabel,
-            textDirection: textDirection,
+            elevation: elevation,
+            shape: shape,
+            borderOnForeground: borderOnForeground,
+            margin: margin,
+            clipBehavior: clipBehavior,
+            semanticContainer: semanticContainer,
+            child: safePadding(padding: padding, child: child),
           ),
         );
 }

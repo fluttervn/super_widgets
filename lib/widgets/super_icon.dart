@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'base/base_container.dart';
+import '../base/base_container.dart';
 
-/// [SuperContainer] is a [BaseContainer] with its method exposed for public using.
-class SuperContainer extends BaseContainer {
-  /// Create new [SuperContainer] with the following params:
+/// [SuperIcon] is a [Container] with [Icon] inside.
+class SuperIcon extends BaseContainer {
+  /// Create new [SuperIcon] which has a [Container] (parent) with
+  /// a [Icon] (child) inside.
+  /// Thus its params is the combination of [Container]'s
+  /// params and [Icon]'s  params.
+  ///
+  /// <b>Params of the parent widget is:</b>
   ///
   /// - `key` : key of parent widget.
   /// - `alignment`: an align value from [AlignmentDirectional].
@@ -21,7 +26,7 @@ class SuperContainer extends BaseContainer {
   ///  - If flex=0: this widget will be wrapped inside a [Wrap] widget.
   ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
   ///  - Default flex is null, it means just return this widget.
-  /// - `ignoreImplicitWidthHeight`: default is `TRUE`. As we know, `width` and
+  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
   /// `height` of `child` might depends on `alignment` or its parent's size.
   /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
@@ -34,8 +39,20 @@ class SuperContainer extends BaseContainer {
   ///  - If `enableInkWell` is not true, then just return this `widget`.
   ///  - If `enableInkWell` is true & splashColor is null, then `splashColor`
   /// will be automatically gotten from Theme instead.
-  SuperContainer({
-    @required Widget child,
+  ///
+  /// <b>Params of the child widget is:</b>
+  ///
+  /// - `childKey`: [Key] of [Icon].
+  /// - `icon`: the icon to display. The available icons are described in [Icons].
+  /// - `size`: Since [Icon] is squared, we must specify the size of the icon
+  /// in logical pixels.
+  /// - `childColor`: the color to use when drawing the icon. Defaults to the
+  /// current [IconTheme] color, if any.
+  /// - `semanticLabel`: semantic label for the icon.
+  /// - `textDirection`: the text direction to use for rendering the icon. If
+  /// this is null, the ambient [Directionality] is used instead.
+  SuperIcon(
+    IconData icon, {
     Key key,
     AlignmentGeometry alignment,
     EdgeInsetsGeometry padding,
@@ -48,31 +65,43 @@ class SuperContainer extends BaseContainer {
     BoxConstraints constraints,
     Matrix4 transform,
     int flex,
-    bool ignoreImplicitWidthHeight = false,
+    bool ignoreImplicitWidthHeight = true,
     bool enableInkWell = false,
     // ignore: avoid_unused_constructor_parameters
     Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
+    Key childKey,
+    double size,
+    Color childColor,
+    String semanticLabel,
+    TextDirection textDirection,
   })  : assert(ignoreImplicitWidthHeight != null),
         assert(enableInkWell != null),
-        assert(child != null),
+        assert(icon != null),
         super(
           key: key,
           alignment: alignment,
           padding: padding,
-          margin: margin,
           color: color,
           decoration: decoration,
           foregroundDecoration: foregroundDecoration,
           width: width,
           height: height,
           constraints: constraints,
-          transform: transform,
           flex: flex,
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           onPressed: onPressed,
           onLongPressed: onLongPressed,
-          child: child,
+          margin: margin,
+          transform: transform,
+          child: Icon(
+            icon,
+            key: childKey,
+            size: size,
+            color: childColor,
+            semanticLabel: semanticLabel,
+            textDirection: textDirection,
+          ),
         );
 }

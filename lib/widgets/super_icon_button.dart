@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'base/base_container.dart';
+import '../base/base_container.dart';
 
 /// [SuperIconButton] is a [Container] with [IconButton] inside.
 class SuperIconButton extends BaseContainer {

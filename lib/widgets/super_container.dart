@@ -1,20 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'base/base_container.dart';
+import '../base/base_container.dart';
 
-/// [SuperStack] is a [Container] with [Stack] inside.
-class SuperStack extends BaseContainer {
-  /// Create new [SuperStack] which has a [Container] (parent) with
-  /// a [Stack] (child) inside.
-  /// Thus its params is the combination of [Container]'s
-  /// params and [Stack]'s  params.
-  ///
-  /// <b>Params of the parent widget is:</b>
+/// [SuperContainer] is a [BaseContainer] with its method exposed for public using.
+class SuperContainer extends BaseContainer {
+  /// Create new [SuperContainer] with the following params:
   ///
   /// - `key` : key of parent widget.
   /// - `alignment`: an align value from [AlignmentDirectional].
-  /// - `margin`: the margin between this widget vs. its parent.
-  /// - `padding`: the padding between this widget vs. the [Stack].
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the `child`.
   /// - `foregroundDecoration`: It's the decoration to paint in front of the `child`.
@@ -27,27 +21,23 @@ class SuperStack extends BaseContainer {
   ///  - If flex=0: this widget will be wrapped inside a [Wrap] widget.
   ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
   ///  - Default flex is null, it means just return this widget.
-  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
+  /// - `ignoreImplicitWidthHeight`: default is `TRUE`. As we know, `width` and
   /// `height` of `child` might depends on `alignment` or its parent's size.
   /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
   /// expanding to full width. Note: if we specify `width` or `height` then
   /// [ignoreImplicitWidthHeight] will be set to false.
-  ///
-  /// <b>Params of the child widget is:</b>
-  ///
-  /// - `childKey`: [Key] of [Stack].
-  /// - `children`: list of children widget of [Stack]
-  /// - `fit`: How to size the non-positioned children in the stack. Default is [StackFit.loose].
-  /// - `overflow`: Whether overflowing children should be clipped. Default is [Overflow.clip].
-  /// - `childAlignment`: How to align the non-positioned and
-  /// partially-positioned children in the stack. Default is
-  /// [AlignmentDirectional.topStart].
-  /// - `textDirection`: the text direction with which to resolve [alignment].
-  /// Defaults to the ambient [Directionality].
-  SuperStack({
+  /// - `onPressed`: action when press on parent widget.
+  /// - `onLongPressed`: action when long-press on parent widget.
+  /// - `enableInkWell` and `splashColor`: WILL BE AVAILABLE IN NEXT VERSION.
+  /// Wrap this widget inside an InkWell. Default to `FALSE`.
+  ///  - If `enableInkWell` is not true, then just return this `widget`.
+  ///  - If `enableInkWell` is true & splashColor is null, then `splashColor`
+  /// will be automatically gotten from Theme instead.
+  SuperContainer({
+    @required Widget child,
     Key key,
-    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    AlignmentGeometry alignment,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -59,17 +49,14 @@ class SuperStack extends BaseContainer {
     Matrix4 transform,
     int flex,
     bool ignoreImplicitWidthHeight = false,
-    Key childKey,
-    List<Widget> children,
-    AlignmentGeometry childAlignment = AlignmentDirectional.topStart,
-    StackFit fit = StackFit.loose,
-    TextDirection textDirection,
-    Overflow overflow = Overflow.clip,
+    bool enableInkWell = false,
+    // ignore: avoid_unused_constructor_parameters
+    Color splashColor,
+    VoidCallback onPressed,
+    VoidCallback onLongPressed,
   })  : assert(ignoreImplicitWidthHeight != null),
-        assert(alignment != null),
-        assert(childAlignment != null),
-        assert(fit != null),
-        assert(overflow != null),
+        assert(enableInkWell != null),
+        assert(child != null),
         super(
           key: key,
           alignment: alignment,
@@ -81,16 +68,11 @@ class SuperStack extends BaseContainer {
           width: width,
           height: height,
           constraints: constraints,
+          transform: transform,
           flex: flex,
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
-          transform: transform,
-          child: Stack(
-            key: childKey,
-            fit: fit,
-            alignment: childAlignment,
-            textDirection: textDirection,
-            overflow: overflow,
-            children: children ?? <Widget>[],
-          ),
+          onPressed: onPressed,
+          onLongPressed: onLongPressed,
+          child: child,
         );
 }

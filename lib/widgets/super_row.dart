@@ -1,15 +1,13 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'base/base_container.dart';
-import 'base/safe_widget.dart';
+import '../base/base_container.dart';
 
-/// [SuperCard] is a [Container] with [Card] inside.
-class SuperCard extends BaseContainer {
-  /// Create new [SuperCard] which has a [Container] (parent) with
-  /// a [Card] (child) inside.
+/// [SuperRow] is a [Container] with [Row] inside.
+class SuperRow extends BaseContainer {
+  /// Create new [SuperRow] which has a [Container]
+  /// (parent) with a [Row] (child) inside.
   /// Thus its params is the combination of [Container]'s
-  /// params and [Card]'s  params.
+  /// params and [Row]'s  params.
   ///
   /// <b>Params of the parent widget is:</b>
   ///
@@ -27,7 +25,7 @@ class SuperCard extends BaseContainer {
   ///  - If flex=0: this widget will be wrapped inside a [Wrap] widget.
   ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
   ///  - Default flex is null, it means just return this widget.
-  /// - `ignoreImplicitWidthHeight`: default is `true`. As we know, `width` and
+  /// - `ignoreImplicitWidthHeight`: default is `TRUE`. As we know, `width` and
   /// `height` of `child` might depends on `alignment` or its parent's size.
   /// But in some cases we need its size is exactly wrap its `child`, for
   /// example the container of [Text] wrap the size of [Text] instead of
@@ -43,37 +41,34 @@ class SuperCard extends BaseContainer {
   ///
   /// <b>Params of the child widget is:</b>
   ///
-  /// - `childKey`: [Key] of [Card].
-  /// - `child`: child widget of [Card].
-  /// - `childColor`: [Color] of [Card].
-  /// - `elevation`: the z-coordinate at which to place this card. This
-  /// controls the size of the shadow below the card. If this property is null
-  /// then [ThemeData.cardTheme.elevation] is used, if that's null, the
-  /// default value is 1.0.
-  /// - `shape`: [ShapeBorder] of [Card]. Default is [RoundedRectangleBorder]
-  /// with a circular corner radius of 4.0.
-  /// - `borderOnForeground`: default is true: whether to paint the shape
-  /// border in front of the child of [Card].
-  /// - `margin`: the empty space that surrounds the card. Defines the card's
-  /// outer [Container.margin].
-  ///  - If this property is null then [ThemeData.cardTheme.margin] is used.
-  ///  - If that's null, the default margin is 4.0 logical pixels on all sides.
-  /// - `padding`: the padding between [Card] vs. its child.
-  /// - `clipBehavior`: {@macro flutter.widgets.Clip}. If this property is null
-  /// then [ThemeData.cardTheme.clipBehavior] is used. If that's null then the
-  /// behavior will be [Clip.none].
-  /// - `semanticContainer`: Whether this widget represents a single semantic
-  /// container, or if false, a collection of individual semantic nodes.
-  /// Defaults to true.
-  SuperCard({
+  /// - `childKey`: [Key] of [Row].
+  /// - `children`: list of children widget of [Row].
+  /// - `mainAxisAlignment`: How the children should be placed along the main
+  /// axis. Defaults to [MainAxisAlignment.start].
+  /// - `mainAxisSize`: How much space should be occupied in the main axis.
+  /// Defaults to [MainAxisSize.max].
+  /// - `crossAxisAlignment`: How the children should be placed along the cross
+  /// axis. Defaults to [CrossAxisAlignment.center].
+  /// - `verticalDirection`: Determines the order to lay children out
+  /// vertically and how to interpret `start` and `end` in the vertical
+  /// direction. Defaults to [VerticalDirection.down].
+  /// - `textDirection`: Determines the order to lay children out horizontally
+  /// and how to interpret `start` and `end` in the horizontal direction.
+  /// Defaults to the ambient [Directionality].
+  /// - `textBaseline`: if aligning items according to their baseline, which
+  /// baseline to use.
+  SuperRow({
     Key key,
-    AlignmentGeometry alignment,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    EdgeInsetsGeometry padding,
+    EdgeInsetsGeometry margin,
     Color color,
     Decoration decoration,
     Decoration foregroundDecoration,
     double width,
     double height,
     BoxConstraints constraints,
+    Matrix4 transform,
     int flex,
     bool ignoreImplicitWidthHeight = false,
     bool enableInkWell = false,
@@ -81,25 +76,25 @@ class SuperCard extends BaseContainer {
     Color splashColor,
     VoidCallback onPressed,
     VoidCallback onLongPressed,
-    Matrix4 transform,
     Key childKey,
-    Color childColor,
-    double elevation,
-    ShapeBorder shape,
-    bool borderOnForeground = true,
-    EdgeInsetsGeometry margin,
-    EdgeInsetsGeometry padding,
-    Clip clipBehavior,
-    Widget child,
-    bool semanticContainer = true,
-  })  : assert(elevation == null || elevation >= 0.0),
-        assert(borderOnForeground != null),
-        assert(ignoreImplicitWidthHeight != null),
+    List<Widget> children,
+    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+    MainAxisSize mainAxisSize = MainAxisSize.max,
+    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+    TextDirection textDirection,
+    VerticalDirection verticalDirection = VerticalDirection.down,
+    TextBaseline textBaseline,
+  })  : assert(ignoreImplicitWidthHeight != null),
+        assert(alignment != null),
         assert(enableInkWell != null),
-        assert(semanticContainer != null),
+        assert(mainAxisAlignment != null),
+        assert(mainAxisSize != null),
+        assert(crossAxisAlignment != null),
+        assert(verticalDirection != null),
         super(
           key: key,
           alignment: alignment,
+          padding: padding,
           color: color,
           decoration: decoration,
           foregroundDecoration: foregroundDecoration,
@@ -110,17 +105,17 @@ class SuperCard extends BaseContainer {
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           onPressed: onPressed,
           onLongPressed: onLongPressed,
+          margin: margin,
           transform: transform,
-          child: Card(
+          child: Row(
             key: childKey,
-            color: childColor,
-            elevation: elevation,
-            shape: shape,
-            borderOnForeground: borderOnForeground,
-            margin: margin,
-            clipBehavior: clipBehavior,
-            semanticContainer: semanticContainer,
-            child: safePadding(padding: padding, child: child),
+            mainAxisAlignment: mainAxisAlignment,
+            mainAxisSize: mainAxisSize,
+            crossAxisAlignment: crossAxisAlignment,
+            verticalDirection: verticalDirection,
+            textDirection: textDirection,
+            textBaseline: textBaseline,
+            children: children ?? <Widget>[],
           ),
         );
 }

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'base/base_container.dart';
+import '../base/base_container.dart';
 
-/// SuperOutlineButton] is a [Container] with [OutlineButton] inside.
-class SuperOutlineButton extends BaseContainer {
-  /// Create new [SuperOutlineButton] which has a [Container] (parent) with
-  /// a [OutlineButton] (child) inside.
+/// SuperRaisedButton] is a [Container] with [RaisedButton] inside.
+class SuperRaisedButton extends BaseContainer {
+  /// Create new [SuperRaisedButton] which has a [Container] (parent) with
+  /// a [RaisedButton] (child) inside.
   /// Thus its params is the combination of [Container]'s
-  /// params and [OutlineButton]'s  params.
+  /// params and [RaisedButton]'s  params.
   ///
   /// <b>Params of the parent widget is:</b>
   ///
@@ -33,10 +33,15 @@ class SuperOutlineButton extends BaseContainer {
   /// expanding to full width. Note: if we specify `width` or `height` then
   /// [ignoreImplicitWidthHeight] will be set to false.
   /// - `onLongPressed`: action when long-press on parent widget.
+  /// - `enableInkWell` and `splashColor`: WILL BE AVAILABLE IN NEXT VERSION.
+  /// Wrap this widget inside an InkWell. Default to `FALSE`.
+  ///  - If `enableInkWell` is not true, then just return this `widget`.
+  ///  - If `enableInkWell` is true & splashColor is null, then `splashColor`
+  /// will be automatically gotten from Theme instead.
   ///
   /// <b>Params of the child widget is:</b>
   ///
-  /// - `childKey`: [Key] of [OutlineButton].
+  /// - `childKey`: [Key] of [RaisedButton].
   /// - `child`: the button's label.
   /// - `onPressed`: is `onPressed` action of button
   /// - `onHighlightChanged`: is `onHighlightChanged` action of button
@@ -47,27 +52,26 @@ class SuperOutlineButton extends BaseContainer {
   /// - `disabledTextColor`: the color to use for this button's text when the
   /// - `childColor`: the button's fill color, displayed by its [Material],
   /// while it is in its default (unpressed, `enabled`) state.
-  /// - `focusColor`: the fill color of the button's [Material] when it has the
-  /// input focus.
-  /// - `hoverColor`: the fill color of the button's [Material] when a pointer
-  /// is hovering over it.
+  /// - `disabledColor`: the fill color of the button when the button is disabled.
   /// - `highlightColor`: the highlight color of the button's [InkWell].
   /// - `splashColor`: the color to use for this button's text.
+  /// - `colorBrightness`: the theme brightness to use for this button.
+  /// - `elevation`: the z-coordinate at which to place this button relative to
+  /// its parent. Defaults to 2.
   /// - `highlightElevation`: the elevation for the button's [Material] relative
   /// to its parent when the button is enabled and pressed. Defaults to 8.0.
   /// - `disabledElevation`: the elevation for the button's [Material] relative
   /// to its parent when the button is not enabled. Defaults to 0.0.
-  /// - `highlightedBorderColor`: the outline border's color when the button is
-  /// enabled and pressed.
   /// - `childPadding`: the internal padding for the button's `child`.
   /// - `shape`: the shape of the button's [Material]. The button's highlight
   /// and splash are clipped to this shape.
   /// - `clipBehavior`: {@macro flutter.widgets.Clip}
-  /// - `focusNode`: {@macro flutter.widgets.Focus.focusNode}
-  /// - `autofocus`: {@macro flutter.widgets.Focus.autofocus}
-  SuperOutlineButton({
+  /// - `materialTapTargetSize`: configures the minimum size of the tap target.
+  /// - `animationDuration`: Defines the duration of animated changes for
+  /// [shape] and [elevation].
+  SuperRaisedButton({
     Key key,
-    AlignmentGeometry alignment,
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -83,26 +87,28 @@ class SuperOutlineButton extends BaseContainer {
     Key childKey,
     Widget child,
     VoidCallback onPressed,
+    ValueChanged<bool> onHighlightChanged,
     ButtonTextTheme textTheme,
     Color textColor,
     Color disabledTextColor,
     Color childColor,
-    Color focusColor,
-    Color hoverColor,
+    Color disabledColor,
     Color highlightColor,
     Color splashColor,
+    Brightness colorBrightness,
+    double elevation,
     double highlightElevation,
-    BorderSide borderSide,
-    Color disabledBorderColor,
-    Color highlightedBorderColor,
+    double disabledElevation,
     EdgeInsetsGeometry childPadding,
     ShapeBorder shape,
     Clip clipBehavior = Clip.none,
-    FocusNode focusNode,
-    bool autofocus = false,
-  })  : assert(highlightElevation == null || highlightElevation >= 0.0),
-        assert(autofocus != null),
+    MaterialTapTargetSize materialTapTargetSize,
+    Duration animationDuration,
+  })  : assert(elevation == null || elevation >= 0.0),
+        assert(highlightElevation == null || highlightElevation >= 0.0),
+        assert(disabledElevation == null || disabledElevation >= 0.0),
         assert(ignoreImplicitWidthHeight != null),
+        assert(alignment != null),
         assert(clipBehavior != null),
         super(
           key: key,
@@ -119,26 +125,26 @@ class SuperOutlineButton extends BaseContainer {
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
           onLongPressed: onLongPressed,
           transform: transform,
-          child: OutlineButton(
+          child: RaisedButton(
             key: childKey,
             onPressed: onPressed ?? () {},
+            onHighlightChanged: onHighlightChanged,
             textTheme: textTheme,
             textColor: textColor,
             disabledTextColor: disabledTextColor,
             color: childColor,
-            focusColor: focusColor,
-            hoverColor: hoverColor,
+            disabledColor: disabledColor,
             highlightColor: highlightColor,
             splashColor: splashColor,
+            colorBrightness: colorBrightness,
+            elevation: elevation,
             highlightElevation: highlightElevation,
-            borderSide: borderSide,
-            disabledBorderColor: disabledBorderColor,
-            highlightedBorderColor: highlightedBorderColor,
+            disabledElevation: disabledElevation,
             padding: childPadding,
             shape: shape,
             clipBehavior: clipBehavior,
-            focusNode: focusNode,
-            autofocus: autofocus,
+            materialTapTargetSize: materialTapTargetSize,
+            animationDuration: animationDuration,
             child: child,
           ),
         );

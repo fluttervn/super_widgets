@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'base/safe_widget.dart';
+import '../base/safe_widget.dart';
 
 /// [SuperCircleAvatar] is a [CircleAvatar] with border
 class SuperCircleAvatar extends StatelessWidget {

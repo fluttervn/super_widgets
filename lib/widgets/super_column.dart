@@ -1,20 +1,18 @@
 import 'package:flutter/widgets.dart';
 
-import 'base/base_container.dart';
+import '../base/base_container.dart';
 
-/// [SuperIndexedStack] is a [Container] with [IndexedStack] inside.
-class SuperIndexedStack extends BaseContainer {
-  /// Create new [SuperIndexedStack] which has a [Container] (parent) with
-  /// a [IndexedStack] (child) inside.
+/// [SuperColumn] is a [Container] with [Column] inside.
+class SuperColumn extends BaseContainer {
+  /// Create new [SuperColumn] which has a [Container] (parent) with
+  /// a [Column] (child) inside.
   /// Thus its params is the combination of [Container]'s
-  /// params and [IndexedStack]'s  params.
+  /// params and [Column]'s  params.
   ///
   /// <b>Params of the parent widget is:</b>
   ///
   /// - `key` : key of parent widget.
   /// - `alignment`: an align value from [AlignmentDirectional].
-  /// - `margin`: the margin between this widget vs. its parent.
-  /// - `padding`: the padding between this widget vs. the [IndexedStack].
   /// - `color` and `decoration`: only one params is valid. It's the
   /// decoration to paint behind the `child`.
   /// - `foregroundDecoration`: It's the decoration to paint in front of the `child`.
@@ -22,7 +20,6 @@ class SuperIndexedStack extends BaseContainer {
   ///  value like 100.0, or [double.infinity], or null, like the size value of
   ///  [Container].
   /// - `constraints`: like [BoxConstraints] of [Container].
-  /// - `transform`: the transformation matrix to apply before painting the parent.
   /// - `flex`: same as `flex` value which is used in [Flexible].
   ///  - If flex=0: this widget will be wrapped inside a [Wrap] widget.
   ///  - If flex>0: this widget will be wrapped inside a [Expanded] with flex value.
@@ -36,19 +33,25 @@ class SuperIndexedStack extends BaseContainer {
   ///
   /// <b>Params of the child widget is:</b>
   ///
-  /// - `childKey`: [Key] of [IndexedStack].
-  /// - `children`: list of children widget of [IndexedStack]
-  /// - `sizing`: How to size the non-positioned children in the [IndexedStack].
-  /// Default is [StackFit.loose].
-  /// - `index`: the index of the child of [IndexedStack] to show.
-  /// - `childAlignment`: How to align the non-positioned and
-  /// partially-positioned children in the [IndexedStack]. Default is
-  /// [AlignmentDirectional.topStart].
-  /// - `textDirection`: the text direction with which to resolve [alignment].
+  /// - `childKey`: [Key] of [Column]
+  /// - `children`: list of children widget of [Column]. Default is empty list.
+  /// - `mainAxisAlignment`: how the [children] should be placed along the main
+  /// axis. Default is [MainAxisAlignment.start]
+  /// - `mainAxisSize`: how much space should be occupied in the main axis.
+  /// Default is [MainAxisSize.max]
+  /// - `crossAxisAlignment`: how the [children] should be placed along the
+  /// cross axis. Default is [CrossAxisAlignment.center]
+  /// - `textDirection`: determines the order to lay [children] out horizontally
+  /// and how to interpret `start` and `end` in the horizontal direction.
   /// Defaults to the ambient [Directionality].
-  SuperIndexedStack({
+  /// - `verticalDirection`: determines the order to lay children out vertically
+  /// and how to interpret `start` and `end` in the vertical direction.
+  /// Defaults to [VerticalDirection.down].
+  /// - `textBaseline`: if aligning items according to their baseline, which
+  /// baseline to use.
+  SuperColumn({
     Key key,
-    AlignmentGeometry alignment = AlignmentDirectional.topStart,
+    AlignmentGeometry alignment,
     EdgeInsetsGeometry padding,
     EdgeInsetsGeometry margin,
     Color color,
@@ -57,19 +60,28 @@ class SuperIndexedStack extends BaseContainer {
     double width,
     double height,
     BoxConstraints constraints,
+    Matrix4 transform,
     int flex,
     bool ignoreImplicitWidthHeight = false,
-    Matrix4 transform,
+    bool enableInkWell = false,
+    // ignore: avoid_unused_constructor_parameters
+    Color splashColor,
+    VoidCallback onPressed,
+    VoidCallback onLongPressed,
     Key childKey,
     List<Widget> children,
-    AlignmentGeometry childAlignment = AlignmentDirectional.topStart,
-    StackFit sizing = StackFit.loose,
+    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+    MainAxisSize mainAxisSize = MainAxisSize.max,
+    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
     TextDirection textDirection,
-    int index = 0,
+    VerticalDirection verticalDirection = VerticalDirection.down,
+    TextBaseline textBaseline,
   })  : assert(ignoreImplicitWidthHeight != null),
-        assert(childAlignment != null),
-        assert(sizing != null),
-        assert(alignment != null),
+        assert(enableInkWell != null),
+        assert(mainAxisAlignment != null),
+        assert(mainAxisSize != null),
+        assert(crossAxisAlignment != null),
+        assert(verticalDirection != null),
         super(
           key: key,
           alignment: alignment,
@@ -83,13 +95,17 @@ class SuperIndexedStack extends BaseContainer {
           constraints: constraints,
           flex: flex,
           ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
+          onPressed: onPressed,
+          onLongPressed: onLongPressed,
           transform: transform,
-          child: IndexedStack(
-            sizing: sizing,
-            alignment: childAlignment,
+          child: Column(
             key: childKey,
+            mainAxisAlignment: mainAxisAlignment,
+            mainAxisSize: mainAxisSize,
+            crossAxisAlignment: crossAxisAlignment,
+            verticalDirection: verticalDirection,
             textDirection: textDirection,
-            index: index,
+            textBaseline: textBaseline,
             children: children ?? <Widget>[],
           ),
         );
