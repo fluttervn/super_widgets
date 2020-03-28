@@ -127,22 +127,33 @@ class ProfileOnePage extends StatelessWidget {
         SuperRow(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            CircleAvatar(
+            SuperCircleAvatar(
               minRadius: 30,
+              borderWidth: 3,
+              borderColor: Colors.red.shade900,
               backgroundColor: Colors.red.shade600,
+              onPressed: () {
+                showToast('Call');
+              },
               child: Icon(Icons.call, size: 30),
             ),
-            CircleAvatar(
+            SuperCircleAvatar(
               minRadius: 60,
-              backgroundColor: Colors.deepOrange.shade300,
-              child: CircleAvatar(
-                backgroundImage: CachedNetworkImageProvider(images[0]),
-                minRadius: 50,
-              ),
+              borderWidth: 10,
+              borderColor: Colors.deepOrange.shade300,
+              backgroundImage: CachedNetworkImageProvider(images[0]),
+              onPressed: () {
+                showToast('Avatar');
+              },
             ),
-            CircleAvatar(
+            SuperCircleAvatar(
               minRadius: 30,
+              borderWidth: 3,
+              borderColor: Colors.red.shade900,
               backgroundColor: Colors.red.shade600,
+              onPressed: () {
+                showToast('Message');
+              },
               child: Icon(Icons.message, size: 30),
             ),
           ],

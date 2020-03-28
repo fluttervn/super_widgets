@@ -6,7 +6,7 @@ import '../base/safe_widget.dart';
 /// [SuperCircleAvatar] is a [CircleAvatar] with border
 class SuperCircleAvatar extends StatelessWidget {
   /// The widget below this widget in the tree. Typically a [Text] widget. If
-  /// the [CircleAvatar] is to have an image, use  [backgroundImage] instead.
+  /// the [CircleAvatar] is to have an image, use [backgroundImage] instead.
   final Widget child;
 
   /// The color with which to fill the circle. Changing the background
