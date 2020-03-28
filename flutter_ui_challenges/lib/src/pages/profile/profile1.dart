@@ -51,11 +51,11 @@ class ProfileOnePage extends StatelessWidget {
     var listInfoWidget = [
       ListTile(
         title: Text(
-          "Email",
+          'Email',
           style: TextStyle(color: Colors.deepOrange, fontSize: 12),
         ),
         subtitle: Text(
-          "ram@kumar.com",
+          'ram@kumar.com',
           style: TextStyle(fontSize: 18),
         ),
       ),
@@ -74,22 +74,22 @@ class ProfileOnePage extends StatelessWidget {
       ListTile(
         title: Text(
           'Twitter',
-          style: TextStyle(color: Colors.deepOrange, fontSize: 12.0),
+          style: TextStyle(color: Colors.deepOrange, fontSize: 12),
         ),
         subtitle: Text(
           '@ramkumar',
-          style: TextStyle(fontSize: 18.0),
+          style: TextStyle(fontSize: 18),
         ),
       ),
       Divider(),
       ListTile(
         title: Text(
           'Facebook',
-          style: TextStyle(color: Colors.deepOrange, fontSize: 12.0),
+          style: TextStyle(color: Colors.deepOrange, fontSize: 12),
         ),
         subtitle: Text(
           'facebook.com/ramkumar',
-          style: TextStyle(fontSize: 18.0),
+          style: TextStyle(fontSize: 18),
         ),
       ),
       Divider(),
@@ -110,12 +110,12 @@ class ProfileOnePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               CircleAvatar(
+                minRadius: 30,
+                backgroundColor: Colors.red.shade600,
                 child: Icon(
                   Icons.call,
-                  size: 30.0,
+                  size: 30,
                 ),
-                minRadius: 30.0,
-                backgroundColor: Colors.red.shade600,
               ),
               CircleAvatar(
                 minRadius: 60,
@@ -126,12 +126,12 @@ class ProfileOnePage extends StatelessWidget {
                 ),
               ),
               CircleAvatar(
+                minRadius: 30,
+                backgroundColor: Colors.red.shade600,
                 child: Icon(
                   Icons.message,
-                  size: 30.0,
+                  size: 30,
                 ),
-                minRadius: 30.0,
-                backgroundColor: Colors.red.shade600,
               ),
             ],
           ),
@@ -139,12 +139,12 @@ class ProfileOnePage extends StatelessWidget {
             height: 10,
           ),
           Text(
-            "Ram Kumar",
-            style: TextStyle(fontSize: 22.0, color: Colors.white),
+            'Ram Kumar',
+            style: TextStyle(fontSize: 22, color: Colors.white),
           ),
           Text(
-            "Kathmandu, Nepal",
-            style: TextStyle(fontSize: 14.0, color: Colors.red.shade700),
+            'Kathmandu, Nepal',
+            style: TextStyle(fontSize: 14, color: Colors.red.shade700),
           )
         ],
       ),
