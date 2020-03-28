@@ -13,40 +13,39 @@ class ProfileOnePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var statisticsWidget = Container(
-      // height: 50,
-      child: Row(
-        children: <Widget>[
-          SuperListTile(
-            flex: 1,
-            color: Colors.deepOrange.shade300,
-            title: Text(
-              '50895',
-              textAlign: TextAlign.center,
-              style: TextStyleBold(color: Colors.white, fontSize: 24),
-            ),
-            subtitle: Text(
-              'Followers',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.red),
-            ),
+    var statisticsWidget = SuperRow(
+//      height: 50,
+      padding: EdgeInsets.all(5),
+      children: <Widget>[
+        SuperListTile(
+          flex: 1,
+          color: Colors.deepOrange.shade300,
+          title: Text(
+            '50895',
+            textAlign: TextAlign.center,
+            style: TextStyleBold(color: Colors.white, fontSize: 24),
           ),
-          SuperListTile(
-            flex: 1,
-            color: Colors.red,
-            title: Text(
-              '34524',
-              textAlign: TextAlign.center,
-              style: TextStyleBold(color: Colors.white, fontSize: 24),
-            ),
-            subtitle: Text(
-              'Following',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white70),
-            ),
+          subtitle: Text(
+            'Followers',
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.red),
           ),
-        ],
-      ),
+        ),
+        SuperListTile(
+          flex: 1,
+          color: Colors.red,
+          title: Text(
+            '34524',
+            textAlign: TextAlign.center,
+            style: TextStyleBold(color: Colors.white, fontSize: 24),
+          ),
+          subtitle: Text(
+            'Following',
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.white70),
+          ),
+        ),
+      ],
     );
 
     var listInfoWidget = [
