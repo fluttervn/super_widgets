@@ -1,0 +1,108 @@
+name: flutter_ui_challenges
+description: Trying to replicate various app UIs in flutter
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# Read more about versioning at semver.org.
+version: 3.1.0
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^0.1.2
+  flutter_swiper: ^1.1.6
+  flutter_custom_clippers: ^1.1.0
+  intro_views_flutter: ^2.8.0
+  wave: ^0.0.8
+  font_awesome_flutter: ^8.5.0
+  url_launcher: ^5.4.1
+  shared_preferences: ^0.5.6
+  bottomreveal: ^1.0.0
+  charts_flutter: ^0.8.0
+  animated_floatactionbuttons: ^0.1.0
+  share: ^0.6.3+5
+  intl: ^0.16.0
+  flare_flutter: ^1.8.3
+  firebase_auth: ^0.15.3
+  provider: ^3.2.0
+  google_sign_in: ^4.1.1
+  cloud_firestore: ^0.13.0+1
+  cached_network_image: ^2.0.0
+  package_info: ^0.4.0+13
+  firebase_remote_config: ^0.3.0+1
+  firebase_core: ^0.4.3+1
+  firebase_analytics: ^5.0.9
+  flutter_staggered_grid_view: ^0.3.0
+  crop: ^0.1.2
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.7.0
+  flutter_automation:
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/icon.png"
+  image_path_ios: "assets/icon/app-store-logo.jpg"
+
+# For information on the generic Dart part of this file, see the
+# following page: https://www.dartlang.org/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/
+    - assets/smwallet/
+    - assets/hotel/
+    - assets/icon/
+    - assets/flare/
+    - lib/src/pages/animations/
+    - lib/src/pages/animations/animation1/
+    - lib/src/pages/bike/
+    - lib/src/pages/blog/
+    - lib/src/pages/dialogs/
+    - lib/src/pages/dashboard/
+    - lib/src/pages/ecommerce/
+    - lib/src/pages/food/
+    - lib/src/pages/grocery/
+    - lib/src/pages/hotel/
+    - lib/src/pages/login/
+    - lib/src/pages/lists/
+    - lib/src/pages/misc/
+    - lib/src/pages/navigation/
+    - lib/src/pages/onboarding/
+    - lib/src/pages/profile/
+    - lib/src/pages/quiz_app/
+    - lib/src/pages/todo/
+    - lib/src/pages/settings/
+    - lib/src/pages/travel/
+    - lib/src/pages/invitation/
+    - lib/src/nic_asia_clone/
+    - lib/src/furniture_app/
+    - assets/nicasiaassets/
+    - lib/src/khalti_clone/
+  fonts:
+    - family: icomoon
+      fonts:
+        - asset: assets/fonts/icomoon.ttf
+
+
+    - family: MyFlutterApp
+      fonts:
+        - asset: assets/fonts/MyFlutterApp.ttf  
