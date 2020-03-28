@@ -8,7 +8,7 @@
 .buildlog/
 .history
 .svn/
-coverage
+coverage/
 
 # IntelliJ related
 *.iml
@@ -22,15 +22,13 @@ coverage
 # Flutter/Dart/Pub related
 **/doc/api/
 pubspec.lock
+.flutter-plugins-dependencies
 .dart_tool/
 .flutter-plugins
 .packages
 .pub-cache/
 .pub/
 build/
-
-# Ignore these examples
-# dashboard_reborn/
 
 # Android related
 **/android/**/gradle-wrapper.jar
@@ -68,6 +66,7 @@ build/
 **/ios/Flutter/flutter_assets/
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
+**/ios/**/Podfile.lock
 
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3
