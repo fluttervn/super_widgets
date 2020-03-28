@@ -6,6 +6,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenges/core/presentation/res/assets.dart';
+import 'package:flutter_ui_challenges/src/utils/toast_util.dart';
 import 'package:flutter_ui_challenges/super_widgets/super_widgets.dart';
 
 class ProfileOnePage extends StatelessWidget {
@@ -28,6 +29,9 @@ class ProfileOnePage extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.red),
           ),
+          onTap: () {
+            showToast('50895 followers');
+          },
         ),
         SuperListTile(
           pFlex: 1,
@@ -42,12 +46,15 @@ class ProfileOnePage extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.white70),
           ),
+          onTap: () {
+            showToast('34524 following');
+          },
         ),
       ],
     );
 
     var listInfoWidget = [
-      ListTile(
+      SuperListTile(
         title: Text(
           'Email',
           style: TextStyle(color: Colors.deepOrange, fontSize: 12),
@@ -56,9 +63,12 @@ class ProfileOnePage extends StatelessWidget {
           'ram@kumar.com',
           style: TextStyle(fontSize: 18),
         ),
+        onTap: () {
+          showToast('Email');
+        },
       ),
       Divider(),
-      ListTile(
+      SuperListTile(
         title: Text(
           'Phone',
           style: TextStyle(color: Colors.deepOrange, fontSize: 12),
@@ -67,9 +77,12 @@ class ProfileOnePage extends StatelessWidget {
           '+977 9818225533',
           style: TextStyle(fontSize: 18),
         ),
+        onTap: () {
+          showToast('Phone');
+        },
       ),
       Divider(),
-      ListTile(
+      SuperListTile(
         title: Text(
           'Twitter',
           style: TextStyle(color: Colors.deepOrange, fontSize: 12),
@@ -78,9 +91,12 @@ class ProfileOnePage extends StatelessWidget {
           '@ramkumar',
           style: TextStyle(fontSize: 18),
         ),
+        onTap: () {
+          showToast('Twitter');
+        },
       ),
       Divider(),
-      ListTile(
+      SuperListTile(
         title: Text(
           'Facebook',
           style: TextStyle(color: Colors.deepOrange, fontSize: 12),
@@ -89,17 +105,21 @@ class ProfileOnePage extends StatelessWidget {
           'facebook.com/ramkumar',
           style: TextStyle(fontSize: 18),
         ),
+        onTap: () {
+          showToast('Facebook');
+        },
       ),
       Divider(),
     ];
     var nameAvatarWidget = Container(
       height: 200,
       decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              stops: [0.5, 0.9],
-              colors: [Colors.red, Colors.deepOrange.shade300])),
+        gradient: LinearGradient(
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            stops: [0.5, 0.9],
+            colors: [Colors.red, Colors.deepOrange.shade300]),
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -133,9 +153,7 @@ class ProfileOnePage extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-            height: 10,
-          ),
+          SizedBox(height: 10),
           Text(
             'Ram Kumar',
             style: TextStyle(fontSize: 22, color: Colors.white),
