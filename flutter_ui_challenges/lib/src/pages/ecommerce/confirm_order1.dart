@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
 /**
  * Author: Damodar Lohani
  * profile: https://github.com/lohanidamodar
  */
-
-import 'package:flutter/material.dart';
+import 'package:flutter_ui_challenges/src/utils/utils_index.dart';
 
 class ConfirmOrderPage extends StatelessWidget {
   static final String path = "lib/src/pages/ecommerce/confirm_order1.dart";
@@ -53,10 +53,9 @@ class ConfirmOrderPage extends StatelessWidget {
             children: <Widget>[
               Text(
                 "Total",
-                style: Theme.of(context).textTheme.title,
+                style: context.textThemeTitle,
               ),
-              Text("Rs. ${total + delivery}",
-                  style: Theme.of(context).textTheme.title),
+              Text("Rs. ${total + delivery}", style: context.textThemeTitle),
             ],
           ),
           SizedBox(

@@ -6,6 +6,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenges/core/presentation/res/assets.dart';
+import 'package:flutter_ui_challenges/src/utils/utils_index.dart';
 import 'package:flutter_ui_challenges/src/widgets/network_image.dart';
 import 'package:flutter_ui_challenges/super_widgets/super_widgets.dart';
 
@@ -45,10 +46,13 @@ class ProfileTwoPage extends StatelessWidget {
     if (index == 2) return _buildCollectionsRow();
     if (index == 3) {
       return Container(
-          color: Colors.white,
-          padding: EdgeInsets.only(left: 20, top: 20, bottom: 10),
-          child: Text('Most liked posts',
-              style: Theme.of(context).textTheme.title));
+        color: Colors.white,
+        padding: EdgeInsets.only(left: 20, top: 20, bottom: 10),
+        child: Text(
+          'Most liked posts',
+          style: context.textThemeTitle,
+        ),
+      );
     }
     return _buildListItem();
   }
@@ -140,10 +144,7 @@ class ProfileTwoPage extends StatelessWidget {
             SizedBox(height: 50),
             Text(
               'Mebina Nepal',
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .title,
+              style: context.textThemeTitle,
             ),
             SizedBox(height: 5),
             Text('UI/UX designer | Foodie | Kathmandu'),

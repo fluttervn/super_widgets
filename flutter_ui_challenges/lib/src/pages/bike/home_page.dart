@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_ui_challenges/core/presentation/res/assets.dart';
 import 'package:flutter_ui_challenges/src/pages/bike/bike_details.dart';
+import 'package:flutter_ui_challenges/src/utils/utils_index.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BikeHomePage extends StatelessWidget {
@@ -27,7 +28,7 @@ class BikeHomePage extends StatelessWidget {
               padding: const EdgeInsets.only(left: 16.0, top: 16.0),
               child: Text(
                 "Categories",
-                style: Theme.of(context).textTheme.subhead,
+                style: context.textThemeSubhead,
               ),
             ),
             CategoryChooser(
