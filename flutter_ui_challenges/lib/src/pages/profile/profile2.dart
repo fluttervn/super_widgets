@@ -9,12 +9,12 @@ import 'package:flutter_ui_challenges/core/presentation/res/assets.dart';
 import 'package:flutter_ui_challenges/src/widgets/network_image.dart';
 
 class ProfileTwoPage extends StatelessWidget {
-  static final String path = "lib/src/pages/profile/profile2.dart";
-  final List<Map> collections = [
-    {"title": "Food joint", "image": meal},
-    {"title": "Photos", "image": images[1]},
-    {"title": "Travel", "image": fishtail},
-    {"title": "Nepal", "image": kathmandu2},
+  static const String path = 'lib/src/pages/profile/profile2.dart';
+  final List<Map> _collections = [
+    {'title': 'Food joint', 'image': meal},
+    {'title': 'Photos', 'image': images[1]},
+    {'title': 'Travel', 'image': fishtail},
+    {'title': 'Nepal', 'image': kathmandu2},
   ];
 
   @override
@@ -23,7 +23,7 @@ class ProfileTwoPage extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           Container(
-            height: 200.0,
+            height: 200,
             decoration: BoxDecoration(
               gradient: LinearGradient(
                   colors: [Colors.indigo.shade300, Colors.indigo.shade500]),
@@ -42,21 +42,22 @@ class ProfileTwoPage extends StatelessWidget {
     if (index == 0) return _buildHeader(context);
     if (index == 1) return _buildSectionHeader(context);
     if (index == 2) return _buildCollectionsRow();
-    if (index == 3)
+    if (index == 3) {
       return Container(
           color: Colors.white,
-          padding: EdgeInsets.only(left: 20.0, top: 20.0, bottom: 10.0),
-          child: Text("Most liked posts",
+          padding: EdgeInsets.only(left: 20, top: 20, bottom: 10),
+          child: Text('Most liked posts',
               style: Theme.of(context).textTheme.title));
+    }
     return _buildListItem();
   }
 
   Widget _buildListItem() {
     return Container(
       color: Colors.white,
-      padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(5.0),
+        borderRadius: BorderRadius.circular(5),
         child: PNetworkImage(images[2], fit: BoxFit.cover),
       ),
     );
@@ -65,18 +66,18 @@ class ProfileTwoPage extends StatelessWidget {
   Container _buildSectionHeader(BuildContext context) {
     return Container(
       color: Colors.white,
-      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      padding: EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text(
-            "Collection",
+            'Collection',
             style: Theme.of(context).textTheme.title,
           ),
           FlatButton(
             onPressed: () {},
             child: Text(
-              "Create new",
+              'Create new',
               style: TextStyle(color: Colors.blue),
             ),
           )
@@ -88,29 +89,29 @@ class ProfileTwoPage extends StatelessWidget {
   Container _buildCollectionsRow() {
     return Container(
       color: Colors.white,
-      height: 200.0,
-      padding: EdgeInsets.symmetric(horizontal: 10.0),
+      height: 200,
+      padding: EdgeInsets.symmetric(horizontal: 10),
       child: ListView.builder(
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemCount: collections.length,
+        itemCount: _collections.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-              margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-              width: 150.0,
-              height: 200.0,
+              margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+              width: 150,
+              height: 200,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Expanded(
                       child: ClipRRect(
-                          borderRadius: BorderRadius.circular(5.0),
-                          child: PNetworkImage(collections[index]['image'],
+                          borderRadius: BorderRadius.circular(5),
+                          child: PNetworkImage(_collections[index]['image'],
                               fit: BoxFit.cover))),
                   SizedBox(
-                    height: 5.0,
+                    height: 5,
                   ),
-                  Text(collections[index]['title'],
+                  Text(_collections[index]['title'],
                       style: Theme.of(context)
                           .textTheme
                           .subhead
@@ -124,73 +125,73 @@ class ProfileTwoPage extends StatelessWidget {
 
   Container _buildHeader(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 50.0),
-      height: 240.0,
+      margin: EdgeInsets.only(top: 50),
+      height: 240,
       child: Stack(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(
-                top: 40.0, left: 40.0, right: 40.0, bottom: 10.0),
+            padding: EdgeInsets.only(top: 40, left: 40, right: 40, bottom: 10),
             child: Material(
               shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0)),
-              elevation: 5.0,
+                  borderRadius: BorderRadius.circular(10)),
+              elevation: 5,
               color: Colors.white,
               child: Column(
                 children: <Widget>[
                   SizedBox(
-                    height: 50.0,
+                    height: 50,
                   ),
                   Text(
-                    "Mebina Nepal",
+                    'Mebina Nepal',
                     style: Theme.of(context).textTheme.title,
                   ),
                   SizedBox(
-                    height: 5.0,
+                    height: 5,
                   ),
-                  Text("UI/UX designer | Foodie | Kathmandu"),
+                  Text('UI/UX designer | Foodie | Kathmandu'),
                   SizedBox(
+                    // ignore: prefer_int_literals
                     height: 16.0,
                   ),
                   Container(
-                    height: 40.0,
+                    height: 40,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Expanded(
                           child: ListTile(
                             title: Text(
-                              "302",
+                              '302',
                               textAlign: TextAlign.center,
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
-                            subtitle: Text("Posts".toUpperCase(),
+                            subtitle: Text('Posts'.toUpperCase(),
                                 textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 12.0)),
+                                style: TextStyle(fontSize: 12)),
                           ),
                         ),
                         Expanded(
                           child: ListTile(
                             title: Text(
-                              "10.3K",
+                              '10.3K',
                               textAlign: TextAlign.center,
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
-                            subtitle: Text("Followers".toUpperCase(),
+                            subtitle: Text('Followers'.toUpperCase(),
                                 textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 12.0)),
+                                style: TextStyle(fontSize: 12)),
                           ),
                         ),
                         Expanded(
                           child: ListTile(
                             title: Text(
-                              "120",
+                              '120',
                               textAlign: TextAlign.center,
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
-                            subtitle: Text("Following".toUpperCase(),
+                            subtitle: Text('Following'.toUpperCase(),
                                 textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 12.0)),
+                                style: TextStyle(fontSize: 12)),
                           ),
                         ),
                       ],
@@ -204,10 +205,10 @@ class ProfileTwoPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Material(
-                elevation: 5.0,
+                elevation: 5,
                 shape: CircleBorder(),
                 child: CircleAvatar(
-                  radius: 40.0,
+                  radius: 40,
                   backgroundImage: CachedNetworkImageProvider(avatars[0]),
                 ),
               ),
