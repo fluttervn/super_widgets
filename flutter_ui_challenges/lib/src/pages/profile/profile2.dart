@@ -7,6 +7,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenges/core/presentation/res/assets.dart';
 import 'package:flutter_ui_challenges/src/widgets/network_image.dart';
+import 'package:flutter_ui_challenges/super_widgets/super_widgets.dart';
 
 class ProfileTwoPage extends StatelessWidget {
   static const String path = 'lib/src/pages/profile/profile2.dart';
@@ -123,99 +124,97 @@ class ProfileTwoPage extends StatelessWidget {
     );
   }
 
-  Container _buildHeader(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: 50),
-      height: 240,
-      child: Stack(
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.only(top: 40, left: 40, right: 40, bottom: 10),
-            child: Material(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              elevation: 5,
-              color: Colors.white,
-              child: Column(
-                children: <Widget>[
-                  SizedBox(
-                    height: 50,
-                  ),
-                  Text(
-                    'Mebina Nepal',
-                    style: Theme.of(context).textTheme.title,
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Text('UI/UX designer | Foodie | Kathmandu'),
-                  SizedBox(
-                    // ignore: prefer_int_literals
-                    height: 16.0,
-                  ),
-                  Container(
-                    height: 40,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Expanded(
-                          child: ListTile(
-                            title: Text(
-                              '302',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            subtitle: Text('Posts'.toUpperCase(),
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 12)),
+  Widget _buildHeader(BuildContext context) {
+    return SuperStack(
+      pMargin: EdgeInsets.only(top: 50),
+      pHeight: 240,
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(top: 40, left: 40, right: 40, bottom: 10),
+          child: Material(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            elevation: 5,
+            color: Colors.white,
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 50,
+                ),
+                Text(
+                  'Mebina Nepal',
+                  style: Theme.of(context).textTheme.title,
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text('UI/UX designer | Foodie | Kathmandu'),
+                SizedBox(
+                  // ignore: prefer_int_literals
+                  height: 16.0,
+                ),
+                Container(
+                  height: 40,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        child: ListTile(
+                          title: Text(
+                            '302',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontWeight: FontWeight.bold),
                           ),
-                        ),
-                        Expanded(
-                          child: ListTile(
-                            title: Text(
-                              '10.3K',
+                          subtitle: Text('Posts'.toUpperCase(),
                               textAlign: TextAlign.center,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            subtitle: Text('Followers'.toUpperCase(),
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 12)),
-                          ),
+                              style: TextStyle(fontSize: 12)),
                         ),
-                        Expanded(
-                          child: ListTile(
-                            title: Text(
-                              '120',
+                      ),
+                      Expanded(
+                        child: ListTile(
+                          title: Text(
+                            '10.3K',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          subtitle: Text('Followers'.toUpperCase(),
                               textAlign: TextAlign.center,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                            subtitle: Text('Following'.toUpperCase(),
-                                textAlign: TextAlign.center,
-                                style: TextStyle(fontSize: 12)),
-                          ),
+                              style: TextStyle(fontSize: 12)),
                         ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                      ),
+                      Expanded(
+                        child: ListTile(
+                          title: Text(
+                            '120',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          subtitle: Text('Following'.toUpperCase(),
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 12)),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Material(
-                elevation: 5,
-                shape: CircleBorder(),
-                child: CircleAvatar(
-                  radius: 40,
-                  backgroundImage: CachedNetworkImageProvider(avatars[0]),
-                ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Material(
+              elevation: 5,
+              shape: CircleBorder(),
+              child: CircleAvatar(
+                radius: 40,
+                backgroundImage: CachedNetworkImageProvider(avatars[0]),
               ),
-            ],
-          ),
-        ],
-      ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
