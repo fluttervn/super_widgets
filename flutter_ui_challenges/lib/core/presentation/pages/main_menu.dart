@@ -249,6 +249,7 @@ class _MainMenuState extends State<MainMenu> {
   }
 
   void _openPage(BuildContext context, SubMenuItem item, OpenMode mode) {
+    print('_openPage: ${item.title}: ${item.page}');
     setState(() {
       viewData[item.title] = true;
     });
