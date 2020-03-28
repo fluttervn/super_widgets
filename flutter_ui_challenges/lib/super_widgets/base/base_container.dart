@@ -67,6 +67,56 @@ class BaseContainer extends StatelessWidget {
   /// The InkWell color effect (only effective when [enableInkWell] is true.
   final Color splashColor;
 
+  /// Defines the material's shape as well its shadow.
+  ///
+  /// If shape is non null, the [borderRadius] is ignored and the material's
+  /// clip boundary and shadow are defined by the shape.
+  ///
+  /// A shadow is only displayed if the [elevation] is greater than
+  /// zero.
+  final ShapeBorder materialShape;
+
+  /// This controls the size of the shadow below the material and the opacity
+  /// of the elevation overlay color if it is applied. Defaults to 0.
+  final double materialElevation;
+
+  /// The color to paint the material.
+  ///
+  /// Must be opaque. To create a transparent piece of material, use
+  /// [MaterialType.transparency].
+  ///
+  /// To support dark themes, if the surrounding
+  /// [ThemeData.applyElevationOverlayColor] is true then a semi-transparent
+  /// overlay color will be composited on top this color to indicate
+  /// the elevation.
+  ///
+  /// By default, the color is derived from the [type] of material.
+  final Color materialColor;
+
+  /// The color to paint the shadow below the material.
+  ///
+  /// Defaults to fully opaque black.
+  final Color materialShadowColor;
+
+  /// If non-null, the corners of this box are rounded by this
+  /// [BorderRadiusGeometry] value.
+  ///
+  /// Otherwise, the corners specified for the current [type] of material are
+  /// used.
+  ///
+  /// If [shape] is non null then the border radius is ignored.
+  ///
+  /// Must be null if [type] is [MaterialType.circle].
+  final BorderRadiusGeometry materialBorderRadius;
+
+  /// The kind of material to show (e.g., card or canvas). This
+  /// affects the shape of the widget, the roundness of its corners if
+  /// the shape is rectangular, and the default color.
+  ///
+  /// You MUST set value for it (for example [MaterialType.canvas]), otherwise
+  /// the Material widget will not be wrapped to [child].
+  final MaterialType materialType;
+
   /// Callback when user presses on this widget
   final VoidCallback onPressed;
 
@@ -165,6 +215,13 @@ class BaseContainer extends StatelessWidget {
     this.foregroundDecoration,
     this.enableInkWell,
     this.splashColor,
+    // Style of Material widget
+    this.materialType,
+    this.materialBorderRadius,
+    this.materialColor,
+    Color materialShadowColor,
+    this.materialElevation = 0.0,
+    this.materialShape,
     // Action
     this.onPressed,
     this.onLongPressed,
@@ -190,6 +247,7 @@ class BaseContainer extends StatelessWidget {
         ignoreImplicitWidthHeight = _shouldIgnoreImplicitWidthHeight(
             height: height, width: width, ignore: ignoreImplicitWidthHeight),
         childHasInkWellInside = _childHasInkWellInside(child),
+        materialShadowColor = materialShadowColor ?? Colors.black,
         super(key: key);
 
   @override
@@ -199,6 +257,19 @@ class BaseContainer extends StatelessWidget {
     if (false == ignoreImplicitWidthHeight) {
       // When ignore Infinity Size & Constraints, also ignore Align
       current = safeAlign(alignment: alignment, child: current);
+    }
+
+    // If have a valid Material widget, wrap it here
+    if (materialType != null) {
+      current = Material(
+        type: materialType,
+        shape: materialShape,
+        elevation: materialElevation,
+        color: materialColor,
+        shadowColor: materialShadowColor,
+        borderRadius: materialBorderRadius,
+        child: current,
+      );
     }
 
     final EdgeInsetsGeometry effectivePadding = _paddingIncludingDecoration;
@@ -232,9 +303,6 @@ class BaseContainer extends StatelessWidget {
 
     // Finally, wrap into a [Transform]
     current = safeTransform(transform: transform, child: current);
-
-    // Don't forget to wrap this widget into GestureDetector, but only if
-    // the original child doesn't have any InkWell inside
 
     // Wrap to InkWell, but only if child has no InkWell inside already
     // For example, child is ListTile already has InkWell inside

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../base/base_container.dart';
@@ -82,6 +83,13 @@ class SuperStack extends BaseContainer {
     Color cColor,
     Decoration cDecoration,
     Decoration cForegroundDecoration,
+    // Style of Material widget
+    MaterialType materialType,
+    ShapeBorder materialShape,
+    double materialElevation,
+    Color materialColor,
+    Color materialShadowColor,
+    BorderRadiusGeometry materialBorderRadius,
     // Specific property of Stack
     StackFit fit = StackFit.loose,
     TextDirection textDirection,
@@ -129,6 +137,14 @@ class SuperStack extends BaseContainer {
             color: cColor,
             decoration: cDecoration,
             foregroundDecoration: cForegroundDecoration,
+            // Style of Material widget
+            materialType: materialType,
+            materialShape: materialShape,
+            materialElevation: materialElevation,
+            materialColor: materialColor,
+            materialShadowColor: materialShadowColor,
+            materialBorderRadius: materialBorderRadius,
+            // Finally the child
             child: Stack(
               key: cKey,
               fit: fit,
