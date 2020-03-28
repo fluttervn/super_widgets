@@ -45,8 +45,8 @@ class SuperOutlineButtonPage extends StatelessWidget {
             onPressed: onPressed,
             onLongPressed: onLongPressed,
             height: 50,
-            child: child,
             textColor: Colors.indigo,
+            child: child,
           ),
         ),
         ..._wrapInRow(

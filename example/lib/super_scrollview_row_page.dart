@@ -16,7 +16,6 @@ class SuperScrollViewRowPage extends StatelessWidget {
 
   /// Content of this page
   Widget buildBody(BuildContext context) {
-    var textStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 32);
     return SuperScrollViewRow(
       crossAxisAlignment: CrossAxisAlignment.start,
       padding: EdgeInsets.all(10),
