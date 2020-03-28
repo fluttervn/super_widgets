@@ -14,12 +14,10 @@ class ProfileOnePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var statisticsWidget = SuperRow(
-//      height: 50,
-      padding: EdgeInsets.all(10),
       children: <Widget>[
         SuperListTile(
-          flex: 1,
-          color: Colors.deepOrange.shade300,
+          pFlex: 1,
+          pColor: Colors.deepOrange.shade300,
           title: Text(
             '50895',
             textAlign: TextAlign.center,
@@ -32,8 +30,8 @@ class ProfileOnePage extends StatelessWidget {
           ),
         ),
         SuperListTile(
-          flex: 1,
-          color: Colors.red,
+          pFlex: 1,
+          pColor: Colors.red,
           title: Text(
             '34524',
             textAlign: TextAlign.center,
