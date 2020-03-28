@@ -23,10 +23,7 @@ class ProfileOnePage extends StatelessWidget {
             title: Text(
               '50895',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24),
+              style: TextStyleBold(color: Colors.white, fontSize: 24),
             ),
             subtitle: Text(
               'Followers',
@@ -40,10 +37,7 @@ class ProfileOnePage extends StatelessWidget {
             title: Text(
               '34524',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24.0),
+              style: TextStyleBold(color: Colors.white, fontSize: 24),
             ),
             subtitle: Text(
               'Following',
