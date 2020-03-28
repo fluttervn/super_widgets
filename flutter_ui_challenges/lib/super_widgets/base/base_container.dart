@@ -97,7 +97,7 @@ class BaseContainer extends StatelessWidget {
     if (insets != null) {
       return insets;
     }
-    if (allPx > 0) {
+    if (allPx != null && allPx > 0) {
       return EdgeInsets.all(allPx);
     }
     return null;
