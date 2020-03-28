@@ -3,30 +3,26 @@ import 'package:flutter/widgets.dart';
 
 import 'safe_widget.dart';
 
-/// BaseContainer is an abstract widget which has almost properties such as
-/// [alignment], [padding], [margin], `color`, [decoration], `width`, `height`,
-/// [flex], [onPressed] and [onLongPressed].
+/// BaseContainer is an abstract widget which has almost properties such as:
+///
+/// - [Key] of the widget
+/// - Position & size: [alignment], [padding], [margin], `width`, `height`, [flex]
+/// - Style: `color`, [decoration],
+/// - Action: [onPressed] and [onLongPressed].
 ///
 class BaseContainer extends StatelessWidget {
   /// Align the [child] within the container.
   final AlignmentGeometry alignment;
 
-  /// Empty space to inscribe inside the [decoration]. The [child], if any, is
-  /// placed inside this padding.
-  final EdgeInsetsGeometry padding;
-
-  /// The decoration to paint behind the `child`.
-  ///
-  /// A shorthand for specifying just a solid color is available in the
-  /// constructor: set the `color` argument instead of the `decoration`
-  /// argument.
-  final Decoration decoration;
-
-  /// The decoration to paint in front of the `child`.
-  final Decoration foregroundDecoration;
+  /// The transformation matrix to apply before painting the container.
+  final Matrix4 transform;
 
   /// Empty space to surround the [decoration] and [child].
   final EdgeInsetsGeometry margin;
+
+  /// Empty space to inscribe inside the [decoration]. The [child], if any, is
+  /// placed inside this padding.
+  final EdgeInsetsGeometry padding;
 
   /// [flex] is same as `flex` value which is used in [Flexible].
   ///
@@ -43,15 +39,6 @@ class BaseContainer extends StatelessWidget {
   /// The [padding] goes inside the constraints.
   final BoxConstraints constraints;
 
-  /// The transformation matrix to apply before painting the container.
-  final Matrix4 transform;
-
-  /// Callback when user presses on this widget
-  final VoidCallback onPressed;
-
-  /// Callback when user long-presses on this widget
-  final VoidCallback onLongPressed;
-
   /// `width` and `height` of `child` might depends on `alignment` or its
   /// parent's size. But in some cases we need its size is exactly wrap its
   /// [child], for example the container of [Text] wrap the size of [Text]
@@ -63,6 +50,29 @@ class BaseContainer extends StatelessWidget {
   /// Note: if we specify `width` or `height` then [ignoreImplicitWidthHeight]
   /// will be set to false.
   final bool ignoreImplicitWidthHeight;
+
+  /// The decoration to paint behind the `child`.
+  ///
+  /// A shorthand for specifying just a solid color is available in the
+  /// constructor: set the `color` argument instead of the `decoration`
+  /// argument.
+  final Decoration decoration;
+
+  /// The decoration to paint in front of the `child`.
+  final Decoration foregroundDecoration;
+
+  /// Set to true to enable the InkWell effect.
+  final bool enableInkWell;
+
+  /// The InkWell color effect (only effective when [enableInkWell] is true.
+  final Color splashColor;
+
+  /// Callback when user presses on this widget
+  final VoidCallback onPressed;
+
+  /// Callback when user long-presses on this widget
+  final VoidCallback onLongPressed;
+
   final SizedBox _sizedBox;
 
   /// The [child] contained by the container.
@@ -78,6 +88,19 @@ class BaseContainer extends StatelessWidget {
   static Decoration _decorationFromColor(Color color) {
     if (color == null) return null;
     return BoxDecoration(color: color);
+  }
+
+  static EdgeInsets _fromEdgeInsetsOrPx({
+    @required EdgeInsets insets,
+    @required double allPx,
+  }) {
+    if (insets != null) {
+      return insets;
+    }
+    if (allPx > 0) {
+      return EdgeInsets.all(allPx);
+    }
+    return null;
   }
 
   static SizedBox _sizedBoxFromWidthHeight({
@@ -115,20 +138,28 @@ class BaseContainer extends StatelessWidget {
   /// [Container]
   BaseContainer({
     Key key,
+    // Size and Position
     this.alignment,
-    this.padding,
-    this.margin,
+    this.transform,
+    EdgeInsets margin,
+    double marginAllPx,
+    EdgeInsets padding,
+    double paddingAllPx,
+    double width,
+    double height,
+    this.flex,
+    BoxConstraints constraints,
+    bool ignoreImplicitWidthHeight,
+    // Style
     Color color,
     Decoration decoration,
     this.foregroundDecoration,
-    double width,
-    double height,
-    BoxConstraints constraints,
-    this.flex,
-    bool ignoreImplicitWidthHeight,
+    this.enableInkWell,
+    this.splashColor,
+    // Action
     this.onPressed,
     this.onLongPressed,
-    this.transform,
+    // And the child
     this.child,
   })  : assert(margin == null || margin.isNonNegative),
         assert(padding == null || padding.isNonNegative),
@@ -140,6 +171,8 @@ class BaseContainer extends StatelessWidget {
             'The color argument is just a shorthand for '
             '"decoration: new BoxDecoration(color: color)".'),
         decoration = decoration ?? _decorationFromColor(color),
+        margin = _fromEdgeInsetsOrPx(insets: margin, allPx: marginAllPx),
+        padding = _fromEdgeInsetsOrPx(insets: padding, allPx: paddingAllPx),
         constraints = (width != null || height != null)
             ? constraints?.tighten(width: width, height: height) ??
                 BoxConstraints.tightFor(width: width, height: height)
@@ -180,6 +213,13 @@ class BaseContainer extends StatelessWidget {
         child: current,
       );
     }
+
+    // Wrap to InkWell
+    current = safeInkWell(
+      enableInkWell: enableInkWell,
+      splashColor: splashColor,
+      child: current,
+    );
 
     // Margin must be the last widget to wrapped
     current = safePadding(padding: margin, child: current);
