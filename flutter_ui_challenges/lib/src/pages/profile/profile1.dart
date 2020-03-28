@@ -115,10 +115,11 @@ class ProfileOnePage extends StatelessWidget {
       height: 200,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            stops: [0.5, 0.9],
-            colors: [Colors.red, Colors.deepOrange.shade300]),
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+          stops: const [0.5, 0.9],
+          colors: [Colors.red, Colors.deepOrange.shade300],
+        ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -130,10 +131,7 @@ class ProfileOnePage extends StatelessWidget {
               CircleAvatar(
                 minRadius: 30,
                 backgroundColor: Colors.red.shade600,
-                child: Icon(
-                  Icons.call,
-                  size: 30,
-                ),
+                child: Icon(Icons.call, size: 30),
               ),
               CircleAvatar(
                 minRadius: 60,
@@ -146,10 +144,7 @@ class ProfileOnePage extends StatelessWidget {
               CircleAvatar(
                 minRadius: 30,
                 backgroundColor: Colors.red.shade600,
-                child: Icon(
-                  Icons.message,
-                  size: 30,
-                ),
+                child: Icon(Icons.message, size: 30),
               ),
             ],
           ),
