@@ -78,6 +78,15 @@ class BaseContainer extends StatelessWidget {
   /// The [child] contained by the container.
   final Widget child;
 
+  /// Has the [child] has InkWell inside, such as [child] is [ListTile].
+  final bool childHasInkWellInside;
+
+  static bool _childHasInkWellInside(Widget child) {
+    Type type = child.runtimeType;
+    // TODO Need to find a better solution
+    return type == ListTile;
+  }
+
   EdgeInsetsGeometry get _paddingIncludingDecoration {
     if (decoration == null || decoration.padding == null) return padding;
     final EdgeInsetsGeometry decorationPadding = decoration.padding;
@@ -180,6 +189,7 @@ class BaseContainer extends StatelessWidget {
         _sizedBox = _sizedBoxFromWidthHeight(width: width, height: height),
         ignoreImplicitWidthHeight = _shouldIgnoreImplicitWidthHeight(
             height: height, width: width, ignore: ignoreImplicitWidthHeight),
+        childHasInkWellInside = _childHasInkWellInside(child),
         super(key: key);
 
   @override
@@ -206,20 +216,13 @@ class BaseContainer extends StatelessWidget {
       // Wrap into ConstrainedBox for size of widget
       current = safeConstrainedBox(constraints: constraints, child: current);
     } else if (_sizedBox != null) {
-      print('Set ignoreImplicitWidthHeight with sizedBox=$_sizedBox');
+      // print('Set ignoreImplicitWidthHeight with sizedBox=$_sizedBox');
       current = SizedBox(
         width: _sizedBox.width,
         height: _sizedBox.height,
         child: current,
       );
     }
-
-    // Wrap to InkWell
-    current = safeInkWell(
-      enableInkWell: enableInkWell,
-      splashColor: splashColor,
-      child: current,
-    );
 
     // Margin must be the last widget to wrapped
     current = safePadding(padding: margin, child: current);
@@ -230,12 +233,26 @@ class BaseContainer extends StatelessWidget {
     // Finally, wrap into a [Transform]
     current = safeTransform(transform: transform, child: current);
 
-    // Don't forget to wrap this widget into GestureDetector
-    current = safeOnPress(
-      child: current,
-      onLongPressed: onLongPressed,
-      onPressed: onPressed,
-    );
+    // Don't forget to wrap this widget into GestureDetector, but only if
+    // the original child doesn't have any InkWell inside
+
+    // Wrap to InkWell, but only if child has no InkWell inside already
+    // For example, child is ListTile already has InkWell inside
+    if (childHasInkWellInside) {
+      // Let the child (with InkWell) to handle onPress/onLongPress
+      // so do nothing here
+    } else {
+      current = safeInkWell(
+        enableInkWell: enableInkWell,
+        splashColor: splashColor,
+        child: current,
+      );
+      current = safeOnPress(
+        child: current,
+        onLongPressed: onLongPressed,
+        onPressed: onPressed,
+      );
+    }
 
     return current;
   }

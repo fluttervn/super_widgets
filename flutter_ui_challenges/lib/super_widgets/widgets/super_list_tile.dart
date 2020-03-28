@@ -134,6 +134,7 @@ class SuperListTile extends BaseContainer {
           color: pColor,
           decoration: pDecoration,
           foregroundDecoration: pForegroundDecoration,
+          enableInkWell: false,
           child: BaseContainer(
             // Child position & size
             margin: cMargin,
