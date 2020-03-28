@@ -29,9 +29,7 @@ class ProfileOnePage extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.red),
           ),
-          onTap: () {
-            showToast('50895 followers');
-          },
+          onTap: showDefaultToast,
         ),
         SuperListTile(
           pFlex: 1,
@@ -46,9 +44,7 @@ class ProfileOnePage extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.white70),
           ),
-          onTap: () {
-            showToast('34524 following');
-          },
+          onTap: showDefaultToast,
         ),
       ],
     );
@@ -63,9 +59,7 @@ class ProfileOnePage extends StatelessWidget {
           'ram@kumar.com',
           style: TextStyle(fontSize: 18),
         ),
-        onTap: () {
-          showToast('Email');
-        },
+        onTap: showDefaultToast,
       ),
       Divider(),
       SuperListTile(
@@ -77,9 +71,7 @@ class ProfileOnePage extends StatelessWidget {
           '+977 9818225533',
           style: TextStyle(fontSize: 18),
         ),
-        onTap: () {
-          showToast('Phone');
-        },
+        onTap: showDefaultToast,
       ),
       Divider(),
       SuperListTile(
@@ -91,9 +83,7 @@ class ProfileOnePage extends StatelessWidget {
           '@ramkumar',
           style: TextStyle(fontSize: 18),
         ),
-        onTap: () {
-          showToast('Twitter');
-        },
+        onTap: showDefaultToast,
       ),
       Divider(),
       SuperListTile(
@@ -105,9 +95,7 @@ class ProfileOnePage extends StatelessWidget {
           'facebook.com/ramkumar',
           style: TextStyle(fontSize: 18),
         ),
-        onTap: () {
-          showToast('Facebook');
-        },
+        onTap: showDefaultToast,
       ),
       Divider(),
     ];
@@ -132,9 +120,7 @@ class ProfileOnePage extends StatelessWidget {
               borderWidth: 3,
               borderColor: Colors.red.shade900,
               backgroundColor: Colors.red.shade600,
-              onPressed: () {
-                showToast('Call');
-              },
+              onPressed: showDefaultToast,
               child: Icon(Icons.call, size: 30),
             ),
             SuperCircleAvatar(
@@ -142,18 +128,14 @@ class ProfileOnePage extends StatelessWidget {
               borderWidth: 10,
               borderColor: Colors.deepOrange.shade300,
               backgroundImage: CachedNetworkImageProvider(images[0]),
-              onPressed: () {
-                showToast('Avatar');
-              },
+              onPressed: showDefaultToast,
             ),
             SuperCircleAvatar(
               minRadius: 30,
               borderWidth: 3,
               borderColor: Colors.red.shade900,
               backgroundColor: Colors.red.shade600,
-              onPressed: () {
-                showToast('Message');
-              },
+              onPressed: showDefaultToast,
               child: Icon(Icons.message, size: 30),
             ),
           ],
