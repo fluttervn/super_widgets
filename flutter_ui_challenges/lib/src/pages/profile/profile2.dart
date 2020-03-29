@@ -150,7 +150,10 @@ class ProfileTwoPage extends StatelessWidget {
             Text('UI/UX designer | Foodie | Kathmandu'),
             SizedBox(height: 16),
             SuperRow(
-              pHeight: 40,
+              // Don't set height here - default to wrap content
+              // If you set height but it doesn't have enough space, then the
+              // ListTile touch effect will be cut off
+              // pHeight: 40,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SuperListTile(
