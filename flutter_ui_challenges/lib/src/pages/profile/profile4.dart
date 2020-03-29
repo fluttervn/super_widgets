@@ -7,6 +7,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_challenges/core/presentation/res/assets.dart';
+import 'package:flutter_ui_challenges/src/utils/toast_util.dart';
 import 'package:flutter_ui_challenges/super_widgets/super_widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -26,105 +27,94 @@ class ProfileFourPage extends StatelessWidget {
               FontAwesomeIcons.commentDots,
               color: Colors.black54,
             ),
-            onPressed: () {},
+            onPressed: showDefaultToast,
           ),
           IconButton(
             icon: Icon(
               Icons.more_vert,
               color: Colors.black54,
             ),
-            onPressed: () {},
+            onPressed: showDefaultToast,
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            _buildHeader(),
-            Container(
-              margin: const EdgeInsets.all(16),
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(color: Colors.grey.shade200),
-              child: Text(
-                  'Over 8+ years of experience and web development and 5+ years of experience in mobile applications development '),
-            ),
-            _buildTitle('Skills'),
-            SizedBox(height: 10),
-            _buildSkillRow('Wordpress', 0.75),
-            SizedBox(height: 5),
-            _buildSkillRow('Laravel', 0.6),
-            SizedBox(height: 5),
-            _buildSkillRow('React JS', 0.65),
-            SizedBox(height: 5),
-            _buildSkillRow('Flutter', 0.5),
-            SizedBox(height: 30),
-            _buildTitle('Experience'),
-            _buildExperienceRow(
-                company: 'GID Nepal',
-                position: 'Wordpress Developer',
-                duration: '2010 - 2012'),
-            _buildExperienceRow(
-                company: 'Lohani Tech',
-                position: 'Laravel Developer',
-                duration: '2012 - 2015'),
-            _buildExperienceRow(
-                company: 'Popup Bits Pvt. Ltd.',
-                position: 'Web Developer',
-                duration: '2015 - 2018'),
-            _buildExperienceRow(
-                company: 'Popup Bits Pvt. Ltd.',
-                position: 'Flutter Developer',
-                duration: '2018 - Current'),
-            SizedBox(height: 20),
-            _buildTitle('Education'),
-            SizedBox(height: 5),
-            _buildExperienceRow(
-                company: 'Tribhuvan University, Nepal',
-                position: 'B.Sc. Computer Science and Information Technology',
-                duration: '2011 - 2015'),
-            _buildExperienceRow(
-                company: 'Cambridge University, UK',
-                position: 'A Level',
-                duration: '2008 - 2010'),
-            _buildExperienceRow(
-                company: 'Nepal Board', position: 'SLC', duration: '2008'),
-            SizedBox(height: 20),
-            _buildTitle('Contact'),
-            SizedBox(height: 5),
-            Row(
-              children: <Widget>[
-                SizedBox(width: 30),
-                Icon(
-                  Icons.mail,
-                  color: Colors.black54,
-                ),
-                SizedBox(width: 10),
-                Text(
-                  'dlohani48@gmail.com',
-                  style: TextStyle(fontSize: 16),
-                ),
-              ],
-            ),
-            SizedBox(height: 10),
-            Row(
-              children: <Widget>[
-                SizedBox(width: 30),
-                Icon(
-                  Icons.phone,
-                  color: Colors.black54,
-                ),
-                SizedBox(width: 10),
-                Text(
-                  '+977-9818523107',
-                  style: TextStyle(fontSize: 16),
-                ),
-              ],
-            ),
-            _buildSocialsRow(),
-            SizedBox(height: 20),
-          ],
-        ),
+      body: SuperScrollViewColumn(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          _buildHeader(),
+          SuperText(
+            'Over 8+ years of experience and web development and'
+            ' 5+ years of experience in mobile applications development',
+            pMargin: const EdgeInsets.all(16),
+            pPadding: const EdgeInsets.all(16),
+            pDecoration: BoxDecoration(color: Colors.grey.shade200),
+          ),
+          _buildTitle('Skills'),
+          SizedBox(height: 10),
+          _buildSkillRow('Wordpress', 0.75),
+          SizedBox(height: 5),
+          _buildSkillRow('Laravel', 0.6),
+          SizedBox(height: 5),
+          _buildSkillRow('React JS', 0.65),
+          SizedBox(height: 5),
+          _buildSkillRow('Flutter', 0.5),
+          SizedBox(height: 30),
+          _buildTitle('Experience'),
+          _buildExperienceRow(
+              company: 'GID Nepal',
+              position: 'Wordpress Developer',
+              duration: '2010 - 2012'),
+          _buildExperienceRow(
+              company: 'Lohani Tech',
+              position: 'Laravel Developer',
+              duration: '2012 - 2015'),
+          _buildExperienceRow(
+              company: 'Popup Bits Pvt. Ltd.',
+              position: 'Web Developer',
+              duration: '2015 - 2018'),
+          _buildExperienceRow(
+              company: 'Popup Bits Pvt. Ltd.',
+              position: 'Flutter Developer',
+              duration: '2018 - Current'),
+          SizedBox(height: 20),
+          _buildTitle('Education'),
+          SizedBox(height: 5),
+          _buildExperienceRow(
+              company: 'Tribhuvan University, Nepal',
+              position: 'B.Sc. Computer Science and Information Technology',
+              duration: '2011 - 2015'),
+          _buildExperienceRow(
+              company: 'Cambridge University, UK',
+              position: 'A Level',
+              duration: '2008 - 2010'),
+          _buildExperienceRow(
+              company: 'Nepal Board', position: 'SLC', duration: '2008'),
+          SizedBox(height: 20),
+          _buildTitle('Contact'),
+          SizedBox(height: 5),
+          Row(
+            children: <Widget>[
+              SizedBox(width: 30),
+              Icon(Icons.mail, color: Colors.black54),
+              SizedBox(width: 10),
+              Text('dlohani48@gmail.com', style: TextStyle(fontSize: 16)),
+            ],
+          ),
+          SizedBox(height: 10),
+          Row(
+            children: <Widget>[
+              SizedBox(width: 30),
+              Icon(Icons.phone, color: Colors.black54),
+              SizedBox(width: 10),
+              Text(
+                '+977-9818523107',
+                style: TextStyle(fontSize: 16),
+              ),
+            ],
+          ),
+          _buildSocialsRow(),
+          SizedBox(height: 20),
+        ],
       ),
     );
   }
@@ -212,20 +202,16 @@ class ProfileFourPage extends StatelessWidget {
   }
 
   Widget _buildTitle(String title) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            title.toUpperCase(),
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          Divider(
-            color: Colors.black54,
-          ),
-        ],
-      ),
+    return SuperColumn(
+      pPadding: const EdgeInsets.only(left: 16),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          title.toUpperCase(),
+          style: TextStyleBold(fontSize: 18),
+        ),
+        Divider(color: Colors.black54),
+      ],
     );
   }
 
