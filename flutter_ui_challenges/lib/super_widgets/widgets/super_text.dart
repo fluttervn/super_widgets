@@ -64,7 +64,7 @@ class SuperText extends BaseContainer {
     // Container key
     Key pKey,
     // Container position & size
-    AlignmentGeometry pAlignment = AlignmentDirectional.topStart,
+    AlignmentGeometry pAlignment,
     Matrix4 pTransform,
     EdgeInsetsGeometry pMargin,
     double pMarginAllPx,
@@ -87,7 +87,7 @@ class SuperText extends BaseContainer {
     // Text key
     Key cKey,
     // Text position & size
-    AlignmentGeometry cAlignment = AlignmentDirectional.topStart,
+    AlignmentGeometry cAlignment,
     EdgeInsetsGeometry cMargin,
     double cMarginAllPx,
     EdgeInsetsGeometry cPadding,
@@ -117,9 +117,7 @@ class SuperText extends BaseContainer {
     String semanticsLabel,
   })  : assert(textData != null, 'Text widget must have non-empty textData'),
         assert(pIgnoreImplicitWidthHeight != null),
-        assert(pAlignment != null),
         assert(pEnableInkWell != null),
-        assert(cAlignment != null),
         super(
           // Parent key
           key: pKey,

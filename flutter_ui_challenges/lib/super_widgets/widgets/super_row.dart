@@ -63,7 +63,7 @@ class SuperRow extends BaseContainer {
     // Container key
     Key pKey,
     // Container position & size
-    AlignmentGeometry pAlignment = AlignmentDirectional.topStart,
+    AlignmentGeometry pAlignment,
     Matrix4 pTransform,
     EdgeInsetsGeometry pMargin,
     double pMarginAllPx,
@@ -86,7 +86,7 @@ class SuperRow extends BaseContainer {
     // Row key
     Key cKey,
     // Row position & size
-    AlignmentGeometry cAlignment = AlignmentDirectional.topStart,
+    AlignmentGeometry cAlignment,
     EdgeInsetsGeometry cMargin,
     double cMarginAllPx,
     EdgeInsetsGeometry cPadding,
@@ -106,9 +106,7 @@ class SuperRow extends BaseContainer {
     // Row children
     List<Widget> children,
   })  : assert(pIgnoreImplicitWidthHeight != null),
-        assert(pAlignment != null),
         assert(pEnableInkWell != null),
-        assert(cAlignment != null),
         assert(mainAxisAlignment != null),
         assert(mainAxisSize != null),
         assert(crossAxisAlignment != null),

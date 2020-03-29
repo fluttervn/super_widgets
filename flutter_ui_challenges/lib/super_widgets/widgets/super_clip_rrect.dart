@@ -51,7 +51,7 @@ class SuperClipRRect extends BaseContainer {
     // Container key
     Key pKey,
     // Container position & size
-    AlignmentGeometry pAlignment = AlignmentDirectional.topStart,
+    AlignmentGeometry pAlignment,
     Matrix4 pTransform,
     EdgeInsetsGeometry pMargin,
     double pMarginAllPx,
@@ -74,7 +74,7 @@ class SuperClipRRect extends BaseContainer {
     // ClipRRect key
     Key cKey,
     // ClipRRect position & size
-    AlignmentGeometry cAlignment = AlignmentDirectional.topStart,
+    AlignmentGeometry cAlignment,
     EdgeInsetsGeometry cMargin,
     double cMarginAllPx,
     EdgeInsetsGeometry cPadding,
@@ -99,9 +99,7 @@ class SuperClipRRect extends BaseContainer {
     // ignore: always_put_required_named_parameters_first
     @required Widget child,
   })  : assert(pIgnoreImplicitWidthHeight != null),
-        assert(pAlignment != null),
         assert(pEnableInkWell != null),
-        assert(cAlignment != null),
         assert(borderRadius != null || clipper != null),
         assert(clipBehavior != null),
         assert(clipBehavior != null),

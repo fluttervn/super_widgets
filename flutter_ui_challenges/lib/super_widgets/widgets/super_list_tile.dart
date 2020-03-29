@@ -71,7 +71,7 @@ class SuperListTile extends BaseContainer {
     // Container key
     Key pKey,
     // Container position & size
-    AlignmentGeometry pAlignment = AlignmentDirectional.topStart,
+    AlignmentGeometry pAlignment,
     Matrix4 pTransform,
     EdgeInsetsGeometry pMargin,
     double pMarginAllPx,
@@ -114,7 +114,6 @@ class SuperListTile extends BaseContainer {
         assert(selected != null),
         assert(!isThreeLine || subtitle != null),
         assert(pIgnoreImplicitWidthHeight != null),
-        assert(pAlignment != null),
         super(
           // Parent key
           key: pKey,

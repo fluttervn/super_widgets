@@ -54,7 +54,7 @@ class SuperColumn extends BaseContainer {
     // Container key
     Key pKey,
     // Container position & size
-    AlignmentGeometry pAlignment = AlignmentDirectional.topStart,
+    AlignmentGeometry pAlignment,
     Matrix4 pTransform,
     EdgeInsetsGeometry pMargin,
     double pMarginAllPx,
@@ -77,7 +77,7 @@ class SuperColumn extends BaseContainer {
     // Column key
     Key cKey,
     // Column position & size
-    AlignmentGeometry cAlignment = AlignmentDirectional.topStart,
+    AlignmentGeometry cAlignment,
     EdgeInsetsGeometry cMargin,
     double cMarginAllPx,
     EdgeInsetsGeometry cPadding,
@@ -104,9 +104,7 @@ class SuperColumn extends BaseContainer {
     // Column children
     List<Widget> children,
   })  : assert(pIgnoreImplicitWidthHeight != null),
-        assert(pAlignment != null),
         assert(pEnableInkWell != null),
-        assert(cAlignment != null),
         assert(mainAxisAlignment != null),
         assert(mainAxisSize != null),
         assert(crossAxisAlignment != null),

@@ -75,7 +75,7 @@ class SuperListView extends BaseContainer {
     // Container key
     Key pKey,
     // Container position & size
-    AlignmentGeometry pAlignment = AlignmentDirectional.topStart,
+    AlignmentGeometry pAlignment,
     Matrix4 pTransform,
     EdgeInsetsGeometry pMargin,
     double pMarginAllPx,
@@ -127,7 +127,6 @@ class SuperListView extends BaseContainer {
     // ListView children
     List<Widget> children,
   })  : assert(pIgnoreImplicitWidthHeight != null),
-        assert(pAlignment != null),
         assert(dragStartBehavior != null),
         assert(scrollDirection != null),
         assert(reverse != null),
@@ -266,7 +265,7 @@ class SuperListView extends BaseContainer {
     // Container key
     Key pKey,
     // Container position & size
-    AlignmentGeometry pAlignment = AlignmentDirectional.topStart,
+    AlignmentGeometry pAlignment,
     Matrix4 pTransform,
     EdgeInsetsGeometry pMargin,
     double pMarginAllPx,
@@ -318,7 +317,6 @@ class SuperListView extends BaseContainer {
     // ignore: always_put_required_named_parameters_first
     @required IndexedWidgetBuilder itemBuilder,
   })  : assert(pIgnoreImplicitWidthHeight != null),
-        assert(pAlignment != null),
         assert(dragStartBehavior != null),
         assert(scrollDirection != null),
         assert(reverse != null),

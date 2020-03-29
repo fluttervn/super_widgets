@@ -50,7 +50,7 @@ class SuperStack extends BaseContainer {
     // Container key
     Key pKey,
     // Container position & size
-    AlignmentGeometry pAlignment = AlignmentDirectional.topStart,
+    AlignmentGeometry pAlignment,
     Matrix4 pTransform,
     EdgeInsetsGeometry pMargin,
     double pMarginAllPx,
@@ -73,7 +73,7 @@ class SuperStack extends BaseContainer {
     // Stack key
     Key cKey,
     // Stack position & size
-    AlignmentGeometry cAlignment = AlignmentDirectional.topStart,
+    AlignmentGeometry cAlignment,
     EdgeInsetsGeometry cMargin,
     double cMarginAllPx,
     EdgeInsetsGeometry cPadding,
@@ -97,9 +97,7 @@ class SuperStack extends BaseContainer {
     // Stack children
     List<Widget> children,
   })  : assert(pIgnoreImplicitWidthHeight != null),
-        assert(pAlignment != null),
         assert(pEnableInkWell != null),
-        assert(cAlignment != null),
         assert(fit != null),
         assert(overflow != null),
         super(
