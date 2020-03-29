@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../base/base_container.dart';
+import '../base/material_holder.dart';
 
 /// [SuperListView] is a [Container] with [ListView] inside.
 class SuperListView extends BaseContainer {
@@ -102,13 +103,7 @@ class SuperListView extends BaseContainer {
     Color cColor,
     Decoration cDecoration,
     Decoration cForegroundDecoration,
-    // Style of Material widget
-    MaterialType materialType,
-    ShapeBorder materialShape,
-    double materialElevation,
-    Color materialColor,
-    Color materialShadowColor,
-    BorderRadiusGeometry materialBorderRadius,
+    MaterialHolder materialHolder,
     // Specific property of ListView
     Axis scrollDirection = Axis.vertical,
     bool reverse = false,
@@ -164,13 +159,7 @@ class SuperListView extends BaseContainer {
             color: cColor,
             decoration: cDecoration,
             foregroundDecoration: cForegroundDecoration,
-            // Style of Material widget
-            materialType: materialType,
-            materialShape: materialShape,
-            materialElevation: materialElevation,
-            materialColor: materialColor,
-            materialShadowColor: materialShadowColor,
-            materialBorderRadius: materialBorderRadius,
+            materialHolder: materialHolder,
             // Finally the child
             child: ListView(
               key: cKey,
@@ -292,13 +281,7 @@ class SuperListView extends BaseContainer {
     Color cColor,
     Decoration cDecoration,
     Decoration cForegroundDecoration,
-    // Style of Material widget
-    MaterialType materialType,
-    ShapeBorder materialShape,
-    double materialElevation,
-    Color materialColor,
-    Color materialShadowColor,
-    BorderRadiusGeometry materialBorderRadius,
+    MaterialHolder materialHolder,
     // Specific property of ListView
     Axis scrollDirection = Axis.vertical,
     bool reverse = false,
@@ -354,13 +337,7 @@ class SuperListView extends BaseContainer {
             color: cColor,
             decoration: cDecoration,
             foregroundDecoration: cForegroundDecoration,
-            // Style of Material widget
-            materialType: materialType,
-            materialShape: materialShape,
-            materialElevation: materialElevation,
-            materialColor: materialColor,
-            materialShadowColor: materialShadowColor,
-            materialBorderRadius: materialBorderRadius,
+            materialHolder: materialHolder,
             // Finally the child
             child: ListView.builder(
               key: cKey,

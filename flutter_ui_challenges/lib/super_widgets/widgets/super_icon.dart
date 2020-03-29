@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../base/base_container.dart';
+import '../base/material_holder.dart';
 
 /// [SuperIcon] is a [Container] with [Icon] inside.
 class SuperIcon extends BaseContainer {
@@ -89,13 +90,7 @@ class SuperIcon extends BaseContainer {
     Color cColor,
     Decoration cDecoration,
     Decoration cForegroundDecoration,
-    // Style of Material widget
-    MaterialType materialType,
-    ShapeBorder materialShape,
-    double materialElevation,
-    Color materialColor,
-    Color materialShadowColor,
-    BorderRadiusGeometry materialBorderRadius,
+    MaterialHolder materialHolder,
     // Specific property of Text
     double size,
     Color color,
@@ -140,13 +135,7 @@ class SuperIcon extends BaseContainer {
             color: cColor,
             decoration: cDecoration,
             foregroundDecoration: cForegroundDecoration,
-            // Style of Material widget
-            materialType: materialType,
-            materialShape: materialShape,
-            materialElevation: materialElevation,
-            materialColor: materialColor,
-            materialShadowColor: materialShadowColor,
-            materialBorderRadius: materialBorderRadius,
+            materialHolder: materialHolder,
             // Finally the child
             child: Icon(
               icon,

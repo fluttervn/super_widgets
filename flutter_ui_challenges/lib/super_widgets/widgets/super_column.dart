@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../base/base_container.dart';
+import '../base/material_holder.dart';
 
 /// [SuperColumn] is a [Container] with [Column] inside.
 class SuperColumn extends BaseContainer {
@@ -87,13 +88,7 @@ class SuperColumn extends BaseContainer {
     Color cColor,
     Decoration cDecoration,
     Decoration cForegroundDecoration,
-    // Style of Material widget
-    MaterialType materialType,
-    ShapeBorder materialShape,
-    double materialElevation,
-    Color materialColor,
-    Color materialShadowColor,
-    BorderRadiusGeometry materialBorderRadius,
+    MaterialHolder materialHolder,
     // Specific property of Column
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
     MainAxisSize mainAxisSize = MainAxisSize.max,
@@ -130,13 +125,7 @@ class SuperColumn extends BaseContainer {
           foregroundDecoration: pForegroundDecoration,
           enableInkWell: pEnableInkWell,
           splashColor: pSplashColor,
-          // Style of Material widget
-          materialType: materialType,
-          materialShape: materialShape,
-          materialElevation: materialElevation,
-          materialColor: materialColor,
-          materialShadowColor: materialShadowColor,
-          materialBorderRadius: materialBorderRadius,
+          materialHolder: materialHolder,
           // Parent action
           onPressed: onPressed,
           onLongPressed: onLongPressed,

@@ -1,5 +1,6 @@
 library super_widgets;
 
+export 'base/material_holder.dart';
 export 'widgets/super_card.dart';
 export 'widgets/super_circle_avatar.dart';
 export 'widgets/super_clip_rrect.dart';
