@@ -160,9 +160,12 @@ class ProfileTwoPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyleBold(),
                   ),
-                  subtitle: Text('Posts'.toUpperCase(),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 11)),
+                  subtitle: Text(
+                    'Posts'.toUpperCase(),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 11),
+                  ),
+                  onTap: showDefaultToast,
                 ),
                 SuperListTile(
                   pFlex: 1,
@@ -171,9 +174,12 @@ class ProfileTwoPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyleBold(),
                   ),
-                  subtitle: Text('Followers'.toUpperCase(),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 11)),
+                  subtitle: Text(
+                    'Followers'.toUpperCase(),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 11),
+                  ),
+                  onTap: showDefaultToast,
                 ),
                 SuperListTile(
                   pFlex: 1,
@@ -182,9 +188,12 @@ class ProfileTwoPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyleBold(),
                   ),
-                  subtitle: Text('Following'.toUpperCase(),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 11)),
+                  subtitle: Text(
+                    'Following'.toUpperCase(),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 11),
+                  ),
+                  onTap: showDefaultToast,
                 ),
               ],
             )
