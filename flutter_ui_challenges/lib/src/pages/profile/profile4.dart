@@ -219,15 +219,12 @@ class ProfileFourPage extends StatelessWidget {
     return Row(
       children: <Widget>[
         SizedBox(width: 20),
-        Container(
-            width: 80,
-            height: 80,
-            child: CircleAvatar(
-                radius: 40,
-                backgroundColor: Colors.grey,
-                child: CircleAvatar(
-                    radius: 35,
-                    backgroundImage: CachedNetworkImageProvider(avatars[4])))),
+        SuperCircleAvatar(
+          radius: 40,
+          borderColor: Colors.grey,
+          borderWidth: 5,
+          backgroundImage: CachedNetworkImageProvider(avatars[4]),
+        ),
         SizedBox(width: 20),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
