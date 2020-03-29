@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -139,5 +140,24 @@ class SuperCircleAvatar extends StatelessWidget {
       child: current,
     );
     return current;
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(ColorProperty('borderColor', borderColor));
+    properties.add(DoubleProperty('borderWidth', borderWidth));
+    properties.add(DiagnosticsProperty<EdgeInsetsGeometry>('margin', margin));
+    properties.add(ColorProperty('backgroundColor', backgroundColor));
+    properties.add(ColorProperty('foregroundColor', foregroundColor));
+    properties.add(
+        DiagnosticsProperty<ImageProvider>('backgroundImage', backgroundImage));
+    properties.add(DoubleProperty('radius', radius));
+    properties.add(DoubleProperty('minRadius', minRadius));
+    properties.add(DoubleProperty('maxRadius', maxRadius));
+    properties
+        .add(ObjectFlagProperty<VoidCallback>.has('onPressed', onPressed));
+    properties.add(
+        ObjectFlagProperty<VoidCallback>.has('onLongPressed', onLongPressed));
   }
 }
