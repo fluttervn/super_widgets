@@ -9,7 +9,7 @@ import 'package:flutter_ui_challenges/src/widgets/network_image.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ProfileFivePage extends StatelessWidget {
-  static final String path = "lib/src/pages/profile/profile5.dart";
+  static const String path = 'lib/src/pages/profile/profile5.dart';
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +23,8 @@ class ProfileFivePage extends StatelessWidget {
             height: 360,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(50.0),
-                    bottomRight: Radius.circular(50.0)),
+                    bottomLeft: Radius.circular(50),
+                    bottomRight: Radius.circular(50)),
                 gradient: LinearGradient(
                     colors: [color1, color2],
                     begin: Alignment.topLeft,
@@ -35,22 +35,22 @@ class ProfileFivePage extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Text(
-                  "Date mate",
+                  'Date mate',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 28,
                       fontStyle: FontStyle.italic),
                 ),
-                SizedBox(height: 20.0),
+                SizedBox(height: 20),
                 Expanded(
                   child: Stack(
                     children: <Widget>[
                       Container(
                         height: double.infinity,
-                        margin: const EdgeInsets.only(
-                            left: 30.0, right: 30.0, top: 10.0),
+                        margin:
+                            const EdgeInsets.only(left: 30, right: 30, top: 10),
                         child: ClipRRect(
-                            borderRadius: BorderRadius.circular(30.0),
+                            borderRadius: BorderRadius.circular(30),
                             child: PNetworkImage(
                               image,
                               fit: BoxFit.cover,
@@ -60,20 +60,20 @@ class ProfileFivePage extends StatelessWidget {
                         alignment: Alignment.topCenter,
                         child: Container(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 10.0, vertical: 5.0),
+                              horizontal: 10, vertical: 5),
                           decoration: BoxDecoration(
                               color: Colors.yellow,
-                              borderRadius: BorderRadius.circular(20.0)),
-                          child: Text("3.7mi away"),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Text('3.7mi away'),
                         ),
                       )
                     ],
                   ),
                 ),
-                SizedBox(height: 10.0),
+                SizedBox(height: 10),
                 Text(
-                  "Sasha - 22",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+                  'Sasha - 22',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -81,16 +81,16 @@ class ProfileFivePage extends StatelessWidget {
                   children: <Widget>[
                     Icon(
                       Icons.location_on,
-                      size: 16.0,
+                      size: 16,
                       color: Colors.grey,
                     ),
                     Text(
-                      "San Diego, California, USA",
+                      'San Diego, California, USA',
                       style: TextStyle(color: Colors.grey.shade600),
                     )
                   ],
                 ),
-                SizedBox(height: 5.0),
+                SizedBox(height: 5),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -112,20 +112,20 @@ class ProfileFivePage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 10.0),
+                SizedBox(height: 10),
                 Container(
                   child: Stack(
                     children: <Widget>[
                       Container(
                         padding: const EdgeInsets.symmetric(
-                            vertical: 5.0, horizontal: 16.0),
+                            vertical: 5, horizontal: 16),
                         margin: const EdgeInsets.only(
-                            top: 30, left: 20.0, right: 20.0, bottom: 20.0),
+                            top: 30, left: 20, right: 20, bottom: 20),
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [color1, color2],
                             ),
-                            borderRadius: BorderRadius.circular(30.0)),
+                            borderRadius: BorderRadius.circular(30)),
                         child: Row(
                           children: <Widget>[
                             IconButton(
@@ -154,12 +154,12 @@ class ProfileFivePage extends StatelessWidget {
                       ),
                       Center(
                         child: FloatingActionButton(
+                          backgroundColor: Colors.white,
+                          onPressed: () {},
                           child: Icon(
                             Icons.favorite,
                             color: Colors.pink,
                           ),
-                          backgroundColor: Colors.white,
-                          onPressed: () {},
                         ),
                       ),
                     ],
