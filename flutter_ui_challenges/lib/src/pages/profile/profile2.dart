@@ -79,7 +79,7 @@ class ProfileTwoPage extends StatelessWidget {
           style: context.textThemeTitle,
         ),
         FlatButton(
-          onPressed: () {},
+          onPressed: showDefaultToast,
           child: Text(
             'Create new',
             style: TextStyle(color: Colors.blue),
@@ -90,38 +90,40 @@ class ProfileTwoPage extends StatelessWidget {
   }
 
   Container _buildCollectionsRow() {
+    Widget buildGridViewCell(BuildContext context, int index) {
+      return SuperColumn(
+        pMargin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+        pWidth: 150,
+        pHeight: 200,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(5),
+              child: PNetworkImage(
+                _collections[index]['image'],
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          SizedBox(height: 5),
+          Text(
+            _collections[index]['title'],
+            style: context.textThemeSubhead.withColor(Colors.grey.shade600),
+          )
+        ],
+      );
+    }
+
     return Container(
-      color: Colors.white,
-      height: 200,
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      child: ListView.builder(
+      child: SuperListView.builder(
+        pColor: Colors.white,
+        pHeight: 200,
+        pPadding: EdgeInsets.symmetric(horizontal: 10),
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: _collections.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-              margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-              width: 150,
-              height: 200,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Expanded(
-                      child: ClipRRect(
-                          borderRadius: BorderRadius.circular(5),
-                          child: PNetworkImage(_collections[index]['image'],
-                              fit: BoxFit.cover))),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Text(_collections[index]['title'],
-                      style: Theme.of(context)
-                          .textTheme
-                          .subhead
-                          .merge(TextStyle(color: Colors.grey.shade600)))
-                ],
-              ));
-        },
+        itemBuilder: buildGridViewCell,
       ),
     );
   }
