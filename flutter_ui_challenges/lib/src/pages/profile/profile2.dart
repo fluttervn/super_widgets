@@ -56,13 +56,13 @@ class ProfileTwoPage extends StatelessWidget {
   }
 
   Widget _buildListItem() {
-    return Container(
-      color: Colors.white,
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(5),
-        child: PNetworkImage(images[2], fit: BoxFit.cover),
-      ),
+    return SuperClipRRect(
+      pColor: Colors.white,
+      pPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      borderRadius: BorderRadius.circular(5),
+      onPressed: showDefaultToast,
+      pEnableInkWell: true,
+      child: PNetworkImage(images[2], fit: BoxFit.cover),
     );
   }
 
