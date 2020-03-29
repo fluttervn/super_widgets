@@ -133,11 +133,13 @@ class ProfileTwoPage extends StatelessWidget {
       children: <Widget>[
         SuperColumn(
           pPadding: EdgeInsets.only(top: 40, left: 30, right: 30, bottom: 10),
-          materialType: MaterialType.canvas,
-          materialShape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+          materialHolder: MaterialHolder(
+            type: MaterialType.canvas,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            elevation: 5,
           ),
-          materialElevation: 5,
           children: <Widget>[
             SizedBox(height: 50),
             Text(

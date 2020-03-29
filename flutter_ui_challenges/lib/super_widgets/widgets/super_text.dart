@@ -139,6 +139,7 @@ class SuperText extends BaseContainer {
           onLongPressed: onLongPressed,
           child: BaseContainer(
             // Child position & size
+            alignment: cAlignment,
             margin: cMargin,
             marginAllPx: cMarginAllPx,
             padding: cPadding,
