@@ -163,17 +163,15 @@ class ProfileFourPage extends StatelessWidget {
   ListTile _buildExperienceRow(
       {String company, String position, String duration}) {
     return ListTile(
-      leading: Padding(
-        padding: const EdgeInsets.only(top: 8, left: 20),
-        child: Icon(
-          FontAwesomeIcons.solidCircle,
-          size: 12,
-          color: Colors.black54,
-        ),
+      leading: SuperIcon(
+        FontAwesomeIcons.solidCircle,
+        pPadding: const EdgeInsets.only(top: 8, left: 20),
+        size: 12,
+        color: Colors.black54,
       ),
       title: Text(
         company,
-        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        style: TextStyleBold(color: Colors.black),
       ),
       subtitle: Text('$position ($duration)'),
     );
