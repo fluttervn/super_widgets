@@ -82,18 +82,18 @@ class SuperText extends BaseContainer {
     bool pEnableInkWell = false,
     Color pSplashColor,
     // Container action
-    VoidCallback pOnPressed,
-    VoidCallback pOnLongPressed,
-    // Stack key
+    VoidCallback onPressed,
+    VoidCallback onLongPressed,
+    // Text key
     Key cKey,
-    // Stack position & size
+    // Text position & size
     AlignmentGeometry cAlignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry cMargin,
     double cMarginAllPx,
     EdgeInsetsGeometry cPadding,
     double cPaddingAllPx,
     int cFlex,
-    // Stack style
+    // Text style
     Color cColor,
     Decoration cDecoration,
     Decoration cForegroundDecoration,
@@ -104,7 +104,7 @@ class SuperText extends BaseContainer {
     Color materialColor,
     Color materialShadowColor,
     BorderRadiusGeometry materialBorderRadius,
-    // Specific property of Stack
+    // Specific property of Text
     TextStyle style,
     StrutStyle strutStyle,
     TextAlign textAlign,
@@ -142,8 +142,8 @@ class SuperText extends BaseContainer {
           enableInkWell: pEnableInkWell,
           splashColor: pSplashColor,
           // Parent action
-          onPressed: pOnPressed,
-          onLongPressed: pOnLongPressed,
+          onPressed: onPressed,
+          onLongPressed: onLongPressed,
           child: BaseContainer(
             // Child position & size
             margin: cMargin,

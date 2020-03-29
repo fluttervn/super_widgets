@@ -81,8 +81,8 @@ class SuperRow extends BaseContainer {
     bool pEnableInkWell = false,
     Color pSplashColor,
     // Container action
-    VoidCallback pOnPressed,
-    VoidCallback pOnLongPressed,
+    VoidCallback onPressed,
+    VoidCallback onLongPressed,
     // Row key
     Key cKey,
     // Row position & size
@@ -135,8 +135,8 @@ class SuperRow extends BaseContainer {
           enableInkWell: pEnableInkWell,
           splashColor: pSplashColor,
           // Parent action
-          onPressed: pOnPressed,
-          onLongPressed: pOnLongPressed,
+          onPressed: onPressed,
+          onLongPressed: onLongPressed,
           child: BaseContainer(
             // Child position & size
             alignment: cAlignment,

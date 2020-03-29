@@ -69,8 +69,8 @@ class SuperClipRRect extends BaseContainer {
     bool pEnableInkWell = false,
     Color pSplashColor,
     // Container action
-    VoidCallback pOnPressed,
-    VoidCallback pOnLongPressed,
+    VoidCallback onPressed,
+    VoidCallback onLongPressed,
     // ClipRRect key
     Key cKey,
     // ClipRRect position & size
@@ -127,8 +127,8 @@ class SuperClipRRect extends BaseContainer {
           enableInkWell: pEnableInkWell,
           splashColor: pSplashColor,
           // Parent action
-          onPressed: pOnPressed,
-          onLongPressed: pOnLongPressed,
+          onPressed: onPressed,
+          onLongPressed: onLongPressed,
           child: BaseContainer(
             // Child position & size
             margin: cMargin,

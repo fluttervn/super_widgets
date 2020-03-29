@@ -72,8 +72,8 @@ class SuperColumn extends BaseContainer {
     bool pEnableInkWell = false,
     Color pSplashColor,
     // Container action
-    VoidCallback pOnPressed,
-    VoidCallback pOnLongPressed,
+    VoidCallback onPressed,
+    VoidCallback onLongPressed,
     // Column key
     Key cKey,
     // Column position & size
@@ -140,8 +140,8 @@ class SuperColumn extends BaseContainer {
           materialShadowColor: materialShadowColor,
           materialBorderRadius: materialBorderRadius,
           // Parent action
-          onPressed: pOnPressed,
-          onLongPressed: pOnLongPressed,
+          onPressed: onPressed,
+          onLongPressed: onLongPressed,
           // Finally the child
           child: BaseContainer(
             // Child position & size
