@@ -10,3 +10,14 @@ class TextStyleBold extends TextStyle {
           fontSize: fontSize,
         );
 }
+
+/// TextStyleItalic is a [TextStyle] with [FontStyle] is italic
+class TextStyleItalic extends TextStyle {
+  /// Create new text style with font weight Bold
+  const TextStyleItalic({Color color, double fontSize})
+      : super(
+          color: color,
+          fontStyle: FontStyle.italic,
+          fontSize: fontSize,
+        );
+}
