@@ -68,26 +68,24 @@ class ProfileTwoPage extends StatelessWidget {
     );
   }
 
-  Container _buildSectionHeader(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Text(
-            'Collection',
-            style: Theme.of(context).textTheme.title,
+  Widget _buildSectionHeader(BuildContext context) {
+    return SuperRow(
+      pColor: Colors.white,
+      pPadding: EdgeInsets.symmetric(horizontal: 20),
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Text(
+          'Collection',
+          style: context.textThemeTitle,
+        ),
+        FlatButton(
+          onPressed: () {},
+          child: Text(
+            'Create new',
+            style: TextStyle(color: Colors.blue),
           ),
-          FlatButton(
-            onPressed: () {},
-            child: Text(
-              'Create new',
-              style: TextStyle(color: Colors.blue),
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 
