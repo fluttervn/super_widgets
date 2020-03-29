@@ -86,6 +86,7 @@ class SuperStack extends BaseContainer {
     Decoration cForegroundDecoration,
     MaterialHolder materialHolder,
     // Specific property of Stack
+    AlignmentGeometry alignment = AlignmentDirectional.topStart,
     StackFit fit = StackFit.loose,
     TextDirection textDirection,
     Overflow overflow = Overflow.clip,
@@ -121,6 +122,7 @@ class SuperStack extends BaseContainer {
           onLongPressed: onLongPressed,
           child: BaseContainer(
             // Child position & size
+            alignment: cAlignment,
             margin: cMargin,
             marginAllPx: cMarginAllPx,
             padding: cPadding,
@@ -135,7 +137,7 @@ class SuperStack extends BaseContainer {
             child: Stack(
               key: cKey,
               fit: fit,
-              alignment: cAlignment,
+              alignment: alignment,
               textDirection: textDirection,
               overflow: overflow,
               children: children ?? <Widget>[],
