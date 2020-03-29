@@ -61,25 +61,50 @@ class SuperText extends BaseContainer {
   /// - `semanticsLabel`: An alternative semantics label for this text.
   SuperText(
     String textData, {
-    Key key,
-    AlignmentGeometry alignment = AlignmentDirectional.topStart,
-    EdgeInsetsGeometry padding,
-    EdgeInsetsGeometry margin,
-    Color color,
-    Decoration decoration,
-    Decoration foregroundDecoration,
-    double width,
-    double height,
-    BoxConstraints constraints,
-    Matrix4 transform,
-    int flex,
-    bool ignoreImplicitWidthHeight = true,
-    bool enableInkWell = false,
-    // ignore: avoid_unused_constructor_parameters
-    Color splashColor,
-    VoidCallback onPressed,
-    VoidCallback onLongPressed,
-    Key childKey,
+    // Container key
+    Key pKey,
+    // Container position & size
+    AlignmentGeometry pAlignment = AlignmentDirectional.topStart,
+    Matrix4 pTransform,
+    EdgeInsetsGeometry pMargin,
+    double pMarginAllPx,
+    EdgeInsetsGeometry pPadding,
+    double pPaddingAllPx,
+    double pWidth,
+    double pHeight,
+    int pFlex,
+    BoxConstraints pConstraints,
+    bool pIgnoreImplicitWidthHeight = false,
+    // Container style
+    Color pColor,
+    Decoration pDecoration,
+    Decoration pForegroundDecoration,
+    bool pEnableInkWell = false,
+    Color pSplashColor,
+    // Container action
+    VoidCallback pOnPressed,
+    VoidCallback pOnLongPressed,
+    // Stack key
+    Key cKey,
+    // Stack position & size
+    AlignmentGeometry cAlignment = AlignmentDirectional.topStart,
+    EdgeInsetsGeometry cMargin,
+    double cMarginAllPx,
+    EdgeInsetsGeometry cPadding,
+    double cPaddingAllPx,
+    int cFlex,
+    // Stack style
+    Color cColor,
+    Decoration cDecoration,
+    Decoration cForegroundDecoration,
+    // Style of Material widget
+    MaterialType materialType,
+    ShapeBorder materialShape,
+    double materialElevation,
+    Color materialColor,
+    Color materialShadowColor,
+    BorderRadiusGeometry materialBorderRadius,
+    // Specific property of Stack
     TextStyle style,
     StrutStyle strutStyle,
     TextAlign textAlign,
@@ -91,28 +116,56 @@ class SuperText extends BaseContainer {
     int maxLines,
     String semanticsLabel,
   })  : assert(textData != null, 'Text widget must have non-empty textData'),
-        assert(alignment != null),
-        assert(enableInkWell != null),
-        assert(ignoreImplicitWidthHeight != null),
+        assert(pIgnoreImplicitWidthHeight != null),
+        assert(pAlignment != null),
+        assert(pEnableInkWell != null),
+        assert(cAlignment != null),
         super(
-            key: key,
-            alignment: alignment,
-            padding: padding,
-            color: color,
-            decoration: decoration,
-            foregroundDecoration: foregroundDecoration,
-            width: width,
-            height: height,
-            constraints: constraints,
-            flex: flex,
-            ignoreImplicitWidthHeight: ignoreImplicitWidthHeight,
-            onPressed: onPressed,
-            onLongPressed: onLongPressed,
-            margin: margin,
-            transform: transform,
+          // Parent key
+          key: pKey,
+          // Parent position & size
+          alignment: pAlignment,
+          transform: pTransform,
+          margin: pMargin,
+          marginAllPx: pMarginAllPx,
+          padding: pPadding,
+          paddingAllPx: pPaddingAllPx,
+          width: pWidth,
+          height: pHeight,
+          flex: pFlex,
+          constraints: pConstraints,
+          ignoreImplicitWidthHeight: pIgnoreImplicitWidthHeight,
+          // Parent style
+          color: pColor,
+          decoration: pDecoration,
+          foregroundDecoration: pForegroundDecoration,
+          enableInkWell: pEnableInkWell,
+          splashColor: pSplashColor,
+          // Parent action
+          onPressed: pOnPressed,
+          onLongPressed: pOnLongPressed,
+          child: BaseContainer(
+            // Child position & size
+            margin: cMargin,
+            marginAllPx: cMarginAllPx,
+            padding: cPadding,
+            paddingAllPx: cPaddingAllPx,
+            flex: cFlex,
+            // Child style
+            color: cColor,
+            decoration: cDecoration,
+            foregroundDecoration: cForegroundDecoration,
+            // Style of Material widget
+            materialType: materialType,
+            materialShape: materialShape,
+            materialElevation: materialElevation,
+            materialColor: materialColor,
+            materialShadowColor: materialShadowColor,
+            materialBorderRadius: materialBorderRadius,
+            // Finally the child
             child: Text(
               textData,
-              key: childKey,
+              key: cKey,
               style: style,
               strutStyle: strutStyle,
               textAlign: textAlign,
@@ -123,7 +176,9 @@ class SuperText extends BaseContainer {
               textScaleFactor: textScaleFactor,
               maxLines: maxLines,
               semanticsLabel: semanticsLabel,
-            ));
+            ),
+          ),
+        );
 
   /// Create new [SuperText] which has a [Container] (parent) with
   /// a [Text] (child) inside.
