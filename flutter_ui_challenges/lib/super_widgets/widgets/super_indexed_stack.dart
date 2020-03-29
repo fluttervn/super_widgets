@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../base/base_container.dart';
+import '../base/super_widgets_base_index.dart';
 
 /// [SuperIndexedStack] is a [Container] with [IndexedStack] inside.
 class SuperIndexedStack extends BaseContainer {

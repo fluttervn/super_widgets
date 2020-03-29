@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../base/base_container.dart';
+import '../base/super_widgets_base_index.dart';
 
 /// [SuperContainer] is a [BaseContainer] with its method exposed for public using.
 class SuperContainer extends BaseContainer {

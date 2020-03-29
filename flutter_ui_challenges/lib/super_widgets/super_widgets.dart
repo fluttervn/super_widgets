@@ -1,6 +1,6 @@
 library super_widgets;
 
-export 'base/material_holder.dart';
+export 'base/super_widgets_base_index.dart';
 export 'widgets/super_card.dart';
 export 'widgets/super_circle_avatar.dart';
 export 'widgets/super_clip_rrect.dart';
@@ -21,5 +21,4 @@ export 'widgets/super_scrollview_container.dart';
 export 'widgets/super_scrollview_row.dart';
 export 'widgets/super_scrollview_stack.dart';
 export 'widgets/super_stack.dart';
-export 'widgets/super_style.dart';
 export 'widgets/super_text.dart';

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../base/base_container.dart';
-import '../base/material_holder.dart';
+import '../base/super_widgets_base_index.dart';
 
 /// [SuperText] is a [Container] with [Text] inside.
 class SuperText extends BaseContainer {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../base/base_container.dart';
+import '../base/super_widgets_base_index.dart';
 
 /// SuperOutlineButton] is a [Container] with [OutlineButton] inside.
 class SuperOutlineButton extends BaseContainer {

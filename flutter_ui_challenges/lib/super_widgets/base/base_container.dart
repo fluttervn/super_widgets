@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_ui_challenges/super_widgets/base/material_holder.dart';
 
+import 'material_holder.dart';
 import 'safe_widget.dart';
 
 /// BaseContainer is an abstract widget which has almost properties such as:
