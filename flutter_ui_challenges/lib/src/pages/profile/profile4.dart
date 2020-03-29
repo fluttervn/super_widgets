@@ -181,12 +181,11 @@ class ProfileFourPage extends StatelessWidget {
     return Row(
       children: <Widget>[
         SizedBox(width: 16),
-        Expanded(
-            flex: 2,
-            child: Text(
-              skill.toUpperCase(),
-              textAlign: TextAlign.right,
-            )),
+        SuperText(
+          skill.toUpperCase(),
+          pFlex: 2,
+          textAlign: TextAlign.right,
+        ),
         SizedBox(width: 10),
         Expanded(
           flex: 5,
