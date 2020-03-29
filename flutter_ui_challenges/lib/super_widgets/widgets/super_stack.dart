@@ -72,7 +72,7 @@ class SuperStack extends BaseContainer {
     VoidCallback pOnLongPressed,
     // Stack key
     Key cKey,
-    // Column position & size
+    // Stack position & size
     AlignmentGeometry cAlignment = AlignmentDirectional.topStart,
     EdgeInsetsGeometry cMargin,
     double cMarginAllPx,
