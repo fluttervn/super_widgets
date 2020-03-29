@@ -8,3 +8,13 @@ extension ThemeDataUtil on BuildContext {
 
   Color get primaryColor => Theme.of(this).primaryColor;
 }
+
+extension TextStyleUtil on TextStyle {
+  TextStyle withColor(Color color) {
+    return merge(TextStyle(color: color));
+  }
+
+  TextStyle withFontSize(double fontSize) {
+    return merge(TextStyle(fontSize: fontSize));
+  }
+}
