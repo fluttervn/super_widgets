@@ -45,13 +45,11 @@ class ProfileTwoPage extends StatelessWidget {
     if (index == 1) return _buildSectionHeader(context);
     if (index == 2) return _buildCollectionsRow();
     if (index == 3) {
-      return Container(
-        color: Colors.white,
-        padding: EdgeInsets.only(left: 20, top: 20, bottom: 10),
-        child: Text(
-          'Most liked posts',
-          style: context.textThemeTitle,
-        ),
+      return SuperText(
+        'Most liked posts',
+        pColor: Colors.white,
+        pPadding: EdgeInsets.only(left: 20, top: 20, bottom: 10),
+        style: context.textThemeTitle,
       );
     }
     return _buildListItem();
